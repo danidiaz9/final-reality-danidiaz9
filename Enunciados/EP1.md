@@ -61,7 +61,7 @@ repositorio privado con los archivos base del proyecto.
 tenga el nombre final-reality-YourGithubName. Hacerlo desde la carpeta que contiene a
 esta no permitirá el correcto funcionamiento de la aplicación.
 
-3. Crear una rama llamada ``entrega-parcial-1``.
+1. Crear una rama llamada ``entrega-parcial-1``.
 
    - Para esto, utilice el comando ``git branch <branch_name>``. En este caso, sería
    ``git branch entrega-parcial-1``.
