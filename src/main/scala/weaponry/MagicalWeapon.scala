@@ -3,7 +3,7 @@ package weaponry
 class MagicalWeapon(name: String,
                     attackPoints: Int,
                     weight: Double,
-                    owner: String,
+                    owner: Option[Character],
                     magicAttackPoints: Int) extends
   AbstractWeaponry(name, attackPoints, weight, owner) {
 

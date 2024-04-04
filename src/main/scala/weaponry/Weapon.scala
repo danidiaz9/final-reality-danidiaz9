@@ -3,7 +3,7 @@ package weaponry
 class Weapon(name: String,
              attackPoints: Int,
              weight: Double,
-             owner: String) extends
+             owner: Option[Character]) extends
   AbstractWeaponry(name, attackPoints, weight, owner) {
 
 }

@@ -4,5 +4,5 @@ trait TWeaponry {
   val name: String
   val attackPoints: Int
   val weight: Double
-  val owner: String
+  var owner: Option[Character]
 }

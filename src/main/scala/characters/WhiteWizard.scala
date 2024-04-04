@@ -5,6 +5,6 @@ class WhiteWizard(name: String,
                   defense: Int,
                   weight: Double,
                   manaPoints: Int) extends
-  AbstractMagicalCharacter(name, healthPoints, defense, weight, manaPoints) {
+  MagicalCharacter(name, healthPoints, defense, weight, manaPoints) {
 
 }
