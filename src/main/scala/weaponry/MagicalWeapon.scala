@@ -5,6 +5,6 @@ class MagicalWeapon(name: String,
                     weight: Double,
                     owner: Option[Character],
                     magicAttackPoints: Int) extends
-  AbstractWeaponry(name, attackPoints, weight, owner) {
+                    AbstractWeaponry(name, attackPoints, weight, owner) {
 
 }

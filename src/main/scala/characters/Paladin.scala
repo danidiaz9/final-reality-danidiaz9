@@ -6,4 +6,6 @@ class Paladin(name: String,
               weight: Double) extends
   AbstractCharacter(name, healthPoints, defense, weight) {
 
+  var equipWeapon: Null = _
+
 }

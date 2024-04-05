@@ -7,4 +7,6 @@ class WhiteWizard(name: String,
                   manaPoints: Int) extends
   MagicalCharacter(name, healthPoints, defense, weight, manaPoints) {
 
+  var equipMagicWeapon: Null = _
+
 }

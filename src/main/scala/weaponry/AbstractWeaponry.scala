@@ -9,7 +9,6 @@ abstract class AbstractWeaponry(
   def getName: String = name
   def getAttackPoints: Int = attackPoints
   def getWeight: Double = weight
-
   def getOwner: Option[Character] = owner
 
 }

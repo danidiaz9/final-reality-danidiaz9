@@ -6,7 +6,8 @@ abstract class AbstractCharacter(val name: String,
                         var healthPoints: Int,
                         var defense: Int,
                         val weight: Double) extends TCharacter {
-  private var equipWeapon: Option[Weapon] = None
+
+  var equipWeapon: Weapon
 
   def getName: String = name
   def getHealthPoints: Int = healthPoints
