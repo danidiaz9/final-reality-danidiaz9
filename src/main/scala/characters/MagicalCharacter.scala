@@ -4,7 +4,7 @@ class MagicalCharacter(val name: String,
                        var healthPoints: Int,
                        var defense:Int,
                        val weight: Double,
-                       var manaPoints: Int) extends Characters {
+                       var manaPoints: Int) extends TCharacter {
   def getName: String = name
   def getHealthPoints: Int = healthPoints
   def getDefense: Int = defense

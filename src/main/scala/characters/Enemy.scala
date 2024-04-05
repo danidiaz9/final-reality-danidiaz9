@@ -5,6 +5,6 @@ class Enemy(name: String,
             attackPoints: Int,
             defense: Int,
             weight: Double) extends
-  Character(name, healthPoints, defense, weight) {
+  AbstractCharacter(name, healthPoints, defense, weight) {
 
 }

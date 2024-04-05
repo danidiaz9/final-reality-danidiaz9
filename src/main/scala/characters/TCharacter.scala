@@ -2,7 +2,7 @@ package characters
 
 import scala.collection.mutable.ArrayBuffer
 
-trait Characters {
+trait TCharacter {
   val name: String
   var healthPoints: Int
   var defense: Int
