@@ -11,7 +11,7 @@ class Party {
   def partyHealthPoints(): Int = {
     var healthPoints:Int = 0
     for (character <- characters) {
-      var healthPoints: += character.getHealthPoints
+      var healthPoints:Int = character.getHealthPoints
       partyHealthPoints += healthPoints
     }
     if (partyHealthPoints = 0) {
