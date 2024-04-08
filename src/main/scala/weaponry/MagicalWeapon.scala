@@ -1,5 +1,7 @@
 package weaponry
 
+import java.util.Objects
+
 /** A class representing a magical weapon in the game.
  *
  *  A magical weapon is a type of weapon that possesses magical properties, including additional
@@ -16,6 +18,31 @@ class MagicalWeapon(name: String,
                     weight: Double,
                     owner: Option[Character],
                     magicAttackPoints: Int) extends
-                    AbstractWeaponry(name, attackPoints, weight, owner) {
+                    AbstractWeaponry(name, attackPoints, weight, owner) with Equals {
+
+    override def canEqual(that: Any): Boolean = that.isInstanceOf[MagicalWeapon]
+    
+    override def equals(that: Any): Boolean = {
+        if (canEqual(that)) {
+            val other = that.asInstanceOf[MagicalWeapon]
+            name == other.name && 
+            attackPoints == other.attackPoints && 
+            weight == other.weight && 
+            owner == other.owner &&
+            magicAttackPoints == other.magicAttackPoints
+        }
+        else false
+    }
+    
+    override def hashCode: Int = Objects.hash(classOf[MagicalWeapon], 
+        name, attackPoints, weight, owner, magicAttackPoints)
+    
+    override def toString: String = s"MagicalWeapon {" + 
+        s"name: $name, " +
+        s"attackPoints: $attackPoints, " + 
+        s"weight: $weight, " + 
+        s"owner: $owner, " +
+        s"magicAttackPoints: $magicAttackPoints" + 
+        s"}"
 
 }
