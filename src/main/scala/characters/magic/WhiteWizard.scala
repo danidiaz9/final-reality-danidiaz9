@@ -1,13 +1,12 @@
-package characters
+package characters.magic
 
-import weaponry.MagicalWeapon
-
- class BlackWizard(name: String,
+class WhiteWizard(name: String,
                   healthPoints: Int,
                   defense: Int,
                   weight: Double,
                   manaPoints: Int) extends
-  MagicalCharacter(name, healthPoints, defense, weight, manaPoints) {
+  AbstractMagical(name, healthPoints, defense, weight, manaPoints) {
 
   var equipMagicWeapon: Null = _
+
 }
