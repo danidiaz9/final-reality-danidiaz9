@@ -40,5 +40,4 @@ class Warrior(name: String,
       s"defense: $defense, " +
       s"weight: $weight" + 
       s"}"
-
 }

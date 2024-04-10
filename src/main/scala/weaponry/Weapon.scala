@@ -38,5 +38,4 @@ class Weapon(name: String,
         s"weight: $weight, " + 
         s"owner: $owner" + 
         s"}"
-
 }

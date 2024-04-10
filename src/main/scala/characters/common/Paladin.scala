@@ -40,5 +40,4 @@ class Paladin(name: String,
       s"defense: $defense, " +
       s"weight: $weight" + 
       s"}"
-
 }

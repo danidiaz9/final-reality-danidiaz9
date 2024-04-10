@@ -44,5 +44,4 @@ class MagicalWeapon(name: String,
         s"owner: $owner, " +
         s"magicAttackPoints: $magicAttackPoints" + 
         s"}"
-
 }
