@@ -21,7 +21,7 @@ class BlackWizard(name: String,
   AbstractMagical(name, healthPoints, defense, weight, manaPoints) with Equals {
 
   /** The magical weapon equipped by the black wizard character. */
-  var equipMagicWeapon: Null = _
+  //var equipMagicWeapon: Null = _
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[BlackWizard]
     

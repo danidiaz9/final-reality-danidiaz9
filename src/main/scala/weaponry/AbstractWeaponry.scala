@@ -12,9 +12,11 @@ package weaponry
 abstract class AbstractWeaponry(
                                  val name: String,
                                  val attackPoints: Int,
-                                 val weight: Double,
-                                 val owner: Option[Character]) extends TWeaponry {
+                                 val weight: Double) extends TWeaponry {
 
+  var owner: Option[Character] = _
+
+  override def setOwner(owner: Option[Character]): Unit = this.owner = owner
 
   /** Returns the name of the weapon. */
   def getName: String = name

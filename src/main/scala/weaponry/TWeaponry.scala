@@ -16,6 +16,9 @@ trait TWeaponry {
   val weight: Double
 
   /** The owner of the weapon, represented as an optional character. */
-  var owner: Option[Character]
+
+
+  def getOwner: Option[Character]
+  def setOwner(owner: Option[Character]): Unit
 
 }

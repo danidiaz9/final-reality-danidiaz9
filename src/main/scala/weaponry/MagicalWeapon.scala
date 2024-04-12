@@ -17,8 +17,8 @@ class MagicalWeapon(name: String,
                     attackPoints: Int,
                     weight: Double,
                     owner: Option[Character],
-                    magicAttackPoints: Int) extends
-                    AbstractWeaponry(name, attackPoints, weight, owner) with Equals {
+                    val magicAttackPoints: Int) extends
+                    AbstractWeaponry(name, attackPoints, weight) with Equals {
 
     override def canEqual(that: Any): Boolean = that.isInstanceOf[MagicalWeapon]
     

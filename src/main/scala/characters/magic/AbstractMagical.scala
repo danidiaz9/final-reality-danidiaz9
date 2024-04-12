@@ -21,7 +21,7 @@ abstract class AbstractMagical(val name: String,
                                var manaPoints: Int) extends TCharacter {
 
   /** The magical weapon equipped by the magical character. */
-  var equipMagicWeapon: MagicalWeapon
+  override def equipWeapon: Boolean = true
 
   /** Returns the name of the magical character. */
   def getName: String = name

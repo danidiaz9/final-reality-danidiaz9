@@ -13,7 +13,7 @@ import java.util.Objects
  */
 class Enemy(name: String,
             healthPoints: Int,
-            attackPoints: Int,
+            val attackPoints: Int,
             defense: Int,
             weight: Double) extends
   AbstractCharacter(name, healthPoints, defense, weight) with Equals {
@@ -42,4 +42,6 @@ class Enemy(name: String,
     s"defense: $defense, " +
     s"weight: $weight" +
     s"}"
+
+  override def equipWeapon: Boolean = false
 }

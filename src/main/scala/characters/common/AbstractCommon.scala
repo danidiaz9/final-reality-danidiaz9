@@ -17,7 +17,7 @@ abstract class AbstractCommon(val name: String,
                               val weight: Double) extends TCharacter {
 
   /** The weapon equipped by the common character. */
-  var equipWeapon: Weapon
+  override def equipWeapon: Boolean = true
 
   /** Returns the name of the common character. */
   def getName: String = name

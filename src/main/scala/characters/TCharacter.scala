@@ -1,5 +1,7 @@
 package characters
 
+import weaponry.Weapon
+
 /** Trait representing a character.
  *
  * This trait defines the basic properties of a character in the game,
@@ -48,4 +50,6 @@ trait TCharacter {
    *  @return The weight of the character.
    */
   def getWeight: Double
+
+  def equipWeapon: Boolean
 }

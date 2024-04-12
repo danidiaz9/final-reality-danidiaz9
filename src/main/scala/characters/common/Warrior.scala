@@ -17,7 +17,7 @@ class Warrior(name: String,
   AbstractCommon(name, healthPoints, defense, weight) with Equals {
 
   /** The weapon equipped by the warrior character. */
-  var equipWeapon: Null = _
+  //var equipWeapon: Null = _
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Warrior]
     

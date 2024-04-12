@@ -15,7 +15,7 @@ class Weapon(name: String,
              attackPoints: Int,
              weight: Double,
              owner: Option[Character]) extends
-             AbstractWeaponry(name, attackPoints, weight, owner) with Equals {
+             AbstractWeaponry(name, attackPoints, weight) with Equals {
 
     override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
     
@@ -25,17 +25,17 @@ class Weapon(name: String,
             name == other.name && 
             attackPoints == other.attackPoints && 
             weight == other.weight && 
-            owner == other.owner
+            getOwner == other.getOwner
         }
         else false
     }
     
-    override def hashCode: Int = Objects.hash(classOf[Weapon], name, attackPoints, weight, owner)
+    override def hashCode: Int = Objects.hash(classOf[Weapon], name, attackPoints, weight)
     
     override def toString: String = s"Weapon {" + 
         s"name: $name, " +
         s"attackPoints: $attackPoints, " + 
         s"weight: $weight, " + 
-        s"owner: $owner" + 
+        s"owner: $getOwner" +
         s"}"
 }
