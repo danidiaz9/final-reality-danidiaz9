@@ -23,6 +23,10 @@ class WhiteWizard(name: String,
   /** The magical weapon equipped by the white wizard character. */
   //var equipMagicWeapon: Null = _
 
+  override var actionPoints = 0.0
+
+  override var actionBar: Double = weight + 0.5*MagicalWeapon.getWeight
+
   override def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteWizard]
     
   override def equals(that: Any): Boolean = {

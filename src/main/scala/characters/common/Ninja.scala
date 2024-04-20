@@ -19,6 +19,10 @@ class Ninja(name: String,
   /** The weapon equipped by the ninja character. */
   //var equipWeapon: Null = _
 
+  override var actionPoints = 0.0
+
+  override var actionBar: Double = weight + 0.5*Weapon.getWeight
+
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Ninja]
     
   override def equals(that: Any): Boolean = {

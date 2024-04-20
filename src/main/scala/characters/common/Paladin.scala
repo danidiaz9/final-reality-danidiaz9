@@ -16,6 +16,10 @@ class Paladin(name: String,
               weight: Double) extends
   AbstractCommon(name, healthPoints, defense, weight) with Equals {
 
+  override var actionPoints = 0.0
+
+  override var actionBar: Double = weight + 0.5*Weapon.getWeight
+
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Paladin]
     
   override def equals(that: Any): Boolean = {

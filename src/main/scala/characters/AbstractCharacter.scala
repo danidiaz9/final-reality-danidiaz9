@@ -36,5 +36,8 @@ abstract class AbstractCharacter(val name: String,
    *  @return The weight of the character.
    */
   def getWeight: Double = weight
-  
+
+  def getActionPoints: Double = 0.0
+
+  def getActionBar: Double = weight
 }

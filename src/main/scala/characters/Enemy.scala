@@ -18,6 +18,10 @@ class Enemy(name: String,
             weight: Double) extends
   AbstractCharacter(name, healthPoints, defense, weight) with Equals {
 
+  override var actionPoints = 0.0
+
+  override var actionBar: Double = weight
+
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
 
   override def equals(that: Any): Boolean = {

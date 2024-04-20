@@ -31,4 +31,8 @@ abstract class AbstractCommon(val name: String,
   /** Returns the weight of the common character. */
   def getWeight: Double = weight
 
+  def getActionPoints: Double = 0.0
+
+  def getActionBar: Double = weight + 0.5*Weapon.getWeight
+
 }

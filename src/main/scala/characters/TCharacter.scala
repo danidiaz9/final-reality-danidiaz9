@@ -28,6 +28,10 @@ trait TCharacter {
    */
   val weight: Double
 
+  var actionPoints: Double
+
+  var actionBar: Double
+
   /** Returns the name of the character.
    *
    */

@@ -1,7 +1,6 @@
 package characters.magic
 
 import characters.TCharacter
-import weaponry.MagicalWeapon
 
 /** An abstract class representing a magical character in the game.
  *
@@ -38,4 +37,7 @@ abstract class AbstractMagical(val name: String,
   /** Returns the current mana points of the magical character. */
   def getManaPoints: Int = manaPoints
 
+  def getActionPoints: Double = 0.0
+
+  def getActionBar: Double = weight + 0.5*MagicalWeapon.getWeight
 }
