@@ -1,6 +1,6 @@
 package charactersTest
 
-import characters.{Party, TCharacter}
+import characters.{Party, TraitCharacter}
 import characters.common.Warrior
 import characters.magic.WhiteWizard
 
@@ -16,7 +16,7 @@ class PartyTest extends munit.FunSuite {
     party.addCharacter(warrior)
     party.addCharacter(wizard)
 
-    assertEquals(party.characters, ArrayBuffer[TCharacter](warrior, wizard))
+    assertEquals(party.characters, ArrayBuffer[TraitCharacter](warrior, wizard))
   }
 
   test("Party status: Alive") {

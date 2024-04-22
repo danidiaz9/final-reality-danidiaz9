@@ -1,25 +1,25 @@
-package characters
+import characters.TraitCharacter
 
 import scala.collection.mutable.ArrayBuffer
 
 class TurnScheduler {
 
-  private var loadingZone: ArrayBuffer[TCharacter] = new ArrayBuffer()
-  private var waitingZone: ArrayBuffer[TCharacter] = new ArrayBuffer()
+  private var loadingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  private var waitingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
 
-  def addLoadingZone(c: TCharacter): Unit = {
+  def addLoadingZone(c: TraitCharacter): Unit = {
     loadingZone += c
   }
 
-  def removeLoadingZone(c: TCharacter): Unit = {
+  def removeLoadingZone(c: TraitCharacter): Unit = {
     loadingZone -= c
   }
 
-  def addWaitingZone(c: TCharacter): Unit = {
+  def addWaitingZone(c: TraitCharacter): Unit = {
     waitingZone += c
   }
 
-  def removeWaitingZone(c: TCharacter): Unit = {
+  def removeWaitingZone(c: TraitCharacter): Unit = {
     waitingZone -= c
   }
 

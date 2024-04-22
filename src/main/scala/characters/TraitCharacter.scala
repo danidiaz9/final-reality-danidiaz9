@@ -1,13 +1,13 @@
 package characters
 
-import weaponry.Weapon
+import weaponry.weapons.commons.AbstractCommon
 
 /** Trait representing a character.
  *
  * This trait defines the basic properties of a character in the game,
  * such as name, health points, defense, and weight.
  */
-trait TCharacter {
+trait TraitCharacter {
   /** The name of the character.
    *
    */

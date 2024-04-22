@@ -11,7 +11,7 @@ package characters
 abstract class AbstractCharacter(val name: String,
                         var healthPoints: Int,
                         var defense: Int,
-                        val weight: Double) extends TCharacter {
+                        val weight: Double) extends TraitCharacter {
 
   /** Returns the name of the character.
    *

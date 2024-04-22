@@ -11,13 +11,13 @@ import scala.collection.mutable.ArrayBuffer
 class Party extends Equals{
 
   /** The list of characters in the party. */
-  val characters: ArrayBuffer[TCharacter] = new ArrayBuffer()
+  val characters: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
 
   /** Adds a character to the party.
    *
    *  @param c The character to add to the party.
    */
-  def addCharacter(c: TCharacter): Unit = {
+  def addCharacter(c: TraitCharacter): Unit = {
     characters += c
   }
 

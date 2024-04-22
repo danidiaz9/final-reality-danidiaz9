@@ -1,7 +1,7 @@
 package characters.common
 
-import characters.TCharacter
-import weaponry.Weapon
+import characters.TraitCharacter
+import weaponry.weapons.commons.AbstractCommon
 
 /** An abstract class representing a common character in the game.
  *
@@ -14,7 +14,7 @@ import weaponry.Weapon
 abstract class AbstractCommon(val name: String,
                               var healthPoints: Int,
                               var defense: Int,
-                              val weight: Double) extends TCharacter {
+                              val weight: Double) extends TraitCharacter {
 
   /** The weapon equipped by the common character. */
   override def equipWeapon: Boolean = true

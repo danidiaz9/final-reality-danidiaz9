@@ -1,6 +1,6 @@
 package characters.magic
 
-import characters.TCharacter
+import characters.TraitCharacter
 
 /** An abstract class representing a magical character in the game.
  *
@@ -17,7 +17,7 @@ abstract class AbstractMagical(val name: String,
                                var healthPoints: Int,
                                var defense:Int,
                                val weight: Double,
-                               var manaPoints: Int) extends TCharacter {
+                               var manaPoints: Int) extends TraitCharacter {
 
   /** The magical weapon equipped by the magical character. */
   override def equipWeapon: Boolean = true
