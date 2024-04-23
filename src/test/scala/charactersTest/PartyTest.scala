@@ -1,8 +1,9 @@
 package charactersTest
 
-import characters.{Party, TraitCharacter}
-import characters.common.Warrior
-import characters.magic.WhiteWizard
+import characters.player.commons.Warrior
+import characters.Party
+import characters.player.TraitPlayer
+import characters.player.magics.WhiteWizard
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -16,7 +17,7 @@ class PartyTest extends munit.FunSuite {
     party.addCharacter(warrior)
     party.addCharacter(wizard)
 
-    assertEquals(party.characters, ArrayBuffer[TraitCharacter](warrior, wizard))
+    assertEquals(party.characters, ArrayBuffer[TraitPlayer](warrior, wizard))
   }
 
   test("Party status: Alive") {

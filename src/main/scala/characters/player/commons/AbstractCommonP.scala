@@ -1,7 +1,7 @@
-package characters.common
+package characters.player.commons
 
-import characters.TraitCharacter
-import weaponry.weapons.commons.AbstractCommon
+import characters.player.TraitPlayer
+import weaponry.AbstractWeaponry
 
 /** An abstract class representing a common character in the game.
  *
@@ -11,28 +11,29 @@ import weaponry.weapons.commons.AbstractCommon
  *  @param defense The defense points of the common character.
  *  @param weight The weight of the common character.
  */
-abstract class AbstractCommon(val name: String,
-                              var healthPoints: Int,
-                              var defense: Int,
-                              val weight: Double) extends TraitCharacter {
+abstract class AbstractCommonP(val _name: String,
+                               var _healthPoints: Int,
+                               var _defense: Int,
+                               val _weight: Double,
+                               var _weapon: AbstractWeaponry = _) extends TraitPlayer {
 
   /** The weapon equipped by the common character. */
-  override def equipWeapon: Boolean = true
+ def equipWeapon: AbstractWeaponry = _weapon
 
   /** Returns the name of the common character. */
-  def getName: String = name
+  def getName: String = _name
 
   /** Returns the current health points of the common character. */
-  def getHealthPoints: Int = healthPoints
+  def getHealthPoints: Int = _healthPoints
 
   /** Returns the defense points of the common character. */
-  def getDefense: Int = defense
+  def getDefense: Int = _defense
 
   /** Returns the weight of the common character. */
-  def getWeight: Double = weight
+  def getWeight: Double = _weight
 
-  def getActionPoints: Double = 0.0
+  //def getActionPoints: Double = 0.0
 
-  def getActionBar: Double = weight + 0.5*Weapon.getWeight
+//  def getActionBar: Double = weight + 0.5*Weapon.getWeight
 
 }

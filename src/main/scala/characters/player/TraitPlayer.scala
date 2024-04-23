@@ -1,11 +1,13 @@
-package characters
+package characters.player
+
+import weaponry.AbstractWeaponry
 
 /** Trait representing a character.
  *
  * This trait defines the basic properties of a character in the game,
  * such as name, health points, defense, and weight.
  */
-trait TraitCharacter {
+trait TraitPlayer {
   /** The name of the character.
    *
    */
@@ -50,4 +52,5 @@ trait TraitCharacter {
    */
   def getWeight: Double
 
+  def equipWeapon: AbstractWeaponry
 }

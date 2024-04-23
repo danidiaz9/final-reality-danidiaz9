@@ -1,6 +1,6 @@
 package charactersTest.magicTest
 
-import characters.magic.BlackWizard
+import characters.player.magics.BlackWizard
 
 class BlackWizardTest extends munit.FunSuite {
 

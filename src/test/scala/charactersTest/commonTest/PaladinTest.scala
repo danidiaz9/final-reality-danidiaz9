@@ -1,6 +1,6 @@
 package charactersTest.commonTest
 
-import characters.common.Paladin
+import characters.player.commons.Paladin
 
 class PaladinTest extends munit.FunSuite {
 

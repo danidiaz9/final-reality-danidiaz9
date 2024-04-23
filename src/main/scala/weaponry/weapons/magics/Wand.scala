@@ -1,4 +1,4 @@
-package weaponry.weapons.magicals
+package weaponry.weapons.magics
 
 import characters.AbstractCharacter
 
@@ -8,6 +8,6 @@ class Wand (
               _weight: Double,
               _owner: AbstractCharacter = _,
               _magicAttackPoints: Int
-            ) extends AbstractMagical (_name, _attackPoints, _weight, _owner, _magicAttackPoints) {
+            ) extends AbstractMagicalW (_name, _attackPoints, _weight, _owner, _magicAttackPoints) {
 
 }

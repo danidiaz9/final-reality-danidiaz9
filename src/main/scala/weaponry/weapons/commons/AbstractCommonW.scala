@@ -12,10 +12,10 @@ import weaponry.AbstractWeaponry
  *  @param weight The weight of the weapon.
  *  @param owner The owner of the weapon, represented as an optional character.
  */
-abstract class AbstractCommon(_name: String,
-                              _attackPoints: Int,
-                              _weight: Double,
-                              _owner: AbstractCharacter = _) extends
+abstract class AbstractCommonW(_name: String,
+                               _attackPoints: Int,
+                               _weight: Double,
+                               _owner: AbstractCharacter = _) extends
              AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
 
 }

@@ -1,6 +1,6 @@
 package charactersTest.commonTest
 
-import characters.common.Ninja
+import characters.player.commons.Ninja
 
 class NinjaTest extends munit.FunSuite {
 

@@ -1,4 +1,4 @@
-package weaponry.weapons.magicals
+package weaponry.weapons.magics
 
 import characters.AbstractCharacter
 import weaponry.AbstractWeaponry
@@ -16,11 +16,11 @@ import java.util.Objects
  *  @param owner The owner of the magical weapon, represented as an optional character.
  *  @param magicAttackPoints The magic attack points of the magical weapon.
  */
-abstract class AbstractMagical(_name: String,
-                               _attackPoints: Int,
-                               _weight: Double,
-                               _owner: AbstractCharacter = _,
-                               val _magicAttackPoints: Int) extends
+abstract class AbstractMagicalW(_name: String,
+                                _attackPoints: Int,
+                                _weight: Double,
+                                _owner: AbstractCharacter = _,
+                                val _magicAttackPoints: Int) extends
             AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
 
 }

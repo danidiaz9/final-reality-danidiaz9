@@ -7,6 +7,6 @@ class Bow (
             _attackPoints: Int,
             _weight: Double,
             _owner: AbstractCharacter = _
-          ) extends AbstractCommon (_name, _attackPoints, _weight, _owner) {
+          ) extends AbstractCommonW (_name, _attackPoints, _weight, _owner) {
 
 }
