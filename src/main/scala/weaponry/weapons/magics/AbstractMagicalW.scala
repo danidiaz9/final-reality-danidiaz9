@@ -1,9 +1,9 @@
 package weaponry.weapons.magics
 
 import characters.AbstractCharacter
+import characters.player.TraitPlayer
 import weaponry.AbstractWeaponry
 
-import java.util.Objects
 
 /** A class representing a magical weapon in the game.
  *
@@ -19,7 +19,7 @@ import java.util.Objects
 abstract class AbstractMagicalW(_name: String,
                                 _attackPoints: Int,
                                 _weight: Double,
-                                _owner: AbstractCharacter = _,
+                                _owner: TraitPlayer = _,
                                 val _magicAttackPoints: Int) extends
             AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
 

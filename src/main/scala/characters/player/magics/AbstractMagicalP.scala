@@ -1,7 +1,7 @@
 package characters.player.magics
 
 import characters.player.TraitPlayer
-import weaponry.AbstractWeaponry
+import weaponry.{AbstractWeaponry, TraitWeaponry}
 
 /** An abstract class representing a magical character in the game.
  *
@@ -19,10 +19,10 @@ abstract class AbstractMagicalP(val _name: String,
                                 var _defense:Int,
                                 val _weight: Double,
                                 var _manaPoints: Int,
-                                var _weapon: AbstractWeaponry = _) extends TraitPlayer {
+                                var _weapon: TraitWeaponry = _) extends TraitPlayer {
 
   /** The magical weapon equipped by the magical character. */
-  def equipWeapon: AbstractWeaponry = _weapon
+  def equipWeapon: TraitWeaponry = _weapon
 
   /** Returns the name of the magical character. */
   def getName: String = _name
@@ -37,6 +37,8 @@ abstract class AbstractMagicalP(val _name: String,
   def getWeight: Double = _weight
 
   def getManaPoints: Int = _manaPoints
+
+  def getWeapon: TraitWeaponry = _weapon
 
 //  def getActionPoints: Double = 0.0
 

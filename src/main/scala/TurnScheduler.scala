@@ -1,5 +1,7 @@
 
+import characters.TraitCharacter
 import characters.player.TraitPlayer
+
 import scala.collection.mutable.ArrayBuffer
 
 class TurnScheduler {
@@ -23,15 +25,26 @@ class TurnScheduler {
     waitingZone -= c
   }
 
-  def calculateMaxActionBar: Double = {
-    var maxActionBar = loadingZone.map(_.getActionBar): ArrayBuffer[Double]
+  def calculateMaxActionBarC(c: TraitPlayer): Double = {
+    val charWeight = c.getWeight
+    val weaponWeight = c.getWeapon.getWeight
+    val maxActionBarC = charWeight + 0.5 * weaponWeight
+    maxActionBarC
+
+  }
+
+  def calculateMaxActionBarE(e: TraitCharacter): Double = {
+    val enemyWeight = e.getWeight
+    val maxActionBarE = enemyWeight
+    maxActionBarE
+
   }
 
   def resetActionBar: Unit = {
-      waitingZone.foreach(_.actionPoints *= 0.0)
+
   }
 
-  def increaseActionPoints(amount: Double): Unit = {
+  //def increaseActionPoints(amount: Double): Unit = {
     loadingZone.foreach(_.actionPoints += amount)
   }
 

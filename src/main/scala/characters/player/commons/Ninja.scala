@@ -1,5 +1,6 @@
 package characters.player.commons
 
+import weaponry.TraitWeaponry
 import weaponry.weapons.commons.AbstractCommonW
 
 import java.util.Objects
@@ -16,7 +17,7 @@ class Ninja(_name: String,
             _healthPoints: Int,
             _defense: Int,
             _weight: Double,
-            _weapon: AbstractCommonW = _) extends
+            _weapon: TraitWeaponry = _) extends
   AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
 
 }

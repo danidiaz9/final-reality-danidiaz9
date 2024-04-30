@@ -1,6 +1,6 @@
 package characters.player
 
-import weaponry.AbstractWeaponry
+import weaponry.TraitWeaponry
 
 /** Trait representing a character.
  *
@@ -52,5 +52,7 @@ trait TraitPlayer {
    */
   def getWeight: Double
 
-  def equipWeapon: AbstractWeaponry
+  def getWeapon: TraitWeaponry
+
+ // def setWeapon: TraitWeaponry
 }

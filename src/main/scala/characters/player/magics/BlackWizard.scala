@@ -1,6 +1,6 @@
 package characters.player.magics
 
-import weaponry.weapons.magics.AbstractMagicalW
+import weaponry.TraitWeaponry
 
 import java.util.Objects
 
@@ -20,7 +20,7 @@ class BlackWizard(_name: String,
                   _defense: Int,
                   _weight: Double,
                   _manaPoints: Int,
-                  _weapon: AbstractMagicalW = _) extends
+                  _weapon: TraitWeaponry = _) extends
   AbstractMagicalP(_name, _healthPoints, _defense, _weight, _manaPoints, _weapon) {
 
 }

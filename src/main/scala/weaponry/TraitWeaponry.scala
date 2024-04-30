@@ -1,6 +1,7 @@
 package weaponry
 
 import characters.AbstractCharacter
+import characters.player.TraitPlayer
 
 /** A trait representing weaponry in the game.
  *
@@ -17,7 +18,7 @@ trait TraitWeaponry {
   /** The weight of the weapon. */
   val _weight: Double
 
-  var _owner: AbstractCharacter
+  var _owner: TraitPlayer
 
   def getName: String
 
@@ -25,8 +26,8 @@ trait TraitWeaponry {
 
   def getWeight: Double
 
-  def getOwner: AbstractCharacter
+  def getOwner: TraitPlayer
 
-  protected def setOwner(owner: AbstractCharacter): Unit
+  def setOwner(owner: TraitPlayer): Unit
 
 }

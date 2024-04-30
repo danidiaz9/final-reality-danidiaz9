@@ -1,6 +1,7 @@
 package weaponry.weapons.commons
 
 import characters.AbstractCharacter
+import characters.player.TraitPlayer
 import weaponry.AbstractWeaponry
 
 /** A class representing a weapon in the game.
@@ -15,7 +16,7 @@ import weaponry.AbstractWeaponry
 abstract class AbstractCommonW(_name: String,
                                _attackPoints: Int,
                                _weight: Double,
-                               _owner: AbstractCharacter = _) extends
+                               _owner: TraitPlayer = _) extends
              AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
 
 }

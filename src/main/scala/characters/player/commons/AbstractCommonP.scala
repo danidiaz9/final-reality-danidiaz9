@@ -1,7 +1,7 @@
 package characters.player.commons
 
 import characters.player.TraitPlayer
-import weaponry.AbstractWeaponry
+import weaponry.{AbstractWeaponry, TraitWeaponry}
 
 /** An abstract class representing a common character in the game.
  *
@@ -15,10 +15,10 @@ abstract class AbstractCommonP(val _name: String,
                                var _healthPoints: Int,
                                var _defense: Int,
                                val _weight: Double,
-                               var _weapon: AbstractWeaponry = _) extends TraitPlayer {
+                               var _weapon: TraitWeaponry = _) extends TraitPlayer {
 
   /** The weapon equipped by the common character. */
- def equipWeapon: AbstractWeaponry = _weapon
+ def equipWeapon: TraitWeaponry = _weapon
 
   /** Returns the name of the common character. */
   def getName: String = _name
@@ -31,6 +31,8 @@ abstract class AbstractCommonP(val _name: String,
 
   /** Returns the weight of the common character. */
   def getWeight: Double = _weight
+
+ def getWeapon: TraitWeaponry = _weapon
 
   //def getActionPoints: Double = 0.0
 

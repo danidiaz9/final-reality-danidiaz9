@@ -1,6 +1,7 @@
 package weaponry
 
 import characters.AbstractCharacter
+import characters.player.TraitPlayer
 
 /** An abstract class representing a type of weaponry in the game.
  *
@@ -15,7 +16,7 @@ abstract class AbstractWeaponry(
                                  val _name: String,
                                  val _attackPoints: Int,
                                  val _weight: Double,
-                                 var _owner: AbstractCharacter = _
+                                 var _owner: TraitPlayer = _
                                ) extends TraitWeaponry {
 
 
@@ -29,9 +30,9 @@ abstract class AbstractWeaponry(
   def getWeight: Double = _weight
 
   /** Returns the owner of the weapon. */
-  def getOwner: AbstractCharacter = _owner
+  def getOwner: TraitPlayer = _owner
 
-  protected def setOwner(owner: AbstractCharacter): Unit = {
+  protected def setOwner(owner: TraitPlayer): Unit = {
     _owner = owner
   }
 
