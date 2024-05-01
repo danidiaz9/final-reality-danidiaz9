@@ -1,6 +1,6 @@
 
-import characters.TraitCharacter
 import characters.player.TraitPlayer
+import characters.{Party, TraitCharacter}
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -25,7 +25,7 @@ class TurnScheduler {
     waitingZone -= c
   }
 
-  def calculateMaxActionBarC(c: TraitPlayer): Double = {
+  private def calculateMaxActionBarC(c: TraitPlayer): Double = {
     val charWeight = c.getWeight
     val weaponWeight = c.getWeapon.getWeight
     val maxActionBarC = charWeight + 0.5 * weaponWeight
@@ -33,19 +33,50 @@ class TurnScheduler {
 
   }
 
-  def calculateMaxActionBarE(e: TraitCharacter): Double = {
+  private def calculateMaxActionBarE(e: TraitCharacter): Double = {
     val enemyWeight = e.getWeight
     val maxActionBarE = enemyWeight
     maxActionBarE
 
   }
 
-  def resetActionBar: Unit = {
-
+  def actualActionBarC(c: TraitPlayer): Double = {
+    calculateMaxActionBarC(c) - c.getActionBar
+  }
+  def actualActionBarE(e: TraitCharacter): Double = {
+    calculateMaxActionBarE(e) - e.getActionBar
   }
 
-  //def increaseActionPoints(amount: Double): Unit = {
-    loadingZone.foreach(_.actionPoints += amount)
+  private def updateActionBarC(c: TraitPlayer, k: Int): Unit = {
+    c.actionBar += k
   }
+
+  def updateActionBarE(e: TraitCharacter, k: Int): Unit = {
+    e.actionBar += k
+  }
+
+  def resetActionBarC(c: TraitPlayer): Double ={
+    c.actionBar = 0.0
+    c.actionBar
+  }
+
+  def resetActionBarParty(): Unit = {
+    for (c <- waitingZone){
+      resetActionBarC(c)
+    }
+  }
+
+  def resetActionBarE(e: TraitCharacter): Double = {
+    e.actionBar = 0.0
+    e.actionBar
+  }
+
+  def updateLoadingZone(k: Int): Unit = {
+    for (c <- loadingZone){
+      updateActionBarC(c,k)
+    }
+  }
+
+ def completeActionBar
 
 }

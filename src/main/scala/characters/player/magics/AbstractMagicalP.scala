@@ -21,6 +21,8 @@ abstract class AbstractMagicalP(val _name: String,
                                 var _manaPoints: Int,
                                 var _weapon: TraitWeaponry = _) extends TraitPlayer {
 
+  var actionBar: Double = 0.0
+
   /** The magical weapon equipped by the magical character. */
   def equipWeapon: TraitWeaponry = _weapon
 
@@ -40,7 +42,5 @@ abstract class AbstractMagicalP(val _name: String,
 
   def getWeapon: TraitWeaponry = _weapon
 
-//  def getActionPoints: Double = 0.0
-
- // def getActionBar: Double = weight + 0.5*MagicalWeapon.getWeight
+  def getActionBar: Double = actionBar
 }

@@ -26,6 +26,8 @@ trait TraitCharacter {
    */
   val _weight: Double
 
+  var actionBar: Double
+
 
   /** Returns the name of the character.
    *
@@ -49,5 +51,9 @@ trait TraitCharacter {
    *  @return The weight of the character.
    */
   def getWeight: Double
+
+  def getActionBar: Double
+
+
 
 }

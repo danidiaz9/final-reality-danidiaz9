@@ -17,6 +17,8 @@ abstract class AbstractCommonP(val _name: String,
                                val _weight: Double,
                                var _weapon: TraitWeaponry = _) extends TraitPlayer {
 
+ var actionBar: Double = 0.0
+
   /** The weapon equipped by the common character. */
  def equipWeapon: TraitWeaponry = _weapon
 
@@ -34,8 +36,6 @@ abstract class AbstractCommonP(val _name: String,
 
  def getWeapon: TraitWeaponry = _weapon
 
-  //def getActionPoints: Double = 0.0
-
-//  def getActionBar: Double = weight + 0.5*Weapon.getWeight
+ def getActionBar: Double = actionBar
 
 }

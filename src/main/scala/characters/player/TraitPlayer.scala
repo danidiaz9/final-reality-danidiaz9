@@ -28,6 +28,8 @@ trait TraitPlayer {
    */
   val _weight: Double
 
+  var actionBar: Double
+
 
   /** Returns the name of the character.
    *
@@ -53,6 +55,8 @@ trait TraitPlayer {
   def getWeight: Double
 
   def getWeapon: TraitWeaponry
+
+  def getActionBar: Double
 
  // def setWeapon: TraitWeaponry
 }

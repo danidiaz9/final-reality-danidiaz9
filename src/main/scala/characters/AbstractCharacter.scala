@@ -15,6 +15,8 @@ abstract class AbstractCharacter(val _name: String,
                         var _defense: Int,
                         val _weight: Double) extends TraitCharacter {
 
+  var actionBar: Double = 0.0
+
   /** Returns the name of the character.
    *
    *  @return The name of the character.
@@ -38,5 +40,7 @@ abstract class AbstractCharacter(val _name: String,
    *  @return The weight of the character.
    */
   def getWeight: Double = _weight
+
+  def getActionBar: Double = actionBar
 
 }
