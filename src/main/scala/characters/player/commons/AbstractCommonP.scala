@@ -1,7 +1,7 @@
 package characters.player.commons
 
 import characters.player.TraitPlayer
-import weaponry.{AbstractWeaponry, TraitWeaponry}
+import weaponry.TraitWeaponry
 
 /** An abstract class representing a common character in the game.
  *

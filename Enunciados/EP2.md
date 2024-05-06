@@ -4,7 +4,7 @@
 
 El objetivo de esta segunda entrega, es sentar las bases detrás del sistema de combate
 el cual se basa en dar dinámicamente el turno a los personajes en juego en base a su
-peso y el de su arma. No deberá crear el flujo del sistema como tal, si no sólo 
+peso y el de su arma. No deberá crear el flujo del sistema como tal, sino solo 
 los elementos y mecánicas que existen detrás para en un futuro solo tener que
 conectarlo todo. Para ello deberá crear un **Programador de Turnos** (o Turn Scheduler)
 
@@ -50,7 +50,7 @@ cambiarse.
 2. Utilice el comando ``git branch <branch_name>`` para crear la rama. En este caso, sería
 ``git branch entrega-parcial-2``.
 
-3. Recuede que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama 
+3. Recuerde que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama 
 utilizar el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-parcial-2``. 
 
 *Tenga en cuenta que el cuerpo docente tiene acceso total a su repositorio.*

@@ -6,23 +6,41 @@ import scala.collection.mutable.ArrayBuffer
 
 class TurnScheduler {
 
-  private var loadingZone: ArrayBuffer[TraitPlayer] = new ArrayBuffer()
-  private var waitingZone: ArrayBuffer[TraitPlayer] = new ArrayBuffer()
+  private val loadingZoneP: ArrayBuffer[TraitPlayer] = new ArrayBuffer()
+  private val waitingZoneP: ArrayBuffer[TraitPlayer] = new ArrayBuffer()
+  private val loadingZoneE: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  private val waitingZoneE: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
 
-  def addLoadingZone(c: TraitPlayer): Unit = {
-    loadingZone += c
+  def addLoadingZoneP(c: TraitPlayer): Unit = {
+    loadingZoneP += c
   }
 
-  def removeLoadingZone(c: TraitPlayer): Unit = {
-    loadingZone -= c
+  def removeLoadingZoneP(c: TraitPlayer): Unit = {
+    loadingZoneP -= c
   }
 
-  def addWaitingZone(c: TraitPlayer): Unit = {
-    waitingZone += c
+  private def addWaitingZoneP(c: TraitPlayer): Unit = {
+    waitingZoneP += c
   }
 
-  def removeWaitingZone(c: TraitPlayer): Unit = {
-    waitingZone -= c
+  def removeWaitingZoneP(c: TraitPlayer): Unit = {
+    waitingZoneP -= c
+  }
+
+  def addLoadingZoneE(e: TraitCharacter): Unit = {
+    loadingZoneE += e
+  }
+
+  def removeLoadingZoneE(e: TraitCharacter): Unit = {
+    loadingZoneE -= e
+  }
+
+  private def addWaitingZoneE(e: TraitCharacter): Unit = {
+    waitingZoneE += e
+  }
+
+  def removeWaitingZoneE(e: TraitCharacter): Unit = {
+    waitingZoneE -= e
   }
 
   private def calculateMaxActionBarC(c: TraitPlayer): Double = {
@@ -41,10 +59,10 @@ class TurnScheduler {
   }
 
   def actualActionBarC(c: TraitPlayer): Double = {
-    calculateMaxActionBarC(c) - c.getActionBar
+     c.getActionBar - calculateMaxActionBarC(c)
   }
   def actualActionBarE(e: TraitCharacter): Double = {
-    calculateMaxActionBarE(e) - e.getActionBar
+     e.getActionBar - calculateMaxActionBarE(e)
   }
 
   private def updateActionBarC(c: TraitPlayer, k: Int): Unit = {
@@ -55,13 +73,13 @@ class TurnScheduler {
     e.actionBar += k
   }
 
-  def resetActionBarC(c: TraitPlayer): Double ={
+  private def resetActionBarC(c: TraitPlayer): Double ={
     c.actionBar = 0.0
     c.actionBar
   }
 
   def resetActionBarParty(): Unit = {
-    for (c <- waitingZone){
+    for (c <- waitingZoneP){
       resetActionBarC(c)
     }
   }
@@ -71,12 +89,44 @@ class TurnScheduler {
     e.actionBar
   }
 
-  def updateLoadingZone(k: Int): Unit = {
-    for (c <- loadingZone){
+  def updateLoadingZoneP(k: Int): Unit = {
+    for (c <- loadingZoneP){
       updateActionBarC(c,k)
     }
   }
 
- def completeActionBar
+  def updateLoadingZoneE(k: Int): Unit = {
+    for (e <- loadingZoneE){
+      updateActionBarE(e,k)
+    }
+  }
 
+  def completeActionBarP(): Unit = {
+    val turnsP: ArrayBuffer[TraitPlayer] = new ArrayBuffer[TraitPlayer]()
+    for (c <- loadingZoneP) {
+      addWaitingZoneP(c)
+    }
+    for (c <- waitingZoneP) {
+      if (c.getActionBar >= calculateMaxActionBarC(c)) {
+        turnsP += c
+      }
+    }
+  }
+
+
+  def completeActionBarE(): Unit = {
+    val turnsE: ArrayBuffer[TraitCharacter] = new ArrayBuffer[TraitCharacter]()
+    for (e <- loadingZoneE){
+      addWaitingZoneE(e)
+    }
+    for (e <- waitingZoneE){
+      if (e.getActionBar >= calculateMaxActionBarE(e)){
+        turnsE += e
+      }
+    }
+  }
+
+  val turns: Unit = {
+
+  }
 }
