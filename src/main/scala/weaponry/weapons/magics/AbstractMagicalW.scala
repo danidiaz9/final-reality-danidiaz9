@@ -1,6 +1,5 @@
 package weaponry.weapons.magics
 
-import characters.AbstractCharacter
 import characters.player.TraitPlayer
 import weaponry.AbstractWeaponry
 
@@ -10,11 +9,12 @@ import weaponry.AbstractWeaponry
  *  A magical weapon is a type of weapon that possesses magical properties, including additional
  *  magic attack points.
  *
- *  @param name The name of the magical weapon.
- *  @param attackPoints The attack points of the magical weapon.
- *  @param weight The weight of the magical weapon.
- *  @param owner The owner of the magical weapon, represented as an optional character.
- *  @param magicAttackPoints The magic attack points of the magical weapon.
+ *  @constructor Creates a new instance of AbstractMagicalW with the specified attributes.
+ *  @param _name The name of the magical weapon.
+ *  @param _attackPoints The attack points of the magical weapon.
+ *  @param _weight The weight of the magical weapon.
+ *  @param _owner The owner of the magical weapon, represented as an optional character.
+ *  @param _magicAttackPoints The magic attack points of the magical weapon.
  */
 abstract class AbstractMagicalW(_name: String,
                                 _attackPoints: Int,

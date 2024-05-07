@@ -12,18 +12,18 @@ final.
 
 ### Método de ataque
 
-+ Un personaje debe poder atacar a otro, cumpliendose que el daño infligido sea `attackDamage - defensePoints`.
++ Un personaje debe poder atacar a otro, cumpliéndose que el daño infligido sea `attackDamage - defensePoints`.
 + Un personaje del jugador no podrá atacar sin un arma equipada. Un enemigo no necesita un arma para atacar.
     + Para testear esto pueden crear un método para equipar un arma, ignorando las restricciones del enunciado del proyecto. Veremos como hacer las restricciones más adelante.
 + Si un personaje tiene menos vida que el daño recibido, este no podrá quedar con vida negativa.
 
 ### Privacidad
 
-+ Se debe definir la privacidad de los atributos y métodos de distintas clases, determinando cuales debiesen ser públicos, protegidos y privados.
++ Se debe definir la privacidad de los atributos y métodos de distintas clases, determinando cuáles debiesen ser públicos, protegidos y privados.
 
 ### Inicialización de variables en constructores
 
-+ Revise los atributos que se inicialicen en el constructor de los personajes y armas, y determine cuales debiesen ser sus valores mínimos. No se debiesen inicializar los atributos con valores que no cumplan esas condiciones.
++ Revise los atributos que se inicialicen en el constructor de los personajes y armas, y determine cuáles debiesen ser sus valores mínimos. No se debiesen inicializar los atributos con valores que no cumplan esas condiciones.
 
 ## Git
 
@@ -34,7 +34,7 @@ El trabajo realizado para esta entrega se debe realizar en una nueva rama que de
 2. Utilice el comando ``git branch <branch_name>`` para crear la rama. En este caso, sería
 ``git branch entrega-final-1``.
 
-3. Recuede que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama utilizando el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-final-1``.
+3. Recuerde que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama utilizando el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-final-1``.
 
 *Tenga en cuenta que el cuerpo docente tiene acceso total a su repositorio.*
 

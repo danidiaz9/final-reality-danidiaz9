@@ -3,7 +3,7 @@ package characters
 /** Trait representing a character.
  *
  * This trait defines the basic properties of a character in the game,
- * such as name, health points, defense, and weight.
+ * such as name, health points, defense, weight, and action bar.
  */
 trait TraitCharacter {
   /** The name of the character.
@@ -26,11 +26,14 @@ trait TraitCharacter {
    */
   val _weight: Double
 
+  /** The action bar of the character.
+   *
+   */
   var actionBar: Double
-
 
   /** Returns the name of the character.
    *
+   * @return The name of the character.
    */
   def getName: String
 
@@ -52,8 +55,10 @@ trait TraitCharacter {
    */
   def getWeight: Double
 
+  /** Returns the action bar of the character.
+   *
+   *  @return The action bar of the character.
+   */
   def getActionBar: Double
-
-
 
 }

@@ -1,7 +1,5 @@
 package characters
 
-import java.util.Objects
-
 /** A class representing an enemy character in the game.
  *
  *  @constructor Creates a new enemy with the specified name, health points, attack points, defense, and weight.
