@@ -10,6 +10,8 @@ import weaponry.TraitWeaponry
  */
 trait TraitPlayer extends TraitCharacter {
 
+  var _weapon: TraitWeaponry
+
   def getWeapon: TraitWeaponry
 
   def setWeapon(_weapon: TraitWeaponry): Unit

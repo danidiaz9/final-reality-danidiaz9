@@ -1,7 +1,5 @@
 package characters
 
-import characters.player.TraitPlayer
-
 import java.util.Objects
 import scala.collection.mutable.ArrayBuffer
 
@@ -10,16 +8,16 @@ import scala.collection.mutable.ArrayBuffer
  *  @constructor Creates a new party with an empty list of characters.
  */
 
-class Party extends Equals{
+class Party extends Equals {
 
   /** The list of characters in the party. */
-  val characters: ArrayBuffer[TraitPlayer] = new ArrayBuffer()
+  val characters: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
 
   /** Adds a character to the party.
    *
    *  @param c The character to add to the party.
    */
-  def addCharacter(c: TraitPlayer): Unit = {
+  def addCharacter(c: TraitCharacter): Unit = {
     characters += c
   }
 

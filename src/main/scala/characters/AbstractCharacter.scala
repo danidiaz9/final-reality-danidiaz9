@@ -43,4 +43,11 @@ abstract class AbstractCharacter(val _name: String,
 
   def getActionBar: Double = actionBar
 
+  def calculateMaxActionBar: Double = {
+    val charWeight = this.getWeight
+    val maxActionBar = charWeight
+    maxActionBar
+
+  }
+
 }

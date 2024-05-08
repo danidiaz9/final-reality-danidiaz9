@@ -1,6 +1,6 @@
 package characters.player.magics
 
-import characters.player.TraitPlayer
+import characters.player.{AbstractPlayer, TraitPlayer}
 import weaponry.{AbstractWeaponry, TraitWeaponry}
 
 /** An abstract class representing a magical character in the game.
@@ -14,34 +14,12 @@ import weaponry.{AbstractWeaponry, TraitWeaponry}
  *  @param manaPoints The current mana points of the magical character.
  */
 
-abstract class AbstractMagicalP(val _name: String,
-                                var _healthPoints: Int,
-                                var _defense:Int,
-                                val _weight: Double,
+abstract class AbstractMagicalP(_name: String,
+                                _healthPoints: Int,
+                                _defense:Int,
+                                _weight: Double,
                                 var _manaPoints: Int,
-                                var _weapon: TraitWeaponry = Option[TraitWeaponry]) extends TraitPlayer {
+                                _weapon: TraitWeaponry)
+  extends AbstractPlayer(_name, _healthPoints, _defense, _weight, _weapon) {
 
-  var actionBar: Double = 0.0
-
-  /** Returns the name of the magical character. */
-  def getName: String = _name
-
-  /** Returns the current health points of the magical character. */
-  def getHealthPoints: Int = _healthPoints
-
-  /** Returns the defense points of the magical character. */
-  def getDefense: Int = _defense
-
-  /** Returns the weight of the magical character. */
-  def getWeight: Double = _weight
-
-  def getManaPoints: Int = _manaPoints
-
-  def getWeapon: TraitWeaponry = _weapon
-
-  def getActionBar: Double = actionBar
-
-  def setWeapon(weapon: TraitWeaponry): Unit = {
-    _weapon = weapon
-  }
 }

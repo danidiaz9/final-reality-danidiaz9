@@ -18,7 +18,7 @@ class Paladin(_name: String,
             _defense: Int,
             _weight: Double,
             _weapon: TraitWeaponry) extends
-  AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
+            AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
 
 }
 

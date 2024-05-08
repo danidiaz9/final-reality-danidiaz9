@@ -1,9 +1,6 @@
 package characters.player.commons
 
 import weaponry.TraitWeaponry
-import weaponry.weapons.commons.AbstractCommonW
-
-import java.util.Objects
 
 /** A class representing a ninja character in the game.
  *
@@ -13,12 +10,13 @@ import java.util.Objects
  *  @param defense The defense points of the ninja character.
  *  @param weight The weight of the ninja character.
  */
-class Ninja(_name: String,
+class Ninja( _name: String,
             _healthPoints: Int,
             _defense: Int,
             _weight: Double,
             _weapon: TraitWeaponry) extends
-  AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
+            AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
+
 
 }
 

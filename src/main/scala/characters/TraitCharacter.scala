@@ -61,4 +61,6 @@ trait TraitCharacter {
    */
   def getActionBar: Double
 
+  def calculateMaxActionBar: Double
+
 }
