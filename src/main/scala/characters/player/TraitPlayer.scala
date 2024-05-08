@@ -12,6 +12,6 @@ trait TraitPlayer extends TraitCharacter {
 
   def getWeapon: TraitWeaponry
 
-  def setWeapon(): TraitWeaponry
+  def setWeapon(_weapon: TraitWeaponry): Unit
 
 }

@@ -46,8 +46,7 @@ trait TraitWeaponry {
 
   /** Sets the owner of the weapon.
    *
-   *  @param owner The owner of the weapon.
-   */
-  def setOwner(owner: TraitPlayer): Unit
+   * */
+  def setOwner(_owner: TraitPlayer): Unit
 
 }

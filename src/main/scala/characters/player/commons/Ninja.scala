@@ -17,13 +17,13 @@ class Ninja(_name: String,
             _healthPoints: Int,
             _defense: Int,
             _weight: Double,
-            _weapon: TraitWeaponry = _) extends
+            _weapon: TraitWeaponry) extends
   AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
 
 }
 
   //** The weapon equipped by the ninja character. */
-  //var equipWeapon: Null = _
+  //var setWeapon:
 
   //override var actionPoints = 0.0
 

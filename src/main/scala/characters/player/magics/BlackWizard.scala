@@ -20,7 +20,7 @@ class BlackWizard(_name: String,
                   _defense: Int,
                   _weight: Double,
                   _manaPoints: Int,
-                  _weapon: TraitWeaponry = _) extends
+                  _weapon: TraitWeaponry) extends
   AbstractMagicalP(_name, _healthPoints, _defense, _weight, _manaPoints, _weapon) {
 
 }

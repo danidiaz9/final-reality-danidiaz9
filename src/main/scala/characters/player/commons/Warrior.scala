@@ -17,7 +17,7 @@ class Warrior(_name: String,
             _healthPoints: Int,
             _defense: Int,
             _weight: Double,
-            _weapon: TraitWeaponry = _) extends
+            _weapon: TraitWeaponry) extends
   AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
 
 }

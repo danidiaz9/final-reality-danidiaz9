@@ -19,12 +19,9 @@ abstract class AbstractMagicalP(val _name: String,
                                 var _defense:Int,
                                 val _weight: Double,
                                 var _manaPoints: Int,
-                                var _weapon: TraitWeaponry = _) extends TraitPlayer {
+                                var _weapon: TraitWeaponry = Option[TraitWeaponry]) extends TraitPlayer {
 
   var actionBar: Double = 0.0
-
-  /** The magical weapon equipped by the magical character. */
-  def equipWeapon: TraitWeaponry = _weapon
 
   /** Returns the name of the magical character. */
   def getName: String = _name
@@ -43,4 +40,8 @@ abstract class AbstractMagicalP(val _name: String,
   def getWeapon: TraitWeaponry = _weapon
 
   def getActionBar: Double = actionBar
+
+  def setWeapon(weapon: TraitWeaponry): Unit = {
+    _weapon = weapon
+  }
 }
