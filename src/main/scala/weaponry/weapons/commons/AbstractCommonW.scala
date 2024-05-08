@@ -16,7 +16,7 @@ import weaponry.AbstractWeaponry
 abstract class AbstractCommonW(_name: String,
                                _attackPoints: Int,
                                _weight: Double,
-                               _owner: TraitPlayer = _) extends
+                               _owner: TraitPlayer) extends
              AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
 
 }

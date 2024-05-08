@@ -1,6 +1,6 @@
 
 import characters.player.TraitPlayer
-import characters.{Party, TraitCharacter}
+import characters.TraitCharacter
 
 import scala.collection.mutable.ArrayBuffer
 

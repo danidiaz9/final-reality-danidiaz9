@@ -19,7 +19,7 @@ import weaponry.AbstractWeaponry
 abstract class AbstractMagicalW(_name: String,
                                 _attackPoints: Int,
                                 _weight: Double,
-                                _owner: TraitPlayer = _,
+                                _owner: TraitPlayer,
                                 val _magicAttackPoints: Int) extends
             AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
 

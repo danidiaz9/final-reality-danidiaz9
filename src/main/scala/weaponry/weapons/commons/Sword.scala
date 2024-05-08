@@ -16,7 +16,7 @@ class Sword (
             _name: String,
             _attackPoints: Int,
             _weight: Double,
-            _owner: TraitPlayer = _
+            _owner: TraitPlayer
           ) extends AbstractCommonW (_name, _attackPoints, _weight, _owner) {
 
 }
