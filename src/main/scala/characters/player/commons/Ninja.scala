@@ -1,14 +1,17 @@
 package characters.player.commons
 
 import weaponry.TraitWeaponry
+import java.util.Objects
+
 
 /** A class representing a ninja character in the game.
  *
  *  @constructor Creates a new ninja character with the specified name, health points, defense, and weight.
- *  @param name The name of the ninja character.
- *  @param healthPoints The current health points of the ninja character.
- *  @param defense The defense points of the ninja character.
- *  @param weight The weight of the ninja character.
+ *  @param _name The name of the ninja character.
+ *  @param _healthPoints The current health points of the ninja character.
+ *  @param _defense The defense points of the ninja character.
+ *  @param _weight The weight of the ninja character.
+ *  @param _weapon The weapon equipped by the ninja character.
  */
 class Ninja( _name: String,
             _healthPoints: Int,

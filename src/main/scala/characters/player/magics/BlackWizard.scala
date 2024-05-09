@@ -1,18 +1,18 @@
 package characters.player.magics
 
 import weaponry.TraitWeaponry
-
 import java.util.Objects
 
 /** A class representing a black wizard character in the game.
  *
  *  @constructor Creates a new black wizard character with the specified name, health points,
  *               defense, weight, and mana points.
- *  @param name The name of the black wizard character.
- *  @param healthPoints The current health points of the black wizard character.
- *  @param defense The defense points of the black wizard character.
- *  @param weight The weight of the black wizard character.
- *  @param manaPoints The current mana points of the black wizard character.
+ *  @param _name The name of the black wizard character.
+ *  @param _healthPoints The current health points of the black wizard character.
+ *  @param _defense The defense points of the black wizard character.
+ *  @param _weight The weight of the black wizard character.
+ *  @param _manaPoints The current mana points of the black wizard character.
+ *  @param _weapon The weapon equipped by the black wizard character.
  */
 
 class BlackWizard(_name: String,

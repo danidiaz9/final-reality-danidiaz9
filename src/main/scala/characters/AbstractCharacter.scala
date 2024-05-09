@@ -1,14 +1,12 @@
 package characters
 
-import characters.player.TraitPlayer
-
 /** An abstract class representing a character in the game.
  *
  *  @constructor Creates a new character with the specified name, health points, defense, and weight.
- *  @param name The name of the character.
- *  @param healthPoints The current health points of the character.
- *  @param defense The defense points of the character.
- *  @param weight The weight of the character.
+ *  @param _name The name of the character.
+ *  @param _healthPoints The current health points of the character.
+ *  @param _defense The defense points of the character.
+ *  @param _weight The weight of the character.
  */
 abstract class AbstractCharacter(val _name: String,
                         var _healthPoints: Int,
@@ -41,8 +39,16 @@ abstract class AbstractCharacter(val _name: String,
    */
   def getWeight: Double = _weight
 
+  /** Returns the action bar of the character.
+   *
+   *  @return The action bar of the character.
+   */
   def getActionBar: Double = actionBar
 
+  /** Calculates the maximum action bar value for the character based on its weight.
+   *
+   *  @return The maximum action bar value.
+   */
   def calculateMaxActionBar: Double = {
     val charWeight = this.getWeight
     val maxActionBar = charWeight

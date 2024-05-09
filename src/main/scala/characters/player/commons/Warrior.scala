@@ -1,17 +1,16 @@
 package characters.player.commons
 
 import weaponry.TraitWeaponry
-import weaponry.weapons.commons.AbstractCommonW
-
 import java.util.Objects
 
 /** A class representing a warrior character in the game.
  *
  *  @constructor Creates a new warrior character with the specified name, health points, defense, and weight.
- *  @param name The name of the warrior character.
- *  @param healthPoints The current health points of the warrior character.
- *  @param defense The defense points of the warrior character.
- *  @param weight The weight of the warrior character.
+ *  @param _name The name of the warrior character.
+ *  @param _healthPoints The current health points of the warrior character.
+ *  @param _defense The defense points of the warrior character.
+ *  @param _weight The weight of the warrior character.
+ *  @param _weapon The weapon equipped by the warrior character.
  */
 class Warrior(_name: String,
             _healthPoints: Int,

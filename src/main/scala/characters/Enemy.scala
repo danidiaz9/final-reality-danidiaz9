@@ -3,11 +3,11 @@ package characters
 /** A class representing an enemy character in the game.
  *
  *  @constructor Creates a new enemy with the specified name, health points, attack points, defense, and weight.
- *  @param name The name of the enemy.
- *  @param healthPoints The current health points of the enemy.
- *  @param attackPoints The attack points of the enemy.
- *  @param defense The defense points of the enemy.
- *  @param weight The weight of the enemy.
+ *  @param _name The name of the enemy.
+ *  @param _healthPoints The current health points of the enemy.
+ *  @param _attackPoints The attack points of the enemy.
+ *  @param _defense The defense points of the enemy.
+ *  @param _weight The weight of the enemy.
  */
 class Enemy(_name: String,
             _healthPoints: Int,
