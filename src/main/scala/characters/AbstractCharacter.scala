@@ -10,6 +10,7 @@ package characters
  */
 abstract class AbstractCharacter(val _name: String,
                         var _healthPoints: Int,
+                        val _attackPoints: Int,
                         var _defense: Int,
                         val _weight: Double) extends TraitCharacter {
 
@@ -26,6 +27,8 @@ abstract class AbstractCharacter(val _name: String,
    *  @return The current health points of the character.
    */
   def getHealthPoints: Int = _healthPoints
+
+  def getAttackPoints: Int = _attackPoints
 
   /** Returns the defense points of the character.
    *
@@ -54,6 +57,10 @@ abstract class AbstractCharacter(val _name: String,
     val maxActionBar = charWeight
     maxActionBar
 
+  }
+
+  def attack: Int = {
+    this.getAttackPoints
   }
 
 }

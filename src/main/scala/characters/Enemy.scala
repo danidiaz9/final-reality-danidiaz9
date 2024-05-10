@@ -11,10 +11,10 @@ package characters
  */
 class Enemy(_name: String,
             _healthPoints: Int,
-            val _attackPoints: Int,
+            _attackPoints: Int,
             _defense: Int,
             _weight: Double) extends
-            AbstractCharacter(_name, _healthPoints, _defense, _weight) {
+            AbstractCharacter(_name, _healthPoints, _attackPoints, _defense, _weight) {
 
 }
 

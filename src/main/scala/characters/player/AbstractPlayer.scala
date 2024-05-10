@@ -77,4 +77,13 @@ abstract class AbstractPlayer(val _name: String,
 
   }
 
+  def attack: Int = {
+    if (this.getWeapon != null) {
+      this.getWeapon.getAttackPoints
+    }
+    else {
+      throw new Error("Players must have a weapon to attack.")
+    }
+  }
+
 }

@@ -1,4 +1,5 @@
 import characters.TraitCharacter
+import characters.player.TraitPlayer
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -108,4 +109,33 @@ class TurnScheduler {
   val turns: Unit = {
 
   }
+
+  def combatPlayer(player: TraitPlayer, enemy: TraitCharacter): Unit = {
+
+    val playerDamage = player.attack - enemy.getDefense
+    enemy._healthPoints = enemy._healthPoints - playerDamage
+
+    if (enemy.getHealthPoints > 0) {
+      println(s"Damage inflicted: $playerDamage")
+    }
+    else {
+      println(s"${enemy.getName} defeated")
+    }
+
+  }
+
+  def combatEnemy(enemy: TraitCharacter, player: TraitPlayer): Unit = {
+
+    val enemyDamage = enemy.attack - player.getDefense
+    player._healthPoints = player._healthPoints - enemyDamage
+
+    if (player.getHealthPoints > 0) {
+      println(s"Damage inflicted: $enemyDamage")
+    }
+    else {
+      println(s"${player.getName} defeated")
+    }
+
+  }
+
 }
