@@ -7,26 +7,26 @@ import java.util.Objects
  *
  *  @constructor Creates a new white wizard character with the specified name, health points,
  *               defense, weight, and mana points.
- *  @param _name The name of the white wizard character.
- *  @param _healthPoints The current health points of the white wizard character.
- *  @param _defense The defense points of the white wizard character.
- *  @param _weight The weight of the white wizard character.
- *  @param _manaPoints The current mana points of the white wizard character.
- *  @param _weapon The weapon equipped by the white wizard character.
+ *  @param name The name of the white wizard character.
+ *  @param healthPoints The current health points of the white wizard character.
+ *  @param defense The defense points of the white wizard character.
+ *  @param weight The weight of the white wizard character.
+ *  @param manaPoints The current mana points of the white wizard character.
+ *  @param weapon The weapon equipped by the white wizard character.
  */
 
-class WhiteWizard(_name: String,
-                  _healthPoints: Int,
-                  _defense: Int,
-                  _weight: Double,
-                  _manaPoints: Int,
-                  _weapon: TraitWeaponry) extends
-                  AbstractMagicalP(_name, _healthPoints, _defense, _weight, _manaPoints, _weapon) {
+class WhiteWizard(name: String,
+                  healthPoints: Int,
+                  defense: Int,
+                  weight: Double,
+                  manaPoints: Int,
+                  weapon: Option[TraitWeaponry]) extends
+                  AbstractMagicalP(name, healthPoints, defense, weight, manaPoints, weapon) {
 
 }
 
   ///** The magical weapon equipped by the white wizard character. */
-  //var equipMagicWeapon: Null = _
+  //var equipMagicWeapon: Null = 
 
 //  override var actionPoints = 0.0
 

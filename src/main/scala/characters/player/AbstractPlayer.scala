@@ -5,19 +5,19 @@ import weaponry.TraitWeaponry
 /** An abstract class representing a player-controlled character in the game.
  *
  *  @constructor Creates a new player with the specified name, health points, defense, weight, and weapon.
- *  @param _name The name of the player.
- *  @param _healthPoints The current health points of the player.
- *  @param _defense The defense points of the player.
- *  @param _weight The weight of the player.
- *  @param _weapon The weapon equipped by the player, represented as an optional trait weaponry.
+ *  @param name The name of the player.
+ *  @param healthPoints The current health points of the player.
+ *  @param defense The defense points of the player.
+ *  @param weight The weight of the player.
+ *  @param weapon The weapon equipped by the player, represented as an optional trait weaponry.
  */
-abstract class AbstractPlayer(val _name: String,
-                              var _healthPoints: Int,
-                              var _defense: Int,
-                              val _weight: Double,
-                              var _weapon: TraitWeaponry = Option[TraitWeaponry]
+abstract class AbstractPlayer(val name: String,
+                              private var healthPoints: Int,
+                              private var defense: Int,
+                              val weight: Double,
+                              private var weapon: Option[TraitWeaponry]
                              ) extends TraitPlayer {
-
+  
   /** The action bar of the player. */
   var actionBar: Double = 0.0
 
@@ -25,38 +25,44 @@ abstract class AbstractPlayer(val _name: String,
    *
    *  @return The name of the player.
    */
-  def getName: String = _name
+  def getName: String = name
 
   /** Returns the current health points of the player.
    *
    *  @return The current health points of the player.
    */
-  def getHealthPoints: Int = _healthPoints
+  def getHealthPoints: Int = healthPoints
+
+  def setHealthPoints(x: Int): Unit = {
+
+    healthPoints = x
+
+  }
 
   /** Returns the defense points of the player.
    *
    *  @return The defense points of the player.
    */
-  def getDefense: Int = _defense
+  def getDefense: Int = defense
 
   /** Returns the weight of the player.
    *
    *  @return The weight of the player.
    */
-  def getWeight: Double = _weight
+  def getWeight: Double = weight
 
   /** Returns the weapon equipped by the player.
    *
    *  @return The weapon equipped by the player.
    */
-  def getWeapon: TraitWeaponry = _weapon
+  def getWeapon: TraitWeaponry = Option[TraitWeaponry]
 
   /** Sets the weapon to be equipped by the player.
    *
    *  @param weapon The weapon to be equipped by the player.
    */
   protected def setWeapon(weapon: TraitWeaponry): Unit = {
-    _weapon = weapon
+    this.weapon = Some[TraitWeaponry]
   }
 
   /** Returns the action bar of the player.
@@ -71,15 +77,15 @@ abstract class AbstractPlayer(val _name: String,
    */
   def calculateMaxActionBar: Double = {
     val charWeight = this.getWeight
-    val weaponWeight = this.getWeapon.getWeight
+    val weaponWeight = this.getWeapon.get.getWeight
     val maxActionBar = charWeight + 0.5 * weaponWeight
     maxActionBar
 
   }
 
   def attack: Int = {
-    if (this.getWeapon != null) {
-      this.getWeapon.getAttackPoints
+    if (this.getWeapon.isDefined) {
+      this.getWeapon.get.getAttackPoints
     }
     else {
       throw new Error("Players must have a weapon to attack.")

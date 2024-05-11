@@ -10,18 +10,18 @@ import weaponry.AbstractWeaponry
  *  magic attack points.
  *
  *  @constructor Creates a new instance of AbstractMagicalW with the specified attributes.
- *  @param _name The name of the magical weapon.
- *  @param _attackPoints The attack points of the magical weapon.
- *  @param _weight The weight of the magical weapon.
- *  @param _owner The owner of the magical weapon, represented as an optional character.
- *  @param _magicAttackPoints The magic attack points of the magical weapon.
+ *  @param name The name of the magical weapon.
+ *  @param attackPoints The attack points of the magical weapon.
+ *  @param weight The weight of the magical weapon.
+ *  @param owner The owner of the magical weapon, represented as an optional character.
+ *  @param magicAttackPoints The magic attack points of the magical weapon.
  */
-abstract class AbstractMagicalW(_name: String,
-                                _attackPoints: Int,
-                                _weight: Double,
-                                _owner: TraitPlayer,
-                                val _magicAttackPoints: Int) extends
-            AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
+abstract class AbstractMagicalW(name: String,
+                                attackPoints: Int,
+                                weight: Double,
+                                owner: Option[TraitPlayer],
+                                val magicAttackPoints: Int) extends
+            AbstractWeaponry(name, attackPoints, weight, owner) {
 
 }
 

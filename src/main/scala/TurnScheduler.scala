@@ -52,7 +52,7 @@ class TurnScheduler {
    *  @param c The character whose action bar value to retrieve.
    *  @return The difference between the character's current action bar and its maximum action bar.
    */
-  def actualActionBar(c: TraitCharacter): Double = {
+  def excessActionBar(c: TraitCharacter): Double = {
      c.getActionBar - c.calculateMaxActionBar
   }
 
@@ -76,7 +76,7 @@ class TurnScheduler {
   }
 
   /** Resets the action bars of all characters in the waiting zone to zero. */
-  def resetActionBarParty(): Unit = {
+  def resetActionBarInstance(): Unit = {
     for (c <- waitingZone){
       resetActionBar(c)
     }
@@ -113,7 +113,7 @@ class TurnScheduler {
   def combatPlayer(player: TraitPlayer, enemy: TraitCharacter): Unit = {
 
     val playerDamage = player.attack - enemy.getDefense
-    enemy._healthPoints = enemy._healthPoints - playerDamage
+    enemy.setHealthPoints(enemy.getHealthPoints - playerDamage)
 
     if (enemy.getHealthPoints > 0) {
       println(s"Damage inflicted: $playerDamage")
@@ -127,7 +127,7 @@ class TurnScheduler {
   def combatEnemy(enemy: TraitCharacter, player: TraitPlayer): Unit = {
 
     val enemyDamage = enemy.attack - player.getDefense
-    player._healthPoints = player._healthPoints - enemyDamage
+    player.setHealthPoints(player.getHealthPoints - enemyDamage)
 
     if (player.getHealthPoints > 0) {
       println(s"Damage inflicted: $enemyDamage")

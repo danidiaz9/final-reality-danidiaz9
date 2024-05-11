@@ -8,16 +8,16 @@ import weaponry.AbstractWeaponry
  *  A common weapon is an object used to inflict damage or harm to opponents in the game.
  *
  *  @constructor Creates a new instance of AbstractCommonW with the specified attributes.
- *  @param _name The name of the weapon.
- *  @param _attackPoints The attack points of the weapon.
- *  @param _weight The weight of the weapon.
- *  @param _owner The owner of the weapon, represented as an optional character.
+ *  @param name The name of the weapon.
+ *  @param attackPoints The attack points of the weapon.
+ *  @param weight The weight of the weapon.
+ *  @param owner The owner of the weapon, represented as an optional character.
  */
-abstract class AbstractCommonW(_name: String,
-                               _attackPoints: Int,
-                               _weight: Double,
-                               _owner: TraitPlayer) extends
-             AbstractWeaponry(_name, _attackPoints, _weight, _owner) {
+abstract class AbstractCommonW(name: String,
+                               attackPoints: Int,
+                               weight: Double,
+                               owner: Option[TraitPlayer]) extends
+             AbstractWeaponry(name, attackPoints, weight, owner) {
 
 }
 

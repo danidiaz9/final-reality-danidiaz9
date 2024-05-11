@@ -8,11 +8,11 @@ package characters
  *  @param _defense The defense points of the character.
  *  @param _weight The weight of the character.
  */
-abstract class AbstractCharacter(val _name: String,
-                        var _healthPoints: Int,
-                        val _attackPoints: Int,
-                        var _defense: Int,
-                        val _weight: Double) extends TraitCharacter {
+abstract class AbstractCharacter(val name: String,
+                        private var healthPoints: Int,
+                        val attackPoints: Int,
+                        private var defense: Int,
+                        val weight: Double) extends TraitCharacter {
 
   var actionBar: Double = 0.0
 
@@ -20,27 +20,33 @@ abstract class AbstractCharacter(val _name: String,
    *
    *  @return The name of the character.
    */
-  def getName: String = _name
+  def getName: String = name
 
   /** Returns the current health points of the character.
    *
    *  @return The current health points of the character.
    */
-  def getHealthPoints: Int = _healthPoints
+  def getHealthPoints: Int = healthPoints
 
-  def getAttackPoints: Int = _attackPoints
+  def setHealthPoints(x: Int): Unit = {
+
+    healthPoints = x
+
+  }
+
+  def getAttackPoints: Int = attackPoints
 
   /** Returns the defense points of the character.
    *
    *  @return The defense points of the character.
    */
-  def getDefense: Int = _defense
+  def getDefense: Int = defense
 
   /** Returns the weight of the character.
    *
    *  @return The weight of the character.
    */
-  def getWeight: Double = _weight
+  def getWeight: Double = weight
 
   /** Returns the action bar of the character.
    *

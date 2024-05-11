@@ -9,26 +9,13 @@ trait TraitCharacter {
   /** The name of the character.
    *
    */
-  val _name: String
-
-  /** The current health points of the character.
-   *
-   */
-  var _healthPoints: Int
-
-  /** The defense points of the character.
-   *
-   */
-  var _defense: Int
+  val name: String
 
   /** The weight of the character.
    *
    */
-  val _weight: Double
+  val weight: Double
 
-  /** The action bar of the character.
-   *
-   */
   var actionBar: Double
 
   /** Returns the name of the character.
@@ -42,6 +29,8 @@ trait TraitCharacter {
    *  @return The current health points of the character.
    */
   def getHealthPoints: Int
+
+  def setHealthPoints(x: Int): Unit
 
   /** Returns the defense points of the character.
    *

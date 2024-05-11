@@ -7,16 +7,16 @@ import characters.player.TraitPlayer
  *  Weaponry includes attributes such as name, attack points, weight, and owner.
  *
  *  @constructor Creates a new instance of AbstractWeaponry with the specified attributes.
- *  @param _name The name of the weapon.
- *  @param _attackPoints The attack points of the weapon.
- *  @param _weight The weight of the weapon.
- *  @param _owner The owner of the weapon, represented as an optional character.
+ *  @param name The name of the weapon.
+ *  @param attackPoints The attack points of the weapon.
+ *  @param weight The weight of the weapon.
+ *  @param owner The owner of the weapon, represented as an optional character.
  */
 abstract class AbstractWeaponry(
-                                 val _name: String,
-                                 val _attackPoints: Int,
-                                 val _weight: Double,
-                                 var _owner: TraitPlayer = Option[TraitPlayer]
+                                 val name: String,
+                                 val attackPoints: Int,
+                                 val weight: Double,
+                                 private var owner: Option[TraitPlayer]
                                ) extends TraitWeaponry {
 
 
@@ -24,32 +24,32 @@ abstract class AbstractWeaponry(
    *
    *  @return The name of the weapon.
    */
-  def getName: String = _name
+  def getName: String = name
 
   /** Returns the attack points of the weapon.
    *
    *  @return The attack points of the weapon.
    */
-  def getAttackPoints: Int = _attackPoints
+  def getAttackPoints: Int = attackPoints
 
   /** Returns the weight of the weapon.
    *
    *  @return The weight of the weapon.
    */
-  def getWeight: Double = _weight
+  def getWeight: Double = weight
 
   /** Returns the owner of the weapon.
    *
    *  @return The owner of the weapon.
    */
-  def getOwner: TraitPlayer = _owner
+  def getOwner: Option[TraitPlayer] = Some[TraitPlayer]
 
   /** Sets the owner of the weapon.
    *
    *  @param owner The owner of the weapon.
    */
   protected def setOwner(owner: TraitPlayer): Unit = {
-    _owner = owner
+    this.owner = Some[TraitPlayer]
   }
 
 }

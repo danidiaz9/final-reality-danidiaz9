@@ -7,16 +7,16 @@ import characters.player.TraitPlayer
  *  A bow is a type of weapon used to inflict damage or harm to opponents in the game.
  *
  *  @constructor Creates a new instance of Bow with the specified attributes.
- *  @param _name The name of the bow.
- *  @param _attackPoints The attack points of the bow.
- *  @param _weight The weight of the bow.
- *  @param _owner The owner of the bow, represented as an optional character.
+ *  @param name The name of the bow.
+ *  @param attackPoints The attack points of the bow.
+ *  @param weight The weight of the bow.
+ *  @param owner The owner of the bow, represented as an optional character.
  */
 class Bow (
-            _name: String,
-            _attackPoints: Int,
-            _weight: Double,
-            _owner: TraitPlayer
-          ) extends AbstractCommonW (_name, _attackPoints, _weight, _owner) {
+            name: String,
+            attackPoints: Int,
+            weight: Double,
+            owner: Option[TraitPlayer]
+          ) extends AbstractCommonW (name, attackPoints, weight, owner) {
 
 }

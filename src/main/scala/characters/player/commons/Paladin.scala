@@ -6,18 +6,18 @@ import java.util.Objects
 /** A class representing a paladin character in the game.
  *
  *  @constructor Creates a new paladin character with the specified name, health points, defense, and weight.
- *  @param _name The name of the paladin character.
- *  @param _healthPoints The current health points of the paladin character.
- *  @param _defense The defense points of the paladin character.
- *  @param _weight The weight of the paladin character.
- *  @param _weapon The weapon equipped by the paladin character.
+ *  @param name The name of the paladin character.
+ *  @param healthPoints The current health points of the paladin character.
+ *  @param defense The defense points of the paladin character.
+ *  @param weight The weight of the paladin character.
+ *  @param weapon The weapon equipped by the paladin character.
  */
-class Paladin(_name: String,
-            _healthPoints: Int,
-            _defense: Int,
-            _weight: Double,
-            _weapon: TraitWeaponry) extends
-            AbstractCommonP(_name, _healthPoints, _defense, _weight, _weapon) {
+class Paladin(name: String,
+            healthPoints: Int,
+            defense: Int,
+            weight: Double,
+            weapon: Option[TraitWeaponry]) extends
+            AbstractCommonP(name, healthPoints, defense, weight, weapon) {
 
 }
 

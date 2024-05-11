@@ -9,16 +9,13 @@ import characters.player.TraitPlayer
 trait TraitWeaponry {
 
   /** The name of the weapon. */
-  val _name: String
+  val name: String
 
   /** The attack points of the weapon. */
-  val _attackPoints: Int
+  val attackPoints: Int
 
   /** The weight of the weapon. */
-  val _weight: Double
-
-  /** The owner of the weapon. */
-  var _owner: TraitPlayer
+  val weight: Double
 
   /** Returns the name of the weapon.
    *
@@ -42,11 +39,11 @@ trait TraitWeaponry {
    *
    *  @return The owner of the weapon.
    */
-  def getOwner: TraitPlayer
+  def getOwner: Option[TraitPlayer]
 
   /** Sets the owner of the weapon.
    *
    * */
-  def setOwner(_owner: TraitPlayer): Unit
+  def setOwner(owner: TraitPlayer): Unit
 
 }
