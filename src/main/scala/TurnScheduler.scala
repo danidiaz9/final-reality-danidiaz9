@@ -52,7 +52,7 @@ class TurnScheduler {
    *  @param c The character whose action bar value to retrieve.
    *  @return The difference between the character's current action bar and its maximum action bar.
    */
-  def excessActionBar(c: TraitCharacter): Double = {
+  private def excessActionBar(c: TraitCharacter): Double = {
      c.getActionBar - c.calculateMaxActionBar
   }
 
@@ -70,9 +70,8 @@ class TurnScheduler {
    *  @param c The character whose action bar to reset.
    *  @return The new action bar value, which is always 0.0.
    */
-  private def resetActionBar(c: TraitCharacter): Double ={
+  private def resetActionBar(c: TraitCharacter): Unit ={
     c.actionBar = 0.0
-    c.actionBar
   }
 
   /** Resets the action bars of all characters in the waiting zone to zero. */
@@ -94,22 +93,23 @@ class TurnScheduler {
 
   /** Completes the action bars of characters in the loading zone and moves them to the waiting zone. */
   def completeActionBar(): Unit = {
-    val turns: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
     for (c <- loadingZone) {
-      addWaitingZone(c)
-    }
-    for (c <- waitingZone) {
-      if (c.getActionBar >= c.calculateMaxActionBar) {
-        turns += c
+      if (excessActionBar(c) > 0) {
+        addWaitingZone(c)
       }
     }
   }
 
-  // TODO: Define turn handling logic
-  val turns: Unit = {
-
+  /** Sorts the characters in the waiting zone by their excess action bars. */
+  def sortTurns(): Unit = {
+    waitingZone.sortBy(c => -excessActionBar(c))
   }
 
+  /** Simulates combat between a player character and an enemy character.
+   *
+   *  @param player The player character.
+   *  @param enemy The enemy character.
+   */
   def combatPlayer(player: TraitPlayer, enemy: TraitCharacter): Unit = {
 
     val playerDamage = player.attack - enemy.getDefense
@@ -124,6 +124,11 @@ class TurnScheduler {
 
   }
 
+  /** Simulates combat between an enemy character and a player character.
+   *
+   *  @param enemy The enemy character.
+   *  @param player The player character.
+   */
   def combatEnemy(enemy: TraitCharacter, player: TraitPlayer): Unit = {
 
     val enemyDamage = enemy.attack - player.getDefense
@@ -135,7 +140,5 @@ class TurnScheduler {
     else {
       println(s"${player.getName} defeated")
     }
-
   }
-
 }
