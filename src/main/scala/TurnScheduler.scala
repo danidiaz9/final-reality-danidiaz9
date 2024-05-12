@@ -10,10 +10,10 @@ import scala.collection.mutable.ArrayBuffer
 class TurnScheduler {
 
   /** The loading zone where characters wait for their action bars to fill up. */
-  private val loadingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  val loadingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
 
   /** The waiting zone where characters with filled action bars wait for their turn. */
-  private val waitingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  val waitingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
 
   /** Adds a character to the loading zone.
    *
@@ -35,7 +35,7 @@ class TurnScheduler {
    *
    *  @param c The character to add to the waiting zone.
    */
-  private def addWaitingZone(c: TraitCharacter): Unit = {
+  def addWaitingZone(c: TraitCharacter): Unit = {
     waitingZone += c
   }
 
