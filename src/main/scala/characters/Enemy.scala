@@ -1,5 +1,7 @@
 package characters
 
+import java.util.Objects
+
 /** A class representing an enemy character in the game.
  *
  *  @constructor Creates a new enemy with the specified name, health points, attack points, defense, and weight.
@@ -16,32 +18,28 @@ class Enemy(name: String,
             weight: Double) extends
             AbstractCharacter(name, healthPoints, attackPoints, defense, weight) {
 
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
+
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[Enemy]
+      getName == other.getName &&
+      getHealthPoints == other.getHealthPoints &&
+      getAttackPoints == other.getAttackPoints &&
+      getDefense == other.getDefense &&
+      getWeight == other.getWeight
+    }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[Enemy],
+    getName, getHealthPoints, getAttackPoints, getDefense, getWeight)
+
+  override def toString: String = s"Enemy {" +
+    s"name: $getName, " +
+    s"healthPoints: $getHealthPoints, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"defense: $getDefense, " +
+    s"weight: $getWeight" +
+    s"}"
 }
-
-  //override def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
-
-//  override def equals(that: Any): Boolean = {
-  //  if (canEqual(that)) {
-    //  val other = that.asInstanceOf[Enemy]
-      //name == other.name &&
-     // healthPoints == other.healthPoints &&
-     // attackPoints == other.attackPoints &&
-     // defense == other.defense &&
-    //  weight == other.weight
-   // }
-   // else false
- // }
-
- // override def hashCode: Int = Objects.hash(classOf[Enemy],
-  //  name, healthPoints, attackPoints, defense, weight)
-
-//  override def toString: String = s"Enemy {" +
-//    s"name: $name, " +
-  //  s"healthPoints: $healthPoints, " +
-  //  s"attackPoints: $attackPoints, " +
-  //  s"defense: $defense, " +
-  //  s"weight: $weight" +
-  //  s"}"
-
- // override def equipWeapon: Boolean = false
-//}

@@ -19,10 +19,10 @@ abstract class AbstractMagicalP(name: String,
                                 healthPoints: Int,
                                 defense:Int,
                                 weight: Double,
-                                private var manaPoints: Int,
+                                protected var manaPoints: Int,
                                 weapon: Option[TraitWeaponry])
   extends AbstractPlayer(name, healthPoints, defense, weight, weapon) {
 
-
+  def getManaPoints: Int = manaPoints
 
 }

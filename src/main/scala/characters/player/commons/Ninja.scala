@@ -20,35 +20,28 @@ class Ninja(name: String,
             weapon: Option[TraitWeaponry]) extends
             AbstractCommonP(name, healthPoints, defense, weight, weapon) {
 
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Ninja]
 
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[Ninja]
+      getName == other.getName &&
+      getHealthPoints == other.getHealthPoints &&
+      getDefense == other.getDefense &&
+      getWeight == other.getWeight &&
+      getWeapon == other.getWeapon
+    }
+    else false
+    }
+
+    override def hashCode: Int = Objects.hash(classOf[Ninja],
+      getName, getHealthPoints, getDefense, getWeight, getWeapon)
+
+    override def toString: String = s"Ninja {" +
+      s"name: $getName, " +
+      s"healthPoints: $getHealthPoints, " +
+      s"defense: $getDefense, " +
+      s"weight: $getWeight" +
+      s"weapon: $getWeapon" +
+      s"}"
 }
-
-  //** The weapon equipped by the ninja character. */
-  //var setWeapon:
-
-  //override var actionPoints = 0.0
-
-//  override var actionBar: Double = weight + 0.5*Weapon.getWeight
-
-//  override def canEqual(that: Any): Boolean = that.isInstanceOf[Ninja]
-    
-//  override def equals(that: Any): Boolean = {
- //     if (canEqual(that)) {
- //         val other = that.asInstanceOf[Ninja]
- //         name == other.name &&
-  //        healthPoints == other.healthPoints &&
-  //        defense == other.defense &&
-  //        weight == other.weight
-  //    }
-  //    else false
- // }
-    
- // override def hashCode: Int = Objects.hash(classOf[Ninja], name, healthPoints, defense, weight)
-    
-//  override def toString: String = s"Ninja {" +
-//      s"name: $name, " +
-//      s"healthPoints: $healthPoints, " +
-//      s"defense: $defense, " +
-//      s"weight: $weight" +
-//      s"}"
-//}

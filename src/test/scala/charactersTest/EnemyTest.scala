@@ -4,26 +4,52 @@ import characters.Enemy
 
 class EnemyTest extends munit.FunSuite {
 
-  test("Enemy equality") {
-    val enemy1 = new Enemy("Orc", 100, 30, 20, 80.0)
-    val enemy2 = new Enemy("Orc", 100, 30, 20, 80.0)
-    val enemy3 = new Enemy("Goblin", 80, 25, 15, 60.0)
+  class TestEnemy(name: String, healthPoints: Int, attackPoints: Int, defense: Int, weight: Double)
+    extends Enemy(name, healthPoints, attackPoints, defense, weight)
 
-    assertEquals(enemy1, enemy2)
-    assertNotEquals(enemy1, enemy3)
+  var enemy: TestEnemy = _
+
+  override def beforeEach(context: BeforeEach): Unit = {
+    enemy = new TestEnemy("Goblin", 100, 20, 10, 50.0)
   }
 
-  test("Enemy hash code") {
-    val enemy1 = new Enemy("Orc", 100, 30, 20, 80.0)
-    val enemy2 = new Enemy("Orc", 100, 30, 20, 80.0)
-
-    assertEquals(enemy1.hashCode(), enemy2.hashCode())
+  test("getName returns correct name") {
+    assertEquals(enemy.getName, "Goblin")
   }
 
-  test("Enemy toString") {
-    val enemy = new Enemy("Orc", 100, 30, 20, 80.0)
-    val expectedString = "Enemy {name: Orc, healthPoints: 100, attackPoints: 30, defense: 20, weight: 80.0}"
-
-    assertEquals(enemy.toString(), expectedString)
+  test("getHealthPoints returns correct health points") {
+    assertEquals(enemy.getHealthPoints, 100)
   }
+
+  test("getAttackPoints returns correct attack points") {
+    assertEquals(enemy.getAttackPoints, 20)
+  }
+
+  test("getDefense returns correct defense points") {
+    assertEquals(enemy.getDefense, 10)
+  }
+
+  test("getWeight returns correct weight") {
+    assertEquals(enemy.getWeight, 50.0)
+  }
+
+  test("toString returns expected string representation") {
+    val expected = "Enemy {name: Goblin, healthPoints: 100, attackPoints: 20, defense: 10, weight: 50.0}"
+    assertEquals(enemy.toString, expected)
+  }
+
+  test("equals method works correctly") {
+    val sameEnemy = new TestEnemy("Goblin", 100, 20, 10, 50.0)
+    val differentEnemy = new TestEnemy("Orc", 120, 30, 15, 70.0)
+
+    assert(enemy.equals(sameEnemy))
+    assert(!enemy.equals(differentEnemy))
+  }
+
+  test("hashCode method works correctly") {
+    val sameEnemy = new TestEnemy("Goblin", 100, 20, 10, 50.0)
+
+    assertEquals(enemy.hashCode(), sameEnemy.hashCode())
+  }
+
 }

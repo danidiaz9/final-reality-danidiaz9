@@ -55,7 +55,7 @@ abstract class AbstractPlayer(val name: String,
    *
    *  @return The weapon equipped by the player.
    */
-  def getWeapon: TraitWeaponry = Option[TraitWeaponry]
+  def getWeapon: Option[TraitWeaponry] = Some[TraitWeaponry]
 
   /** Sets the weapon to be equipped by the player.
    *

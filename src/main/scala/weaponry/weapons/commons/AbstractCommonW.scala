@@ -2,6 +2,7 @@ package weaponry.weapons.commons
 
 import characters.player.TraitPlayer
 import weaponry.AbstractWeaponry
+import java.util.Objects
 
 /** An abstract class representing a common type of weapon in the game.
  *
@@ -19,26 +20,28 @@ abstract class AbstractCommonW(name: String,
                                owner: Option[TraitPlayer]) extends
              AbstractWeaponry(name, attackPoints, weight, owner) {
 
-}
 
-    //override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
-    
-    //override def equals(that: Any): Boolean = {
-      //  if (canEqual(that)) {
-        //    val other = that.asInstanceOf[Weapon]
-          //  name == other.name &&
-            //attackPoints == other.attackPoints &&
-            //weight == other.weight &&
-            //getOwner == other.getOwner
-       // }
-        //else false
-    //}
-    
-    //override def hashCode: Int = Objects.hash(classOf[Weapon], name, attackPoints, weight)
-    
-   // override def toString: String = s"Weapon {" +
-   //     s"name: $name, " +
-    //    s"attackPoints: $attackPoints, " +
-     //   s"weight: $weight, " +
-      //  s"owner: $getOwner" +
-       // s"}"
+
+  def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractWeaponry]
+
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[AbstractWeaponry]
+      getName == other.getName &&
+      getAttackPoints == other.getAttackPoints &&
+      getWeight == other.getWeight &&
+      getOwner == other.getOwner
+      }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[AbstractWeaponry],
+    getName, getAttackPoints, getWeight, getOwner)
+
+  override def toString: String = s"Weapon {" +
+    s"name: $getName, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"weight: $getWeight, " +
+    s"owner: $getOwner" +
+    s"}"
+}

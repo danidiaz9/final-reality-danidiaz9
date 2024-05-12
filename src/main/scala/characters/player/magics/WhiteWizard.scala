@@ -23,37 +23,30 @@ class WhiteWizard(name: String,
                   weapon: Option[TraitWeaponry]) extends
                   AbstractMagicalP(name, healthPoints, defense, weight, manaPoints, weapon) {
 
+  def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteWizard]
+
+  override def equals(that: Any): Boolean = {
+  if (canEqual(that)) {
+    val other = that.asInstanceOf[WhiteWizard]
+    getName == other.getName &&
+      getHealthPoints == other.getHealthPoints &&
+      getDefense == other.getDefense &&
+      getWeight == other.getWeight &&
+      getManaPoints == other.getManaPoints &&
+      getWeapon == other.getWeapon
+  }
+  else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[WhiteWizard],
+    getName, getHealthPoints, getDefense, getWeight, getManaPoints, getWeapon)
+
+  override def toString: String = s"WhiteWizard {" +
+    s"name: $getName, " +
+    s"healthPoints: $getHealthPoints, " +
+    s"defense: $getDefense, " +
+    s"weight: $getWeight" +
+    s"manaPoints: $getManaPoints" +
+    s"weapon: $getWeapon" +
+    s"}"
 }
-
-  ///** The magical weapon equipped by the white wizard character. */
-  //var equipMagicWeapon: Null = 
-
-//  override var actionPoints = 0.0
-
-//  override var actionBar: Double = weight + 0.5*MagicalWeapon.getWeight
-
-//  override def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteWizard]
-    
-//  override def equals(that: Any): Boolean = {
-  ///    if (canEqual(that)) {
-//          val other = that.asInstanceOf[WhiteWizard]
-       //   name == other.name &&
-     //     healthPoints == other.healthPoints &&
-         // defense == other.defense &&
-         // weight == other.weight &&
-       //   manaPoints == other.manaPoints
-    //  }
-    //  else false
-//  }
-    
-  //override def hashCode: Int = Objects.hash(classOf[WhiteWizard],
-  //  name, healthPoints, defense, weight, manaPoints)
-    
- // override def toString: String = s"WhiteWizard {" +
-  //    s"name: $name, " +
-   //   s"healthPoints: $healthPoints, " +
-   //   s"defense: $defense, " +
-    //  s"weight: $weight, " +
-    //  s"manaPoints: $manaPoints" +
-    //  s"}"
-//}

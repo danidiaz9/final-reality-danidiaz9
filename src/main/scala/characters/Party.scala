@@ -26,8 +26,7 @@ class Party extends Equals {
   def partyStatus(): Unit = {
     var partyHealthPoints: Int = 0
     for (character <- characters) {
-      var healthPoints:Int = character.getHealthPoints
-      partyHealthPoints += healthPoints
+      partyHealthPoints += character.getHealthPoints
     }
     if (partyHealthPoints == 0) {
       println("Defeated Party")

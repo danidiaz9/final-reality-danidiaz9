@@ -9,10 +9,10 @@ package characters
  *  @param _weight The weight of the character.
  */
 abstract class AbstractCharacter(val name: String,
-                        private var healthPoints: Int,
-                        val attackPoints: Int,
-                        private var defense: Int,
-                        val weight: Double) extends TraitCharacter {
+                                 protected var healthPoints: Int,
+                                 val attackPoints: Int,
+                                 protected var defense: Int,
+                                 val weight: Double) extends TraitCharacter {
 
   var actionBar: Double = 0.0
 

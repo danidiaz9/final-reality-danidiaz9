@@ -2,6 +2,7 @@ package weaponry.weapons.magics
 
 import characters.player.TraitPlayer
 import weaponry.AbstractWeaponry
+import java.util.Objects
 
 
 /** A class representing a magical weapon in the game.
@@ -23,30 +24,31 @@ abstract class AbstractMagicalW(name: String,
                                 val magicAttackPoints: Int) extends
             AbstractWeaponry(name, attackPoints, weight, owner) {
 
-}
+  def getMagicAttackPoints: Int = magicAttackPoints
 
-    //override def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractMagical]
+
+  def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractMagicalW]
     
-    //override def equals(that: Any): Boolean = {
-      //  if (canEqual(that)) {
-        //    val other = that.asInstanceOf[AbstractMagical]
-          //  name == other.name &&
-            //attackPoints == other.attackPoints &&
-      //      weight == other.weight &&
-       //     owner == other.owner &&
-        //    magicAttackPoints == other.magicAttackPoints
-      //  }
-       // else false
-  //  }
-    
-   // override def hashCode: Int = Objects.hash(classOf[AbstractMagical],
-     //   name, attackPoints, weight, owner, magicAttackPoints)
-    
-   // override def toString: String = s"MagicalWeapon {" +
-     //   s"name: $name, " +
-      //  s"attackPoints: $attackPoints, " +
-       // s"weight: $weight, " +
-       // s"owner: $owner, " +
-       // s"magicAttackPoints: $magicAttackPoints" +
-       // s"}"
-//}
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[AbstractMagicalW]
+      getName == other.getName &&
+      getAttackPoints == other.getAttackPoints &&
+      getWeight == other.getWeight &&
+      getOwner == other.getOwner &&
+      getMagicAttackPoints == other.getMagicAttackPoints
+      }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[AbstractMagicalW],
+    getName, getAttackPoints, getWeight, getOwner, getMagicAttackPoints)
+
+  override def toString: String = s"MagicalWeapon {" +
+    s"name: $getName, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"weight: $getWeight, " +
+    s"owner: $getOwner, " +
+    s"magicAttackPoints: $getMagicAttackPoints" +
+    s"}"
+  }
