@@ -23,10 +23,10 @@ enemies controlled by the computer.
 
 ## Project Structure
 
-- `characters`: Contains character classes, including both player and enemy characters.
-- `weaponry`: Contains classes representing different types of weapons.
-- `party`: Contains the class representing the player's party.
-- `turn_scheduler`: Contains the TurnScheduler class.
+- `Characters`: Contains character classes, including both player and enemy characters.
+- `Weaponry`: Contains classes representing different types of weapons.
+- `Party`: Contains the class representing the player's party.
+- `TurnScheduler`: Contains the TurnScheduler class.
 
 
 ## Features
