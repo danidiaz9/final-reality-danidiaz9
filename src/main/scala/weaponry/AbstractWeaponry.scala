@@ -16,7 +16,7 @@ abstract class AbstractWeaponry(
                                  val name: String,
                                  val attackPoints: Int,
                                  val weight: Double,
-                                 protected var owner: Option[TraitPlayer]
+                                 protected var owner: Option[TraitPlayer] = None
                                ) extends TraitWeaponry {
 
 
@@ -42,14 +42,14 @@ abstract class AbstractWeaponry(
    *
    *  @return The owner of the weapon.
    */
-  def getOwner: Option[TraitPlayer] = Some[TraitPlayer]
+  def getOwner: Option[TraitPlayer] = owner
 
   /** Sets the owner of the weapon.
    *
    *  @param owner The owner of the weapon.
    */
-  protected def setOwner(owner: Option[TraitPlayer]): Unit = {
-    this.owner = Some[TraitPlayer]
+  protected def setOwner(owner: TraitPlayer): Unit = {
+    var owner = Some[TraitPlayer]
   }
 
 }

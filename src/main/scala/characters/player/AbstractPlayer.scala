@@ -15,7 +15,7 @@ abstract class AbstractPlayer(val name: String,
                               private var healthPoints: Int,
                               private var defense: Int,
                               val weight: Double,
-                              private var weapon: Option[TraitWeaponry]
+                              private var weapon: Option[TraitWeaponry] = None
                              ) extends TraitPlayer {
   
   /** The action bar of the player. */
@@ -55,14 +55,14 @@ abstract class AbstractPlayer(val name: String,
    *
    *  @return The weapon equipped by the player.
    */
-  def getWeapon: Option[TraitWeaponry] = Some[TraitWeaponry]
+  def getWeapon: Option[TraitWeaponry] = weapon
 
   /** Sets the weapon to be equipped by the player.
    *
    *  @param weapon The weapon to be equipped by the player.
    */
   protected def setWeapon(weapon: TraitWeaponry): Unit = {
-    this.weapon = Some[TraitWeaponry]
+   var weapon = Some[TraitWeaponry]
   }
 
   /** Returns the action bar of the player.
