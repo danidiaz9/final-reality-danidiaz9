@@ -82,7 +82,7 @@ class PartyTest extends munit.FunSuite {
     party.addCharacter(warrior)
     party.addCharacter(wizard)
     assertEquals(party.toString(), s"Party {characters: ArrayBuffer(Warrior {name: Conan, healthPoints: 150, " +
-      s"defense: 100, weight: 90.0}, WhiteWizard {name: Gandalf, healthPoints: 120, defense: 80, weight: 70.0, " +
-      s"manaPoints: 100})}")
+      s"defense: 100, weight: 90.0, weapon: None}, WhiteWizard {name: Gandalf, healthPoints: 120, defense: 80, weight: 70.0, " +
+      s"manaPoints: 100, weapon: None})}")
   }
 }

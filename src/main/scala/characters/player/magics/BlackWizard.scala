@@ -45,8 +45,8 @@ class BlackWizard(name: String,
     s"name: $getName, " +
     s"healthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
-    s"weight: $getWeight" +
-    s"manaPoints: $getManaPoints" +
+    s"weight: $getWeight, " +
+    s"manaPoints: $getManaPoints, " +
     s"weapon: $getWeapon" +
     s"}"
 }

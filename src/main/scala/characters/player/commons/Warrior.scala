@@ -40,7 +40,7 @@ class Warrior(name: String,
     s"name: $getName, " +
     s"healthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
-    s"weight: $getWeight" +
+    s"weight: $getWeight, " +
     s"weapon: $getWeapon" +
     s"}"
 

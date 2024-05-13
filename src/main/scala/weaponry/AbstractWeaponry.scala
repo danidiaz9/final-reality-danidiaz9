@@ -46,10 +46,10 @@ abstract class AbstractWeaponry(
 
   /** Sets the owner of the weapon.
    *
-   *  @param owner The owner of the weapon.
+   *  @param o The owner of the weapon.
    */
-  protected def setOwner(owner: TraitPlayer): Unit = {
-    var owner = Some[TraitPlayer]
+  def setOwner(o: TraitPlayer): Unit = {
+    owner = Some(o)
   }
 
 }

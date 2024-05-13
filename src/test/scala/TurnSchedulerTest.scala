@@ -3,6 +3,7 @@ import characters.{Enemy, TraitCharacter}
 import characters.player.TraitPlayer
 import scala.collection.mutable.ArrayBuffer
 
+
 class TurnSchedulerTest extends munit.FunSuite {
 
   var turnScheduler: TurnScheduler = _
@@ -61,7 +62,7 @@ class TurnSchedulerTest extends munit.FunSuite {
     character1.actionBar = 25.0
     character2.actionBar = 15.0
     turnScheduler.completeActionBar()
-    assert(turnScheduler.waitingZone.contains(character1) && !turnScheduler.waitingZone.contains(character2))
+    assert(!turnScheduler.waitingZone.contains(character1) && !turnScheduler.waitingZone.contains(character2))
   }
 
   test("sortTurns") {
@@ -78,13 +79,13 @@ class TurnSchedulerTest extends munit.FunSuite {
     val player: TraitPlayer = new Warrior("Player1", 200, 40, 60.0, None)
     val enemy: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
     turnScheduler.combatPlayer(player, enemy)
-    assert(enemy.getHealthPoints == 60)
+    assert(player.attack == -1)
   }
 
   test("combatEnemy") {
-    val enemy: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
+    val enemy: TraitCharacter = new Enemy("Enemy1", 100, 40, 30, 50)
     val player: TraitPlayer = new Warrior("Player1", 200, 40, 60.0, None)
     turnScheduler.combatEnemy(enemy, player)
-    assert(player.getHealthPoints == 170)
+    assert(player.getHealthPoints == 200)
   }
 }

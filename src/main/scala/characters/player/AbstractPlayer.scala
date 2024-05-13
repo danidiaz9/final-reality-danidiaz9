@@ -59,10 +59,10 @@ abstract class AbstractPlayer(val name: String,
 
   /** Sets the weapon to be equipped by the player.
    *
-   *  @param weapon The weapon to be equipped by the player.
+   *  @param w The weapon to be equipped by the player.
    */
-  protected def setWeapon(weapon: TraitWeaponry): Unit = {
-   var weapon = Some[TraitWeaponry]
+  def setWeapon(w: TraitWeaponry): Unit = {
+   weapon = Some(w)
   }
 
   /** Returns the action bar of the player.
@@ -88,7 +88,8 @@ abstract class AbstractPlayer(val name: String,
       this.getWeapon.get.getAttackPoints
     }
     else {
-      throw new Error("Players must have a weapon to attack.")
+      println("Error: Players must have a weapon to attack.")
+      -1
     }
   }
 
