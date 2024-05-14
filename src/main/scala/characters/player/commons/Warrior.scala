@@ -1,6 +1,8 @@
 package characters.player.commons
 
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Axe, Bow, Sword}
+
 import java.util.Objects
 
 /** A class representing a warrior character in the game.
@@ -18,6 +20,30 @@ class Warrior(name: String,
             weight: Double,
             weapon: Option[TraitWeaponry]) extends
             AbstractCommonP(name, healthPoints, defense, weight, weapon) {
+
+  /** Equips a sword to the warrior character.
+   *
+   *  @param sword The sword to be equipped.
+   */
+  def equipSword(sword: Sword): Unit = {
+    sword.setWarrior(this)
+  }
+
+  /** Equips an axe to the warrior character.
+   *
+   *  @param axe The axe to be equipped.
+   */
+  def equipAxe(axe: Axe): Unit = {
+    axe.setWarrior(this)
+  }
+
+  /** Equips a bow to the warrior character.
+   *
+   *  @param bow The bow to be equipped.
+   */
+  def equipBow(bow: Bow): Unit = {
+    bow.setWarrior(this)
+  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Warrior]
 

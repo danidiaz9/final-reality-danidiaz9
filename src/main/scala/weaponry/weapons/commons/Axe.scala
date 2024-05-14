@@ -1,6 +1,7 @@
 package weaponry.weapons.commons
 
 import characters.player.TraitPlayer
+import characters.player.commons.{Paladin, Warrior}
 
 /** A class representing an axe weapon in the game.
  *
@@ -18,5 +19,21 @@ class Axe (
             weight: Double,
             owner: Option[TraitPlayer]
           ) extends AbstractCommonW (name, attackPoints, weight, owner) {
+
+  /** Sets the owner of the axe to a paladin character.
+   *
+   *  @param paladin The paladin character who will be the owner of the axe.
+   */
+  def setPaladin(paladin: Paladin): Unit = {
+    paladin.setWeapon(this)
+  }
+
+  /** Sets the owner of the axe to a warrior character.
+   *
+   *  @param warrior The warrior character who will be the owner of the axe.
+   */
+  def setWarrior(warrior: Warrior): Unit = {
+    warrior.setWeapon(this)
+  }
 
 }

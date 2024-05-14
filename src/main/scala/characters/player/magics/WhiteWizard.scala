@@ -1,6 +1,9 @@
 package characters.player.magics
 
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.Bow
+import weaponry.weapons.magics.{Staff, Wand}
+
 import java.util.Objects
 
 /** A class representing a white wizard character in the game.
@@ -22,6 +25,30 @@ class WhiteWizard(name: String,
                   manaPoints: Int,
                   weapon: Option[TraitWeaponry]) extends
                   AbstractMagicalP(name, healthPoints, defense, weight, manaPoints, weapon) {
+
+  /** Equips a bow to the white wizard character.
+   *
+   *  @param bow The bow to be equipped.
+   */
+  def equipBow(bow: Bow): Unit = {
+    bow.setWhiteWizard(this)
+  }
+
+  /** Equips a wand to the white wizard character.
+   *
+   *  @param wand The wand to be equipped.
+   */
+  def equipWand(wand: Wand): Unit = {
+    wand.setWhiteWizard(this)
+  }
+
+  /** Equips a staff to the white wizard character.
+   *
+   *  @param staff The staff to be equipped.
+   */
+  def equipStaff(staff: Staff): Unit = {
+    staff.setWhiteWizard(this)
+  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteWizard]
 

@@ -1,6 +1,9 @@
 package characters.player.magics
 
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.Sword
+import weaponry.weapons.magics.{Staff, Wand}
+
 import java.util.Objects
 
 /** A class representing a black wizard character in the game.
@@ -22,6 +25,30 @@ class BlackWizard(name: String,
                   manaPoints: Int,
                   weapon: Option[TraitWeaponry]) extends
                   AbstractMagicalP(name, healthPoints, defense, weight, manaPoints, weapon) {
+
+  /** Equips a sword to the black wizard character.
+   *
+   *  @param sword The sword to be equipped.
+   */
+  def equipSword(sword: Sword): Unit = {
+    sword.setBlackWizard(this)
+  }
+
+  /** Equips a wand to the black wizard character.
+   *
+   *  @param wand The wand to be equipped.
+   */
+  def equipWand(wand: Wand): Unit = {
+    wand.setBlackWizard(this)
+  }
+
+  /** Equips a staff to the black wizard character.
+   *
+   *  @param staff The staff to be equipped.
+   */
+  def equipStaff(staff: Staff): Unit = {
+    staff.setBlackWizard(this)
+  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[BlackWizard]
 

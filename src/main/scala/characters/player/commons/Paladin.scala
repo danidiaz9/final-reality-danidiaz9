@@ -1,6 +1,8 @@
 package characters.player.commons
 
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Axe, Sword}
+
 import java.util.Objects
 
 /** A class representing a paladin character in the game.
@@ -18,6 +20,22 @@ class Paladin(name: String,
             weight: Double,
             weapon: Option[TraitWeaponry]) extends
             AbstractCommonP(name, healthPoints, defense, weight, weapon) {
+
+  /** Equips a sword to the paladin character.
+   *
+   *  @param sword The sword to be equipped.
+   */
+  def equipSword(sword: Sword): Unit = {
+    sword.setPaladin(this)
+  }
+
+  /** Equips an axe to the paladin character.
+   *
+   *  @param axe The axe to be equipped.
+   */
+  def equipAxe(axe: Axe): Unit = {
+    axe.setPaladin(this)
+  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Paladin]
 

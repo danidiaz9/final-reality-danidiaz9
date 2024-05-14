@@ -1,6 +1,9 @@
 package characters.player.commons
 
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Bow, Sword}
+import weaponry.weapons.magics.Wand
+
 import java.util.Objects
 
 
@@ -19,6 +22,30 @@ class Ninja(name: String,
             weight: Double,
             weapon: Option[TraitWeaponry]) extends
             AbstractCommonP(name, healthPoints, defense, weight, weapon) {
+
+  /** Equips a sword to the ninja character.
+   *
+   *  @param sword The sword to be equipped.
+   */
+  def equipSword(sword: Sword): Unit = {
+    sword.setNinja(this)
+  }
+
+  /** Equips a bow to the ninja character.
+   *
+   *  @param bow The bow to be equipped.
+   */
+  def equipBow(bow: Bow): Unit = {
+    bow.setNinja(this)
+  }
+
+  /** Equips a wand to the ninja character.
+   *
+   *  @param wand The wand to be equipped.
+   */
+  def equipWand(wand: Wand): Unit = {
+    wand.setNinja(this)
+  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Ninja]
 

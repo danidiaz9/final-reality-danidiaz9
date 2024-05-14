@@ -1,6 +1,7 @@
 package weaponry.weapons.magics
 
 import characters.player.TraitPlayer
+import characters.player.magics.{BlackWizard, WhiteWizard}
 
 /** A class representing a staff magical weapon in the game.
  *
@@ -20,5 +21,21 @@ class Staff (
             owner: Option[TraitPlayer],
             magicAttackPoints: Int
           ) extends AbstractMagicalW (name, attackPoints, weight, owner, magicAttackPoints) {
+
+  /** Sets the owner of the staff to a black wizard character.
+   *
+   *  @param blackWizard The black wizard character who will be the owner of the staff.
+   */
+  def setBlackWizard(blackWizard: BlackWizard): Unit = {
+    blackWizard.setWeapon(this)
+  }
+
+  /** Sets the owner of the staff to a white wizard character.
+   *
+   *  @param whiteWizard The white wizard character who will be the owner of the staff.
+   */
+  def setWhiteWizard(whiteWizard: WhiteWizard): Unit = {
+    whiteWizard.setWeapon(this)
+  }
 
 }

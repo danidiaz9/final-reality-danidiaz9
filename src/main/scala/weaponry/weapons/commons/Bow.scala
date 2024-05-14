@@ -1,6 +1,8 @@
 package weaponry.weapons.commons
 
 import characters.player.TraitPlayer
+import characters.player.commons.{Ninja, Warrior}
+import characters.player.magics.WhiteWizard
 
 /** A class representing a bow weapon in the game.
  *
@@ -18,5 +20,29 @@ class Bow (
             weight: Double,
             owner: Option[TraitPlayer]
           ) extends AbstractCommonW (name, attackPoints, weight, owner) {
+
+  /** Sets the owner of the bow to a warrior character.
+   *
+   *  @param warrior The warrior character who will be the owner of the bow.
+   */
+  def setWarrior(warrior: Warrior): Unit = {
+    warrior.setWeapon(this)
+  }
+
+  /** Sets the owner of the bow to a ninja character.
+   *
+   *  @param ninja The ninja character who will be the owner of the bow.
+   */
+  def setNinja(ninja: Ninja): Unit = {
+    ninja.setWeapon(this)
+  }
+
+  /** Sets the owner of the bow to a white wizard character.
+   *
+   *  @param whiteWizard The white wizard character who will be the owner of the bow.
+   */
+  def setWhiteWizard(whiteWizard: WhiteWizard): Unit = {
+    whiteWizard.setWeapon(this)
+  }
 
 }

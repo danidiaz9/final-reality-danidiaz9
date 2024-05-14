@@ -16,8 +16,6 @@ trait TraitCharacter {
    */
   val weight: Double
 
-  var actionBar: Double
-
   /** Returns the name of the character.
    *
    * @return The name of the character.
@@ -30,6 +28,10 @@ trait TraitCharacter {
    */
   def getHealthPoints: Int
 
+  /** Sets the health points of the character to the specified value.
+   *
+   *  @param x The value to set the health points to.
+   */
   def setHealthPoints(x: Int): Unit
 
   /** Returns the defense points of the character.

@@ -3,10 +3,10 @@ package characters
 /** An abstract class representing a character in the game.
  *
  *  @constructor Creates a new character with the specified name, health points, defense, and weight.
- *  @param _name The name of the character.
- *  @param _healthPoints The current health points of the character.
- *  @param _defense The defense points of the character.
- *  @param _weight The weight of the character.
+ *  @param name The name of the character.
+ *  @param healthPoints The current health points of the character.
+ *  @param defense The defense points of the character.
+ *  @param weight The weight of the character.
  */
 abstract class AbstractCharacter(val name: String,
                                  protected var healthPoints: Int,
@@ -14,6 +14,7 @@ abstract class AbstractCharacter(val name: String,
                                  protected var defense: Int,
                                  val weight: Double) extends TraitCharacter {
 
+  /** The action bar of the character. */
   var actionBar: Double = 0.0
 
   /** Returns the name of the character.
@@ -28,12 +29,18 @@ abstract class AbstractCharacter(val name: String,
    */
   def getHealthPoints: Int = healthPoints
 
+  /** Sets the health points of the character to the specified value.
+   *
+   *  @param x The value to set the health points to.
+   */
   def setHealthPoints(x: Int): Unit = {
-
     healthPoints = x
-
   }
 
+  /** Returns the attack points of the character.
+   *
+   *  @return The attack points of the character.
+   */
   def getAttackPoints: Int = attackPoints
 
   /** Returns the defense points of the character.

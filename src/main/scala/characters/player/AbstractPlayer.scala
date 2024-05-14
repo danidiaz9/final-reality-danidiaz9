@@ -33,10 +33,12 @@ abstract class AbstractPlayer(val name: String,
    */
   def getHealthPoints: Int = healthPoints
 
+  /** Sets the health points of the player to the specified value.
+   *
+   *  @param x The value to set the health points to.
+   */
   def setHealthPoints(x: Int): Unit = {
-
     healthPoints = x
-
   }
 
   /** Returns the defense points of the player.
@@ -83,6 +85,10 @@ abstract class AbstractPlayer(val name: String,
 
   }
 
+  /** Returns the attack points of the player.
+   *
+   *  @return The attack points of the player.
+   */
   def attack: Int = {
     if (this.getWeapon.isDefined) {
       this.getWeapon.get.getAttackPoints
