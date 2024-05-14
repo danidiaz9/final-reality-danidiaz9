@@ -2,16 +2,25 @@ package charactersTest.commonTest
 
 import characters.player.commons.Ninja
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Bow, Sword}
+import weaponry.weapons.magics.Wand
 
 class NinjaTest extends munit.FunSuite {
 
-  class TestNinja(name: String, healthPoints: Int, defense: Int, weight: Double, weapon: Option[TraitWeaponry])
+  class TestNinja(name: String, healthPoints: Int, defense: Int,
+                  weight: Double, weapon: Option[TraitWeaponry])
     extends Ninja(name, healthPoints, defense, weight, weapon)
 
   var ninja: TestNinja = _
+  var sword: Sword = _
+  var bow: Bow = _
+  var wand: Wand = _
 
   override def beforeEach(context: BeforeEach): Unit = {
     ninja = new TestNinja("Hanzo", 100, 20, 70.0, None)
+    sword = new Sword("Katana", 30, 2.5, None)
+    bow = new Bow("Longbow", 25, 3.0, None)
+    wand = new Wand("Magic Wand", 20, 2.0, None, 30)
   }
 
   test("getName returns correct name") {
@@ -33,6 +42,22 @@ class NinjaTest extends munit.FunSuite {
   test("getWeapon returns None by default") {
     assertEquals(ninja.getWeapon, None)
   }
+
+  test("equipSword should equip a sword to the ninja character") {
+    ninja.equipSword(sword)
+    assertEquals(sword.owner, Some(ninja))
+  }
+
+  test("equipBow should equip a bow to the ninja character") {
+    ninja.equipBow(bow)
+    assertEquals(bow.owner, Some(ninja))
+  }
+
+  test("equipWand should equip a wand to the ninja character") {
+    ninja.equipWand(wand)
+    assertEquals(wand.owner, Some(ninja))
+  }
+
 
   test("toString returns expected string representation") {
     val expected = "Ninja {name: Hanzo, healthPoints: 100, defense: 20, weight: 70.0, weapon: None}"

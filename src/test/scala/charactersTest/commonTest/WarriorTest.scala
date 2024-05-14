@@ -2,16 +2,24 @@ package charactersTest.commonTest
 
 import characters.player.commons.Warrior
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Axe, Bow, Sword}
 
 class WarriorTest extends munit.FunSuite {
 
-  class TestWarrior(name: String, healthPoints: Int, defense: Int, weight: Double, weapon: Option[TraitWeaponry])
+  class TestWarrior(name: String, healthPoints: Int, defense: Int,
+                    weight: Double, weapon: Option[TraitWeaponry])
     extends Warrior(name, healthPoints, defense, weight, weapon)
 
   var warrior: TestWarrior = _
+  var sword: Sword = _
+  var axe: Axe = _
+  var bow: Bow = _
 
   override def beforeEach(context: BeforeEach): Unit = {
     warrior = new TestWarrior("Conan", 200, 40, 100.0, None)
+    sword = new Sword("Broad Sword", 60, 10.0, None)
+    axe = new Axe("Battleaxe", 50, 15.0, None)
+    bow = new Bow("Longbow", 40, 8.0, None)
   }
 
   test("getName returns correct name") {
@@ -32,6 +40,21 @@ class WarriorTest extends munit.FunSuite {
 
   test("getWeapon returns None by default") {
     assertEquals(warrior.getWeapon, None)
+  }
+
+  test("equipSword should equip a sword to the warrior character") {
+    warrior.equipSword(sword)
+    assertEquals(sword.owner, Some(warrior))
+  }
+
+  test("equipAxe should equip an axe to the warrior character") {
+    warrior.equipAxe(axe)
+    assertEquals(axe.owner, Some(warrior))
+  }
+
+  test("equipBow should equip a bow to the warrior character") {
+    warrior.equipBow(bow)
+    assertEquals(bow.owner, Some(warrior))
   }
 
   test("toString returns expected string representation") {

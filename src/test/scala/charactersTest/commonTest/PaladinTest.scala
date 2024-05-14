@@ -2,16 +2,22 @@ package charactersTest.commonTest
 
 import characters.player.commons.Paladin
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Axe, Sword}
 
 class PaladinTest extends munit.FunSuite {
 
-  class TestPaladin(name: String, healthPoints: Int, defense: Int, weight: Double, weapon: Option[TraitWeaponry])
+  class TestPaladin(name: String, healthPoints: Int, defense: Int,
+                    weight: Double, weapon: Option[TraitWeaponry])
     extends Paladin(name, healthPoints, defense, weight, weapon)
 
   var paladin: TestPaladin = _
+  var sword: Sword = _
+  var axe: Axe = _
 
   override def beforeEach(context: BeforeEach): Unit = {
     paladin = new TestPaladin("Arthur", 150, 30, 80.0, None)
+    sword = new Sword("Excalibur", 50, 5.0, None)
+    axe = new Axe("Battleaxe", 40, 7.0, None)
   }
 
   test("getName returns correct name") {
@@ -32,6 +38,16 @@ class PaladinTest extends munit.FunSuite {
 
   test("getWeapon returns None by default") {
     assertEquals(paladin.getWeapon, None)
+  }
+
+  test("equipSword should equip a sword to the paladin character") {
+    paladin.equipSword(sword)
+    assertEquals(sword.owner, Some(paladin))
+  }
+
+  test("equipAxe should equip an axe to the paladin character") {
+    paladin.equipAxe(axe)
+    assertEquals(axe.owner, Some(paladin))
   }
 
   test("toString returns expected string representation") {

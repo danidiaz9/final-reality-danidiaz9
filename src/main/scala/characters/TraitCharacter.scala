@@ -16,6 +16,9 @@ trait TraitCharacter {
    */
   val weight: Double
 
+  /** The action bar of the character. */
+  var actionBar: Double
+
   /** Returns the name of the character.
    *
    * @return The name of the character.

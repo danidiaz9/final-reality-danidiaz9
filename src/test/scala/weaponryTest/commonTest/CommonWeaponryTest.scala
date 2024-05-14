@@ -1,7 +1,7 @@
-package weaponryTest
+package weaponryTest.commonTest
 
-import weaponry.weapons.commons.AbstractCommonW
 import characters.player.TraitPlayer
+import weaponry.weapons.commons.AbstractCommonW
 
 class CommonWeaponryTest extends munit.FunSuite {
 

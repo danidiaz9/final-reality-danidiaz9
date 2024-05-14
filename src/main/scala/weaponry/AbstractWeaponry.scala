@@ -16,7 +16,7 @@ abstract class AbstractWeaponry(
                                  val name: String,
                                  val attackPoints: Int,
                                  val weight: Double,
-                                 protected var owner: Option[TraitPlayer] = None
+                                 var owner: Option[TraitPlayer] = None
                                ) extends TraitWeaponry {
 
 
