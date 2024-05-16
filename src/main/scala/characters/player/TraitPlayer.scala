@@ -2,6 +2,8 @@ package characters.player
 
 import characters.TraitCharacter
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Axe, Bow, Sword}
+import weaponry.weapons.magics.{Staff, Wand}
 
 /** Trait representing a player-controlled character.
  *
@@ -21,5 +23,15 @@ trait TraitPlayer extends TraitCharacter {
    *  @param weapon The weapon to be equipped by the player.
    */
   def setWeapon(weapon: TraitWeaponry): Unit
+
+  def equipAxe(axe: Axe): Unit
+
+  def equipBow(bow: Bow): Unit
+
+  def equipSword(sword: Sword): Unit
+
+  def equipWand(wand: Wand): Unit
+
+  def equipStaff(staff: Staff): Unit
 
 }

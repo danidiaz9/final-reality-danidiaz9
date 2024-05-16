@@ -25,7 +25,7 @@ class Warrior(name: String,
    *
    *  @param sword The sword to be equipped.
    */
-  def equipSword(sword: Sword): Unit = {
+  override def equipSword(sword: Sword): Unit = {
     sword.setWarrior(this)
   }
 
@@ -33,7 +33,7 @@ class Warrior(name: String,
    *
    *  @param axe The axe to be equipped.
    */
-  def equipAxe(axe: Axe): Unit = {
+  override def equipAxe(axe: Axe): Unit = {
     axe.setWarrior(this)
   }
 
@@ -41,7 +41,7 @@ class Warrior(name: String,
    *
    *  @param bow The bow to be equipped.
    */
-  def equipBow(bow: Bow): Unit = {
+  override def equipBow(bow: Bow): Unit = {
     bow.setWarrior(this)
   }
 

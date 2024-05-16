@@ -1,6 +1,8 @@
 package weaponry
 
 import characters.player.TraitPlayer
+import characters.player.commons.{Ninja, Paladin, Warrior}
+import characters.player.magics.{BlackWizard, WhiteWizard}
 
 /** An abstract class representing a type of weaponry in the game.
  *
@@ -50,6 +52,17 @@ abstract class AbstractWeaponry(
    */
   def setOwner(o: TraitPlayer): Unit = {
     owner = Some(o)
+    o.setWeapon(this)
   }
+
+  def setNinja(ninja: Ninja): Unit = throw new InvalidSetException()
+
+  def setPaladin(paladin: Paladin): Unit = throw new InvalidSetException()
+
+  def setWarrior(warrior: Warrior): Unit = throw new InvalidSetException()
+
+  def setBlackWizard(blackWizard: BlackWizard): Unit = throw new InvalidSetException()
+
+  def setWhiteWizard(whiteWizard: WhiteWizard): Unit = throw new InvalidSetException()
 
 }

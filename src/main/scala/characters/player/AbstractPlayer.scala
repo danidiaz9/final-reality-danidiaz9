@@ -1,6 +1,8 @@
 package characters.player
 
 import weaponry.TraitWeaponry
+import weaponry.weapons.commons.{Axe, Bow, Sword}
+import weaponry.weapons.magics.{Staff, Wand}
 
 /** An abstract class representing a player-controlled character in the game.
  *
@@ -65,7 +67,18 @@ abstract class AbstractPlayer(val name: String,
    */
   def setWeapon(w: TraitWeaponry): Unit = {
    weapon = Some(w)
+   w.setOwner(this)
   }
+
+  def equipAxe(axe: Axe): Unit = throw new InvalidEquipException()
+
+  def equipBow(bow: Bow): Unit = throw new InvalidEquipException()
+
+  def equipSword(sword: Sword): Unit = throw new InvalidEquipException()
+
+  def equipWand(wand: Wand): Unit = throw new InvalidEquipException()
+
+  def equipStaff(staff: Staff): Unit = throw new InvalidEquipException()
 
   /** Returns the action bar of the player.
    *

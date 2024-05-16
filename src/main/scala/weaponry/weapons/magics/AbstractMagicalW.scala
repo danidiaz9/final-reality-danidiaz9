@@ -26,7 +26,6 @@ abstract class AbstractMagicalW(name: String,
 
   def getMagicAttackPoints: Int = magicAttackPoints
 
-
   def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractMagicalW]
     
   override def equals(that: Any): Boolean = {

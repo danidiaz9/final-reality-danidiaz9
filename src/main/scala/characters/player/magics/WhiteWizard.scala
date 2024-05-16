@@ -30,7 +30,7 @@ class WhiteWizard(name: String,
    *
    *  @param bow The bow to be equipped.
    */
-  def equipBow(bow: Bow): Unit = {
+  override def equipBow(bow: Bow): Unit = {
     bow.setWhiteWizard(this)
   }
 
@@ -38,7 +38,7 @@ class WhiteWizard(name: String,
    *
    *  @param wand The wand to be equipped.
    */
-  def equipWand(wand: Wand): Unit = {
+  override def equipWand(wand: Wand): Unit = {
     wand.setWhiteWizard(this)
   }
 
@@ -46,7 +46,7 @@ class WhiteWizard(name: String,
    *
    *  @param staff The staff to be equipped.
    */
-  def equipStaff(staff: Staff): Unit = {
+  override def equipStaff(staff: Staff): Unit = {
     staff.setWhiteWizard(this)
   }
 

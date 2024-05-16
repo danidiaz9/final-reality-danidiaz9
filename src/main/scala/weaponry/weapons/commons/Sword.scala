@@ -3,6 +3,9 @@ package weaponry.weapons.commons
 import characters.player.TraitPlayer
 import characters.player.commons.{Ninja, Paladin, Warrior}
 import characters.player.magics.BlackWizard
+import weaponry.TraitWeaponry
+
+import java.util.Objects
 
 /** A class representing a sword weapon in the game.
  *
@@ -25,7 +28,7 @@ class Sword (
    *
    *  @param paladin The paladin character who will be the owner of the sword.
    */
-  def setPaladin(paladin: Paladin): Unit = {
+  override def setPaladin(paladin: Paladin): Unit = {
     paladin.setWeapon(this)
   }
 
@@ -33,7 +36,7 @@ class Sword (
    *
    *  @param warrior The warrior character who will be the owner of the sword.
    */
-  def setWarrior(warrior: Warrior): Unit = {
+  override def setWarrior(warrior: Warrior): Unit = {
     warrior.setWeapon(this)
   }
 
@@ -41,7 +44,7 @@ class Sword (
    *
    *  @param ninja The ninja character who will be the owner of the sword.
    */
-  def setNinja(ninja: Ninja): Unit = {
+  override def setNinja(ninja: Ninja): Unit = {
     ninja.setWeapon(this)
   }
 
@@ -49,8 +52,31 @@ class Sword (
    *
    *  @param blackWizard The black wizard character who will be the owner of the sword.
    */
-  def setBlackWizard(blackWizard: BlackWizard): Unit = {
+  override def setBlackWizard(blackWizard: BlackWizard): Unit = {
     blackWizard.setWeapon(this)
   }
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[TraitWeaponry]
+
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[TraitWeaponry]
+      getName == other.getName &&
+        getAttackPoints == other.getAttackPoints &&
+        getWeight == other.getWeight &&
+        getOwner == other.getOwner
+    }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[TraitWeaponry],
+    getName, getAttackPoints, getWeight, getOwner)
+
+  override def toString: String = s"Sword {" +
+    s"name: $getName, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"weight: $getWeight, " +
+    s"owner: $getOwner" +
+    s"}"
 
 }

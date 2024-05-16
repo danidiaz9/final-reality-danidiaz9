@@ -1,6 +1,8 @@
 package weaponry
 
 import characters.player.TraitPlayer
+import characters.player.commons.{Ninja, Paladin, Warrior}
+import characters.player.magics.{BlackWizard, WhiteWizard}
 
 /** A trait representing weaponry in the game.
  *
@@ -45,5 +47,15 @@ trait TraitWeaponry {
    *
    * */
   def setOwner(o: TraitPlayer): Unit
+
+  def setNinja(ninja: Ninja): Unit
+
+  def setPaladin(paladin: Paladin): Unit
+
+  def setWarrior(warrior: Warrior): Unit
+
+  def setBlackWizard(blackWizard: BlackWizard): Unit
+
+  def setWhiteWizard(whiteWizard: WhiteWizard): Unit
 
 }

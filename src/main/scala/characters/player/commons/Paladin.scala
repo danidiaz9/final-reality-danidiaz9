@@ -25,7 +25,7 @@ class Paladin(name: String,
    *
    *  @param sword The sword to be equipped.
    */
-  def equipSword(sword: Sword): Unit = {
+  override def equipSword(sword: Sword): Unit = {
     sword.setPaladin(this)
   }
 
@@ -33,7 +33,7 @@ class Paladin(name: String,
    *
    *  @param axe The axe to be equipped.
    */
-  def equipAxe(axe: Axe): Unit = {
+  override def equipAxe(axe: Axe): Unit = {
     axe.setPaladin(this)
   }
 

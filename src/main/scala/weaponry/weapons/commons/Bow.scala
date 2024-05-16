@@ -3,6 +3,9 @@ package weaponry.weapons.commons
 import characters.player.TraitPlayer
 import characters.player.commons.{Ninja, Warrior}
 import characters.player.magics.WhiteWizard
+import weaponry.TraitWeaponry
+
+import java.util.Objects
 
 /** A class representing a bow weapon in the game.
  *
@@ -25,7 +28,7 @@ class Bow (
    *
    *  @param warrior The warrior character who will be the owner of the bow.
    */
-  def setWarrior(warrior: Warrior): Unit = {
+  override def setWarrior(warrior: Warrior): Unit = {
     warrior.setWeapon(this)
   }
 
@@ -33,7 +36,7 @@ class Bow (
    *
    *  @param ninja The ninja character who will be the owner of the bow.
    */
-  def setNinja(ninja: Ninja): Unit = {
+  override def setNinja(ninja: Ninja): Unit = {
     ninja.setWeapon(this)
   }
 
@@ -41,8 +44,31 @@ class Bow (
    *
    *  @param whiteWizard The white wizard character who will be the owner of the bow.
    */
-  def setWhiteWizard(whiteWizard: WhiteWizard): Unit = {
+  override def setWhiteWizard(whiteWizard: WhiteWizard): Unit = {
     whiteWizard.setWeapon(this)
   }
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[TraitWeaponry]
+
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[TraitWeaponry]
+      getName == other.getName &&
+        getAttackPoints == other.getAttackPoints &&
+        getWeight == other.getWeight &&
+        getOwner == other.getOwner
+    }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[TraitWeaponry],
+    getName, getAttackPoints, getWeight, getOwner)
+
+  override def toString: String = s"Bow {" +
+    s"name: $getName, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"weight: $getWeight, " +
+    s"owner: $getOwner" +
+    s"}"
 
 }

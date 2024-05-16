@@ -27,7 +27,7 @@ class Ninja(name: String,
    *
    *  @param sword The sword to be equipped.
    */
-  def equipSword(sword: Sword): Unit = {
+  override def equipSword(sword: Sword): Unit = {
     sword.setNinja(this)
   }
 
@@ -35,7 +35,7 @@ class Ninja(name: String,
    *
    *  @param bow The bow to be equipped.
    */
-  def equipBow(bow: Bow): Unit = {
+  override def equipBow(bow: Bow): Unit = {
     bow.setNinja(this)
   }
 
@@ -43,7 +43,7 @@ class Ninja(name: String,
    *
    *  @param wand The wand to be equipped.
    */
-  def equipWand(wand: Wand): Unit = {
+  override def equipWand(wand: Wand): Unit = {
     wand.setNinja(this)
   }
 

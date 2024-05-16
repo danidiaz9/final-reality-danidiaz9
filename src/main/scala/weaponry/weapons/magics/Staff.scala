@@ -2,6 +2,9 @@ package weaponry.weapons.magics
 
 import characters.player.TraitPlayer
 import characters.player.magics.{BlackWizard, WhiteWizard}
+import weaponry.TraitWeaponry
+
+import java.util.Objects
 
 /** A class representing a staff magical weapon in the game.
  *
@@ -26,7 +29,7 @@ class Staff (
    *
    *  @param blackWizard The black wizard character who will be the owner of the staff.
    */
-  def setBlackWizard(blackWizard: BlackWizard): Unit = {
+  override def setBlackWizard(blackWizard: BlackWizard): Unit = {
     blackWizard.setWeapon(this)
   }
 
@@ -34,8 +37,33 @@ class Staff (
    *
    *  @param whiteWizard The white wizard character who will be the owner of the staff.
    */
-  def setWhiteWizard(whiteWizard: WhiteWizard): Unit = {
+  override def setWhiteWizard(whiteWizard: WhiteWizard): Unit = {
     whiteWizard.setWeapon(this)
   }
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[TraitWeaponry]
+
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[TraitWeaponry]
+      getName == other.getName &&
+        getAttackPoints == other.getAttackPoints &&
+        getWeight == other.getWeight &&
+        getOwner == other.getOwner &&
+        getMagicAttackPoints == other.getMagicAttackPoints
+    }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[TraitWeaponry],
+    getName, getAttackPoints, getWeight, getOwner, getMagicAttackPoints)
+
+  override def toString: String = s"Staff {" +
+    s"name: $getName, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"weight: $getWeight, " +
+    s"owner: $getOwner, " +
+    s"magicAttackPoints: $getMagicAttackPoints" +
+    s"}"
 
 }

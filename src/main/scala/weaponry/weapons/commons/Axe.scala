@@ -2,6 +2,9 @@ package weaponry.weapons.commons
 
 import characters.player.TraitPlayer
 import characters.player.commons.{Paladin, Warrior}
+import weaponry.TraitWeaponry
+
+import java.util.Objects
 
 /** A class representing an axe weapon in the game.
  *
@@ -24,7 +27,7 @@ class Axe (
    *
    *  @param paladin The paladin character who will be the owner of the axe.
    */
-  def setPaladin(paladin: Paladin): Unit = {
+  override def setPaladin(paladin: Paladin): Unit = {
     paladin.setWeapon(this)
   }
 
@@ -32,8 +35,31 @@ class Axe (
    *
    *  @param warrior The warrior character who will be the owner of the axe.
    */
-  def setWarrior(warrior: Warrior): Unit = {
+  override def setWarrior(warrior: Warrior): Unit = {
     warrior.setWeapon(this)
   }
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[TraitWeaponry]
+
+  override def equals(that: Any): Boolean = {
+    if (canEqual(that)) {
+      val other = that.asInstanceOf[TraitWeaponry]
+      getName == other.getName &&
+        getAttackPoints == other.getAttackPoints &&
+        getWeight == other.getWeight &&
+        getOwner == other.getOwner
+    }
+    else false
+  }
+
+  override def hashCode: Int = Objects.hash(classOf[TraitWeaponry],
+    getName, getAttackPoints, getWeight, getOwner)
+
+  override def toString: String = s"Axe {" +
+    s"name: $getName, " +
+    s"attackPoints: $getAttackPoints, " +
+    s"weight: $getWeight, " +
+    s"owner: $getOwner" +
+    s"}"
 
 }
