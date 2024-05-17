@@ -1,5 +1,9 @@
 package weapons.magics
 
-trait MagicWeapon {
+import weapons.Weapon
+
+trait MagicWeapon extends Weapon {
+
+  def getMagicAttackPoints: Int
 
 }

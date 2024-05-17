@@ -31,7 +31,7 @@ class BlackMage(name: String,
    *  @param sword The sword to be equipped.
    */
   override def equipSword(sword: Sword): Unit = {
-    sword.setBlackWizard(this)
+    sword.setBlackMage(this)
   }
 
   /** Equips a wand to the black wizard character.
@@ -39,7 +39,7 @@ class BlackMage(name: String,
    *  @param wand The wand to be equipped.
    */
   override def equipWand(wand: Wand): Unit = {
-    wand.setBlackWizard(this)
+    wand.setBlackMage(this)
   }
 
   /** Equips a staff to the black wizard character.
@@ -47,7 +47,7 @@ class BlackMage(name: String,
    *  @param staff The staff to be equipped.
    */
   override def equipStaff(staff: Staff): Unit = {
-    staff.setBlackWizard(this)
+    staff.setBlackMage(this)
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[BlackMage]

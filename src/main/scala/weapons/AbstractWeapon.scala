@@ -61,8 +61,8 @@ abstract class AbstractWeapon(
 
   def setWarrior(warrior: Warrior): Unit = throw new InvalidSetException()
 
-  def setBlackWizard(blackWizard: BlackMage): Unit = throw new InvalidSetException()
+  def setBlackMage(blackMage: BlackMage): Unit = throw new InvalidSetException()
 
-  def setWhiteWizard(whiteWizard: WhiteMage): Unit = throw new InvalidSetException()
+  def setWhiteMage(whiteMage: WhiteMage): Unit = throw new InvalidSetException()
 
 }

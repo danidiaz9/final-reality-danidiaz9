@@ -1,21 +1,21 @@
 package weaponryTest.magicTest
 
 import gameUnits.character.Character
-import weapons.magics.AbstractMagicalWeapon
+import weapons.magics.AbstractMagicWeapon
 
 class MagicalWeaponryTest extends munit.FunSuite {
 
-  class TestMagicalWeapon(name: String,
-                          attackPoints: Int,
-                          weight: Double,
-                          owner: Option[Character],
-                          magicAttackPoints: Int)
-    extends AbstractMagicalWeapon(name, attackPoints, weight, owner, magicAttackPoints)
+  class TestMagicWeapon(name: String,
+                        attackPoints: Int,
+                        weight: Double,
+                        owner: Option[Character],
+                        magicAttackPoints: Int)
+    extends AbstractMagicWeapon(name, attackPoints, weight, owner, magicAttackPoints)
 
-  var weapon: TestMagicalWeapon = _
+  var weapon: TestMagicWeapon = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    weapon = new TestMagicalWeapon("Staff", 8, 4.0, None, 12)
+    weapon = new TestMagicWeapon("Staff", 8, 4.0, None, 12)
   }
 
   test("getName returns correct name") {
@@ -44,15 +44,15 @@ class MagicalWeaponryTest extends munit.FunSuite {
   }
 
   test("equals method works correctly") {
-    val sameWeapon = new TestMagicalWeapon("Staff", 8, 4.0, None, 12)
-    val differentWeapon = new TestMagicalWeapon("Wand", 8, 3.0, None, 10)
+    val sameWeapon = new TestMagicWeapon("Staff", 8, 4.0, None, 12)
+    val differentWeapon = new TestMagicWeapon("Wand", 8, 3.0, None, 10)
 
     assert(weapon.equals(sameWeapon))
     assert(!weapon.equals(differentWeapon))
   }
 
   test("hashCode method works correctly") {
-    val sameWeapon = new TestMagicalWeapon("Staff", 8, 4.0, None, 12)
+    val sameWeapon = new TestMagicWeapon("Staff", 8, 4.0, None, 12)
 
     assertEquals(weapon.hashCode(), sameWeapon.hashCode())
   }

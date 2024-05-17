@@ -37,8 +37,8 @@ class SwordTest extends munit.FunSuite {
     assertEquals(sword.owner, Some(ninja))
   }
 
-  test("setBlackWizard should set the owner of the sword to a black wizard character") {
-    sword.setBlackWizard(blackWizard)
+  test("setBlackMage should set the owner of the sword to a black wizard character") {
+    sword.setBlackMage(blackWizard)
     assertEquals(sword.owner, Some(blackWizard))
   }
 

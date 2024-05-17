@@ -17,13 +17,13 @@ class StaffTest extends munit.FunSuite {
 
   }
 
-  test("setBlackWizard should set the owner of the staff to a black wizard character") {
-    staff.setBlackWizard(blackWizard)
+  test("setBlackMage should set the owner of the staff to a black wizard character") {
+    staff.setBlackMage(blackWizard)
     assertEquals(staff.owner, Some(blackWizard))
   }
 
-  test("setWhiteWizard should set the owner of the staff to a white wizard character") {
-    staff.setWhiteWizard(whiteWizard)
+  test("setWhiteMage should set the owner of the staff to a white wizard character") {
+    staff.setWhiteMage(whiteWizard)
     assertEquals(staff.owner, Some(whiteWizard))
   }
 

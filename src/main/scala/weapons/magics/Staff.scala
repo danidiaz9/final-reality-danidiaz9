@@ -23,29 +23,29 @@ class Staff (
               weight: Double,
               owner: Option[Character],
               magicAttackPoints: Int
-          ) extends AbstractMagicalWeapon (name, attackPoints, weight, owner, magicAttackPoints) {
+          ) extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints) with MagicWeapon {
 
   /** Sets the owner of the staff to a black wizard character.
    *
-   *  @param blackWizard The black wizard character who will be the owner of the staff.
+   *  @param blackMage The black wizard character who will be the owner of the staff.
    */
-  override def setBlackWizard(blackWizard: BlackMage): Unit = {
-    blackWizard.setWeapon(this)
+  override def setBlackMage(blackMage: BlackMage): Unit = {
+    blackMage.setWeapon(this)
   }
 
   /** Sets the owner of the staff to a white wizard character.
    *
-   *  @param whiteWizard The white wizard character who will be the owner of the staff.
+   *  @param whiteMage The white wizard character who will be the owner of the staff.
    */
-  override def setWhiteWizard(whiteWizard: WhiteMage): Unit = {
-    whiteWizard.setWeapon(this)
+  override def setWhiteMage(whiteMage: WhiteMage): Unit = {
+    whiteMage.setWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Staff]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[Weapon]
+      val other = that.asInstanceOf[MagicWeapon]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&
@@ -55,7 +55,7 @@ class Staff (
     else false
   }
 
-  override def hashCode: Int = Objects.hash(classOf[Weapon],
+  override def hashCode: Int = Objects.hash(classOf[Staff],
     getName, getAttackPoints, getWeight, getOwner, getMagicAttackPoints)
 
   override def toString: String = s"Staff {" +

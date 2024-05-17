@@ -24,7 +24,7 @@ class Wand (
              weight: Double,
              owner: Option[Character],
              magicAttackPoints: Int
-            ) extends AbstractMagicalWeapon (name, attackPoints, weight, owner, magicAttackPoints) {
+            ) extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints) {
 
   /** Sets the owner of the wand to a ninja character.
    *
@@ -36,18 +36,18 @@ class Wand (
 
   /** Sets the owner of the wand to a black wizard character.
    *
-   *  @param blackWizard The black wizard character who will be the owner of the wand.
+   *  @param blackMage The black wizard character who will be the owner of the wand.
    */
-  override def setBlackWizard(blackWizard: BlackMage): Unit = {
-    blackWizard.setWeapon(this)
+  override def setBlackMage(blackMage: BlackMage): Unit = {
+    blackMage.setWeapon(this)
   }
 
   /** Sets the owner of the wand to a white wizard character.
    *
-   *  @param whiteWizard The white wizard character who will be the owner of the wand.
+   *  @param whiteMage The white wizard character who will be the owner of the wand.
    */
-  override def setWhiteWizard(whiteWizard: WhiteMage): Unit = {
-    whiteWizard.setWeapon(this)
+  override def setWhiteMage(whiteMage: WhiteMage): Unit = {
+    whiteMage.setWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]

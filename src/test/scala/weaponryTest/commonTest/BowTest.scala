@@ -30,8 +30,8 @@ class BowTest extends munit.FunSuite {
     assertEquals(bow.owner, Some(ninja))
   }
 
-  test("setWhiteWizard should set the owner of the bow to a white wizard character") {
-    bow.setWhiteWizard(whiteWizard)
+  test("setWhiteMage should set the owner of the bow to a white wizard character") {
+    bow.setWhiteMage(whiteWizard)
     assertEquals(bow.owner, Some(whiteWizard))
   }
 

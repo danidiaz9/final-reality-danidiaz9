@@ -1,5 +1,7 @@
 package gameUnits
 
+import exceptions.Require
+
 /** An abstract class representing a character in the game.
  *
  *  @constructor Creates a new character with the specified name, health points, defense, and weight.
@@ -13,6 +15,7 @@ abstract class AbstractUnit(val name: String,
                             val attackPoints: Int,
                             protected var defense: Int,
                             val weight: Double) extends GameUnit {
+  Require.Stat(healthPoints, "healthPoints").atLeast(0)
 
   /** The action bar of the character. */
   var actionBar: Double = 0.0

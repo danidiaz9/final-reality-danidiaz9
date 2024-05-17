@@ -25,13 +25,13 @@ class WandTest extends munit.FunSuite {
     assertEquals(wand.owner, Some(ninja))
   }
 
-  test("setBlackWizard should set the owner of the wand to a black wizard character") {
-    wand.setBlackWizard(blackWizard)
+  test("setBlackMage should set the owner of the wand to a black wizard character") {
+    wand.setBlackMage(blackWizard)
     assertEquals(wand.owner, Some(blackWizard))
   }
 
-  test("setWhiteWizard should set the owner of the wand to a white wizard character") {
-    wand.setWhiteWizard(whiteWizard)
+  test("setWhiteMage should set the owner of the wand to a white wizard character") {
+    wand.setWhiteMage(whiteWizard)
     assertEquals(wand.owner, Some(whiteWizard))
   }
 

@@ -42,10 +42,10 @@ class Bow (
 
   /** Sets the owner of the bow to a white wizard character.
    *
-   *  @param whiteWizard The white wizard character who will be the owner of the bow.
+   *  @param whiteMage The white wizard character who will be the owner of the bow.
    */
-  override def setWhiteWizard(whiteWizard: WhiteMage): Unit = {
-    whiteWizard.setWeapon(this)
+  override def setWhiteMage(whiteMage: WhiteMage): Unit = {
+    whiteMage.setWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]

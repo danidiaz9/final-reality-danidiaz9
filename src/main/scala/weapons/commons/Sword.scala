@@ -50,10 +50,10 @@ class Sword (
 
   /** Sets the owner of the sword to a black wizard character.
    *
-   *  @param blackWizard The black wizard character who will be the owner of the sword.
+   *  @param blackMage The black wizard character who will be the owner of the sword.
    */
-  override def setBlackWizard(blackWizard: BlackMage): Unit = {
-    blackWizard.setWeapon(this)
+  override def setBlackMage(blackMage: BlackMage): Unit = {
+    blackMage.setWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]

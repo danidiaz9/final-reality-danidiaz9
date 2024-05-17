@@ -54,8 +54,8 @@ trait Weapon {
 
   def setWarrior(warrior: Warrior): Unit
 
-  def setBlackWizard(blackWizard: BlackMage): Unit
+  def setBlackMage(blackMage: BlackMage): Unit
 
-  def setWhiteWizard(whiteWizard: WhiteMage): Unit
+  def setWhiteMage(whiteMage: WhiteMage): Unit
 
 }
