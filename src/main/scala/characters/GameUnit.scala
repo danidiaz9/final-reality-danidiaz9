@@ -5,7 +5,7 @@ package characters
  * This trait defines the basic properties of a character in the game,
  * such as name, health points, defense, weight, and action bar.
  */
-trait TraitCharacter {
+trait GameUnit {
   /** The name of the character.
    *
    */

@@ -1,14 +1,14 @@
 package charactersTest.commonTest
 
 import characters.player.commons.Ninja
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.{Bow, Sword}
 import weaponry.weapons.magics.Wand
 
 class NinjaTest extends munit.FunSuite {
 
   class TestNinja(name: String, healthPoints: Int, defense: Int,
-                  weight: Double, weapon: Option[TraitWeaponry])
+                  weight: Double, weapon: Option[Weapon])
     extends Ninja(name, healthPoints, defense, weight, weapon)
 
   var ninja: TestNinja = _

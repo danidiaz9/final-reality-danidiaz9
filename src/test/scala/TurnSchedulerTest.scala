@@ -1,6 +1,6 @@
 import characters.player.commons.Warrior
-import characters.{Enemy, TraitCharacter}
-import characters.player.TraitPlayer
+import characters.{Enemy, GameUnit}
+import characters.player.Character
 import scala.collection.mutable.ArrayBuffer
 
 
@@ -38,8 +38,8 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("resetActionBarInstance") {
-    val character1: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: TraitCharacter = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
     character1.actionBar = 10.0
     character2.actionBar = 20.0
@@ -48,16 +48,16 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("updateLoadingZone") {
-    val character1: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: TraitCharacter = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
     turnScheduler.updateLoadingZone(5)
     assert(character1.actionBar == 5 && character2.actionBar == 5)
   }
 
   test("completeActionBar") {
-    val character1: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: TraitCharacter = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
     character1.actionBar = 25.0
     character2.actionBar = 15.0
@@ -66,8 +66,8 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("sortTurns") {
-    val character1: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: TraitCharacter = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
     character1.actionBar = 25.0
     character2.actionBar = 15.0
@@ -76,15 +76,15 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("combatPlayer") {
-    val player: TraitPlayer = new Warrior("Player1", 200, 40, 60.0, None)
-    val enemy: TraitCharacter = new Enemy("Enemy1", 100, 20, 30, 50)
+    val player: Character = new Warrior("Player1", 200, 40, 60.0, None)
+    val enemy: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
     turnScheduler.combatPlayer(player, enemy)
     assert(player.attack == -1)
   }
 
   test("combatEnemy") {
-    val enemy: TraitCharacter = new Enemy("Enemy1", 100, 40, 30, 50)
-    val player: TraitPlayer = new Warrior("Player1", 200, 40, 60.0, None)
+    val enemy: GameUnit = new Enemy("Enemy1", 100, 40, 30, 50)
+    val player: Character = new Warrior("Player1", 200, 40, 60.0, None)
     turnScheduler.combatEnemy(enemy, player)
     assert(player.getHealthPoints == 200)
   }

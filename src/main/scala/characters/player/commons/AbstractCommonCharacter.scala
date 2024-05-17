@@ -1,7 +1,7 @@
 package characters.player.commons
 
-import characters.player.AbstractPlayer
-import weaponry.TraitWeaponry
+import characters.player.AbstractCharacter
+import weaponry.Weapon
 
 /** An abstract class representing a common player character in the game.
  *
@@ -12,12 +12,12 @@ import weaponry.TraitWeaponry
  *  @param weight The weight of the common player character.
  *  @param weapon The weapon equipped by the common player character.
  */
-abstract class AbstractCommonP(name: String,
-                               healthPoints: Int,
-                               defense: Int,
-                               weight: Double,
-                               weapon: Option[TraitWeaponry])
-  extends AbstractPlayer(name, healthPoints, defense, weight, weapon)  {
+abstract class AbstractCommonCharacter(name: String,
+                                       healthPoints: Int,
+                                       defense: Int,
+                                       weight: Double,
+                                       weapon: Option[Weapon])
+  extends AbstractCharacter(name, healthPoints, defense, weight, weapon)  {
 
 
 }

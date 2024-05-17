@@ -1,8 +1,8 @@
 package weaponry.weapons.commons
 
-import characters.player.TraitPlayer
+import characters.player.Character
 import characters.player.commons.{Paladin, Warrior}
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 
 import java.util.Objects
 
@@ -20,8 +20,8 @@ class Axe (
             name: String,
             attackPoints: Int,
             weight: Double,
-            owner: Option[TraitPlayer]
-          ) extends AbstractCommonW (name, attackPoints, weight, owner) {
+            owner: Option[Character]
+          ) extends AbstractCommonWeapon (name, attackPoints, weight, owner) {
 
   /** Sets the owner of the axe to a paladin character.
    *
@@ -39,11 +39,11 @@ class Axe (
     warrior.setWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[TraitWeaponry]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[TraitWeaponry]
+      val other = that.asInstanceOf[Weapon]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&
@@ -52,7 +52,7 @@ class Axe (
     else false
   }
 
-  override def hashCode: Int = Objects.hash(classOf[TraitWeaponry],
+  override def hashCode: Int = Objects.hash(classOf[Weapon],
     getName, getAttackPoints, getWeight, getOwner)
 
   override def toString: String = s"Axe {" +

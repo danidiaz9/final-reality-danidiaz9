@@ -1,6 +1,6 @@
 package characters.player.commons
 
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.{Bow, Sword}
 import weaponry.weapons.magics.Wand
 
@@ -20,8 +20,8 @@ class Ninja(name: String,
             healthPoints: Int,
             defense: Int,
             weight: Double,
-            weapon: Option[TraitWeaponry]) extends
-            AbstractCommonP(name, healthPoints, defense, weight, weapon) {
+            weapon: Option[Weapon]) extends
+            AbstractCommonCharacter(name, healthPoints, defense, weight, weapon) {
 
   /** Equips a sword to the ninja character.
    *

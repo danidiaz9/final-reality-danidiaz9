@@ -16,7 +16,7 @@ class Enemy(name: String,
             attackPoints: Int,
             defense: Int,
             weight: Double) extends
-            AbstractCharacter(name, healthPoints, attackPoints, defense, weight) {
+            AbstractUnit(name, healthPoints, attackPoints, defense, weight) {
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
 

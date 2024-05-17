@@ -1,13 +1,13 @@
 package charactersTest.commonTest
 
 import characters.player.commons.Paladin
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.{Axe, Sword}
 
 class PaladinTest extends munit.FunSuite {
 
   class TestPaladin(name: String, healthPoints: Int, defense: Int,
-                    weight: Double, weapon: Option[TraitWeaponry])
+                    weight: Double, weapon: Option[Weapon])
     extends Paladin(name, healthPoints, defense, weight, weapon)
 
   var paladin: TestPaladin = _

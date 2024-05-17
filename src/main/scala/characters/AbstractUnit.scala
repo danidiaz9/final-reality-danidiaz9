@@ -8,11 +8,11 @@ package characters
  *  @param defense The defense points of the character.
  *  @param weight The weight of the character.
  */
-abstract class AbstractCharacter(val name: String,
-                                 protected var healthPoints: Int,
-                                 val attackPoints: Int,
-                                 protected var defense: Int,
-                                 val weight: Double) extends TraitCharacter {
+abstract class AbstractUnit(val name: String,
+                            protected var healthPoints: Int,
+                            val attackPoints: Int,
+                            protected var defense: Int,
+                            val weight: Double) extends GameUnit {
 
   /** The action bar of the character. */
   var actionBar: Double = 0.0

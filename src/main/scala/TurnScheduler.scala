@@ -1,5 +1,5 @@
-import characters.TraitCharacter
-import characters.player.TraitPlayer
+import characters.GameUnit
+import characters.player.Character
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -10,16 +10,16 @@ import scala.collection.mutable.ArrayBuffer
 class TurnScheduler {
 
   /** The loading zone where characters wait for their action bars to fill up. */
-  val loadingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  val loadingZone: ArrayBuffer[GameUnit] = new ArrayBuffer()
 
   /** The waiting zone where characters with filled action bars wait for their turn. */
-  val waitingZone: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  val waitingZone: ArrayBuffer[GameUnit] = new ArrayBuffer()
 
   /** Adds a character to the loading zone.
    *
    *  @param c The character to add to the loading zone.
    */
-  def addLoadingZone(c: TraitCharacter): Unit = {
+  def addLoadingZone(c: GameUnit): Unit = {
     loadingZone += c
   }
 
@@ -27,7 +27,7 @@ class TurnScheduler {
    *
    *  @param c The character to remove from the loading zone.
    */
-  def removeLoadingZone(c: TraitCharacter): Unit = {
+  def removeLoadingZone(c: GameUnit): Unit = {
     loadingZone -= c
   }
 
@@ -35,7 +35,7 @@ class TurnScheduler {
    *
    *  @param c The character to add to the waiting zone.
    */
-  def addWaitingZone(c: TraitCharacter): Unit = {
+  def addWaitingZone(c: GameUnit): Unit = {
     waitingZone += c
   }
 
@@ -43,7 +43,7 @@ class TurnScheduler {
    *
    *  @param c The character to remove from the waiting zone.
    */
-  def removeWaitingZone(c: TraitCharacter): Unit = {
+  def removeWaitingZone(c: GameUnit): Unit = {
     waitingZone -= c
   }
 
@@ -52,7 +52,7 @@ class TurnScheduler {
    *  @param c The character whose action bar value to retrieve.
    *  @return The difference between the character's current action bar and its maximum action bar.
    */
-  private def excessActionBar(c: TraitCharacter): Double = {
+  private def excessActionBar(c: GameUnit): Double = {
      c.getActionBar - c.calculateMaxActionBar
   }
 
@@ -61,7 +61,7 @@ class TurnScheduler {
    *  @param c The character whose action bar to update.
    *  @param k The amount to increase the character's action bar by.
    */
-  private def updateActionBar(c: TraitCharacter, k: Int): Unit = {
+  private def updateActionBar(c: GameUnit, k: Int): Unit = {
     c.actionBar += k
   }
 
@@ -70,7 +70,7 @@ class TurnScheduler {
    *  @param c The character whose action bar to reset.
    *  @return The new action bar value, which is always 0.0.
    */
-  private def resetActionBar(c: TraitCharacter): Unit ={
+  private def resetActionBar(c: GameUnit): Unit ={
     c.actionBar = 0.0
   }
 
@@ -110,7 +110,7 @@ class TurnScheduler {
    *  @param player The player character.
    *  @param enemy The enemy character.
    */
-  def combatPlayer(player: TraitPlayer, enemy: TraitCharacter): Unit = {
+  def combatPlayer(player: Character, enemy: GameUnit): Unit = {
 
     val playerDamage = player.attack - enemy.getDefense
     enemy.setHealthPoints(enemy.getHealthPoints - playerDamage)
@@ -129,7 +129,7 @@ class TurnScheduler {
    *  @param enemy The enemy character.
    *  @param player The player character.
    */
-  def combatEnemy(enemy: TraitCharacter, player: TraitPlayer): Unit = {
+  def combatEnemy(enemy: GameUnit, player: Character): Unit = {
 
     val enemyDamage = enemy.attack - player.getDefense
     player.setHealthPoints(player.getHealthPoints - enemyDamage)

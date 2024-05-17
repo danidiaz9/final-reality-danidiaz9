@@ -1,8 +1,8 @@
 package weaponry.weapons.magics
 
-import characters.player.TraitPlayer
+import characters.player.Character
 import characters.player.magics.{BlackWizard, WhiteWizard}
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 
 import java.util.Objects
 
@@ -18,12 +18,12 @@ import java.util.Objects
  *  @param magicAttackPoints The magic attack points of the staff.
  */
 class Staff (
-            name: String,
-            attackPoints: Int,
-            weight: Double,
-            owner: Option[TraitPlayer],
-            magicAttackPoints: Int
-          ) extends AbstractMagicalW (name, attackPoints, weight, owner, magicAttackPoints) {
+              name: String,
+              attackPoints: Int,
+              weight: Double,
+              owner: Option[Character],
+              magicAttackPoints: Int
+          ) extends AbstractMagicalWeapon (name, attackPoints, weight, owner, magicAttackPoints) {
 
   /** Sets the owner of the staff to a black wizard character.
    *
@@ -41,11 +41,11 @@ class Staff (
     whiteWizard.setWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[TraitWeaponry]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[TraitWeaponry]
+      val other = that.asInstanceOf[Weapon]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&
@@ -55,7 +55,7 @@ class Staff (
     else false
   }
 
-  override def hashCode: Int = Objects.hash(classOf[TraitWeaponry],
+  override def hashCode: Int = Objects.hash(classOf[Weapon],
     getName, getAttackPoints, getWeight, getOwner, getMagicAttackPoints)
 
   override def toString: String = s"Staff {" +

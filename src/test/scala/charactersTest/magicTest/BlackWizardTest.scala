@@ -1,7 +1,7 @@
 package charactersTest.magicTest
 
 import characters.player.magics.BlackWizard
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.Sword
 import weaponry.weapons.magics.{Staff, Wand}
 
@@ -12,7 +12,7 @@ class BlackWizardTest extends munit.FunSuite {
                         defense: Int,
                         weight: Double,
                         manaPoints: Int,
-                        weapon: Option[TraitWeaponry])
+                        weapon: Option[Weapon])
     extends BlackWizard(name, healthPoints, defense, weight, manaPoints, weapon)
 
   var blackWizard: TestBlackWizard = _

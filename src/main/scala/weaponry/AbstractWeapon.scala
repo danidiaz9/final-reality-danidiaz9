@@ -1,6 +1,6 @@
 package weaponry
 
-import characters.player.TraitPlayer
+import characters.player.Character
 import characters.player.commons.{Ninja, Paladin, Warrior}
 import characters.player.magics.{BlackWizard, WhiteWizard}
 
@@ -8,18 +8,18 @@ import characters.player.magics.{BlackWizard, WhiteWizard}
  *
  *  Weaponry includes attributes such as name, attack points, weight, and owner.
  *
- *  @constructor Creates a new instance of AbstractWeaponry with the specified attributes.
+ *  @constructor Creates a new instance of AbstractWeapon with the specified attributes.
  *  @param name The name of the weapon.
  *  @param attackPoints The attack points of the weapon.
  *  @param weight The weight of the weapon.
  *  @param owner The owner of the weapon, represented as an optional character.
  */
-abstract class AbstractWeaponry(
+abstract class AbstractWeapon(
                                  val name: String,
                                  val attackPoints: Int,
                                  val weight: Double,
-                                 var owner: Option[TraitPlayer] = None
-                               ) extends TraitWeaponry {
+                                 var owner: Option[Character] = None
+                               ) extends Weapon {
 
 
   /** Returns the name of the weapon.
@@ -44,13 +44,13 @@ abstract class AbstractWeaponry(
    *
    *  @return The owner of the weapon.
    */
-  def getOwner: Option[TraitPlayer] = owner
+  def getOwner: Option[Character] = owner
 
   /** Sets the owner of the weapon.
    *
    *  @param o The owner of the weapon.
    */
-  def setOwner(o: TraitPlayer): Unit = {
+  def setOwner(o: Character): Unit = {
     owner = Some(o)
     o.setWeapon(this)
   }

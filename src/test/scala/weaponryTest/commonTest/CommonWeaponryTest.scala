@@ -1,12 +1,12 @@
 package weaponryTest.commonTest
 
-import characters.player.TraitPlayer
-import weaponry.weapons.commons.AbstractCommonW
+import characters.player.Character
+import weaponry.weapons.commons.AbstractCommonWeapon
 
 class CommonWeaponryTest extends munit.FunSuite {
 
-  class TestCommonWeapon(name: String, attackPoints: Int, weight: Double, owner: Option[TraitPlayer])
-    extends AbstractCommonW(name, attackPoints, weight, owner)
+  class TestCommonWeapon(name: String, attackPoints: Int, weight: Double, owner: Option[Character])
+    extends AbstractCommonWeapon(name, attackPoints, weight, owner)
 
   var weapon: TestCommonWeapon = _
 

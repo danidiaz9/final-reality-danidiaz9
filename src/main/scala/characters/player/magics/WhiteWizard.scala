@@ -1,6 +1,6 @@
 package characters.player.magics
 
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.Bow
 import weaponry.weapons.magics.{Staff, Wand}
 
@@ -23,8 +23,8 @@ class WhiteWizard(name: String,
                   defense: Int,
                   weight: Double,
                   manaPoints: Int,
-                  weapon: Option[TraitWeaponry]) extends
-                  AbstractMagicalP(name, healthPoints, defense, weight, manaPoints, weapon) {
+                  weapon: Option[Weapon]) extends
+                  AbstractMagicalCharacter(name, healthPoints, defense, weight, manaPoints, weapon) {
 
   /** Equips a bow to the white wizard character.
    *

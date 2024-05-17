@@ -1,14 +1,14 @@
 package charactersTest.magicTest
 
 import characters.player.magics.WhiteWizard
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.Bow
 import weaponry.weapons.magics.{Staff, Wand}
 
 class WhiteWizardTest extends munit.FunSuite {
 
   class TestWhiteWizard(name: String, healthPoints: Int, defense: Int,
-                        weight: Double, manaPoints: Int, weapon: Option[TraitWeaponry])
+                        weight: Double, manaPoints: Int, weapon: Option[Weapon])
     extends WhiteWizard(name, healthPoints, defense, weight, manaPoints, weapon)
 
   var whiteWizard: TestWhiteWizard = _

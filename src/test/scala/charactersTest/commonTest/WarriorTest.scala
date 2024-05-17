@@ -1,13 +1,13 @@
 package charactersTest.commonTest
 
 import characters.player.commons.Warrior
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.{Axe, Bow, Sword}
 
 class WarriorTest extends munit.FunSuite {
 
   class TestWarrior(name: String, healthPoints: Int, defense: Int,
-                    weight: Double, weapon: Option[TraitWeaponry])
+                    weight: Double, weapon: Option[Weapon])
     extends Warrior(name, healthPoints, defense, weight, weapon)
 
   var warrior: TestWarrior = _

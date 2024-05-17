@@ -1,6 +1,6 @@
 package weaponry
 
-import characters.player.TraitPlayer
+import characters.player.Character
 import characters.player.commons.{Ninja, Paladin, Warrior}
 import characters.player.magics.{BlackWizard, WhiteWizard}
 
@@ -8,7 +8,7 @@ import characters.player.magics.{BlackWizard, WhiteWizard}
  *
  *  Weaponry includes attributes such as name, attack points, weight, and owner.
  */
-trait TraitWeaponry {
+trait Weapon {
 
   /** The name of the weapon. */
   val name: String
@@ -41,12 +41,12 @@ trait TraitWeaponry {
    *
    *  @return The owner of the weapon.
    */
-  def getOwner: Option[TraitPlayer]
+  def getOwner: Option[Character]
 
   /** Sets the owner of the weapon.
    *
    * */
-  def setOwner(o: TraitPlayer): Unit
+  def setOwner(o: Character): Unit
 
   def setNinja(ninja: Ninja): Unit
 

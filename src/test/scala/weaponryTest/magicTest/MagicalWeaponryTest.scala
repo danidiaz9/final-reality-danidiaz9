@@ -1,16 +1,16 @@
 package weaponryTest.magicTest
 
-import characters.player.TraitPlayer
-import weaponry.weapons.magics.AbstractMagicalW
+import characters.player.Character
+import weaponry.weapons.magics.AbstractMagicalWeapon
 
 class MagicalWeaponryTest extends munit.FunSuite {
 
   class TestMagicalWeapon(name: String,
                           attackPoints: Int,
                           weight: Double,
-                          owner: Option[TraitPlayer],
+                          owner: Option[Character],
                           magicAttackPoints: Int)
-    extends AbstractMagicalW(name, attackPoints, weight, owner, magicAttackPoints)
+    extends AbstractMagicalWeapon(name, attackPoints, weight, owner, magicAttackPoints)
 
   var weapon: TestMagicalWeapon = _
 

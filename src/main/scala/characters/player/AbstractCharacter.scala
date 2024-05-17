@@ -1,6 +1,6 @@
 package characters.player
 
-import weaponry.TraitWeaponry
+import weaponry.Weapon
 import weaponry.weapons.commons.{Axe, Bow, Sword}
 import weaponry.weapons.magics.{Staff, Wand}
 
@@ -13,12 +13,12 @@ import weaponry.weapons.magics.{Staff, Wand}
  *  @param weight The weight of the player.
  *  @param weapon The weapon equipped by the player, represented as an optional trait weaponry.
  */
-abstract class AbstractPlayer(val name: String,
-                              private var healthPoints: Int,
-                              private var defense: Int,
-                              val weight: Double,
-                              private var weapon: Option[TraitWeaponry] = None
-                             ) extends TraitPlayer {
+abstract class AbstractCharacter(val name: String,
+                                 private var healthPoints: Int,
+                                 private var defense: Int,
+                                 val weight: Double,
+                                 private var weapon: Option[Weapon] = None
+                             ) extends Character {
   
   /** The action bar of the player. */
   var actionBar: Double = 0.0
@@ -59,13 +59,13 @@ abstract class AbstractPlayer(val name: String,
    *
    *  @return The weapon equipped by the player.
    */
-  def getWeapon: Option[TraitWeaponry] = weapon
+  def getWeapon: Option[Weapon] = weapon
 
   /** Sets the weapon to be equipped by the player.
    *
    *  @param w The weapon to be equipped by the player.
    */
-  def setWeapon(w: TraitWeaponry): Unit = {
+  def setWeapon(w: Weapon): Unit = {
    weapon = Some(w)
    w.setOwner(this)
   }

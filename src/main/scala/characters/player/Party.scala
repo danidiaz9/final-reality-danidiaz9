@@ -1,4 +1,6 @@
-package characters
+package characters.player
+
+import characters.GameUnit
 
 import java.util.Objects
 import scala.collection.mutable.ArrayBuffer
@@ -11,13 +13,13 @@ import scala.collection.mutable.ArrayBuffer
 class Party extends Equals {
 
   /** The list of characters in the party. */
-  val characters: ArrayBuffer[TraitCharacter] = new ArrayBuffer()
+  val characters: ArrayBuffer[GameUnit] = new ArrayBuffer()
 
   /** Adds a character to the party.
    *
    *  @param c The character to add to the party.
    */
-  def addCharacter(c: TraitCharacter): Unit = {
+  def addCharacter(c: GameUnit): Unit = {
     characters += c
   }
 
