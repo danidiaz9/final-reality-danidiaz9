@@ -1,9 +1,9 @@
 package charactersTest
 
-import characters.player.commons.Warrior
-import characters.GameUnit
-import characters.player.Party
-import characters.player.magics.WhiteWizard
+import gameUnits.character.commons.Warrior
+import gameUnits.GameUnit
+import gameUnits.character.Party
+import gameUnits.character.magics.WhiteMage
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -11,10 +11,10 @@ class PartyTest extends munit.FunSuite {
 
   class TestParty extends Party
 
-  test("Party adds characters correctly") {
+  test("Party adds gameUnits correctly") {
     val party = new Party()
     val warrior = new Warrior("Conan", 150, 100, 90.0, None)
-    val wizard = new WhiteWizard("Gandalf", 120, 80, 70.0, 100, None)
+    val wizard = new WhiteMage("Gandalf", 120, 80, 70.0, 100, None)
 
     party.addCharacter(warrior)
     party.addCharacter(wizard)
@@ -25,7 +25,7 @@ class PartyTest extends munit.FunSuite {
   test("Party status: Alive") {
     val party = new Party()
     val warrior = new Warrior("Conan", 150, 100, 90.0, None)
-    val wizard = new WhiteWizard("Gandalf", 120, 80, 70.0, 100, None)
+    val wizard = new WhiteMage("Gandalf", 120, 80, 70.0, 100, None)
 
     party.addCharacter(warrior)
     party.addCharacter(wizard)
@@ -38,7 +38,7 @@ class PartyTest extends munit.FunSuite {
   test("Party status: Defeated") {
     val party = new Party()
     val warrior = new Warrior("Conan", 0, 100, 90.0, None)
-    val wizard = new WhiteWizard("Gandalf", 0, 80, 70.0, 100, None)
+    val wizard = new WhiteMage("Gandalf", 0, 80, 70.0, 100, None)
 
    party.addCharacter(warrior)
    party.addCharacter(wizard)
@@ -52,7 +52,7 @@ class PartyTest extends munit.FunSuite {
     val party1 = new Party()
     val party2 = new Party()
     val warrior = new Warrior("Conan", 150, 100, 90.0, None)
-    val wizard = new WhiteWizard("Gandalf", 120, 80, 70.0, 100, None)
+    val wizard = new WhiteMage("Gandalf", 120, 80, 70.0, 100, None)
 
     party1.addCharacter(warrior)
     party1.addCharacter(wizard)
@@ -66,7 +66,7 @@ class PartyTest extends munit.FunSuite {
     val party1 = new Party()
     val party2 = new Party()
     val warrior = new Warrior("Conan", 150, 100, 90.0, None)
-    val wizard = new WhiteWizard("Gandalf", 120, 80, 70.0, 100, None)
+    val wizard = new WhiteMage("Gandalf", 120, 80, 70.0, 100, None)
 
     party1.addCharacter(warrior)
     party1.addCharacter(wizard)
@@ -78,12 +78,12 @@ class PartyTest extends munit.FunSuite {
   test("Test party toString") {
     val party = new Party()
     val warrior = new Warrior("Conan", 150, 100, 90.0, None)
-    val wizard = new WhiteWizard("Gandalf", 120, 80, 70.0, 100, None)
+    val wizard = new WhiteMage("Gandalf", 120, 80, 70.0, 100, None)
 
     party.addCharacter(warrior)
     party.addCharacter(wizard)
-    assertEquals(party.toString(), s"Party {characters: ArrayBuffer(Warrior {name: Conan, healthPoints: 150, " +
-      s"defense: 100, weight: 90.0, weapon: None}, WhiteWizard {name: Gandalf, healthPoints: 120, defense: 80, weight: 70.0, " +
+    assertEquals(party.toString(), s"Party {gameUnits: ArrayBuffer(Warrior {name: Conan, healthPoints: 150, " +
+      s"defense: 100, weight: 90.0, weapon: None}, WhiteMage {name: Gandalf, healthPoints: 120, defense: 80, weight: 70.0, " +
       s"manaPoints: 100, weapon: None})}")
   }
 }

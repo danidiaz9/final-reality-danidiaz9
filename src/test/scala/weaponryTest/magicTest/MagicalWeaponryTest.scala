@@ -1,7 +1,7 @@
 package weaponryTest.magicTest
 
-import characters.player.Character
-import weaponry.weapons.magics.AbstractMagicalWeapon
+import gameUnits.character.Character
+import weapons.magics.AbstractMagicalWeapon
 
 class MagicalWeaponryTest extends munit.FunSuite {
 

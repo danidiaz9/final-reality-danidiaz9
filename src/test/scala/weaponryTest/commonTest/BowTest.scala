@@ -1,22 +1,22 @@
 package weaponryTest.commonTest
 
-import weaponry.weapons.commons.Bow
-import characters.player.commons.{Ninja, Warrior}
-import characters.player.magics.WhiteWizard
+import gameUnits.character.commons.{Ninja, Warrior}
+import gameUnits.character.magics.WhiteMage
+import weapons.commons.Bow
 
 class BowTest extends munit.FunSuite {
 
   var bow: Bow = _
   var warrior: Warrior = _
   var ninja: Ninja = _
-  var whiteWizard: WhiteWizard = _
+  var whiteWizard: WhiteMage = _
 
   override def beforeEach(context: BeforeEach): Unit = {
 
     bow = new Bow("Longbow", 25, 6.0, None)
     warrior = new Warrior("Conan", 120, 15, 90.0, None)
     ninja = new Ninja("Ryu", 100, 12, 80.0, None)
-    whiteWizard = new WhiteWizard("Gandalf", 150, 20, 100.0, 200, None)
+    whiteWizard = new WhiteMage("Gandalf", 150, 20, 100.0, 200, None)
 
   }
 

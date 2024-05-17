@@ -1,8 +1,8 @@
 package weaponryTest.commonTest
 
-import weaponry.weapons.commons.Sword
-import characters.player.commons.{Ninja, Paladin, Warrior}
-import characters.player.magics.BlackWizard
+import gameUnits.character.commons.{Ninja, Paladin, Warrior}
+import gameUnits.character.magics.BlackMage
+import weapons.commons.Sword
 
 class SwordTest extends munit.FunSuite {
 
@@ -10,7 +10,7 @@ class SwordTest extends munit.FunSuite {
   var paladin: Paladin = _
   var warrior: Warrior = _
   var ninja: Ninja = _
-  var blackWizard: BlackWizard = _
+  var blackWizard: BlackMage = _
 
   override def beforeEach(context: BeforeEach): Unit = {
 
@@ -18,7 +18,7 @@ class SwordTest extends munit.FunSuite {
     paladin = new Paladin("Arthur", 130, 20, 100.0, None)
     warrior = new Warrior("Conan", 120, 15, 90.0, None)
     ninja = new Ninja("Ryu", 100, 12, 80.0, None)
-    blackWizard = new BlackWizard("Voldemort", 150, 25, 95.0, 200, None)
+    blackWizard = new BlackMage("Voldemort", 150, 25, 95.0, 200, None)
 
   }
 

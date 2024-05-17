@@ -1,6 +1,6 @@
-import characters.player.commons.Warrior
-import characters.{Enemy, GameUnit}
-import characters.player.Character
+import gameUnits.character.commons.Warrior
+import gameUnits.{Enemy, GameUnit}
+import gameUnits.character.Character
 import scala.collection.mutable.ArrayBuffer
 
 

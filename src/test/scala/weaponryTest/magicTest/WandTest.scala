@@ -1,22 +1,22 @@
 package weaponryTest.magicTest
 
-import weaponry.weapons.magics.Wand
-import characters.player.commons.Ninja
-import characters.player.magics.{BlackWizard, WhiteWizard}
+import gameUnits.character.commons.Ninja
+import gameUnits.character.magics.{BlackMage, WhiteMage}
+import weapons.magics.Wand
 
 class WandTest extends munit.FunSuite {
 
   var wand: Wand = _
   var ninja: Ninja = _
-  var blackWizard: BlackWizard = _
-  var whiteWizard: WhiteWizard = _
+  var blackWizard: BlackMage = _
+  var whiteWizard: WhiteMage = _
 
   override def beforeEach(context: BeforeEach): Unit = {
 
     wand = new Wand("Magic Wand", 20, 3.5, None, 25)
     ninja = new Ninja("Ryu", 120, 15, 70.0, None)
-    blackWizard = new BlackWizard("Gandalf", 150, 20, 80.0, 200, None)
-    whiteWizard = new WhiteWizard("Saruman", 140, 18, 75.0, 190, None)
+    blackWizard = new BlackMage("Gandalf", 150, 20, 80.0, 200, None)
+    whiteWizard = new WhiteMage("Saruman", 140, 18, 75.0, 190, None)
 
   }
 

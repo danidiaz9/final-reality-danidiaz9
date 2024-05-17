@@ -1,7 +1,7 @@
 package weaponryTest.commonTest
 
-import weaponry.weapons.commons.Axe
-import characters.player.commons.{Paladin, Warrior}
+import gameUnits.character.commons.{Paladin, Warrior}
+import weapons.commons.Axe
 
 class AxeTest extends munit.FunSuite {
 

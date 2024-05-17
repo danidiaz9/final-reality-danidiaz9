@@ -1,18 +1,18 @@
-import characters.GameUnit
-import characters.player.Character
+import gameUnits.GameUnit
+import gameUnits.character.Character
 
 import scala.collection.mutable.ArrayBuffer
 
 /** A class representing a turn scheduler in the game.
  *
- *  This class manages the turn order of characters during combat by handling their action bars.
+ *  This class manages the turn order of gameUnits during combat by handling their action bars.
  */
 class TurnScheduler {
 
-  /** The loading zone where characters wait for their action bars to fill up. */
+  /** The loading zone where gameUnits wait for their action bars to fill up. */
   val loadingZone: ArrayBuffer[GameUnit] = new ArrayBuffer()
 
-  /** The waiting zone where characters with filled action bars wait for their turn. */
+  /** The waiting zone where gameUnits with filled action bars wait for their turn. */
   val waitingZone: ArrayBuffer[GameUnit] = new ArrayBuffer()
 
   /** Adds a character to the loading zone.
@@ -74,14 +74,14 @@ class TurnScheduler {
     c.actionBar = 0.0
   }
 
-  /** Resets the action bars of all characters in the waiting zone to zero. */
+  /** Resets the action bars of all gameUnits in the waiting zone to zero. */
   def resetActionBarInstance(): Unit = {
     for (c <- waitingZone){
       resetActionBar(c)
     }
   }
 
-  /** Updates the action bars of all characters in the loading zone.
+  /** Updates the action bars of all gameUnits in the loading zone.
    *
    *  @param k The amount to increase each character's action bar by.
    */
@@ -91,7 +91,7 @@ class TurnScheduler {
     }
   }
 
-  /** Completes the action bars of characters in the loading zone and moves them to the waiting zone. */
+  /** Completes the action bars of gameUnits in the loading zone and moves them to the waiting zone. */
   def completeActionBar(): Unit = {
     for (c <- loadingZone) {
       if (excessActionBar(c) > 0) {
@@ -100,14 +100,14 @@ class TurnScheduler {
     }
   }
 
-  /** Sorts the characters in the waiting zone by their excess action bars. */
+  /** Sorts the gameUnits in the waiting zone by their excess action bars. */
   def sortTurns(): Unit = {
     waitingZone.sortBy(c => -excessActionBar(c))
   }
 
-  /** Simulates combat between a player character and an enemy character.
+  /** Simulates combat between a character character and an enemy character.
    *
-   *  @param player The player character.
+   *  @param player The character character.
    *  @param enemy The enemy character.
    */
   def combatPlayer(player: Character, enemy: GameUnit): Unit = {
@@ -124,10 +124,10 @@ class TurnScheduler {
 
   }
 
-  /** Simulates combat between an enemy character and a player character.
+  /** Simulates combat between an enemy character and a character character.
    *
    *  @param enemy The enemy character.
-   *  @param player The player character.
+   *  @param player The character character.
    */
   def combatEnemy(enemy: GameUnit, player: Character): Unit = {
 

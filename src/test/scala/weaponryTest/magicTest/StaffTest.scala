@@ -1,19 +1,19 @@
 package weaponryTest.magicTest
 
-import weaponry.weapons.magics.Staff
-import characters.player.magics.{BlackWizard, WhiteWizard}
+import gameUnits.character.magics.{BlackMage, WhiteMage}
+import weapons.magics.Staff
 
 class StaffTest extends munit.FunSuite {
 
   var staff: Staff = _
-  var blackWizard: BlackWizard = _
-  var whiteWizard: WhiteWizard = _
+  var blackWizard: BlackMage = _
+  var whiteWizard: WhiteMage = _
 
   override def beforeEach(context: BeforeEach): Unit = {
 
     staff = new Staff("Magic Staff", 25, 6.0, None, 30)
-    blackWizard = new BlackWizard("Gandalf", 150, 20, 80.0, 200, None)
-    whiteWizard = new WhiteWizard("Saruman", 140, 18, 75.0, 190, None)
+    blackWizard = new BlackMage("Gandalf", 150, 20, 80.0, 200, None)
+    whiteWizard = new WhiteMage("Saruman", 140, 18, 75.0, 190, None)
 
   }
 

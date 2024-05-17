@@ -1,6 +1,6 @@
 package charactersTest
 
-import characters.Enemy
+import gameUnits.Enemy
 
 class EnemyTest extends munit.FunSuite {
 

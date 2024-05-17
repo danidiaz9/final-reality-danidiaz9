@@ -1,8 +1,8 @@
 package charactersTest.commonTest
 
-import characters.player.commons.Warrior
-import weaponry.Weapon
-import weaponry.weapons.commons.{Axe, Bow, Sword}
+import gameUnits.character.commons.Warrior
+import weapons.Weapon
+import weapons.commons.{Axe, Bow, Sword}
 
 class WarriorTest extends munit.FunSuite {
 

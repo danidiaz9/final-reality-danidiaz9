@@ -1,7 +1,7 @@
 package weaponryTest.commonTest
 
-import characters.player.Character
-import weaponry.weapons.commons.AbstractCommonWeapon
+import gameUnits.character.Character
+import weapons.commons.AbstractCommonWeapon
 
 class CommonWeaponryTest extends munit.FunSuite {
 

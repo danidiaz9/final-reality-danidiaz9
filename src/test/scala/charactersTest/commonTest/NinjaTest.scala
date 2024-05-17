@@ -1,9 +1,9 @@
 package charactersTest.commonTest
 
-import characters.player.commons.Ninja
-import weaponry.Weapon
-import weaponry.weapons.commons.{Bow, Sword}
-import weaponry.weapons.magics.Wand
+import gameUnits.character.commons.Ninja
+import weapons.Weapon
+import weapons.commons.{Bow, Sword}
+import weapons.magics.Wand
 
 class NinjaTest extends munit.FunSuite {
 
