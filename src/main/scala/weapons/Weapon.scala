@@ -1,8 +1,8 @@
 package weapons
 
-import gameUnits.character.Character
-import gameUnits.character.commons.{Ninja, Paladin, Warrior}
-import gameUnits.character.magics.{BlackMage, WhiteMage}
+import gameunits.character.Character
+import gameunits.character.commons.{Ninja, Paladin, Warrior}
+import gameunits.character.magics.{BlackMage, WhiteMage}
 
 /** A trait representing weapons in the game.
  *
@@ -10,40 +10,40 @@ import gameUnits.character.magics.{BlackMage, WhiteMage}
  */
 trait Weapon {
 
-  /** The name of the weapon. */
+  /** The name of the weapons. */
   val name: String
 
-  /** The attack points of the weapon. */
+  /** The attack points of the weapons. */
   val attackPoints: Int
 
-  /** The weight of the weapon. */
+  /** The weight of the weapons. */
   val weight: Double
 
-  /** Returns the name of the weapon.
+  /** Returns the name of the weapons.
    *
-   *  @return The name of the weapon.
+   *  @return The name of the weapons.
    */
   def getName: String
 
-  /** Returns the attack points of the weapon.
+  /** Returns the attack points of the weapons.
    *
-   *  @return The attack points of the weapon.
+   *  @return The attack points of the weapons.
    */
   def getAttackPoints: Int
 
-  /** Returns the weight of the weapon.
+  /** Returns the weight of the weapons.
    *
-   *  @return The weight of the weapon.
+   *  @return The weight of the weapons.
    */
   def getWeight: Double
 
-  /** Returns the owner of the weapon.
+  /** Returns the owner of the weapons.
    *
-   *  @return The owner of the weapon.
+   *  @return The owner of the weapons.
    */
   def getOwner: Option[Character]
 
-  /** Sets the owner of the weapon.
+  /** Sets the owner of the weapons.
    *
    * */
   def setOwner(o: Character): Unit

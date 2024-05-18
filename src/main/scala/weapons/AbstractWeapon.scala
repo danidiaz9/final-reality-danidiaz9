@@ -1,18 +1,19 @@
 package weapons
 
-import gameUnits.character.Character
-import gameUnits.character.commons.{Ninja, Paladin, Warrior}
-import gameUnits.character.magics.{BlackMage, WhiteMage}
+import exceptions.InvalidSetException
+import gameunits.character.Character
+import gameunits.character.commons.{Ninja, Paladin, Warrior}
+import gameunits.character.magics.{BlackMage, WhiteMage}
 
 /** An abstract class representing a type of weapons in the game.
  *
  *  Weaponry includes attributes such as name, attack points, weight, and owner.
  *
  *  @constructor Creates a new instance of AbstractWeapon with the specified attributes.
- *  @param name The name of the weapon.
- *  @param attackPoints The attack points of the weapon.
- *  @param weight The weight of the weapon.
- *  @param owner The owner of the weapon, represented as an optional character.
+ *  @param name The name of the weapons.
+ *  @param attackPoints The attack points of the weapons.
+ *  @param weight The weight of the weapons.
+ *  @param owner The owner of the weapons, represented as an optional character.
  */
 abstract class AbstractWeapon(
                                  val name: String,
@@ -22,33 +23,33 @@ abstract class AbstractWeapon(
                                ) extends Weapon {
 
 
-  /** Returns the name of the weapon.
+  /** Returns the name of the weapons.
    *
-   *  @return The name of the weapon.
+   *  @return The name of the weapons.
    */
   def getName: String = name
 
-  /** Returns the attack points of the weapon.
+  /** Returns the attack points of the weapons.
    *
-   *  @return The attack points of the weapon.
+   *  @return The attack points of the weapons.
    */
   def getAttackPoints: Int = attackPoints
 
-  /** Returns the weight of the weapon.
+  /** Returns the weight of the weapons.
    *
-   *  @return The weight of the weapon.
+   *  @return The weight of the weapons.
    */
   def getWeight: Double = weight
 
-  /** Returns the owner of the weapon.
+  /** Returns the owner of the weapons.
    *
-   *  @return The owner of the weapon.
+   *  @return The owner of the weapons.
    */
   def getOwner: Option[Character] = owner
 
-  /** Sets the owner of the weapon.
+  /** Sets the owner of the weapons.
    *
-   *  @param o The owner of the weapon.
+   *  @param o The owner of the weapons.
    */
   def setOwner(o: Character): Unit = {
     owner = Some(o)

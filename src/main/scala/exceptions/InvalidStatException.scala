@@ -16,4 +16,5 @@ package exceptions
  *
  * @param details A descriptive message detailing the nature of the invalid stat.
  */
+
 class InvalidStatException(details: String) extends Exception(s"An invalid stat was found -- $details")

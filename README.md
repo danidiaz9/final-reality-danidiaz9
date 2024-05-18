@@ -14,7 +14,7 @@ Context
 
 This project's goal is to create a (simplified) clone of _Final Fantasy_'s combat, a game developed
 by [_Square Enix_](https://www.square-enix.com)
-Broadly speaking for the combat the player has a group of gameUnits to control and a group of
+Broadly speaking for the combat the player has a group of gameunits to control and a group of
 enemies controlled by the computer.
 
 -------
@@ -23,7 +23,7 @@ enemies controlled by the computer.
 
 ## Project Structure
 
-- `Characters`: Contains character classes, including both player and enemy gameUnits.
+- `Characters`: Contains character classes, including both player and enemy gameunits.
 - `Weapons`: Contains classes representing different types of weapons.
 - `Party`: Contains the class representing the character's party.
 - `TurnScheduler`: Contains the TurnScheduler class.
@@ -33,21 +33,21 @@ enemies controlled by the computer.
 
 ### Characters
 
-- **Player Characters**: These are gameUnits controlled by the player. They can be either common or magic gameUnits.
+- **Player Characters**: These are gameunits controlled by the player. They can be either common or magic gameunits.
     - **Common Characters**: These include Ninjas, Paladins, and Warriors.
     - **Magic Characters**: These include Black Mages and White Mages.
 
-- **Enemy Characters**: These are gameUnits controlled by the computer.
+- **Enemy Characters**: These are gameunits controlled by the computer.
 
 ### Weaponry
 
-- **Common Weapons**: Weapons used by common gameUnits, such as Axes, Bows, and Swords.
-- **Magic Weapons**: Weapons used by magic gameUnits, such as Staves and Wands.
+- **Common Weapons**: Weapons used by common gameunits, such as Axes, Bows, and Swords.
+- **Magic Weapons**: Weapons used by magic gameunits, such as Staves and Wands.
 
 ### Party
 
-The party represents a group of gameUnits controlled by the player.
+The party represents a group of gameunits controlled by the player.
 
 ### Turn Scheduler
 
-The Turn Scheduler manages the turn order of gameUnits during combat by handling their action bars.
+The Turn Scheduler manages the turn order of gameunits during combat by handling their action bars.

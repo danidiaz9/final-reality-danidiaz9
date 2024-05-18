@@ -1,18 +1,18 @@
 package weapons.commons
 
-import gameUnits.character.Character
+import gameunits.character.Character
 import weapons.AbstractWeapon
 import java.util.Objects
 
-/** An abstract class representing a common type of weapon in the game.
+/** An abstract class representing a common type of weapons in the game.
  *
- *  A common weapon is an object used to inflict damage or harm to opponents in the game.
+ *  A common weapons is an object used to inflict damage or harm to opponents in the game.
  *
  *  @constructor Creates a new instance of AbstractCommonWeapon with the specified attributes.
- *  @param name The name of the weapon.
- *  @param attackPoints The attack points of the weapon.
- *  @param weight The weight of the weapon.
- *  @param owner The owner of the weapon, represented as an optional character.
+ *  @param name The name of the weapons.
+ *  @param attackPoints The attack points of the weapons.
+ *  @param weight The weight of the weapons.
+ *  @param owner The owner of the weapons, represented as an optional character.
  */
 abstract class AbstractCommonWeapon(name: String,
                                     attackPoints: Int,

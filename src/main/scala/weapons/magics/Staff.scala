@@ -1,14 +1,14 @@
 package weapons.magics
 
-import gameUnits.character.Character
-import gameUnits.character.magics.{BlackMage, WhiteMage}
+import gameunits.character.Character
+import gameunits.character.magics.{BlackMage, WhiteMage}
 import weapons.Weapon
 
 import java.util.Objects
 
-/** A class representing a staff magical weapon in the game.
+/** A class representing a staff magical weapons in the game.
  *
- *  A staff is a type of magical weapon that is used by spellcasters to enhance their magical abilities.
+ *  A staff is a type of magical weapons that is used by spellcasters to enhance their magical abilities.
  *
  *  @constructor Creates a new instance of Staff with the specified attributes.
  *  @param name The name of the staff.
@@ -45,7 +45,7 @@ class Staff (
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[MagicWeapon]
+      val other = that.asInstanceOf[Staff]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&

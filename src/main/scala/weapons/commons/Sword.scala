@@ -1,15 +1,15 @@
 package weapons.commons
 
-import gameUnits.character.Character
-import gameUnits.character.commons.{Ninja, Paladin, Warrior}
-import gameUnits.character.magics.BlackMage
+import gameunits.character.Character
+import gameunits.character.commons.{Ninja, Paladin, Warrior}
+import gameunits.character.magics.BlackMage
 import weapons.Weapon
 
 import java.util.Objects
 
-/** A class representing a sword weapon in the game.
+/** A class representing a sword weapons in the game.
  *
- *  A sword is a type of weapon used to inflict damage or harm to opponents in the game.
+ *  A sword is a type of weapons used to inflict damage or harm to opponents in the game.
  *
  *  @constructor Creates a new instance of Sword with the specified attributes.
  *  @param name The name of the sword.
@@ -56,11 +56,11 @@ class Sword (
     blackMage.setWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Sword]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[Weapon]
+      val other = that.asInstanceOf[Sword]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&
@@ -69,7 +69,7 @@ class Sword (
     else false
   }
 
-  override def hashCode: Int = Objects.hash(classOf[Weapon],
+  override def hashCode: Int = Objects.hash(classOf[Sword],
     getName, getAttackPoints, getWeight, getOwner)
 
   override def toString: String = s"Sword {" +

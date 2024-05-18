@@ -1,15 +1,15 @@
 package weapons.magics
 
-import gameUnits.character.Character
-import gameUnits.character.commons.Ninja
-import gameUnits.character.magics.{BlackMage, WhiteMage}
+import gameunits.character.Character
+import gameunits.character.commons.Ninja
+import gameunits.character.magics.{BlackMage, WhiteMage}
 import weapons.Weapon
 
 import java.util.Objects
 
-/** A class representing a wand magical weapon in the game.
+/** A class representing a wand magical weapons in the game.
  *
- *  A wand is a type of magical weapon that is commonly used by spellcasters to channel their magical abilities.
+ *  A wand is a type of magical weapons that is commonly used by spellcasters to channel their magical abilities.
  *
  *  @constructor Creates a new instance of Wand with the specified attributes.
  *  @param name The name of the wand.
@@ -50,11 +50,11 @@ class Wand (
     whiteMage.setWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Wand]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[Weapon]
+      val other = that.asInstanceOf[Wand]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&
@@ -64,7 +64,7 @@ class Wand (
     else false
   }
 
-  override def hashCode: Int = Objects.hash(classOf[Weapon],
+  override def hashCode: Int = Objects.hash(classOf[Wand],
     getName, getAttackPoints, getWeight, getOwner, getMagicAttackPoints)
 
   override def toString: String = s"Wand {" +

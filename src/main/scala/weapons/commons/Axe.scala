@@ -1,14 +1,14 @@
 package weapons.commons
 
-import gameUnits.character.Character
-import gameUnits.character.commons.{Paladin, Warrior}
+import gameunits.character.Character
+import gameunits.character.commons.{Paladin, Warrior}
 import weapons.Weapon
 
 import java.util.Objects
 
-/** A class representing an axe weapon in the game.
+/** A class representing an axe weapons in the game.
  *
- *  An axe is a type of weapon used to inflict damage or harm to opponents in the game.
+ *  An axe is a type of weapons used to inflict damage or harm to opponents in the game.
  *
  *  @constructor Creates a new instance of Axe with the specified attributes.
  *  @param name The name of the axe.
@@ -39,11 +39,11 @@ class Axe (
     warrior.setWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Weapon]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Axe]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[Weapon]
+      val other = that.asInstanceOf[Axe]
       getName == other.getName &&
         getAttackPoints == other.getAttackPoints &&
         getWeight == other.getWeight &&
@@ -52,7 +52,7 @@ class Axe (
     else false
   }
 
-  override def hashCode: Int = Objects.hash(classOf[Weapon],
+  override def hashCode: Int = Objects.hash(classOf[Axe],
     getName, getAttackPoints, getWeight, getOwner)
 
   override def toString: String = s"Axe {" +
