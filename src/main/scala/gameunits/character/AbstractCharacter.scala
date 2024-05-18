@@ -71,15 +71,40 @@ abstract class AbstractCharacter(val name: String,
    w.setOwner(this)
   }
 
-  def equipAxe(axe: Axe): Unit = throw new InvalidEquipException()
+  /** Equips an axe to the character.
+   *
+   *  @param axe The axe to be equipped.
+   */
+  def equipAxe(axe: Axe): Unit =
+    throw new InvalidEquipException("Player cannot has this weapon.")
 
-  def equipBow(bow: Bow): Unit = throw new InvalidEquipException()
+  /** Equips a bow to the character.
+   *
+   *  @param bow The bow to be equipped.
+   */
+  def equipBow(bow: Bow): Unit =
+    throw new InvalidEquipException("Player cannot has this weapon.")
 
-  def equipSword(sword: Sword): Unit = throw new InvalidEquipException()
+  /** Equips a sword to the character.
+   *
+   *  @param sword The sword to be equipped.
+   */
+  def equipSword(sword: Sword): Unit =
+    throw new InvalidEquipException("Player cannot has this weapon.")
 
-  def equipWand(wand: Wand): Unit = throw new InvalidEquipException()
+  /** Equips a wand to the character.
+   *
+   *  @param wand The wand to be equipped.
+   */
+  def equipWand(wand: Wand): Unit =
+    throw new InvalidEquipException("Player cannot has this weapon.")
 
-  def equipStaff(staff: Staff): Unit = throw new InvalidEquipException()
+  /** Equips a staff to the character.
+   *
+   *  @param staff The staff to be equipped.
+   */
+  def equipStaff(staff: Staff): Unit =
+    throw new InvalidEquipException("Player cannot has this weapon.")
 
   /** Returns the action bar of the character.
    *

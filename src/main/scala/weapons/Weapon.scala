@@ -48,14 +48,34 @@ trait Weapon {
    * */
   def setOwner(o: Character): Unit
 
+  /** Sets the owner of the weapon to a Ninja character.
+   *
+   *  @param ninja The Ninja character to set as the owner of the weapon.
+   */
   def setNinja(ninja: Ninja): Unit
 
+  /** Sets the owner of the weapon to a Paladin character.
+   *
+   *  @param paladin The Paladin character to set as the owner of the weapon.
+   */
   def setPaladin(paladin: Paladin): Unit
 
+  /** Sets the owner of the weapon to a Warrior character.
+   *
+   *  @param warrior The Warrior character to set as the owner of the weapon.
+   */
   def setWarrior(warrior: Warrior): Unit
 
+  /** Sets the owner of the weapon to a BlackMage character.
+   *
+   *  @param blackMage The BlackMage character to set as the owner of the weapon.
+   */
   def setBlackMage(blackMage: BlackMage): Unit
 
+  /** Sets the owner of the weapon to a WhiteMage character.
+   *
+   *  @param whiteMage The WhiteMage character to set as the owner of the weapon.
+   */
   def setWhiteMage(whiteMage: WhiteMage): Unit
 
 }

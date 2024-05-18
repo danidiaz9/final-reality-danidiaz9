@@ -2,7 +2,6 @@ package weapons.magics
 
 import gameunits.character.Character
 import gameunits.character.magics.{BlackMage, WhiteMage}
-import weapons.Weapon
 
 import java.util.Objects
 
@@ -23,7 +22,8 @@ class Staff (
               weight: Double,
               owner: Option[Character],
               magicAttackPoints: Int
-          ) extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints) with MagicWeapon {
+          ) extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints)
+            with MagicWeapon {
 
   /** Sets the owner of the staff to a black wizard character.
    *
