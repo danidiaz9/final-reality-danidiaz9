@@ -1,4 +1,4 @@
-package gameunits.magicTest
+package gameunits.magic
 
 import gameunits.character.magics.WhiteMage
 import weapons.Weapon

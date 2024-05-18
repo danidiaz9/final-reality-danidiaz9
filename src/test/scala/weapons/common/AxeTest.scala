@@ -1,4 +1,4 @@
-package weapons.commonTest
+package weapons.common
 
 import gameunits.character.commons.{Paladin, Warrior}
 import weapons.commons.Axe

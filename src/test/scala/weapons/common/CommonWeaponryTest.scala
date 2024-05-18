@@ -1,4 +1,4 @@
-package weapons.commonTest
+package weapons.common
 
 import gameunits.character.Character
 import weapons.commons.AbstractCommonWeapon

@@ -1,4 +1,4 @@
-package weapons.commonTest
+package weapons.common
 
 import gameunits.character.commons.{Ninja, Warrior}
 import gameunits.character.magics.WhiteMage

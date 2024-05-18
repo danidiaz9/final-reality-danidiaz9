@@ -1,4 +1,4 @@
-package weapons.magicTest
+package weapons.magic
 
 import gameunits.character.magics.{BlackMage, WhiteMage}
 import weapons.magics.Staff
