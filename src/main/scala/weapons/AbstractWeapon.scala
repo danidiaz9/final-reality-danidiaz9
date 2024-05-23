@@ -53,7 +53,6 @@ abstract class AbstractWeapon(
    */
   def setOwner(o: Character): Unit = {
     owner = Some(o)
-    o.setWeapon(this)
   }
 
   /** Sets the owner of the weapon to a Ninja character.
