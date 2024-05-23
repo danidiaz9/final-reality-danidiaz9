@@ -27,7 +27,7 @@ abstract class AbstractMagicWeapon(name: String,
   def getMagicAttackPoints: Int = magicAttackPoints
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractMagicWeapon]
-    
+
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
       val other = that.asInstanceOf[AbstractMagicWeapon]

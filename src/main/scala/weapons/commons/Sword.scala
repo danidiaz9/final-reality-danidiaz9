@@ -3,8 +3,6 @@ package weapons.commons
 import gameunits.character.Character
 import gameunits.character.commons.{Ninja, Paladin, Warrior}
 import gameunits.character.magics.BlackMage
-import weapons.Weapon
-
 import java.util.Objects
 
 /** A class representing a sword weapons in the game.

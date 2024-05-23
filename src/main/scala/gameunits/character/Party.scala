@@ -1,5 +1,6 @@
 package gameunits.character
 
+import exceptions.InvalidPartyException
 import gameunits.GameUnit
 
 import java.util.Objects
@@ -20,7 +21,13 @@ class Party extends Equals {
    *  @param c The character to add to the party.
    */
   def addCharacter(c: GameUnit): Unit = {
-    characters += c
+    if (characters.length <= 3) {
+      characters += c
+    }
+    else {
+      throw new InvalidPartyException("A party cannot contain more than 3 characters.")
+    }
+
   }
 
   /** Prints the status of the party, indicating whether it's defeated or alive based on
