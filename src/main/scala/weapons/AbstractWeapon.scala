@@ -52,7 +52,12 @@ abstract class AbstractWeapon(
    *  @param o The owner of the weapons.
    */
   def setOwner(o: Character): Unit = {
-    owner = Some(o)
+    if (getOwner.isDefined){
+      throw new InvalidSetException("This weapon already has a owner.")
+    }
+    else {
+      owner = Some(o)
+    }
   }
 
   /** Sets the owner of the weapon to a Ninja character.

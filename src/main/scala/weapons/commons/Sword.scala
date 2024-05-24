@@ -27,7 +27,7 @@ class Sword (
    *  @param paladin The paladin character who will be the owner of the sword.
    */
   override def setPaladin(paladin: Paladin): Unit = {
-    paladin.setWeapon(this)
+    paladin.equipWeapon(this)
   }
 
   /** Sets the owner of the sword to a warrior character.
@@ -35,7 +35,7 @@ class Sword (
    *  @param warrior The warrior character who will be the owner of the sword.
    */
   override def setWarrior(warrior: Warrior): Unit = {
-    warrior.setWeapon(this)
+    warrior.equipWeapon(this)
   }
 
   /** Sets the owner of the sword to a ninja character.
@@ -43,7 +43,7 @@ class Sword (
    *  @param ninja The ninja character who will be the owner of the sword.
    */
   override def setNinja(ninja: Ninja): Unit = {
-    ninja.setWeapon(this)
+    ninja.equipWeapon(this)
   }
 
   /** Sets the owner of the sword to a black wizard character.
@@ -51,7 +51,7 @@ class Sword (
    *  @param blackMage The black wizard character who will be the owner of the sword.
    */
   override def setBlackMage(blackMage: BlackMage): Unit = {
-    blackMage.setWeapon(this)
+    blackMage.equipWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Sword]

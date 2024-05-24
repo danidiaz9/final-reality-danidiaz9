@@ -28,7 +28,7 @@ class Axe (
    *  @param paladin The paladin character who will be the owner of the axe.
    */
   override def setPaladin(paladin: Paladin): Unit = {
-    paladin.setWeapon(this)
+    paladin.equipWeapon(this)
   }
 
   /** Sets the owner of the axe to a warrior character.
@@ -36,7 +36,7 @@ class Axe (
    *  @param warrior The warrior character who will be the owner of the axe.
    */
   override def setWarrior(warrior: Warrior): Unit = {
-    warrior.setWeapon(this)
+    warrior.equipWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Axe]

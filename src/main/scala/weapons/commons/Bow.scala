@@ -29,7 +29,7 @@ class Bow (
    *  @param warrior The warrior character who will be the owner of the bow.
    */
   override def setWarrior(warrior: Warrior): Unit = {
-    warrior.setWeapon(this)
+    warrior.equipWeapon(this)
   }
 
   /** Sets the owner of the bow to a ninja character.
@@ -37,7 +37,7 @@ class Bow (
    *  @param ninja The ninja character who will be the owner of the bow.
    */
   override def setNinja(ninja: Ninja): Unit = {
-    ninja.setWeapon(this)
+    ninja.equipWeapon(this)
   }
 
   /** Sets the owner of the bow to a white wizard character.
@@ -45,7 +45,7 @@ class Bow (
    *  @param whiteMage The white wizard character who will be the owner of the bow.
    */
   override def setWhiteMage(whiteMage: WhiteMage): Unit = {
-    whiteMage.setWeapon(this)
+    whiteMage.equipWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Bow]

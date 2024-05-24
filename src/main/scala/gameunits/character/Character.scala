@@ -22,7 +22,7 @@ trait Character extends GameUnit {
    *
    *  @param weapon The weapons to be equipped by the character.
    */
-  def setWeapon(weapon: Weapon): Unit
+  def equipWeapon(weapon: Weapon): Unit
 
   /** Equips an axe to the character.
    *
@@ -53,5 +53,10 @@ trait Character extends GameUnit {
    *  @param staff The staff to be equipped.
    */
   def equipStaff(staff: Staff): Unit
+
+/**
+ * Unequips the weapon currently equipped by the character.
+ */
+  def unEquipWeapon(): Unit
 
 }

@@ -66,9 +66,14 @@ abstract class AbstractCharacter(val name: String,
    *
    *  @param w The weapons to be equipped by the character.
    */
-  def setWeapon(w: Weapon): Unit = {
-   weapon = Some(w)
-   w.setOwner(this)
+  def equipWeapon(w: Weapon): Unit = {
+   if (getWeapon.isDefined){
+     throw new InvalidEquipException("This character already has a weapon.")
+   }
+   else{
+     weapon = Some(w)
+     w.setOwner(this)
+   }
   }
 
   /** Equips an axe to the character.
@@ -105,6 +110,13 @@ abstract class AbstractCharacter(val name: String,
    */
   def equipStaff(staff: Staff): Unit =
     throw new InvalidEquipException("Player cannot has this weapon.")
+
+  /**
+   * Unequips the weapon currently equipped by the character.
+   */
+  def unEquipWeapon(): Unit = {
+    weapon = None
+  }
 
   /** Returns the action bar of the character.
    *

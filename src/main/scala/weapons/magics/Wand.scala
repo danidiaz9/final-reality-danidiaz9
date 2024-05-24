@@ -31,7 +31,7 @@ class Wand (
    *  @param ninja The ninja character who will be the owner of the wand.
    */
   override def setNinja(ninja: Ninja): Unit = {
-    ninja.setWeapon(this)
+    ninja.equipWeapon(this)
   }
 
   /** Sets the owner of the wand to a black wizard character.
@@ -39,7 +39,7 @@ class Wand (
    *  @param blackMage The black wizard character who will be the owner of the wand.
    */
   override def setBlackMage(blackMage: BlackMage): Unit = {
-    blackMage.setWeapon(this)
+    blackMage.equipWeapon(this)
   }
 
   /** Sets the owner of the wand to a white wizard character.
@@ -47,7 +47,7 @@ class Wand (
    *  @param whiteMage The white wizard character who will be the owner of the wand.
    */
   override def setWhiteMage(whiteMage: WhiteMage): Unit = {
-    whiteMage.setWeapon(this)
+    whiteMage.equipWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Wand]

@@ -30,7 +30,7 @@ class Staff (
    *  @param blackMage The black wizard character who will be the owner of the staff.
    */
   override def setBlackMage(blackMage: BlackMage): Unit = {
-    blackMage.setWeapon(this)
+    blackMage.equipWeapon(this)
   }
 
   /** Sets the owner of the staff to a white wizard character.
@@ -38,7 +38,7 @@ class Staff (
    *  @param whiteMage The white wizard character who will be the owner of the staff.
    */
   override def setWhiteMage(whiteMage: WhiteMage): Unit = {
-    whiteMage.setWeapon(this)
+    whiteMage.equipWeapon(this)
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Staff]
