@@ -1,7 +1,6 @@
 package gameunits
 
 import gameunits.character.commons.Warrior
-import gameunits.GameUnit
 import gameunits.character.Party
 import gameunits.character.magics.WhiteMage
 

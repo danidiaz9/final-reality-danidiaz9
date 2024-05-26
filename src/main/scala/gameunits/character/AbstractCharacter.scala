@@ -1,6 +1,7 @@
 package gameunits.character
 
-import exceptions.InvalidEquipException
+import exceptions.{InvalidAttackException, InvalidEquipException}
+import gameunits.{Enemy, GameUnit}
 import weapons.Weapon
 import weapons.commons.{Axe, Bow, Sword}
 import weapons.magics.{Staff, Wand}
@@ -140,7 +141,7 @@ abstract class AbstractCharacter(val name: String,
    *
    *  @return The attack points of the character.
    */
-  def attack: Int = {
+  def attack(g: GameUnit): Unit = {
     if (this.getWeapon.isDefined) {
       this.getWeapon.get.getAttackPoints
     }
@@ -148,6 +149,23 @@ abstract class AbstractCharacter(val name: String,
       println("Error: Players must have a weapons to attack.")
       -1
     }
+  }
+
+  def attackFromCharacter(c: Character): Unit = {
+    throw new InvalidAttackException("Character cannot attack another character.")
+  }
+
+  def attackFromEnemy(e: Enemy): Unit = {
+    val enemyDamage = e.getAttackPoints - this.getDefense
+    this.setHealthPoints(this.getHealthPoints - enemyDamage)
+
+    if (this.getHealthPoints > 0) {
+      println(s"Damage inflicted: $enemyDamage")
+    }
+    else {
+      println(s"${this.getName} defeated")
+    }
+
   }
 
 }

@@ -61,6 +61,10 @@ trait GameUnit {
    */
   def calculateMaxActionBar: Double
 
-  def attack: Int
+  def attack(g: GameUnit): Unit
+
+  def attackFromCharacter(c: Character): Unit
+
+  def attackFromEnemy(e: Enemy): Unit
 
 }

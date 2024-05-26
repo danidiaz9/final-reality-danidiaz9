@@ -1,6 +1,5 @@
 import gameunits.character.commons.Warrior
 import gameunits.{Enemy, GameUnit}
-import gameunits.character.Character
 import scala.collection.mutable.ArrayBuffer
 
 
@@ -73,19 +72,5 @@ class TurnSchedulerTest extends munit.FunSuite {
     character2.actionBar = 15.0
     turnScheduler.sortTurns()
     assert(turnScheduler.waitingZone.head == character1 && turnScheduler.waitingZone.last == character2)
-  }
-
-  test("combatPlayer") {
-    val player: Character = new Warrior("Player1", 200, 40, 60.0, None)
-    val enemy: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
-    turnScheduler.combatPlayer(player, enemy)
-    assert(player.attack == -1)
-  }
-
-  test("combatEnemy") {
-    val enemy: GameUnit = new Enemy("Enemy1", 100, 40, 30, 50)
-    val player: Character = new Warrior("Player1", 200, 40, 60.0, None)
-    turnScheduler.combatEnemy(enemy, player)
-    assert(player.getHealthPoints == 200)
   }
 }
