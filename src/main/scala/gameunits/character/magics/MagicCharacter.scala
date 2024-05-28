@@ -8,6 +8,8 @@ trait MagicCharacter {
 
   def getManaPoints: Int
 
+  def setManaPoints(x: Int): Unit
+
   def throwSpell(target: GameUnit): Unit
 
   def useThunder(thunder: Thunder): Unit

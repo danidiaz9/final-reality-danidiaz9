@@ -6,8 +6,14 @@ trait Spell {
 
   val manaCost: Int
 
-  def useLightSpell(whiteMage: WhiteMage): Unit
+  def healingSpell(whiteMage: WhiteMage): Unit
 
-  def useDarkSpell(blackMage: BlackMage): Unit
+  def poisonSpell(whiteMage: WhiteMage): Unit
+
+  def paralysisSpell(whiteMage: WhiteMage): Unit
+
+  def thunderSpell(blackMage: BlackMage): Unit
+
+  def fireSpell(blackMage: BlackMage): Unit
 
 }

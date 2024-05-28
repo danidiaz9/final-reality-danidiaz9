@@ -1,5 +1,6 @@
 package gameunits.character.magics
 
+import spells.dark.{Fire, Thunder}
 import weapons.Weapon
 import weapons.commons.Sword
 import weapons.magics.{Staff, Wand}
@@ -48,6 +49,14 @@ class BlackMage(name: String,
    */
   override def equipStaff(staff: Staff): Unit = {
     staff.setBlackMage(this)
+  }
+
+  override def useThunder(thunder: Thunder): Unit = {
+    thunder.thunderSpell(this)
+  }
+
+  override def useFire(fire: Fire): Unit = {
+    fire.fireSpell(this)
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[BlackMage]

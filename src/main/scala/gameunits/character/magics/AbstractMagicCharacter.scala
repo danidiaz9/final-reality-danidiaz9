@@ -29,6 +29,10 @@ abstract class AbstractMagicCharacter(name: String,
 
   def getManaPoints: Int = manaPoints
 
+  def setManaPoints(x: Int): Unit = {
+    manaPoints = x
+  }
+
   def throwSpell(target: GameUnit): Unit = _
 
   def useThunder(thunder: Thunder): Unit =

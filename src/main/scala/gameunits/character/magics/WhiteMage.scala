@@ -1,5 +1,6 @@
 package gameunits.character.magics
 
+import spells.light.{Healing, Paralysis, Poison}
 import weapons.Weapon
 import weapons.commons.Bow
 import weapons.magics.{Staff, Wand}
@@ -48,6 +49,18 @@ class WhiteMage(name: String,
    */
   override def equipStaff(staff: Staff): Unit = {
     staff.setWhiteMage(this)
+  }
+
+  override def useHealing(healing: Healing): Unit = {
+    healing.healingSpell(this)
+  }
+
+  override def usePoison(poison: Poison): Unit = {
+    poison.poisonSpell(this)
+  }
+
+  override def useParalysis(paralysis: Paralysis): Unit = {
+    paralysis.paralysisSpell(this)
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteMage]
