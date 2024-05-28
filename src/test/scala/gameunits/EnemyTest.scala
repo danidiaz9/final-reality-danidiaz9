@@ -21,7 +21,7 @@ class EnemyTest extends munit.FunSuite {
     assertEquals(enemy.getHealthPoints, 100)
   }
 
-  test("getAttackPoints returns correct attack points") {
+  test("getAttackPoints returns correct attackCharacter points") {
     assertEquals(enemy.getAttackPoints, 20)
   }
 

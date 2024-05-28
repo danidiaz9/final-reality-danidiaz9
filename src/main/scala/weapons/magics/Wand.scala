@@ -13,10 +13,10 @@ import java.util.Objects
  *
  *  @constructor Creates a new instance of Wand with the specified attributes.
  *  @param name The name of the wand.
- *  @param attackPoints The attack points of the wand.
+ *  @param attackPoints The attackCharacter points of the wand.
  *  @param weight The weight of the wand.
  *  @param owner The owner of the wand, represented as an optional character.
- *  @param magicAttackPoints The magic attack points of the wand.
+ *  @param magicAttackPoints The magic attackCharacter points of the wand.
  */
 class Wand (
              name: String,

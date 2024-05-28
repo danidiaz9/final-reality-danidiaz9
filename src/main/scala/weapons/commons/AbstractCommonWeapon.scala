@@ -10,7 +10,7 @@ import java.util.Objects
  *
  *  @constructor Creates a new instance of AbstractCommonWeapon with the specified attributes.
  *  @param name The name of the weapons.
- *  @param attackPoints The attack points of the weapons.
+ *  @param attackPoints The attackCharacter points of the weapons.
  *  @param weight The weight of the weapons.
  *  @param owner The owner of the weapons, represented as an optional character.
  */

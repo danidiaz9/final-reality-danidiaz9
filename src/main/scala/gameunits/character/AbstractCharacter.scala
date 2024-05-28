@@ -137,20 +137,6 @@ abstract class AbstractCharacter(val name: String,
 
   }
 
-  /** Returns the attack points of the character.
-   *
-   *  @return The attack points of the character.
-   */
-  def attack(g: GameUnit): Unit = {
-    if (this.getWeapon.isDefined) {
-      this.getWeapon.get.getAttackPoints
-    }
-    else {
-      println("Error: Players must have a weapons to attack.")
-      -1
-    }
-  }
-
   def attackFromCharacter(c: Character): Unit = {
     throw new InvalidAttackException("Character cannot attack another character.")
   }
@@ -158,14 +144,9 @@ abstract class AbstractCharacter(val name: String,
   def attackFromEnemy(e: Enemy): Unit = {
     val enemyDamage = e.getAttackPoints - this.getDefense
     this.setHealthPoints(this.getHealthPoints - enemyDamage)
-
-    if (this.getHealthPoints > 0) {
-      println(s"Damage inflicted: $enemyDamage")
-    }
-    else {
-      println(s"${this.getName} defeated")
-    }
-
   }
 
+  def attack(g: GameUnit): Unit = {
+    attackFromCharacter(this)
+  }
 }

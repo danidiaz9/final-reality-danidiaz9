@@ -11,7 +11,7 @@ import java.util.Objects
  *
  *  @constructor Creates a new instance of Sword with the specified attributes.
  *  @param name The name of the sword.
- *  @param attackPoints The attack points of the sword.
+ *  @param attackPoints The attackCharacter points of the sword.
  *  @param weight The weight of the sword.
  *  @param owner The owner of the sword, represented as an optional character.
  */

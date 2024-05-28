@@ -1,5 +1,7 @@
 package gameunits
 
+import gameunits.character.Character
+
 /** Trait representing a character.
  *
  * This trait defines the basic properties of a character in the game,
@@ -63,8 +65,8 @@ trait GameUnit {
 
   def attack(g: GameUnit): Unit
 
-  def attackFromCharacter(c: Character): Unit
-
   def attackFromEnemy(e: Enemy): Unit
+
+  def attackFromCharacter(c: Character): Unit
 
 }

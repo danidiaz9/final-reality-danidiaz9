@@ -6,14 +6,14 @@ import gameunits.character.magics.{BlackMage, WhiteMage}
 
 /** A trait representing weapons in the game.
  *
- *  Weaponry includes attributes such as name, attack points, weight, and owner.
+ *  Weaponry includes attributes such as name, attackCharacter points, weight, and owner.
  */
 trait Weapon {
 
   /** The name of the weapons. */
   val name: String
 
-  /** The attack points of the weapons. */
+  /** The attackCharacter points of the weapons. */
   val attackPoints: Int
 
   /** The weight of the weapons. */
@@ -25,9 +25,9 @@ trait Weapon {
    */
   def getName: String
 
-  /** Returns the attack points of the weapons.
+  /** Returns the attackCharacter points of the weapons.
    *
-   *  @return The attack points of the weapons.
+   *  @return The attackCharacter points of the weapons.
    */
   def getAttackPoints: Int
 

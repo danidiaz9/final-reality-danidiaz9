@@ -1,7 +1,6 @@
 package gameunits
 
 import gameunits.character.Character
-import weapons.Weapon
 import exceptions.{InvalidAttackException, Require}
 
 /** An abstract class representing a character in the game.
@@ -42,9 +41,9 @@ abstract class AbstractUnit(val name: String,
     healthPoints = x
   }
 
-  /** Returns the attack points of the character.
+  /** Returns the attackCharacter points of the character.
    *
-   *  @return The attack points of the character.
+   *  @return The attackCharacter points of the character.
    */
   def getAttackPoints: Int = attackPoints
 
@@ -77,24 +76,13 @@ abstract class AbstractUnit(val name: String,
 
   }
 
-  def attack(g: GameUnit): Unit = {
-    this.getAttackPoints
-  }
-
   def attackFromCharacter(c: Character): Unit = {
-    val playerDamage = c.getWeapon.get.attackPoints - this.getDefense
-    this.setHealthPoints(this.getHealthPoints - playerDamage)
-
-    if (this.getHealthPoints > 0) {
-      println(s"Damage inflicted: $playerDamage")
-    }
-    else {
-      println(s"${this.getName} defeated")
-    }
-
+    val characterDamage = c.getWeapon.get.attackPoints - this.getDefense
+    this.setHealthPoints(this.getHealthPoints - characterDamage)
   }
 
   def attackFromEnemy(e: Enemy): Unit = {
     throw new InvalidAttackException("Enemy cannot attack another enemy.")
   }
+
 }

@@ -13,7 +13,7 @@ import java.util.Objects
  *
  *  @constructor Creates a new instance of Bow with the specified attributes.
  *  @param name The name of the bow.
- *  @param attackPoints The attack points of the bow.
+ *  @param attackPoints The attackCharacter points of the bow.
  *  @param weight The weight of the bow.
  *  @param owner The owner of the bow, represented as an optional character.
  */

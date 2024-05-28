@@ -7,11 +7,11 @@ import gameunits.character.magics.{BlackMage, WhiteMage}
 
 /** An abstract class representing a type of weapons in the game.
  *
- *  Weaponry includes attributes such as name, attack points, weight, and owner.
+ *  Weaponry includes attributes such as name, attackCharacter points, weight, and owner.
  *
  *  @constructor Creates a new instance of AbstractWeapon with the specified attributes.
  *  @param name The name of the weapons.
- *  @param attackPoints The attack points of the weapons.
+ *  @param attackPoints The attackCharacter points of the weapons.
  *  @param weight The weight of the weapons.
  *  @param owner The owner of the weapons, represented as an optional character.
  */
@@ -29,9 +29,9 @@ abstract class AbstractWeapon(
    */
   def getName: String = name
 
-  /** Returns the attack points of the weapons.
+  /** Returns the attackCharacter points of the weapons.
    *
-   *  @return The attack points of the weapons.
+   *  @return The attackCharacter points of the weapons.
    */
   def getAttackPoints: Int = attackPoints
 

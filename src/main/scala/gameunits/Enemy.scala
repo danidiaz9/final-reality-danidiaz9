@@ -4,10 +4,10 @@ import java.util.Objects
 
 /** A class representing an enemy character in the game.
  *
- *  @constructor Creates a new enemy with the specified name, health points, attack points, defense, and weight.
+ *  @constructor Creates a new enemy with the specified name, health points, attackCharacter points, defense, and weight.
  *  @param name The name of the enemy.
  *  @param healthPoints The current health points of the enemy.
- *  @param attackPoints The attack points of the enemy.
+ *  @param attackPoints The attackCharacter points of the enemy.
  *  @param defense The defense points of the enemy.
  *  @param weight The weight of the enemy.
  */
@@ -17,6 +17,10 @@ class Enemy(name: String,
             defense: Int,
             weight: Double) extends
             AbstractUnit(name, healthPoints, attackPoints, defense, weight) {
+
+  def attack(g: GameUnit): Unit = {
+    attackFromEnemy(this)
+  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
 

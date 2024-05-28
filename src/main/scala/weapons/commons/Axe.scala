@@ -12,7 +12,7 @@ import java.util.Objects
  *
  *  @constructor Creates a new instance of Axe with the specified attributes.
  *  @param name The name of the axe.
- *  @param attackPoints The attack points of the axe.
+ *  @param attackPoints The attackCharacter points of the axe.
  *  @param weight The weight of the axe.
  *  @param owner The owner of the axe, represented as an optional character.
  */
