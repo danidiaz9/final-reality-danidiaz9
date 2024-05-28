@@ -24,7 +24,7 @@ class WhiteMage(name: String,
                 weight: Double,
                 manaPoints: Int,
                 weapon: Option[Weapon]) extends
-                  AbstractMagicalCharacter(name, healthPoints, defense, weight, manaPoints, weapon) {
+                  AbstractMagicCharacter(name, healthPoints, defense, weight, manaPoints, weapon) {
 
   /** Equips a bow to the white wizard character.
    *

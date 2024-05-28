@@ -6,7 +6,7 @@ Para esta entrega se les pedirá que implementen parcialmente la sección 2.4
 del enunciado. Con el fin de guiarlos se les entrega una lista de requisitos
 a cumplir que debería estar presente en su entrega.
 
-La idea es sólo implementar la parte de los hechizos, los efectos quedarán
+La idea es solo implementar la parte de los hechizos, los efectos quedarán
 pendiente para una futura entrega.
 
 **Recuerde que debe testear todas las funcionalidades que implemente.**
@@ -19,7 +19,7 @@ pendiente para una futura entrega.
 
 - Al lanzar un hechizo con éxito se debe descontar el maná correspondiente
 
-- Un hechizo o magia de luz sólo puede ser lanzada por un mago blanco
+- Un hechizo o magia de luz solo puede ser lanzada por un mago blanco
 
 - Un hechizo o magia oscura sólo puede ser lanzada por un mago negro
 
@@ -34,7 +34,7 @@ pendiente para una futura entrega.
 
 - Un hechizo no puede realizarse sobre un objetivo muerto
 
-- Un hechizo sólo puede ser lanzado por magos con armas mágicas equipadas
+- Un hechizo solo puede ser lanzado por magos con armas mágicas equipadas
 
 ### Efectos
 
@@ -49,7 +49,7 @@ El trabajo realizado para esta entrega se debe realizar en una nueva rama que de
 2. Utilice el comando ``git branch <branch_name>`` para crear la rama. En este caso, sería
 ``git branch entrega-final-2``.
 
-3. Recuede que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama utilizando el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-final-2``.
+3. Recuerde que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama utilizando el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-final-2``.
 
 *Tenga en cuenta que el cuerpo docente tiene acceso total a su repositorio.*
 
