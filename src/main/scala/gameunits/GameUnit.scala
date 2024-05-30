@@ -1,6 +1,8 @@
 package gameunits
 
 import gameunits.character.Character
+import spells.dark.{Fire, Thunder}
+import spells.light.{Paralysis, Poison}
 
 /** Trait representing a character.
  *
@@ -68,5 +70,13 @@ trait GameUnit {
   def attackFromEnemy(e: Enemy): Unit
 
   def attackFromCharacter(c: Character): Unit
+
+  def applyParalysis(paralysis: Paralysis): Unit
+
+  def applyPoison(poison: Poison): Unit
+
+  def applyFire(fire: Fire): Unit
+
+  def applyThunder(thunder: Thunder): Unit
 
 }

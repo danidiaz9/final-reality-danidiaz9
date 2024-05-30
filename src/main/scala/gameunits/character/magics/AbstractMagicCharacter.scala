@@ -3,6 +3,7 @@ package gameunits.character.magics
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
 import gameunits.character.AbstractCharacter
+import spells.Spell
 import spells.dark.{Fire, Thunder}
 import spells.light.{Healing, Paralysis, Poison}
 import weapons.Weapon
@@ -33,7 +34,7 @@ abstract class AbstractMagicCharacter(name: String,
     manaPoints = x
   }
 
-  def throwSpell(target: GameUnit): Unit = _
+  def throwSpell(target: GameUnit, spell: Spell): Unit = _
 
   def useThunder(thunder: Thunder): Unit =
     throw new InvalidSpellException("Mage cannot use thunder.")

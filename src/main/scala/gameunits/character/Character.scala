@@ -1,6 +1,7 @@
 package gameunits.character
 
 import gameunits.GameUnit
+import spells.light.Healing
 import weapons.Weapon
 import weapons.commons.{Axe, Bow, Sword}
 import weapons.magics.{Staff, Wand}
@@ -60,5 +61,7 @@ trait Character extends GameUnit {
   def unEquipWeapon(): Unit
 
   def attackFromCharacter(c: Character): Unit
+
+  def applyHealing(healing: Healing): Unit
 
 }
