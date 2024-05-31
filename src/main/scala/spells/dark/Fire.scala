@@ -1,11 +1,10 @@
 package spells.dark
 
 import gameunits.character.magics.BlackMage
-import spells.AbstractSpell
 
-class Fire extends AbstractSpell {
+class Fire extends AbstractDarkSpell {
 
-  override val manaCost: Int = 15
+  val manaCost: Int = 15
 
   override def fireSpell(blackMage: BlackMage): Unit = {
     blackMage.useFire(this)

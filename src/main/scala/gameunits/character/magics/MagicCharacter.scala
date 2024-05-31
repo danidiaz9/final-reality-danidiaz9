@@ -11,7 +11,9 @@ trait MagicCharacter {
 
   def setManaPoints(x: Int): Unit
 
-  def throwSpell(target: GameUnit, spell: Spell): Unit
+  def knownSpell(s: Spell): Unit
+
+  def throwSpell(target: GameUnit): Unit
 
   def useThunder(thunder: Thunder): Unit
 

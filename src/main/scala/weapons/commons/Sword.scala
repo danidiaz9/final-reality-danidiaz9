@@ -54,7 +54,7 @@ class Sword (
     blackMage.equipWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Sword]
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Sword]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {

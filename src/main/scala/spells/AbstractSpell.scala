@@ -2,11 +2,19 @@ package spells
 
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
-import gameunits.character.magics.{BlackMage, WhiteMage}
+import gameunits.character.magics.{BlackMage, MagicCharacter, WhiteMage}
 
 abstract class AbstractSpell extends Spell {
 
-  val manaCost: Int = null
+  def getManaCost: Int = manaCost
+
+  private var mage: Option[MagicCharacter] = None
+
+  def setMage(m: MagicCharacter): Unit = {
+    mage = Some(m)
+  }
+
+  def getMage: Option[MagicCharacter] = mage
 
   def applySpell(spell: Spell, target: GameUnit): Unit =
     throw new InvalidSpellException("Invalid target.")

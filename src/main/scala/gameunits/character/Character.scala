@@ -62,6 +62,5 @@ trait Character extends GameUnit {
 
   def attackFromCharacter(c: Character): Unit
 
-  def applyHealing(healing: Healing): Unit
 
 }

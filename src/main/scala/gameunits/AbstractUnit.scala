@@ -1,7 +1,9 @@
 package gameunits
 
 import gameunits.character.Character
-import exceptions.{InvalidAttackException, Require}
+import exceptions.{InvalidAttackException, InvalidSpellException, Require}
+import spells.dark.{Fire, Thunder}
+import spells.light.{Healing, Paralysis, Poison}
 
 /** An abstract class representing a character in the game.
  *
@@ -81,8 +83,23 @@ abstract class AbstractUnit(val name: String,
     this.setHealthPoints(this.getHealthPoints - characterDamage)
   }
 
-  def attackFromEnemy(e: Enemy): Unit = {
+  def attackFromEnemy(e: Enemy): Unit =
     throw new InvalidAttackException("Enemy cannot attack another enemy.")
-  }
+
+  def receiveHealing(healing: Healing): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receiveParalysis(paralysis: Paralysis): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receivePoison(poison: Poison): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receiveFire(fire: Fire): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receiveThunder(thunder: Thunder): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
 
 }

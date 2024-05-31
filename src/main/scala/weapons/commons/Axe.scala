@@ -2,8 +2,6 @@ package weapons.commons
 
 import gameunits.character.Character
 import gameunits.character.commons.{Paladin, Warrior}
-import weapons.Weapon
-
 import java.util.Objects
 
 /** A class representing an axe weapons in the game.
@@ -39,7 +37,7 @@ class Axe (
     warrior.equipWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Axe]
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Axe]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {

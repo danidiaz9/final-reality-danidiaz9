@@ -22,11 +22,13 @@ import weapons.Weapon
 
 abstract class AbstractMagicCharacter(name: String,
                                       healthPoints: Int,
-                                      defense:Int,
+                                      defense: Int,
                                       weight: Double,
                                       protected var manaPoints: Int,
                                       weapon: Option[Weapon])
   extends AbstractCharacter(name, healthPoints, defense, weight, weapon) with MagicCharacter {
+
+  private var spell: Option[Spell] = None
 
   def getManaPoints: Int = manaPoints
 
@@ -34,7 +36,11 @@ abstract class AbstractMagicCharacter(name: String,
     manaPoints = x
   }
 
-  def throwSpell(target: GameUnit, spell: Spell): Unit = _
+  def knownSpell(s: Spell): Unit ={
+    spell = Some(s)
+  }
+
+  def throwSpell(target: GameUnit): Unit = _
 
   def useThunder(thunder: Thunder): Unit =
     throw new InvalidSpellException("Mage cannot use thunder.")

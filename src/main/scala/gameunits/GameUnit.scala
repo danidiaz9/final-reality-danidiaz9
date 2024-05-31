@@ -2,7 +2,7 @@ package gameunits
 
 import gameunits.character.Character
 import spells.dark.{Fire, Thunder}
-import spells.light.{Paralysis, Poison}
+import spells.light.{Healing, Paralysis, Poison}
 
 /** Trait representing a character.
  *
@@ -71,12 +71,14 @@ trait GameUnit {
 
   def attackFromCharacter(c: Character): Unit
 
-  def applyParalysis(paralysis: Paralysis): Unit
+  def receiveHealing(healing: Healing): Unit
 
-  def applyPoison(poison: Poison): Unit
+  def receiveParalysis(paralysis: Paralysis): Unit
 
-  def applyFire(fire: Fire): Unit
+  def receivePoison(poison: Poison): Unit
 
-  def applyThunder(thunder: Thunder): Unit
+  def receiveFire(fire: Fire): Unit
+
+  def receiveThunder(thunder: Thunder): Unit
 
 }
