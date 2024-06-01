@@ -11,17 +11,18 @@ import java.util.Objects
  *
  *  @constructor Creates a new ninja character with the specified name, health points, defense, and weight.
  *  @param name The name of the ninja character.
- *  @param healthPoints The current health points of the ninja character.
+ *  @param currentHealthPoints The current health points of the ninja character.
  *  @param defense The defense points of the ninja character.
  *  @param weight The weight of the ninja character.
  *  @param weapon The weapons equipped by the ninja character.
  */
 class Ninja(name: String,
-            healthPoints: Int,
+            maxHealthPoints: Int,
+            currentHealthPoints: Int,
             defense: Int,
             weight: Double,
             weapon: Option[Weapon]) extends
-            AbstractCommonCharacter(name, healthPoints, defense, weight, weapon) {
+            AbstractCommonCharacter(name, maxHealthPoints, currentHealthPoints, defense, weight, weapon) {
 
   /** Equips a sword to the ninja character.
    *
@@ -66,7 +67,7 @@ class Ninja(name: String,
 
     override def toString: String = s"Ninja {" +
       s"name: $getName, " +
-      s"healthPoints: $getHealthPoints, " +
+      s"currentHealthPoints: $getHealthPoints, " +
       s"defense: $getDefense, " +
       s"weight: $getWeight, " +
       s"weapons: $getWeapon" +

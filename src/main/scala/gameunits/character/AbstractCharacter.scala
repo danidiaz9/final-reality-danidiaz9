@@ -1,7 +1,9 @@
 package gameunits.character
 
-import exceptions.{InvalidAttackException, InvalidEquipException}
+import exceptions.{InvalidAttackException, InvalidEquipException, InvalidSpellException}
 import gameunits.{Enemy, GameUnit}
+import spells.dark.{Fire, Thunder}
+import spells.light.{Healing, Paralysis, Poison}
 import weapons.Weapon
 import weapons.commons.{Axe, Bow, Sword}
 import weapons.magics.{Staff, Wand}
@@ -10,17 +12,17 @@ import weapons.magics.{Staff, Wand}
  *
  *  @constructor Creates a new character with the specified name, health points, defense, weight, and weapons.
  *  @param name The name of the character.
- *  @param healthPoints The current health points of the character.
+ *  @param currentHealthPoints The current health points of the character.
  *  @param defense The defense points of the character.
  *  @param weight The weight of the character.
  *  @param weapon The weapons equipped by the character, represented as an optional trait weapons.
  */
 abstract class AbstractCharacter(val name: String,
-                                 private var healthPoints: Int,
+                                 val maxHealthPoints: Int,
+                                 private var currentHealthPoints: Int,
                                  private var defense: Int,
                                  val weight: Double,
-                                 private var weapon: Option[Weapon] = None
-                             ) extends Character {
+                                 private var weapon: Option[Weapon] = None) extends Character {
   
   /** The action bar of the character. */
   var actionBar: Double = 0.0
@@ -35,14 +37,14 @@ abstract class AbstractCharacter(val name: String,
    *
    *  @return The current health points of the character.
    */
-  def getHealthPoints: Int = healthPoints
+  def getHealthPoints: Int = currentHealthPoints
 
   /** Sets the health points of the character to the specified value.
    *
    *  @param x The value to set the health points to.
    */
   def setHealthPoints(x: Int): Unit = {
-    healthPoints = x
+    currentHealthPoints = x
   }
 
   /** Returns the defense points of the character.
@@ -149,4 +151,20 @@ abstract class AbstractCharacter(val name: String,
   def attack(g: GameUnit): Unit = {
     attackFromCharacter(this)
   }
+
+  def receiveHealing(healing: Healing): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receiveParalysis(paralysis: Paralysis): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receivePoison(poison: Poison): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receiveFire(fire: Fire): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
+  def receiveThunder(thunder: Thunder): Unit =
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+
 }

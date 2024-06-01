@@ -13,7 +13,7 @@ class BlackMageTest extends munit.FunSuite {
                       weight: Double,
                       manaPoints: Int,
                       weapon: Option[Weapon])
-    extends BlackMage(name, healthPoints, defense, weight, manaPoints, weapon)
+    extends BlackMage(name, healthPoints, defense, weight, manaPoints,, weapon)
 
   var blackWizard: TestBlackMage = _
   var sword: Sword = _
@@ -67,7 +67,7 @@ class BlackMageTest extends munit.FunSuite {
   }
 
   test("toString returns expected string representation") {
-    val expected = "BlackMage {name: Gandalf, healthPoints: 150," +
+    val expected = "BlackMage {name: Gandalf, currentHealthPoints: 150," +
       " defense: 30, weight: 80.0, manaPoints: 100, weapons: None}"
     assertEquals(blackWizard.toString, expected)
   }

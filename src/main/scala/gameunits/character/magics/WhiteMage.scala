@@ -12,20 +12,29 @@ import java.util.Objects
  *  @constructor Creates a new white wizard character with the specified name, health points,
  *               defense, weight, and mana points.
  *  @param name The name of the white wizard character.
- *  @param healthPoints The current health points of the white wizard character.
+ *  @param currentHealthPoints The current health points of the white wizard character.
  *  @param defense The defense points of the white wizard character.
  *  @param weight The weight of the white wizard character.
- *  @param manaPoints The current mana points of the white wizard character.
+ *  @param currentManaPoints The current mana points of the white wizard character.
  *  @param weapon The weapons equipped by the white wizard character.
  */
 
 class WhiteMage(name: String,
-                healthPoints: Int,
+                maxHealthPoints: Int,
+                currentHealthPoints: Int,
                 defense: Int,
                 weight: Double,
-                manaPoints: Int,
+                maxManaPoints: Int,
+                currentManaPoints: Int,
                 weapon: Option[Weapon]) extends
-                  AbstractMagicCharacter(name, healthPoints, defense, weight, manaPoints, weapon) {
+                AbstractMagicCharacter(name,
+                  maxHealthPoints,
+                  currentHealthPoints,
+                  defense,
+                  weight,
+                  maxManaPoints,
+                  currentManaPoints,
+                  weapon) {
 
   /** Equips a bow to the white wizard character.
    *
@@ -83,7 +92,7 @@ class WhiteMage(name: String,
 
   override def toString: String = s"WhiteMage {" +
     s"name: $getName, " +
-    s"healthPoints: $getHealthPoints, " +
+    s"currentHealthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
     s"weight: $getWeight, " +
     s"manaPoints: $getManaPoints, " +

@@ -9,7 +9,7 @@ class WhiteMageTest extends munit.FunSuite {
 
   class TestWhiteMage(name: String, healthPoints: Int, defense: Int,
                       weight: Double, manaPoints: Int, weapon: Option[Weapon])
-    extends WhiteMage(name, healthPoints, defense, weight, manaPoints, weapon)
+    extends WhiteMage(name, healthPoints, defense, weight, manaPoints, currentManaPoints = weapon, maxManaPoints =)
 
   var whiteWizard: TestWhiteMage = _
   var bow: Bow = _
@@ -63,7 +63,7 @@ class WhiteMageTest extends munit.FunSuite {
   }
 
   test("toString returns expected string representation") {
-    val expected = "WhiteMage {name: Gandalf, healthPoints: 150, defense: 30, " +
+    val expected = "WhiteMage {name: Gandalf, currentHealthPoints: 150, defense: 30, " +
       "weight: 80.0, manaPoints: 100, weapons: None}"
     assertEquals(whiteWizard.toString, expected)
   }

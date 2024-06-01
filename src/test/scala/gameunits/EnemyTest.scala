@@ -34,7 +34,7 @@ class EnemyTest extends munit.FunSuite {
   }
 
   test("toString returns expected string representation") {
-    val expected = "Enemy {name: Goblin, healthPoints: 100, attackPoints: 20, defense: 10, weight: 50.0}"
+    val expected = "Enemy {name: Goblin, currentHealthPoints: 100, attackPoints: 20, defense: 10, weight: 50.0}"
     assertEquals(enemy.toString, expected)
   }
 

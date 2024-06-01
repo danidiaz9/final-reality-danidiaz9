@@ -51,7 +51,7 @@ class PaladinTest extends munit.FunSuite {
   }
 
   test("toString returns expected string representation") {
-    val expected = "Paladin {name: Arthur, healthPoints: 150, defense: 30, weight: 80.0, weapons: None}"
+    val expected = "Paladin {name: Arthur, currentHealthPoints: 150, defense: 30, weight: 80.0, weapons: None}"
     assertEquals(paladin.toString, expected)
   }
 

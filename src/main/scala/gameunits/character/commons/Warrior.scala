@@ -9,17 +9,18 @@ import java.util.Objects
  *
  *  @constructor Creates a new warrior character with the specified name, health points, defense, and weight.
  *  @param name The name of the warrior character.
- *  @param healthPoints The current health points of the warrior character.
+ *  @param currentHealthPoints The current health points of the warrior character.
  *  @param defense The defense points of the warrior character.
  *  @param weight The weight of the warrior character.
  *  @param weapon The weapons equipped by the warrior character.
  */
 class Warrior(name: String,
-            healthPoints: Int,
-            defense: Int,
-            weight: Double,
-            weapon: Option[Weapon]) extends
-            AbstractCommonCharacter(name, healthPoints, defense, weight, weapon) {
+              maxHealthPoints: Int,
+              currentHealthPoints: Int,
+              defense: Int,
+              weight: Double,
+              weapon: Option[Weapon]) extends
+              AbstractCommonCharacter(name, maxHealthPoints, currentHealthPoints, defense, weight, weapon) {
 
   /** Equips a sword to the warrior character.
    *
@@ -64,7 +65,7 @@ class Warrior(name: String,
 
   override def toString: String = s"Warrior {" +
     s"name: $getName, " +
-    s"healthPoints: $getHealthPoints, " +
+    s"currentHealthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
     s"weight: $getWeight, " +
     s"weapons: $getWeapon" +

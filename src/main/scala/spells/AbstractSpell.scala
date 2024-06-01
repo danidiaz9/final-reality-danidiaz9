@@ -4,7 +4,7 @@ import exceptions.InvalidSpellException
 import gameunits.GameUnit
 import gameunits.character.magics.{BlackMage, MagicCharacter, WhiteMage}
 
-abstract class AbstractSpell extends Spell {
+abstract class AbstractSpell(val manaCost: Int) extends Spell {
 
   def getManaCost: Int = manaCost
 
@@ -16,7 +16,7 @@ abstract class AbstractSpell extends Spell {
 
   def getMage: Option[MagicCharacter] = mage
 
-  def applySpell(spell: Spell, target: GameUnit): Unit =
+  def applySpell(target: GameUnit): Unit =
     throw new InvalidSpellException("Invalid target.")
 
   def healingSpell(whiteMage: WhiteMage): Unit =

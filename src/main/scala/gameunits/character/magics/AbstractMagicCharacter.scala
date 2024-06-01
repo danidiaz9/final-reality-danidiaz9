@@ -13,27 +13,30 @@ import weapons.Weapon
  *  @constructor Creates a new magical character with the specified name, health points,
  *               defense, weight, and mana points.
  *  @param name The name of the magical character.
- *  @param healthPoints The current health points of the magical character.
+ *  @param currentHealthPoints The current health points of the magical character.
  *  @param defense The defense points of the magical character.
  *  @param weight The weight of the magical character.
- *  @param manaPoints The current mana points of the magical character.
+ *  @param currentManaPoints The current mana points of the magical character.
  *  @param weapon The weapons equipped by the magical character.
  */
 
 abstract class AbstractMagicCharacter(name: String,
-                                      healthPoints: Int,
+                                      maxHealthPoints: Int,
+                                      currentHealthPoints: Int,
                                       defense: Int,
                                       weight: Double,
-                                      protected var manaPoints: Int,
+                                      val maxManaPoints: Int,
+                                      var currentManaPoints: Int,
                                       weapon: Option[Weapon])
-  extends AbstractCharacter(name, healthPoints, defense, weight, weapon) with MagicCharacter {
+  extends AbstractCharacter(name,maxHealthPoints, currentHealthPoints, defense, weight, weapon)
+    with MagicCharacter {
 
   private var spell: Option[Spell] = None
 
-  def getManaPoints: Int = manaPoints
+  def getManaPoints: Int = currentManaPoints
 
   def setManaPoints(x: Int): Unit = {
-    manaPoints = x
+    currentManaPoints = x
   }
 
   def knownSpell(s: Spell): Unit ={

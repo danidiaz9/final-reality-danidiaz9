@@ -12,8 +12,8 @@ class StaffTest extends munit.FunSuite {
   override def beforeEach(context: BeforeEach): Unit = {
 
     staff = new Staff("Magic Staff", 25, 6.0, None, 30)
-    blackWizard = new BlackMage("Gandalf", 150, 20, 80.0, 200, None)
-    whiteWizard = new WhiteMage("Saruman", 140, 18, 75.0, 190, None)
+    blackWizard = new BlackMage("Gandalf", 150, 20, 80.0, 200,, None)
+    whiteWizard = new WhiteMage("Saruman", 140, 18, 75.0, 190, currentManaPoints = None, maxManaPoints =)
 
   }
 

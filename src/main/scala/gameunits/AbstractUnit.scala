@@ -9,16 +9,18 @@ import spells.light.{Healing, Paralysis, Poison}
  *
  *  @constructor Creates a new character with the specified name, health points, defense, and weight.
  *  @param name The name of the character.
- *  @param healthPoints The current health points of the character.
+ *  @param currentHealthPoints The current health points of the character.
  *  @param defense The defense points of the character.
  *  @param weight The weight of the character.
  */
 abstract class AbstractUnit(val name: String,
-                            protected var healthPoints: Int,
+                            val maxHealthPoints: Int,
+                            protected var currentHealthPoints: Int,
                             val attackPoints: Int,
                             protected var defense: Int,
                             val weight: Double) extends GameUnit {
-  Require.Stat(healthPoints, "healthPoints").atLeast(0)
+
+  Require.Stat(currentHealthPoints, "currentHealthPoints").atLeast(0)
 
   /** The action bar of the character. */
   var actionBar: Double = 0.0
@@ -33,14 +35,14 @@ abstract class AbstractUnit(val name: String,
    *
    *  @return The current health points of the character.
    */
-  def getHealthPoints: Int = healthPoints
+  def getHealthPoints: Int = currentHealthPoints
 
   /** Sets the health points of the character to the specified value.
    *
    *  @param x The value to set the health points to.
    */
   def setHealthPoints(x: Int): Unit = {
-    healthPoints = x
+    currentHealthPoints = x
   }
 
   /** Returns the attackCharacter points of the character.

@@ -60,7 +60,7 @@ class NinjaTest extends munit.FunSuite {
 
 
   test("toString returns expected string representation") {
-    val expected = "Ninja {name: Hanzo, healthPoints: 100, defense: 20, weight: 70.0, weapons: None}"
+    val expected = "Ninja {name: Hanzo, currentHealthPoints: 100, defense: 20, weight: 70.0, weapons: None}"
     assertEquals(ninja.toString, expected)
   }
 

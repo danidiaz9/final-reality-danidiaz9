@@ -1,25 +1,45 @@
 package gameunits
 
+import spells.dark.{Fire, Thunder}
+import spells.light.{Paralysis, Poison}
+
 import java.util.Objects
 
 /** A class representing an enemy character in the game.
  *
  *  @constructor Creates a new enemy with the specified name, health points, attackCharacter points, defense, and weight.
  *  @param name The name of the enemy.
- *  @param healthPoints The current health points of the enemy.
+ *  @param currentHealthPoints The current health points of the enemy.
  *  @param attackPoints The attackCharacter points of the enemy.
  *  @param defense The defense points of the enemy.
  *  @param weight The weight of the enemy.
  */
 class Enemy(name: String,
-            healthPoints: Int,
+            maxHealthPoints: Int,
+            currentHealthPoints: Int,
             attackPoints: Int,
             defense: Int,
             weight: Double) extends
-            AbstractUnit(name, healthPoints, attackPoints, defense, weight) {
+            AbstractUnit(name, maxHealthPoints, currentHealthPoints, attackPoints, defense, weight) {
 
   def attack(g: GameUnit): Unit = {
     attackFromEnemy(this)
+  }
+
+  override def receiveFire(fire: Fire): Unit = {
+    fire.applySpell(this)
+  }
+
+  override def receiveThunder(thunder: Thunder): Unit = {
+    thunder.applySpell(this)
+  }
+
+  override def receiveParalysis(paralysis: Paralysis): Unit = {
+    paralysis.applySpell(this)
+  }
+
+  override def receivePoison(poison: Poison): Unit = {
+    poison.applySpell(this)
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
@@ -41,7 +61,7 @@ class Enemy(name: String,
 
   override def toString: String = s"Enemy {" +
     s"name: $getName, " +
-    s"healthPoints: $getHealthPoints, " +
+    s"currentHealthPoints: $getHealthPoints, " +
     s"attackPoints: $getAttackPoints, " +
     s"defense: $getDefense, " +
     s"weight: $getWeight" +

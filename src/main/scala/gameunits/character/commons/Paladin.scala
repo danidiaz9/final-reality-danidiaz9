@@ -9,17 +9,18 @@ import java.util.Objects
  *
  *  @constructor Creates a new paladin character with the specified name, health points, defense, and weight.
  *  @param name The name of the paladin character.
- *  @param healthPoints The current health points of the paladin character.
+ *  @param currentHealthPoints The current health points of the paladin character.
  *  @param defense The defense points of the paladin character.
  *  @param weight The weight of the paladin character.
  *  @param weapon The weapons equipped by the paladin character.
  */
 class Paladin(name: String,
-            healthPoints: Int,
-            defense: Int,
-            weight: Double,
-            weapon: Option[Weapon]) extends
-            AbstractCommonCharacter(name, healthPoints, defense, weight, weapon) {
+              maxHealthPoints: Int,
+              currentHealthPoints: Int,
+              defense: Int,
+              weight: Double,
+              weapon: Option[Weapon]) extends
+              AbstractCommonCharacter(name, maxHealthPoints, currentHealthPoints, defense, weight, weapon) {
 
   /** Equips a sword to the paladin character.
    *
@@ -56,7 +57,7 @@ class Paladin(name: String,
 
   override def toString: String = s"Paladin {" +
     s"name: $getName, " +
-    s"healthPoints: $getHealthPoints, " +
+    s"currentHealthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
     s"weight: $getWeight, " +
     s"weapons: $getWeapon" +

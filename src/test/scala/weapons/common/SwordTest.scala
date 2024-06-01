@@ -18,7 +18,7 @@ class SwordTest extends munit.FunSuite {
     paladin = new Paladin("Arthur", 130, 20, 100.0, None)
     warrior = new Warrior("Conan", 120, 15, 90.0, None)
     ninja = new Ninja("Ryu", 100, 12, 80.0, None)
-    blackWizard = new BlackMage("Voldemort", 150, 25, 95.0, 200, None)
+    blackWizard = new BlackMage("Voldemort", 150, 25, 95.0, 200,, None)
 
   }
 

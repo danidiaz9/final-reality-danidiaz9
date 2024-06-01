@@ -12,20 +12,29 @@ import java.util.Objects
  *  @constructor Creates a new black wizard character with the specified name, health points,
  *               defense, weight, and mana points.
  *  @param name The name of the black wizard character.
- *  @param healthPoints The current health points of the black wizard character.
+ *  @param currentHealthPoints The current health points of the black wizard character.
  *  @param defense The defense points of the black wizard character.
  *  @param weight The weight of the black wizard character.
- *  @param manaPoints The current mana points of the black wizard character.
+ *  @param currentManaPoints The current mana points of the black wizard character.
  *  @param weapon The weapons equipped by the black wizard character.
  */
 
 class BlackMage(name: String,
-                healthPoints: Int,
+                maxHealthPoints: Int,
+                currentHealthPoints: Int,
                 defense: Int,
                 weight: Double,
-                manaPoints: Int,
+                maxManaPoints: Int,
+                currentManaPoints: Int,
                 weapon: Option[Weapon]) extends
-                  AbstractMagicCharacter(name, healthPoints, defense, weight, manaPoints, weapon) {
+                AbstractMagicCharacter(name,
+                  maxHealthPoints,
+                  currentHealthPoints,
+                  defense,
+                  weight,
+                  maxManaPoints,
+                  currentManaPoints,
+                  weapon) {
 
   /** Equips a sword to the black wizard character.
    *
@@ -79,7 +88,7 @@ class BlackMage(name: String,
 
   override def toString: String = s"BlackMage {" +
     s"name: $getName, " +
-    s"healthPoints: $getHealthPoints, " +
+    s"currentHealthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
     s"weight: $getWeight, " +
     s"manaPoints: $getManaPoints, " +

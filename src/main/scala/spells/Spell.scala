@@ -13,7 +13,7 @@ trait Spell {
 
   def getMage: Option[MagicCharacter]
 
-  def applySpell(spell: Spell, target: GameUnit): Unit
+  def applySpell(target: GameUnit): Unit
 
   def healingSpell(whiteMage: WhiteMage): Unit
 
