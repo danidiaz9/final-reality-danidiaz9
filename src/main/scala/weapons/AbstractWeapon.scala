@@ -22,6 +22,7 @@ abstract class AbstractWeapon(
                                  var owner: Option[Character] = None
                                ) extends Weapon {
 
+  /** The magic attack points of the weapon. */
   val magicAttackPoints: Int = 0
 
 

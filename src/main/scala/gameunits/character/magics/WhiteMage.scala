@@ -13,9 +13,11 @@ import java.util.Objects
  *  @constructor Creates a new white wizard character with the specified name, health points,
  *               defense, weight, and mana points.
  *  @param name The name of the white wizard character.
+ *  @param maxHealthPoints The maximum health points of the white wizard character.
  *  @param currentHealthPoints The current health points of the white wizard character.
  *  @param defense The defense points of the white wizard character.
  *  @param weight The weight of the white wizard character.
+ *  @param maxManaPoints The maximum mana points of the white wizard character.
  *  @param currentManaPoints The current mana points of the white wizard character.
  *  @param weapon The weapons equipped by the white wizard character.
  */
@@ -61,6 +63,11 @@ class WhiteMage(name: String,
     staff.setWhiteMage(this)
   }
 
+  /** Equips a Healing spell to the white wizard character.
+   *
+   *  @param healing The Healing spell to be equipped.
+   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
+   */
   override def equipHealing(healing: Healing): Unit = {
     if (healing.manaCost <= getManaPoints &&
       getManaPoints <= maxManaPoints &&
@@ -73,6 +80,11 @@ class WhiteMage(name: String,
     }
   }
 
+  /** Equips a Poison spell to the white wizard character.
+   *
+   *  @param poison The Poison spell to be equipped.
+   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
+   */
   override def equipPoison(poison: Poison): Unit = {
     if (poison.manaCost <= getManaPoints &&
       getManaPoints <= maxManaPoints &&
@@ -85,6 +97,11 @@ class WhiteMage(name: String,
     }
   }
 
+  /** Equips a Paralysis spell to the white wizard character.
+   *
+   *  @param paralysis The Paralysis spell to be equipped.
+   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
+   */
   override def equipParalysis(paralysis: Paralysis): Unit = {
     if (paralysis.manaCost <= getManaPoints &&
       getManaPoints <= maxManaPoints &&

@@ -9,6 +9,7 @@ import java.util.Objects
  *
  *  @constructor Creates a new warrior character with the specified name, health points, defense, and weight.
  *  @param name The name of the warrior character.
+ *  @param maxHealthPoints The maximum health points of the warrior character.
  *  @param currentHealthPoints The current health points of the warrior character.
  *  @param defense The defense points of the warrior character.
  *  @param weight The weight of the warrior character.

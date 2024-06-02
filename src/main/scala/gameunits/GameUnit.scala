@@ -4,10 +4,10 @@ import gameunits.character.Character
 import spells.dark.{Fire, Thunder}
 import spells.light.{Healing, Paralysis, Poison}
 
-/** Trait representing a character.
+/** Trait representing a character in the game.
  *
- * This trait defines the basic properties of a character in the game,
- * such as name, health points, defense, weight, and action bar.
+ * This trait defines the basic properties and behaviors of a character,
+ * such as name, health points, defense, weight, and actions.
  */
 trait GameUnit {
   /** The name of the character.
@@ -65,18 +65,50 @@ trait GameUnit {
    */
   def calculateMaxActionBar: Double
 
+  /** Attack another game unit.
+   *
+   *  @param gameUnit The game unit to attack.
+   */
   def attack(gameUnit: GameUnit): Unit
 
+  /** Receive an attack and reduce health points accordingly.
+   *
+   *  @param damage The amount of damage received.
+   */
   def receiveAttack(damage: Int): Unit
 
+  /** Receive healing from a spell.
+   *
+   *  @param healing The healing spell to receive.
+   */
   def receiveHealing(healing: Healing): Unit
 
+  /** Receive paralysis from a spell.
+   *
+   *  @param paralysis The paralysis spell to receive.
+   *  @param from The character who cast the spell.
+   */
   def receiveParalysis(paralysis: Paralysis, from: Character): Unit
 
+  /** Receive poison from a spell.
+   *
+   *  @param poison The poison spell to receive.
+   *  @param from The character who cast the spell.
+   */
   def receivePoison(poison: Poison, from: Character): Unit
 
+  /** Receive fire damage from a spell.
+   *
+   *  @param fire The fire spell to receive.
+   *  @param from The character who cast the spell.
+   */
   def receiveFire(fire: Fire, from: Character): Unit
 
+  /** Receive thunder damage from a spell.
+   *
+   *  @param thunder The thunder spell to receive.
+   *  @param from The character who cast the spell.
+   */
   def receiveThunder(thunder: Thunder, from: Character): Unit
 
 }

@@ -13,9 +13,11 @@ import java.util.Objects
  *  @constructor Creates a new black wizard character with the specified name, health points,
  *               defense, weight, and mana points.
  *  @param name The name of the black wizard character.
+ *  @param maxHealthPoints The maximum health points of the black wizard character.
  *  @param currentHealthPoints The current health points of the black wizard character.
  *  @param defense The defense points of the black wizard character.
  *  @param weight The weight of the black wizard character.
+ *  @param maxManaPoints The maximum mana points of the black wizard character.
  *  @param currentManaPoints The current mana points of the black wizard character.
  *  @param weapon The weapons equipped by the black wizard character.
  */
@@ -61,6 +63,11 @@ class BlackMage(name: String,
     staff.setBlackMage(this)
   }
 
+  /** Equips a Thunder spell to the black wizard character.
+   *
+   *  @param thunder The Thunder spell to be equipped.
+   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
+   */
   override def equipThunder(thunder: Thunder): Unit = {
     if (thunder.manaCost <= getManaPoints &&
       getManaPoints <= maxManaPoints &&
@@ -72,6 +79,12 @@ class BlackMage(name: String,
       throw new InvalidSpellException("Need a magic weapon or not enough mana.")
     }
   }
+
+  /** Equips a Fire spell to the black wizard character.
+   *
+   *  @param fire The Fire spell to be equipped.
+   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
+   */
   override def equipFire(fire: Fire): Unit = {
     if (fire.manaCost <= getManaPoints &&
       getManaPoints <= maxManaPoints &&

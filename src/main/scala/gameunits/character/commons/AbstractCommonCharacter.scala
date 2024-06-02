@@ -3,14 +3,15 @@ package gameunits.character.commons
 import gameunits.character.AbstractCharacter
 import weapons.Weapon
 
-/** An abstract class representing a common character character in the game.
+/** An abstract class representing a common character in the game.
  *
- *  @constructor Creates a new common character character with the specified name, health points, defense, and weight.
- *  @param name The name of the common character character.
- *  @param currentHealthPoints The current health points of the common character character.
- *  @param defense The defense points of the common character character.
- *  @param weight The weight of the common character character.
- *  @param weapon The weapons equipped by the common character character.
+ *  @constructor Creates a new common character with the specified name, health points, defense, weight, and weapon.
+ *  @param name The name of the common character.
+ *  @param maxHealthPoints The maximum health points of the common character.
+ *  @param currentHealthPoints The current health points of the common character.
+ *  @param defense The defense points of the common character.
+ *  @param weight The weight of the common character.
+ *  @param weapon The weapon equipped by the common character, represented as an optional trait weapon.
  */
 abstract class AbstractCommonCharacter(name: String,
                                        maxHealthPoints: Int,

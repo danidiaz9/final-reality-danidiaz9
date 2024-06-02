@@ -12,10 +12,11 @@ import weapons.magics.{Staff, Wand}
  *
  *  @constructor Creates a new character with the specified name, health points, defense, weight, and weapons.
  *  @param name The name of the character.
+ *  @param maxHealthPoints The maximum health points of the character.
  *  @param currentHealthPoints The current health points of the character.
  *  @param defense The defense points of the character.
  *  @param weight The weight of the character.
- *  @param weapon The weapons equipped by the character, represented as an optional trait weapons.
+ *  @param weapon The weapon equipped by the character, represented as an optional trait weapons.
  */
 abstract class AbstractCharacter(val name: String,
                                  val maxHealthPoints: Int,
@@ -139,15 +140,27 @@ abstract class AbstractCharacter(val name: String,
 
   }
 
+  /** Receives an attack from an enemy.
+   *
+   *  @param damage The amount of damage received.
+   */
   def receiveAttack(damage: Int): Unit = {
     val enemyDamage = damage - this.getDefense
     this.setHealthPoints(this.getHealthPoints - enemyDamage)
   }
 
+  /** Attacks another game unit.
+   *
+   *  @param gameUnit The game unit to attack.
+   */
   def attack(gameUnit: GameUnit): Unit = {
     gameUnit.receiveAttack(this.getWeapon.get.getAttackPoints)
   }
 
+  /** Receives healing from a spell.
+   *
+   *  @param healing The healing spell received.
+   */
   def receiveHealing(healing: Healing): Unit = {
     if (getHealthPoints + 0.3 * maxHealthPoints <= maxHealthPoints){
       setHealthPoints(currentHealthPoints + (0.3 * maxHealthPoints).toInt)
@@ -157,15 +170,39 @@ abstract class AbstractCharacter(val name: String,
     }
   }
 
+  /** Receives paralysis from a spell.
+   *
+   *  @param paralysis The paralysis spell received.
+   *  @param from The character who cast the spell.
+   *  @throws InvalidSpellException if the spell cannot affect this unit.
+   */
   def receiveParalysis(paralysis: Paralysis, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
+  /** Receives poison from a spell.
+   *
+   *  @param poison The poison spell received.
+   *  @param from The character who cast the spell.
+   *  @throws InvalidSpellException if the spell cannot affect this unit.
+   */
   def receivePoison(poison: Poison, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
+  /** Receives fire damage from a spell.
+   *
+   *  @param fire The fire spell received.
+   *  @param from The character who cast the spell.
+   *  @throws InvalidSpellException if the spell cannot affect this unit.
+   */
   def receiveFire(fire: Fire, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
+  /** Receives thunder damage from a spell.
+   *
+   *  @param thunder The thunder spell received.
+   *  @param from The character who cast the spell.
+   *  @throws InvalidSpellException if the spell cannot affect this unit.
+   */
   def receiveThunder(thunder: Thunder, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 

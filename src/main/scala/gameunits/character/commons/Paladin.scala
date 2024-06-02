@@ -9,6 +9,7 @@ import java.util.Objects
  *
  *  @constructor Creates a new paladin character with the specified name, health points, defense, and weight.
  *  @param name The name of the paladin character.
+ *  @param maxHealthPoints The maximum health points of the paladin character.
  *  @param currentHealthPoints The current health points of the paladin character.
  *  @param defense The defense points of the paladin character.
  *  @param weight The weight of the paladin character.
