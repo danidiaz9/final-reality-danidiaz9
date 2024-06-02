@@ -3,7 +3,6 @@ package weapons.magics
 import gameunits.character.Character
 import gameunits.character.commons.Ninja
 import gameunits.character.magics.{BlackMage, WhiteMage}
-import weapons.Weapon
 
 import java.util.Objects
 
@@ -50,7 +49,7 @@ class Wand (
     whiteMage.equipWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Wand]
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Wand]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {

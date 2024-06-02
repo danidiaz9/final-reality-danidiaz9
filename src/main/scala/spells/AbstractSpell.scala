@@ -2,9 +2,11 @@ package spells
 
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
+import gameunits.character.Character
 import gameunits.character.magics.{BlackMage, MagicCharacter, WhiteMage}
 
-abstract class AbstractSpell(val manaCost: Int) extends Spell {
+abstract class AbstractSpell extends Spell {
+
 
   def getManaCost: Int = manaCost
 
@@ -14,24 +16,15 @@ abstract class AbstractSpell(val manaCost: Int) extends Spell {
     mage = Some(m)
   }
 
+  def setSpellBlackMage(blackMage: BlackMage): Unit =
+    throw new InvalidSpellException("Spell cannot be setting in this character.")
+
+  def setSpellWhiteMage(whiteMage: WhiteMage): Unit =
+    throw new InvalidSpellException("Spell cannot be setting in this character.")
+
   def getMage: Option[MagicCharacter] = mage
 
-  def applySpell(target: GameUnit): Unit =
+  def applySpell(target: GameUnit, from: Character): Unit =
     throw new InvalidSpellException("Invalid target.")
-
-  def healingSpell(whiteMage: WhiteMage): Unit =
-    throw new InvalidSpellException("Only white mages can use this spell.")
-
-  def poisonSpell(whiteMage: WhiteMage): Unit =
-    throw new InvalidSpellException("Only white mages can use this spell.")
-
-  def paralysisSpell(whiteMage: WhiteMage): Unit =
-    throw new InvalidSpellException("Only white mages can use this spell.")
-
-  def thunderSpell(blackMage: BlackMage): Unit =
-    throw new InvalidSpellException("Only black mages can use this spell.")
-
-  def fireSpell(blackMage: BlackMage): Unit =
-    throw new InvalidSpellException("Only black mages can use this spell.")
 
 }

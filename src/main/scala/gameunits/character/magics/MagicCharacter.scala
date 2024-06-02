@@ -17,14 +17,14 @@ trait MagicCharacter {
 
   def throwSpell(target: GameUnit): Unit
 
-  def useThunder(thunder: Thunder): Unit
+  def equipThunder(thunder: Thunder): Unit
 
-  def useFire(fire: Fire): Unit
+  def equipFire(fire: Fire): Unit
 
-  def useHealing(healing: Healing): Unit
+  def equipHealing(healing: Healing): Unit
 
-  def usePoison(poison: Poison): Unit
+  def equipPoison(poison: Poison): Unit
 
-  def useParalysis(paralysis: Paralysis): Unit
+  def equipParalysis(paralysis: Paralysis): Unit
 
 }

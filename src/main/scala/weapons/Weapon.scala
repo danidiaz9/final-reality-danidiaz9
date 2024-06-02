@@ -16,6 +16,8 @@ trait Weapon {
   /** The attackCharacter points of the weapons. */
   val attackPoints: Int
 
+  val magicAttackPoints: Int
+
   /** The weight of the weapons. */
   val weight: Double
 

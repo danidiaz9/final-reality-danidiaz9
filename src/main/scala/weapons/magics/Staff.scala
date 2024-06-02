@@ -41,7 +41,7 @@ class Staff (
     whiteMage.equipWeapon(this)
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Staff]
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Staff]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {

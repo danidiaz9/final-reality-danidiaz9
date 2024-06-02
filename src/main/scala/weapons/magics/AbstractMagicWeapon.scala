@@ -2,7 +2,6 @@ package weapons.magics
 
 import gameunits.character.Character
 import weapons.AbstractWeapon
-import java.util.Objects
 
 
 /** A class representing a magical weapons in the game.
@@ -21,33 +20,10 @@ abstract class AbstractMagicWeapon(name: String,
                                    attackPoints: Int,
                                    weight: Double,
                                    owner: Option[Character],
-                                   val magicAttackPoints: Int) extends
+                                   override val magicAttackPoints: Int) extends
             AbstractWeapon(name, attackPoints, weight, owner) with MagicWeapon {
 
   def getMagicAttackPoints: Int = magicAttackPoints
 
-  def canEqual(that: Any): Boolean = that.isInstanceOf[AbstractMagicWeapon]
 
-  override def equals(that: Any): Boolean = {
-    if (canEqual(that)) {
-      val other = that.asInstanceOf[AbstractMagicWeapon]
-      getName == other.getName &&
-      getAttackPoints == other.getAttackPoints &&
-      getWeight == other.getWeight &&
-      getOwner == other.getOwner &&
-      getMagicAttackPoints == other.getMagicAttackPoints
-      }
-    else false
-  }
-
-  override def hashCode: Int = Objects.hash(classOf[AbstractMagicWeapon],
-    getName, getAttackPoints, getWeight, getOwner, getMagicAttackPoints)
-
-  override def toString: String = s"MagicWeapon {" +
-    s"name: $getName, " +
-    s"attackPoints: $getAttackPoints, " +
-    s"weight: $getWeight, " +
-    s"owner: $getOwner, " +
-    s"magicAttackPoints: $getMagicAttackPoints" +
-    s"}"
   }

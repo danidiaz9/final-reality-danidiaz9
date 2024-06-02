@@ -1,5 +1,6 @@
 package gameunits.character.magics
 
+import exceptions.InvalidSpellException
 import spells.light.{Healing, Paralysis, Poison}
 import weapons.Weapon
 import weapons.commons.Bow
@@ -60,16 +61,40 @@ class WhiteMage(name: String,
     staff.setWhiteMage(this)
   }
 
-  override def useHealing(healing: Healing): Unit = {
-    healing.healingSpell(this)
+  override def equipHealing(healing: Healing): Unit = {
+    if (healing.manaCost <= getManaPoints &&
+      getManaPoints <= maxManaPoints &&
+      this.getWeapon.isDefined){
+      healing.setSpellWhiteMage(this)
+      this.setManaPoints(getManaPoints - healing.manaCost)
+    }
+    else {
+      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+    }
   }
 
-  override def usePoison(poison: Poison): Unit = {
-    poison.poisonSpell(this)
+  override def equipPoison(poison: Poison): Unit = {
+    if (poison.manaCost <= getManaPoints &&
+      getManaPoints <= maxManaPoints &&
+      this.getWeapon.isDefined){
+      poison.setSpellWhiteMage(this)
+      this.setManaPoints(getManaPoints - poison.manaCost)
+    }
+    else {
+      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+    }
   }
 
-  override def useParalysis(paralysis: Paralysis): Unit = {
-    paralysis.paralysisSpell(this)
+  override def equipParalysis(paralysis: Paralysis): Unit = {
+    if (paralysis.manaCost <= getManaPoints &&
+      getManaPoints <= maxManaPoints &&
+      this.getWeapon.isDefined){
+      paralysis.setSpellWhiteMage(this)
+      this.setManaPoints(getManaPoints - paralysis.manaCost)
+    }
+    else {
+      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+    }
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteMage]

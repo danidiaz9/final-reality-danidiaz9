@@ -1,15 +1,18 @@
 package spells.light
 
 import gameunits.GameUnit
+import gameunits.character.Character
 import gameunits.character.magics.WhiteMage
 
-class Healing(manaCost: Int) extends AbstractLightSpell(manaCost) {
+class Healing extends AbstractLightSpell {
 
-  override def healingSpell(whiteMage: WhiteMage): Unit = {
-    whiteMage.useHealing(this)
+  override val manaCost: Int = 15
+
+  override def setSpellWhiteMage(whiteMage: WhiteMage): Unit = {
+    whiteMage.equipHealing(this)
   }
 
-  override def applySpell(target: GameUnit): Unit = {
+  override def applySpell(target: GameUnit, from: Character): Unit = {
     target.receiveHealing(this)
   }
 

@@ -1,5 +1,6 @@
 package gameunits
 
+import gameunits.character.Character
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
 import spells.dark.{Fire, Thunder}
 import spells.light.{Healing, Paralysis, Poison}
@@ -88,16 +89,16 @@ abstract class AbstractUnit(val name: String,
   def receiveHealing(healing: Healing): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
-  def receiveParalysis(paralysis: Paralysis): Unit =
+  def receiveParalysis(paralysis: Paralysis, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
-  def receivePoison(poison: Poison): Unit =
+  def receivePoison(poison: Poison, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
-  def receiveFire(fire: Fire): Unit =
+  def receiveFire(fire: Fire, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
-  def receiveThunder(thunder: Thunder): Unit =
+  def receiveThunder(thunder: Thunder, from: Character): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
 

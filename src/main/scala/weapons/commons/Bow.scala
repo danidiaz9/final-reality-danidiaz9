@@ -3,7 +3,6 @@ package weapons.commons
 import gameunits.character.Character
 import gameunits.character.commons.{Ninja, Warrior}
 import gameunits.character.magics.WhiteMage
-import weapons.Weapon
 
 import java.util.Objects
 

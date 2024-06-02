@@ -1,5 +1,6 @@
 package gameunits
 
+import gameunits.character.Character
 import spells.dark.{Fire, Thunder}
 import spells.light.{Healing, Paralysis, Poison}
 
@@ -70,12 +71,12 @@ trait GameUnit {
 
   def receiveHealing(healing: Healing): Unit
 
-  def receiveParalysis(paralysis: Paralysis): Unit
+  def receiveParalysis(paralysis: Paralysis, from: Character): Unit
 
-  def receivePoison(poison: Poison): Unit
+  def receivePoison(poison: Poison, from: Character): Unit
 
-  def receiveFire(fire: Fire): Unit
+  def receiveFire(fire: Fire, from: Character): Unit
 
-  def receiveThunder(thunder: Thunder): Unit
+  def receiveThunder(thunder: Thunder, from: Character): Unit
 
 }

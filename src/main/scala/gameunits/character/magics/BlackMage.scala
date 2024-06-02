@@ -1,5 +1,6 @@
 package gameunits.character.magics
 
+import exceptions.InvalidSpellException
 import spells.dark.{Fire, Thunder}
 import weapons.Weapon
 import weapons.commons.Sword
@@ -60,12 +61,27 @@ class BlackMage(name: String,
     staff.setBlackMage(this)
   }
 
-  override def useThunder(thunder: Thunder): Unit = {
-    thunder.thunderSpell(this)
+  override def equipThunder(thunder: Thunder): Unit = {
+    if (thunder.manaCost <= getManaPoints &&
+      getManaPoints <= maxManaPoints &&
+      this.getWeapon.isDefined) {
+      thunder.setSpellBlackMage(this)
+      this.setManaPoints(getManaPoints - thunder.manaCost)
+    }
+    else {
+      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+    }
   }
-
-  override def useFire(fire: Fire): Unit = {
-    fire.fireSpell(this)
+  override def equipFire(fire: Fire): Unit = {
+    if (fire.manaCost <= getManaPoints &&
+      getManaPoints <= maxManaPoints &&
+      this.getWeapon.isDefined) {
+      fire.setSpellBlackMage(this)
+      this.setManaPoints(getManaPoints - fire.manaCost)
+    }
+    else {
+      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+    }
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[BlackMage]

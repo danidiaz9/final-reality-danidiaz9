@@ -41,21 +41,23 @@ abstract class AbstractMagicCharacter(name: String,
 
   def getSpell: Option[Spell] = spell
 
-  def throwSpell(target: GameUnit): Unit = _
+  def throwSpell(target: GameUnit): Unit = {
+    throw new InvalidSpellException("Invalid target")
+  }
 
-  def useThunder(thunder: Thunder): Unit =
+  def equipThunder(thunder: Thunder): Unit =
     throw new InvalidSpellException("Mage cannot use thunder.")
 
-  def useFire(fire: Fire): Unit =
+  def equipFire(fire: Fire): Unit =
     throw new InvalidSpellException("Mage cannot use fire.")
 
-  def useHealing(healing: Healing): Unit =
+  def equipHealing(healing: Healing): Unit =
     throw new InvalidSpellException("Mage cannot use healing.")
 
-  def usePoison(poison: Poison): Unit =
+  def equipPoison(poison: Poison): Unit =
     throw new InvalidSpellException("Mage cannot use poison.")
 
-  def useParalysis(paralysis: Paralysis): Unit =
+  def equipParalysis(paralysis: Paralysis): Unit =
     throw new InvalidSpellException("Mage cannot use paralysis.")
 
 }

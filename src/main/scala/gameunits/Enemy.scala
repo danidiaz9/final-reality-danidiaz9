@@ -1,5 +1,7 @@
 package gameunits
 
+import exceptions.InvalidSpellException
+import gameunits.character.Character
 import spells.dark.{Fire, Thunder}
 import spells.light.{Paralysis, Poison}
 
@@ -31,20 +33,40 @@ class Enemy(name: String,
     this.setHealthPoints(this.getHealthPoints - characterDamage)
   }
 
-  override def receiveFire(fire: Fire): Unit = {
-    fire.applySpell(this)
+  override def receiveFire(fire: Fire, from: Character): Unit = {
+    if (0 < this.getHealthPoints){
+      fire.applySpell(this, from)
+    }
+    else {
+      throw new InvalidSpellException("Unit is dead.")
+    }
   }
 
-  override def receiveThunder(thunder: Thunder): Unit = {
-    thunder.applySpell(this)
+  override def receiveThunder(thunder: Thunder, from: Character): Unit = {
+    if (0 < this.getHealthPoints){
+      thunder.applySpell(this, from)
+    }
+    else {
+      throw new InvalidSpellException("Unit is dead.")
+    }
   }
 
-  override def receiveParalysis(paralysis: Paralysis): Unit = {
-    paralysis.applySpell(this)
+  override def receiveParalysis(paralysis: Paralysis, from: Character): Unit = {
+    if (0 < this.getHealthPoints){
+      paralysis.applySpell(this, from)
+    }
+    else {
+      throw new InvalidSpellException("Unit is dead.")
+    }
   }
 
-  override def receivePoison(poison: Poison): Unit = {
-    poison.applySpell(this)
+  override def receivePoison(poison: Poison, from: Character): Unit = {
+    if (0 < this.getHealthPoints){
+      poison.applySpell(this, from)
+    }
+    else {
+      throw new InvalidSpellException("Unit is dead.")
+    }
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]

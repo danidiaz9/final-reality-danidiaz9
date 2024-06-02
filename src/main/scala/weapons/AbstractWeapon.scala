@@ -22,6 +22,8 @@ abstract class AbstractWeapon(
                                  var owner: Option[Character] = None
                                ) extends Weapon {
 
+  val magicAttackPoints: Int = 0
+
 
   /** Returns the name of the weapons.
    *
