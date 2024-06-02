@@ -7,11 +7,13 @@ import spells.light.{Healing, Paralysis, Poison}
 
 trait MagicCharacter {
 
+  val maxManaPoints: Int
+
   def getManaPoints: Int
 
   def setManaPoints(x: Int): Unit
 
-  def knownSpell(s: Spell): Unit
+  def getSpell: Option[Spell]
 
   def throwSpell(target: GameUnit): Unit
 

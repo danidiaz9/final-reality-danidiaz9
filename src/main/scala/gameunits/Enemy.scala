@@ -22,8 +22,13 @@ class Enemy(name: String,
             weight: Double) extends
             AbstractUnit(name, maxHealthPoints, currentHealthPoints, attackPoints, defense, weight) {
 
-  def attack(g: GameUnit): Unit = {
-    attackFromEnemy(this)
+  override def attack(gameUnit: GameUnit): Unit = {
+    gameUnit.receiveAttack(this.getAttackPoints)
+  }
+
+  override def receiveAttack(damage: Int): Unit = {
+    val characterDamage = damage - this.getDefense
+    this.setHealthPoints(this.getHealthPoints - characterDamage)
   }
 
   override def receiveFire(fire: Fire): Unit = {

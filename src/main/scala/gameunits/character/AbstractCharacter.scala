@@ -19,8 +19,8 @@ import weapons.magics.{Staff, Wand}
  */
 abstract class AbstractCharacter(val name: String,
                                  val maxHealthPoints: Int,
-                                 private var currentHealthPoints: Int,
-                                 private var defense: Int,
+                                 var currentHealthPoints: Int,
+                                 val defense: Int,
                                  val weight: Double,
                                  private var weapon: Option[Weapon] = None) extends Character {
   
@@ -39,14 +39,6 @@ abstract class AbstractCharacter(val name: String,
    */
   def getHealthPoints: Int = currentHealthPoints
 
-  /** Sets the health points of the character to the specified value.
-   *
-   *  @param x The value to set the health points to.
-   */
-  def setHealthPoints(x: Int): Unit = {
-    currentHealthPoints = x
-  }
-
   /** Returns the defense points of the character.
    *
    *  @return The defense points of the character.
@@ -58,6 +50,14 @@ abstract class AbstractCharacter(val name: String,
    *  @return The weight of the character.
    */
   def getWeight: Double = weight
+
+  /** Sets the health points of the character to the specified value.
+   *
+   *  @param x The value to set the health points to.
+   */
+  def setHealthPoints(x: Int): Unit = {
+    currentHealthPoints = x
+  }
 
   /** Returns the weapons equipped by the character.
    *
@@ -139,21 +139,23 @@ abstract class AbstractCharacter(val name: String,
 
   }
 
-  def attackFromCharacter(c: Character): Unit = {
-    throw new InvalidAttackException("Character cannot attack another character.")
-  }
-
-  def attackFromEnemy(e: Enemy): Unit = {
-    val enemyDamage = e.getAttackPoints - this.getDefense
+  def receiveAttack(damage: Int): Unit = {
+    val enemyDamage = damage - this.getDefense
     this.setHealthPoints(this.getHealthPoints - enemyDamage)
   }
 
-  def attack(g: GameUnit): Unit = {
-    attackFromCharacter(this)
+  def attack(gameUnit: GameUnit): Unit = {
+    gameUnit.receiveAttack(this.getWeapon.get.getAttackPoints)
   }
 
-  def receiveHealing(healing: Healing): Unit =
-    throw new InvalidSpellException("Spell cannot impact this unit.")
+  def receiveHealing(healing: Healing): Unit = {
+    if (currentHealthPoints + 0.3 * maxHealthPoints <= maxHealthPoints){
+      setHealthPoints(currentHealthPoints + (0.3 * maxHealthPoints).toInt)
+    }
+    else {
+      currentHealthPoints = maxHealthPoints
+    }
+  }
 
   def receiveParalysis(paralysis: Paralysis): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")

@@ -31,7 +31,7 @@ abstract class AbstractMagicCharacter(name: String,
   extends AbstractCharacter(name,maxHealthPoints, currentHealthPoints, defense, weight, weapon)
     with MagicCharacter {
 
-  private var spell: Option[Spell] = None
+  private val spell: Option[Spell] = None
 
   def getManaPoints: Int = currentManaPoints
 
@@ -39,9 +39,7 @@ abstract class AbstractMagicCharacter(name: String,
     currentManaPoints = x
   }
 
-  def knownSpell(s: Spell): Unit ={
-    spell = Some(s)
-  }
+  def getSpell: Option[Spell] = spell
 
   def throwSpell(target: GameUnit): Unit = _
 

@@ -1,6 +1,5 @@
 package gameunits
 
-import gameunits.character.Character
 import spells.dark.{Fire, Thunder}
 import spells.light.{Healing, Paralysis, Poison}
 
@@ -65,11 +64,9 @@ trait GameUnit {
    */
   def calculateMaxActionBar: Double
 
-  def attack(g: GameUnit): Unit
+  def attack(gameUnit: GameUnit): Unit
 
-  def attackFromEnemy(e: Enemy): Unit
-
-  def attackFromCharacter(c: Character): Unit
+  def receiveAttack(damage: Int): Unit
 
   def receiveHealing(healing: Healing): Unit
 

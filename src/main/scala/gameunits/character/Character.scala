@@ -59,7 +59,4 @@ trait Character extends GameUnit {
  */
   def unEquipWeapon(): Unit
 
-  def attackFromCharacter(c: Character): Unit
-
-
 }

@@ -1,6 +1,5 @@
 package gameunits
 
-import gameunits.character.Character
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
 import spells.dark.{Fire, Thunder}
 import spells.light.{Healing, Paralysis, Poison}
@@ -80,13 +79,11 @@ abstract class AbstractUnit(val name: String,
 
   }
 
-  def attackFromCharacter(c: Character): Unit = {
-    val characterDamage = c.getWeapon.get.attackPoints - this.getDefense
-    this.setHealthPoints(this.getHealthPoints - characterDamage)
-  }
+  def attack(gameUnit: GameUnit): Unit =
+    throw new InvalidAttackException("This game unit cannot attack an ally of the same type.")
 
-  def attackFromEnemy(e: Enemy): Unit =
-    throw new InvalidAttackException("Enemy cannot attack another enemy.")
+  def receiveAttack(damage: Int): Unit =
+    throw new InvalidAttackException("Attack cannot impact this unit.")
 
   def receiveHealing(healing: Healing): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
