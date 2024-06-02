@@ -15,10 +15,10 @@ class SwordTest extends munit.FunSuite {
   override def beforeEach(context: BeforeEach): Unit = {
 
     sword = new Sword("Excalibur", 30, 8.0, None)
-    paladin = new Paladin("Arthur", 130, 20, 100.0, None)
-    warrior = new Warrior("Conan", 120, 15, 90.0, None)
-    ninja = new Ninja("Ryu", 100, 12, 80.0, None)
-    blackWizard = new BlackMage("Voldemort", 150, 25, 95.0, 200,, None)
+    paladin = new Paladin("Arthur", 130, 130, 20, 100.0, None)
+    warrior = new Warrior("Conan", 120, 120, 15, 90.0, None)
+    ninja = new Ninja("Ryu", 100, 100, 12, 80.0, None)
+    blackWizard = new BlackMage("Voldemort", 150, 150, 25, 95.0, 200, 200, None)
 
   }
 

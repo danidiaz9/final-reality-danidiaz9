@@ -14,9 +14,9 @@ class WandTest extends munit.FunSuite {
   override def beforeEach(context: BeforeEach): Unit = {
 
     wand = new Wand("Magic Wand", 20, 3.5, None, 25)
-    ninja = new Ninja("Ryu", 120, 15, 70.0, None)
-    blackWizard = new BlackMage("Gandalf", 150, 20, 80.0, 200,, None)
-    whiteWizard = new WhiteMage("Saruman", 140, 18, 75.0, 190, currentManaPoints = None, maxManaPoints =)
+    ninja = new Ninja("Ryu", 120, 120, 15, 70.0, None)
+    blackWizard = new BlackMage("Gandalf", 150, 150, 20, 80.0, 200, 200, None)
+    whiteWizard = new WhiteMage("Saruman", 140, 140, 18, 75.0, 190, 190, None)
 
   }
 

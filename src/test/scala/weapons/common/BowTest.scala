@@ -14,9 +14,9 @@ class BowTest extends munit.FunSuite {
   override def beforeEach(context: BeforeEach): Unit = {
 
     bow = new Bow("Longbow", 25, 6.0, None)
-    warrior = new Warrior("Conan", 120, 15, 90.0, None)
-    ninja = new Ninja("Ryu", 100, 12, 80.0, None)
-    whiteWizard = new WhiteMage("Gandalf", 150, 20, 100.0, 200, currentManaPoints = None, maxManaPoints =)
+    warrior = new Warrior("Conan", 120, 120, 15, 90.0, None)
+    ninja = new Ninja("Ryu", 100, 100, 12, 80.0, None)
+    whiteWizard = new WhiteMage("Gandalf", 150, 150, 20, 100.0, 200, 200, None)
 
   }
 

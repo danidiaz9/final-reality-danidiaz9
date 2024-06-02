@@ -11,7 +11,7 @@ class TurnSchedulerTest extends munit.FunSuite {
   // Se ejecuta antes de cada prueba para crear una nueva instancia de TurnScheduler
   override def beforeEach(context: BeforeEach): Unit = {
     turnScheduler = new TurnScheduler
-    Warrior = new Warrior("Player1", 200, 40, 60.0, None)
+    Warrior = new Warrior("Player1", 200, 200, 40, 60.0, None)
   }
 
   test("addLoadingZone") {
@@ -37,8 +37,8 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("resetActionBarInstance") {
-    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
     character1.actionBar = 10.0
     character2.actionBar = 20.0
@@ -47,16 +47,16 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("updateLoadingZone") {
-    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
     turnScheduler.updateLoadingZone(5)
     assert(character1.actionBar == 5 && character2.actionBar == 5)
   }
 
   test("completeActionBar") {
-    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
     character1.actionBar = 25.0
     character2.actionBar = 15.0
@@ -65,8 +65,8 @@ class TurnSchedulerTest extends munit.FunSuite {
   }
 
   test("sortTurns") {
-    val character1: GameUnit = new Enemy("Enemy1", 100, 20, 30, 50)
-    val character2: GameUnit = new Enemy("Enemy2", 150, 25, 35, 55)
+    val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
+    val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
     character1.actionBar = 25.0
     character2.actionBar = 15.0

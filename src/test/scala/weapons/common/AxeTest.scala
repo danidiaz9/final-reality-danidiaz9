@@ -12,8 +12,8 @@ class AxeTest extends munit.FunSuite {
   override def beforeEach(context: BeforeEach): Unit = {
 
     axe = new Axe("Battle Axe", 20, 5.0, None)
-    paladin = new Paladin("Arthur", 100, 10, 80.0, None)
-    warrior = new Warrior("Conan", 120, 15, 90.0, None)
+    paladin = new Paladin("Arthur", 100, 100, 10, 80.0, None)
+    warrior = new Warrior("Conan", 120, 120, 15, 90.0, None)
 
   }
 
