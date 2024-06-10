@@ -75,7 +75,7 @@ trait GameUnit {
    *
    *  @param damage The amount of damage received.
    */
-  def receiveAttack(damage: Int): Unit
+  def receiveDamage(damage: Int): Unit
 
   /** Receive healing from a spell.
    *

@@ -30,7 +30,7 @@ class Fire extends AbstractDarkSpell {
    *  @param from The character casting the Fire spell.
    */
   override def applySpell(target: GameUnit, from: Character): Unit = {
-    target.receiveAttack(from.getWeapon.get.magicAttackPoints)
+    target.receiveDamage(from.getWeapon.get.magicAttackPoints)
   }
 
 }

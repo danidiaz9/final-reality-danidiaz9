@@ -30,7 +30,7 @@ class Thunder extends AbstractDarkSpell {
    *  @param from The character casting the Thunder spell.
    */
   override def applySpell(target: GameUnit, from: Character): Unit = {
-    target.receiveAttack(from.getWeapon.get.magicAttackPoints)
+    target.receiveDamage(from.getWeapon.get.magicAttackPoints)
   }
 
 }

@@ -144,7 +144,7 @@ abstract class AbstractCharacter(val name: String,
    *
    *  @param damage The amount of damage received.
    */
-  def receiveAttack(damage: Int): Unit = {
+  def receiveDamage(damage: Int): Unit = {
     val enemyDamage = damage - this.getDefense
     this.setHealthPoints(this.getHealthPoints - enemyDamage)
   }
@@ -154,7 +154,7 @@ abstract class AbstractCharacter(val name: String,
    *  @param gameUnit The game unit to attack.
    */
   def attack(gameUnit: GameUnit): Unit = {
-    gameUnit.receiveAttack(this.getWeapon.get.getAttackPoints)
+    gameUnit.receiveDamage(this.getWeapon.get.getAttackPoints)
   }
 
   /** Receives healing from a spell.

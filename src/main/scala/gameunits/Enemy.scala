@@ -1,10 +1,5 @@
 package gameunits
 
-import exceptions.InvalidSpellException
-import gameunits.character.Character
-import spells.dark.{Fire, Thunder}
-import spells.light.{Paralysis, Poison}
-
 import java.util.Objects
 
 /** A class representing an enemy character in the game.
@@ -30,76 +25,16 @@ class Enemy(name: String,
    *  @param gameUnit The game unit to attack.
    */
   override def attack(gameUnit: GameUnit): Unit = {
-    gameUnit.receiveAttack(this.getAttackPoints)
+    gameUnit.receiveDamage(this.getAttackPoints)
   }
 
   /** Receive an attack and reduce health points accordingly.
    *
    *  @param damage The amount of damage received.
    */
-  override def receiveAttack(damage: Int): Unit = {
+  override def receiveDamage(damage: Int): Unit = {
     val characterDamage = damage - this.getDefense
     this.setHealthPoints(this.getHealthPoints - characterDamage)
-  }
-
-  /** Receive fire damage from a spell.
-   *
-   *  @param fire The fire spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  override def receiveFire(fire: Fire, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      fire.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
-
-  /** Receive thunder damage from a spell.
-   *
-   *  @param thunder The thunder spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  override def receiveThunder(thunder: Thunder, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      thunder.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
-
-  /** Receive paralysis from a spell.
-   *
-   *  @param paralysis The paralysis spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  override def receiveParalysis(paralysis: Paralysis, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      paralysis.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
-
-  /** Receive poison from a spell.
-   *
-   *  @param poison The poison spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  override def receivePoison(poison: Poison, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      poison.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
   }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
