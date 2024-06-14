@@ -60,7 +60,7 @@ class TurnScheduler {
    * @param k The amount to increase the character's action bar by.
    */
   private def updateActionBar(c: GameUnit, k: Int): Unit = {
-    c.actionBar += k
+    c.setActionBar(c.getActionBar+k)
   }
 
   /** Resets the action bar of a character to zero.
@@ -69,7 +69,7 @@ class TurnScheduler {
    * @return The new action bar value, which is always 0.0.
    */
   private def resetActionBar(c: GameUnit): Unit = {
-    c.actionBar = 0.0
+    c.setActionBar(0.0)
   }
 
   /** Resets the action bars of all gameunits in the waiting zone to zero. */
@@ -109,7 +109,7 @@ class TurnScheduler {
    * @param u2 A game unit.
    */
   def combat(u1: GameUnit, u2: GameUnit): Unit = {
-    //TODO
+    u1.attack(u2)
 
   }
 }

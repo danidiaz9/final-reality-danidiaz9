@@ -26,6 +26,14 @@ abstract class AbstractCharacter(val name: String,
   /** The action bar of the character. */
   var actionBar: Double = 0.0
 
+  /** Sets the action bar value of the character to the specified value.
+   *
+   * @param x The value to set the action bar to.
+   */
+  def setActionBar(x: Double): Unit = {
+    actionBar = x
+  }
+
   /** Returns the name of the character.
    *
    *  @return The name of the character.

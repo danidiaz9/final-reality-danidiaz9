@@ -23,14 +23,34 @@ trait MagicCharacter {
    */
   def setManaPoints(x: Int): Unit
 
+  /** Uses a thunder spell on the specified target.
+   *
+   *  @param target The game unit to cast the thunder spell on.
+   */
   def useThunder(target: GameUnit): Unit
 
+  /** Uses a fire spell on the specified target.
+   *
+   *  @param target The game unit to cast the fire spell on.
+   */
   def useFire(target: GameUnit): Unit
 
+  /** Uses a healing spell on the specified target.
+   *
+   *  @param target The game unit to cast the healing spell on.
+   */
   def useHealing(target: GameUnit): Unit
 
+  /** Uses a poison spell on the specified target.
+   *
+   *  @param target The game unit to cast the poison spell on.
+   */
   def usePoison(target: GameUnit): Unit
 
+  /** Uses a paralysis spell on the specified target.
+   *
+   *  @param target The game unit to cast the paralysis spell on.
+   */
   def useParalysis(target: GameUnit): Unit
 
 }

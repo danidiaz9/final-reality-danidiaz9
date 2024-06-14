@@ -62,6 +62,14 @@ abstract class AbstractUnit(val name: String,
    */
   def getWeight: Double = weight
 
+  /** Sets the action bar value of the character to the specified value.
+   *
+   * @param x The value to set the action bar to.
+   */
+  def setActionBar(x: Double): Unit = {
+    actionBar = x
+  }
+
   /** Returns the action bar of the character.
    *
    *  @return The action bar of the character.
@@ -97,6 +105,10 @@ abstract class AbstractUnit(val name: String,
     this.setHealthPoints(this.getHealthPoints - weaponDamage)
   }
 
+  /** Receive magic damage and reduce health points accordingly.
+   *
+   * @param magicDamage The amount of magic damage received.
+   */
   def receiveMagicDamage(magicDamage: Int): Unit = {
     val magicWeaponDamage = magicDamage - this.getDefense
     this.setHealthPoints(this.getHealthPoints - magicWeaponDamage)

@@ -16,9 +16,6 @@ trait GameUnit {
    */
   val weight: Double
 
-  /** The action bar of the character. */
-  var actionBar: Double
-
   /** Returns the name of the character.
    *
    * @return The name of the character.
@@ -49,6 +46,12 @@ trait GameUnit {
    */
   def getWeight: Double
 
+  /** Sets the action bar value of the character to the specified value.
+   *
+   * @param x The value to set the action bar to.
+   */
+  def setActionBar(x: Double): Unit
+
   /** Returns the action bar of the character.
    *
    *  @return The action bar of the character.
@@ -73,6 +76,10 @@ trait GameUnit {
    */
   def receiveDamage(damage: Int): Unit
 
+  /** Receive magic damage and reduce health points accordingly.
+   *
+   * @param magicDamage The amount of magic damage received.
+   */
   def receiveMagicDamage(magicDamage: Int): Unit
 
   /** Receive healing from a spell.

@@ -140,7 +140,7 @@ class WhiteMage(name: String,
     s"currentHealthPoints: $getHealthPoints, " +
     s"defense: $getDefense, " +
     s"weight: $getWeight, " +
-    s"manaPoints: $getManaPoints, " +
+    s"currentManaPoints: $getManaPoints, " +
     s"weapons: $getWeapon" +
     s"}"
 }
