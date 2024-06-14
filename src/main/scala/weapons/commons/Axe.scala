@@ -14,12 +14,11 @@ import java.util.Objects
  *  @param weight The weight of the axe.
  *  @param owner The owner of the axe, represented as an optional character.
  */
-class Axe (
-            name: String,
-            attackPoints: Int,
-            weight: Double,
-            owner: Option[Character]
-          ) extends AbstractCommonWeapon (name, attackPoints, weight, owner) {
+class Axe (name: String,
+           attackPoints: Int,
+           weight: Double,
+           owner: Option[Character])
+           extends AbstractCommonWeapon (name, attackPoints, weight, owner) {
 
   /** Sets the owner of the axe to a paladin character.
    *

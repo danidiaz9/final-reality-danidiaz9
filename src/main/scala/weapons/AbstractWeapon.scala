@@ -15,12 +15,11 @@ import gameunits.character.magics.{BlackMage, WhiteMage}
  *  @param weight The weight of the weapons.
  *  @param owner The owner of the weapons, represented as an optional character.
  */
-abstract class AbstractWeapon(
-                                 val name: String,
-                                 val attackPoints: Int,
-                                 val weight: Double,
-                                 var owner: Option[Character] = None
-                               ) extends Weapon {
+abstract class AbstractWeapon(val name: String,
+                              val attackPoints: Int,
+                              val weight: Double,
+                              var owner: Option[Character] = None)
+                              extends Weapon {
 
   /** The magic attack points of the weapon. */
   val magicAttackPoints: Int = 0
@@ -37,6 +36,12 @@ abstract class AbstractWeapon(
    *  @return The attackCharacter points of the weapons.
    */
   def getAttackPoints: Int = attackPoints
+
+  /** Returns the magic attack points of the weapon.
+   *
+   *  @return The magic attack points of the weapon.
+   */
+  def getMagicAttackPoints: Int = magicAttackPoints
 
   /** Returns the weight of the weapons.
    *

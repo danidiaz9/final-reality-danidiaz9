@@ -15,7 +15,7 @@ Debe diseñar un diagrama de estados que modele el flujo de la partida. Para est
 + Los eventos que disparan las transiciones
 
 Para hacer este diagrama puede usar la herramienta que usted estime, por ejemplo,
-le puede resulta útil la página [draw.io](https://app.diagrams.net).
+le puede resultar útil la página [draw.io](https://app.diagrams.net).
 
 El diagrama debe incluirse en el archivo ``README.md`` de su proyecto.
 Para hacer esto, debe subir el archivo a su repositorio, por ejemplo en la carpeta ``docs``, con el nombre ``diagrama-estados.png``. Luego, debe incluir la imagen en el archivo ``README.md``:
@@ -34,7 +34,7 @@ Para hacer esto, debe subir el archivo a su repositorio, por ejemplo en la carpe
 Debe comenzar a hacer el controlador del juego. Para eso, debe:
 
 + Implementar los patrones de diseño necesarios para modelar los estados de la partida.
-+ Implementar los métodos necesarios en el controlador que gatillen los eventos del diagrama de estados.
++ Implementar los métodos necesarios en el controlador que activen los eventos del diagrama de estados.
 
 Con esto, el controlador debiese ser capaz de hacer las siguientes acciones en las fases que correspondan:
 

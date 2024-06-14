@@ -16,12 +16,11 @@ import java.util.Objects
  *  @param weight The weight of the bow.
  *  @param owner The owner of the bow, represented as an optional character.
  */
-class Bow (
-            name: String,
-            attackPoints: Int,
-            weight: Double,
-            owner: Option[Character]
-          ) extends AbstractCommonWeapon (name, attackPoints, weight, owner) {
+class Bow (name: String,
+           attackPoints: Int,
+           weight: Double,
+           owner: Option[Character])
+           extends AbstractCommonWeapon (name, attackPoints, weight, owner) {
 
   /** Sets the owner of the bow to a warrior character.
    *

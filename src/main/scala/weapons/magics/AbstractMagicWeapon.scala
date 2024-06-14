@@ -21,13 +21,14 @@ abstract class AbstractMagicWeapon(name: String,
                                    weight: Double,
                                    owner: Option[Character],
                                    override val magicAttackPoints: Int) extends
-            AbstractWeapon(name, attackPoints, weight, owner) with MagicWeapon {
+                                   AbstractWeapon(name, attackPoints, weight, owner)
+                                   with MagicWeapon {
 
   /** Returns the magic attack points of the weapon.
    *
    *  @return The magic attack points of the weapon.
    */
-  def getMagicAttackPoints: Int = magicAttackPoints
+  override def getMagicAttackPoints: Int = magicAttackPoints
 
 
   }

@@ -1,7 +1,7 @@
 package gameunits.character.magics
 
 import exceptions.InvalidSpellException
-import spells.light.{Healing, Paralysis, Poison}
+import gameunits.GameUnit
 import weapons.Weapon
 import weapons.commons.Bow
 import weapons.magics.{Staff, Wand}
@@ -65,52 +65,55 @@ class WhiteMage(name: String,
 
   /** Equips a Healing spell to the white wizard character.
    *
-   *  @param healing The Healing spell to be equipped.
+   *  @param target The Healing spell to be equipped.
    *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
    */
-  override def equipHealing(healing: Healing): Unit = {
-    if (healing.manaCost <= getManaPoints &&
-      getManaPoints <= maxManaPoints &&
+  override def useHealing(target: GameUnit): Unit = {
+    val manaCost: Int = 15
+    if (manaCost <= getManaPoints &&
+      target.getHealthPoints > 0 &&
       this.getWeapon.isDefined){
-      healing.setSpellWhiteMage(this)
-      this.setManaPoints(getManaPoints - healing.manaCost)
+      target.receiveHealing()
+      this.setManaPoints(getManaPoints - manaCost)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
     }
   }
 
   /** Equips a Poison spell to the white wizard character.
    *
-   *  @param poison The Poison spell to be equipped.
+   *  @param target The Poison spell to be equipped.
    *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
    */
-  override def equipPoison(poison: Poison): Unit = {
-    if (poison.manaCost <= getManaPoints &&
-      getManaPoints <= maxManaPoints &&
+  override def usePoison(target: GameUnit): Unit = {
+    val manaCost: Int = 30
+    if (manaCost <= getManaPoints &&
+      target.getHealthPoints > 0 &&
       this.getWeapon.isDefined){
-      poison.setSpellWhiteMage(this)
-      this.setManaPoints(getManaPoints - poison.manaCost)
+      target.receiveMagicDamage(this.getWeapon.get.getMagicAttackPoints)
+      this.setManaPoints(getManaPoints - manaCost)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
     }
   }
 
   /** Equips a Paralysis spell to the white wizard character.
    *
-   *  @param paralysis The Paralysis spell to be equipped.
+   *  @param target The Paralysis spell to be equipped.
    *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
    */
-  override def equipParalysis(paralysis: Paralysis): Unit = {
-    if (paralysis.manaCost <= getManaPoints &&
-      getManaPoints <= maxManaPoints &&
+  override def useParalysis(target: GameUnit): Unit = {
+    val manaCost: Int = 25
+    if (manaCost <= getManaPoints &&
+      target.getHealthPoints > 0 &&
       this.getWeapon.isDefined){
-      paralysis.setSpellWhiteMage(this)
-      this.setManaPoints(getManaPoints - paralysis.manaCost)
+      target.receiveMagicDamage(this.getWeapon.get.getMagicAttackPoints)
+      this.setManaPoints(getManaPoints - manaCost)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
     }
   }
 

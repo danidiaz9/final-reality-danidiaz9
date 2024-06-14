@@ -1,7 +1,7 @@
 package gameunits.character.magics
 
 import exceptions.InvalidSpellException
-import spells.dark.{Fire, Thunder}
+import gameunits.GameUnit
 import weapons.Weapon
 import weapons.commons.Sword
 import weapons.magics.{Staff, Wand}
@@ -65,35 +65,37 @@ class BlackMage(name: String,
 
   /** Equips a Thunder spell to the black wizard character.
    *
-   *  @param thunder The Thunder spell to be equipped.
+   *  @param target The Thunder spell to be equipped.
    *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
    */
-  override def equipThunder(thunder: Thunder): Unit = {
-    if (thunder.manaCost <= getManaPoints &&
-      getManaPoints <= maxManaPoints &&
+  override def useThunder(target: GameUnit): Unit = {
+    val manaCost: Int = 20
+    if (manaCost <= getManaPoints &&
+      target.getHealthPoints > 0 &&
       this.getWeapon.isDefined) {
-      thunder.setSpellBlackMage(this)
-      this.setManaPoints(getManaPoints - thunder.manaCost)
+      target.receiveDamage(this.getWeapon.get.getMagicAttackPoints)
+      this.setManaPoints(getManaPoints - manaCost)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
     }
   }
 
   /** Equips a Fire spell to the black wizard character.
    *
-   *  @param fire The Fire spell to be equipped.
+   *  @param target The Fire spell to be equipped.
    *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
    */
-  override def equipFire(fire: Fire): Unit = {
-    if (fire.manaCost <= getManaPoints &&
-      getManaPoints <= maxManaPoints &&
+  override def useFire(target: GameUnit): Unit = {
+    val manaCost: Int = 15
+    if (manaCost <= getManaPoints &&
+      target.getHealthPoints > 0 &&
       this.getWeapon.isDefined) {
-      fire.setSpellBlackMage(this)
-      this.setManaPoints(getManaPoints - fire.manaCost)
+      target.receiveDamage(this.getWeapon.get.getMagicAttackPoints)
+      this.setManaPoints(getManaPoints - manaCost)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana.")
+      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
     }
   }
 

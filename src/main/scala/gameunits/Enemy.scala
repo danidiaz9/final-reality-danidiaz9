@@ -1,5 +1,4 @@
 package gameunits
-
 import java.util.Objects
 
 /** A class representing an enemy character in the game.
@@ -19,23 +18,6 @@ class Enemy(name: String,
             defense: Int,
             weight: Double) extends
             AbstractUnit(name, maxHealthPoints, currentHealthPoints, attackPoints, defense, weight) {
-
-  /** Attack another game unit.
-   *
-   *  @param gameUnit The game unit to attack.
-   */
-  override def attack(gameUnit: GameUnit): Unit = {
-    gameUnit.receiveDamage(this.getAttackPoints)
-  }
-
-  /** Receive an attack and reduce health points accordingly.
-   *
-   *  @param damage The amount of damage received.
-   */
-  override def receiveDamage(damage: Int): Unit = {
-    val characterDamage = damage - this.getDefense
-    this.setHealthPoints(this.getHealthPoints - characterDamage)
-  }
 
   def canEqual(that: Any): Boolean = that.isInstanceOf[Enemy]
 

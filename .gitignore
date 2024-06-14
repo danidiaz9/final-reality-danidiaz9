@@ -39,3 +39,7 @@ project/**/metals.sbt
 ### Mac
 .DS_Store
 **/.DS_Store
+
+## User
+.vscode
+enunciados

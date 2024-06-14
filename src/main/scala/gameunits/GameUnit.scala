@@ -1,9 +1,5 @@
 package gameunits
 
-import gameunits.character.Character
-import spells.dark.{Fire, Thunder}
-import spells.light.{Healing, Paralysis, Poison}
-
 /** Trait representing a character in the game.
  *
  * This trait defines the basic properties and behaviors of a character,
@@ -77,38 +73,11 @@ trait GameUnit {
    */
   def receiveDamage(damage: Int): Unit
 
+  def receiveMagicDamage(magicDamage: Int): Unit
+
   /** Receive healing from a spell.
    *
-   *  @param healing The healing spell to receive.
    */
-  def receiveHealing(healing: Healing): Unit
-
-  /** Receive paralysis from a spell.
-   *
-   *  @param paralysis The paralysis spell to receive.
-   *  @param from The character who cast the spell.
-   */
-  def receiveParalysis(paralysis: Paralysis, from: Character): Unit
-
-  /** Receive poison from a spell.
-   *
-   *  @param poison The poison spell to receive.
-   *  @param from The character who cast the spell.
-   */
-  def receivePoison(poison: Poison, from: Character): Unit
-
-  /** Receive fire damage from a spell.
-   *
-   *  @param fire The fire spell to receive.
-   *  @param from The character who cast the spell.
-   */
-  def receiveFire(fire: Fire, from: Character): Unit
-
-  /** Receive thunder damage from a spell.
-   *
-   *  @param thunder The thunder spell to receive.
-   *  @param from The character who cast the spell.
-   */
-  def receiveThunder(thunder: Thunder, from: Character): Unit
+  def receiveHealing(): Unit
 
 }

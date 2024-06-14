@@ -1,5 +1,6 @@
 package weapons.commons
 
+import exceptions.InvalidStatException
 import gameunits.character.Character
 import weapons.AbstractWeapon
 
@@ -17,4 +18,8 @@ abstract class AbstractCommonWeapon(name: String,
                                     attackPoints: Int,
                                     weight: Double,
                                     owner: Option[Character]) extends
-             AbstractWeapon(name, attackPoints, weight, owner)
+                                    AbstractWeapon(name, attackPoints, weight, owner) {
+
+  override def getMagicAttackPoints: Int =
+    throw new InvalidStatException("This isn't a magic weapon.")
+}

@@ -3,9 +3,6 @@ package gameunits.character.magics
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
 import gameunits.character.AbstractCharacter
-import spells.Spell
-import spells.dark.{Fire, Thunder}
-import spells.light.{Healing, Paralysis, Poison}
 import weapons.Weapon
 
 /** An abstract class representing a magical character in the game.
@@ -33,8 +30,6 @@ abstract class AbstractMagicCharacter(name: String,
   extends AbstractCharacter(name,maxHealthPoints, currentHealthPoints, defense, weight, weapon)
     with MagicCharacter {
 
-  /** The spell currently equipped by the magical character. */
-  private val spell: Option[Spell] = None
 
   /** Returns the current mana points of the magical character.
    *
@@ -50,53 +45,19 @@ abstract class AbstractMagicCharacter(name: String,
     currentManaPoints = x
   }
 
-  /** Returns the spell currently equipped by the magical character.
-   *
-   *  @return The spell currently equipped by the magical character.
-   */
-  def getSpell: Option[Spell] = spell
+  def useThunder(target: GameUnit): Unit =
+    throw new InvalidSpellException("Cannot use this spell.")
 
-  /** Throws the equipped spell at the specified target.
-   *
-   *  @param target The target of the spell.
-   */
-  def throwSpell(target: GameUnit): Unit = {
-    throw new InvalidSpellException("Invalid target")
-  }
+  def useFire(target: GameUnit): Unit =
+    throw new InvalidSpellException("Cannot use this spell.")
 
-  /** Equips a Thunder spell to the magical character.
-   *
-   *  @param thunder The Thunder spell to be equipped.
-   */
-  def equipThunder(thunder: Thunder): Unit =
-    throw new InvalidSpellException("Mage cannot use thunder.")
+  def useHealing(target: GameUnit): Unit =
+    throw new InvalidSpellException("Cannot use this spell.")
 
-  /** Equips a Fire spell to the magical character.
-   *
-   *  @param fire The Fire spell to be equipped.
-   */
-  def equipFire(fire: Fire): Unit =
-    throw new InvalidSpellException("Mage cannot use fire.")
+  def usePoison(target: GameUnit): Unit =
+    throw new InvalidSpellException("Cannot use this spell.")
 
-  /** Equips a Healing spell to the magical character.
-   *
-   *  @param healing The Healing spell to be equipped.
-   */
-  def equipHealing(healing: Healing): Unit =
-    throw new InvalidSpellException("Mage cannot use healing.")
-
-  /** Equips a Poison spell to the magical character.
-   *
-   *  @param poison The Poison spell to be equipped.
-   */
-  def equipPoison(poison: Poison): Unit =
-    throw new InvalidSpellException("Mage cannot use poison.")
-
-  /** Equips a Paralysis spell to the magical character.
-   *
-   *  @param paralysis The Paralysis spell to be equipped.
-   */
-  def equipParalysis(paralysis: Paralysis): Unit =
-    throw new InvalidSpellException("Mage cannot use paralysis.")
+  def useParalysis(target: GameUnit): Unit =
+    throw new InvalidSpellException("Cannot use this spell.")
 
 }

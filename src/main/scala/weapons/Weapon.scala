@@ -34,6 +34,12 @@ trait Weapon {
    */
   def getAttackPoints: Int
 
+  /** Returns the magic attack points of the weapon.
+   *
+   *  @return The magic attack points of the weapon.
+   */
+  def getMagicAttackPoints: Int
+
   /** Returns the weight of the weapons.
    *
    *  @return The weight of the weapons.

@@ -1,9 +1,6 @@
 package gameunits
 
-import gameunits.character.Character
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
-import spells.dark.{Fire, Thunder}
-import spells.light.{Healing, Paralysis, Poison}
 
 /** An abstract class representing a character in the game.
  *
@@ -87,83 +84,30 @@ abstract class AbstractUnit(val name: String,
    *  @param gameUnit The game unit to attack.
    *  @throws InvalidAttackException if this game unit cannot attack an ally of the same type.
    */
-  def attack(gameUnit: GameUnit): Unit =
-    throw new InvalidAttackException("This game unit cannot attack an ally of the same type.")
+  def attack(gameUnit: GameUnit): Unit = {
+    gameUnit.receiveDamage(this.getAttackPoints)
+  }
 
   /** Receive an attack and reduce health points accordingly.
    *
    *  @param damage The amount of damage received.
-   *  @throws InvalidAttackException if an attack cannot impact this unit.
    */
-  def receiveDamage(damage: Int): Unit =
-    throw new InvalidAttackException("Attack cannot impact this unit.")
+  def receiveDamage(damage: Int): Unit = {
+    val weaponDamage = damage - this.getDefense
+    this.setHealthPoints(this.getHealthPoints - weaponDamage)
+  }
+
+  def receiveMagicDamage(magicDamage: Int): Unit = {
+    val magicWeaponDamage = magicDamage - this.getDefense
+    this.setHealthPoints(this.getHealthPoints - magicWeaponDamage)
+  }
+
 
   /** Receive healing from a spell.
    *
-   *  @param healing The healing spell to receive.
    *  @throws InvalidSpellException if the spell cannot impact this unit.
    */
-  def receiveHealing(healing: Healing): Unit =
+  def receiveHealing(): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
-  /** Receive paralysis from a spell.
-   *
-   *  @param paralysis The paralysis spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  def receiveParalysis(paralysis: Paralysis, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      paralysis.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
-
-  /** Receive poison from a spell.
-   *
-   *  @param poison The poison spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  def receivePoison(poison: Poison, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      poison.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
-
-  /** Receive fire damage from a spell.
-   *
-   *  @param fire The fire spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  def receiveFire(fire: Fire, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      fire.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
-
-
-  /** Receive thunder damage from a spell.
-   *
-   *  @param thunder The thunder spell to receive.
-   *  @param from The character who cast the spell.
-   *  @throws InvalidSpellException if the unit is dead.
-   */
-  def receiveThunder(thunder: Thunder, from: Character): Unit = {
-    if (0 < this.getHealthPoints){
-      thunder.applySpell(this, from)
-    }
-    else {
-      throw new InvalidSpellException("Unit is dead.")
-    }
-  }
 }

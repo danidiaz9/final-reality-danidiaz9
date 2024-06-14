@@ -16,14 +16,13 @@ import java.util.Objects
  *  @param owner The owner of the staff, represented as an optional character.
  *  @param magicAttackPoints The magic attackCharacter points of the staff.
  */
-class Staff (
-              name: String,
-              attackPoints: Int,
-              weight: Double,
-              owner: Option[Character],
-              magicAttackPoints: Int
-          ) extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints)
-            with MagicWeapon {
+class Staff (name: String,
+             attackPoints: Int,
+             weight: Double,
+             owner: Option[Character],
+             magicAttackPoints: Int)
+             extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints)
+             with MagicWeapon {
 
   /** Sets the owner of the staff to a black wizard character.
    *

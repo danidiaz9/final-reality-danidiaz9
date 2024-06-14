@@ -17,13 +17,12 @@ import java.util.Objects
  *  @param owner The owner of the wand, represented as an optional character.
  *  @param magicAttackPoints The magic attackCharacter points of the wand.
  */
-class Wand (
-             name: String,
-             attackPoints: Int,
-             weight: Double,
-             owner: Option[Character],
-             magicAttackPoints: Int
-            ) extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints) {
+class Wand (name: String,
+            attackPoints: Int,
+            weight: Double,
+            owner: Option[Character],
+            magicAttackPoints: Int)
+            extends AbstractMagicWeapon (name, attackPoints, weight, owner, magicAttackPoints) {
 
   /** Sets the owner of the wand to a ninja character.
    *
