@@ -1,6 +1,7 @@
 package gameunits
 
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
+import gameunits.character.Character
 
 /** An abstract class representing a character in the game.
  *
@@ -89,11 +90,15 @@ abstract class AbstractUnit(val name: String,
 
   /** Attack another game unit.
    *
-   *  @param gameUnit The game unit to attack.
+   *  @param target The game unit to attack.
    *  @throws InvalidAttackException if this game unit cannot attack an ally of the same type.
    */
-  def attack(gameUnit: GameUnit): Unit = {
-    gameUnit.receiveDamage(this.getAttackPoints)
+  override def attackCharacter(target: Character): Unit = {
+    target.receiveDamage(this.getAttackPoints)
+  }
+
+  override def attackEnemy(target: Enemy): Unit = {
+    throw new InvalidAttackException("Invalid target.")
   }
 
   /** Receive an attack and reduce health points accordingly.

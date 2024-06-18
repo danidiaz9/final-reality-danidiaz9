@@ -1,7 +1,7 @@
 package gameunits.character
 
 import exceptions.{InvalidAttackException, InvalidEquipException}
-import gameunits.GameUnit
+import gameunits.Enemy
 import weapons.Weapon
 import weapons.commons.{Axe, Bow, Sword}
 import weapons.magics.{Staff, Wand}
@@ -161,10 +161,14 @@ abstract class AbstractCharacter(val name: String,
 
   /** Attacks another game unit.
    *
-   *  @param gameUnit The game unit to attack.
+   *  @param target The game unit to attack.
    */
-  def attack(gameUnit: GameUnit): Unit = {
-    gameUnit.receiveDamage(this.getWeapon.get.getAttackPoints)
+  override def attackCharacter(target: Character): Unit = {
+    throw new InvalidAttackException("Invalid target.")
+  }
+
+  override def attackEnemy(target: Enemy): Unit = {
+    target.receiveDamage(this.getWeapon.get.getAttackPoints)
   }
 
   /** Receives healing from a spell.

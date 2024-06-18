@@ -1,4 +1,6 @@
 import gameunits.GameUnit
+import gameunits.Enemy
+import gameunits.character.Character
 import scala.collection.mutable.ArrayBuffer
 
 /** A class representing a turn scheduler in the game.
@@ -105,11 +107,9 @@ class TurnScheduler {
 
   /** Simulates combat between a character and an enemy character.
    *
-   * @param u1 A game unit.
-   * @param u2 A game unit.
    */
-  def combat(u1: GameUnit, u2: GameUnit): Unit = {
-    u1.attack(u2)
-
+  def combat(u1: Character, u2: Enemy): Unit = {
+    u1.attackEnemy(u2)
+    u2.attackCharacter(u1)
   }
 }

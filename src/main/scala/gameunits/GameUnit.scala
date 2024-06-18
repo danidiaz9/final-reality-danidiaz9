@@ -1,5 +1,7 @@
 package gameunits
 
+import gameunits.character.Character
+
 /** Trait representing a character in the game.
  *
  * This trait defines the basic properties and behaviors of a character,
@@ -64,11 +66,17 @@ trait GameUnit {
    */
   def calculateMaxActionBar: Double
 
-  /** Attack another game unit.
+  /** Attack a game character.
    *
-   *  @param gameUnit The game unit to attack.
+   *  @param target The game unit to attack.
    */
-  def attack(gameUnit: GameUnit): Unit
+  def attackCharacter(target: Character): Unit
+
+  /** Attack a game enemy.
+   *
+   * @param target The game unit to attack.
+   */
+  def attackEnemy(target: Enemy): Unit
 
   /** Receive an attack and reduce health points accordingly.
    *
