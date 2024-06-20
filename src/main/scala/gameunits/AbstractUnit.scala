@@ -115,8 +115,13 @@ abstract class AbstractUnit(val name: String,
    * @param magicDamage The amount of magic damage received.
    */
   def receiveMagicDamage(magicDamage: Int): Unit = {
-    val magicWeaponDamage = magicDamage - this.getDefense
-    this.setHealthPoints(this.getHealthPoints - magicWeaponDamage)
+    if (getHealthPoints > 0) {
+      val magicWeaponDamage = magicDamage - this.getDefense
+      this.setHealthPoints(this.getHealthPoints - magicWeaponDamage)
+    }
+    else {
+      throw new InvalidSpellException("Game unit is dead.")
+    }
   }
 
 

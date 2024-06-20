@@ -1,6 +1,6 @@
 package gameunits.character
 
-import exceptions.{InvalidAttackException, InvalidEquipException}
+import exceptions.{InvalidAttackException, InvalidEquipException, InvalidSpellException}
 import gameunits.Enemy
 import weapons.Weapon
 import weapons.commons.{Axe, Bow, Sword}
@@ -168,18 +168,29 @@ abstract class AbstractCharacter(val name: String,
   }
 
   override def attackEnemy(target: Enemy): Unit = {
-    target.receiveDamage(this.getWeapon.get.getAttackPoints)
+    if (getWeapon.isDefined) {
+      target.receiveDamage(this.getWeapon.get.getAttackPoints)
+    }
+    else {
+      throw new InvalidAttackException("Character needs a weapon to attack.")
+    }
   }
 
   /** Receives healing from a spell.
    *
    */
   def receiveHealing(): Unit = {
-    if (getHealthPoints + 0.3 * maxHealthPoints <= maxHealthPoints){
-      setHealthPoints(currentHealthPoints + (0.3 * maxHealthPoints).toInt)
+    if (this.getHealthPoints <= 0){
+      throw new InvalidSpellException("Character is dead")
     }
+
     else {
-      currentHealthPoints = maxHealthPoints
+      if (getHealthPoints + 0.3 * maxHealthPoints <= maxHealthPoints){
+        setHealthPoints(currentHealthPoints + (0.3 * maxHealthPoints).toInt)
+      }
+      else{
+        currentHealthPoints = maxHealthPoints
+      }
     }
   }
 

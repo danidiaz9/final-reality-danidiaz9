@@ -3,6 +3,7 @@ package gameunits.character.magics
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
 import gameunits.character.AbstractCharacter
+import spells.Spell
 import weapons.Weapon
 
 /** An abstract class representing a magical character in the game.
@@ -49,35 +50,8 @@ abstract class AbstractMagicCharacter(name: String,
    *
    *  @param target The game unit to cast the thunder spell on.
    */
-  def useThunder(target: GameUnit): Unit =
-    throw new InvalidSpellException("Cannot use this spell.")
-
-  /** Uses a fire spell on the specified target.
-   *
-   *  @param target The game unit to cast the fire spell on.
-   */
-  def useFire(target: GameUnit): Unit =
-    throw new InvalidSpellException("Cannot use this spell.")
-
-  /** Uses a healing spell on the specified target.
-   *
-   *  @param target The game unit to cast the healing spell on.
-   */
-  def useHealing(target: GameUnit): Unit =
-    throw new InvalidSpellException("Cannot use this spell.")
-
-  /** Uses a poison spell on the specified target.
-   *
-   *  @param target The game unit to cast the poison spell on.
-   */
-  def usePoison(target: GameUnit): Unit =
-    throw new InvalidSpellException("Cannot use this spell.")
-
-  /** Uses a paralysis spell on the specified target.
-   *
-   *  @param target The game unit to cast the paralysis spell on.
-   */
-  def useParalysis(target: GameUnit): Unit =
-    throw new InvalidSpellException("Cannot use this spell.")
+  def useSpell(s: Spell, target: GameUnit): Unit = {
+    throw new InvalidSpellException("Invalid target.")
+  }
 
 }

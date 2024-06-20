@@ -2,6 +2,7 @@ package gameunits.character.magics
 
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
+import spells.Spell
 import weapons.Weapon
 import weapons.commons.Sword
 import weapons.magics.{Staff, Wand}
@@ -63,39 +64,13 @@ class BlackMage(name: String,
     staff.setBlackMage(this)
   }
 
-  /** Equips a Thunder spell to the black wizard character.
-   *
-   *  @param target The Thunder spell to be equipped.
-   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
-   */
-  override def useThunder(target: GameUnit): Unit = {
-    val manaCost: Int = 20
-    if (manaCost <= getManaPoints &&
-      target.getHealthPoints > 0 &&
-      this.getWeapon.isDefined) {
+  override def useSpell(s: Spell, target: GameUnit): Unit = {
+    if (this.getWeapon.isDefined) {
+      s.useByBlackMage(this)
       target.receiveDamage(this.getWeapon.get.getMagicAttackPoints)
-      this.setManaPoints(getManaPoints - manaCost)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
-    }
-  }
-
-  /** Equips a Fire spell to the black wizard character.
-   *
-   *  @param target The Fire spell to be equipped.
-   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
-   */
-  override def useFire(target: GameUnit): Unit = {
-    val manaCost: Int = 15
-    if (manaCost <= getManaPoints &&
-      target.getHealthPoints > 0 &&
-      this.getWeapon.isDefined) {
-      target.receiveDamage(this.getWeapon.get.getMagicAttackPoints)
-      this.setManaPoints(getManaPoints - manaCost)
-    }
-    else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
+      throw new InvalidSpellException("Need a magic weapon.")
     }
   }
 

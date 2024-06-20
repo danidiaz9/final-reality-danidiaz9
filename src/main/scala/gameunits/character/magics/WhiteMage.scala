@@ -2,6 +2,7 @@ package gameunits.character.magics
 
 import exceptions.InvalidSpellException
 import gameunits.GameUnit
+import spells.Spell
 import weapons.Weapon
 import weapons.commons.Bow
 import weapons.magics.{Staff, Wand}
@@ -68,52 +69,19 @@ class WhiteMage(name: String,
    *  @param target The Healing spell to be equipped.
    *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
    */
-  override def useHealing(target: GameUnit): Unit = {
-    val manaCost: Int = 15
-    if (manaCost <= getManaPoints &&
-      target.getHealthPoints > 0 &&
-      this.getWeapon.isDefined){
+  def useHealing(target: GameUnit): Unit = {
+    if (target.getHealthPoints > 0) {
       target.receiveHealing()
-      this.setManaPoints(getManaPoints - manaCost)
-    }
-    else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
     }
   }
 
-  /** Equips a Poison spell to the white wizard character.
-   *
-   *  @param target The Poison spell to be equipped.
-   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
-   */
-  override def usePoison(target: GameUnit): Unit = {
-    val manaCost: Int = 30
-    if (manaCost <= getManaPoints &&
-      target.getHealthPoints > 0 &&
-      this.getWeapon.isDefined){
-      target.receiveMagicDamage(this.getWeapon.get.getMagicAttackPoints)
-      this.setManaPoints(getManaPoints - manaCost)
+  override def useSpell(s: Spell, target: GameUnit): Unit = {
+    if (this.getWeapon.isDefined) {
+      s.useByWhiteMage(this)
+      target.receiveDamage(this.getWeapon.get.getMagicAttackPoints)
     }
     else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
-    }
-  }
-
-  /** Equips a Paralysis spell to the white wizard character.
-   *
-   *  @param target The Paralysis spell to be equipped.
-   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
-   */
-  override def useParalysis(target: GameUnit): Unit = {
-    val manaCost: Int = 25
-    if (manaCost <= getManaPoints &&
-      target.getHealthPoints > 0 &&
-      this.getWeapon.isDefined){
-      target.receiveMagicDamage(this.getWeapon.get.getMagicAttackPoints)
-      this.setManaPoints(getManaPoints - manaCost)
-    }
-    else {
-      throw new InvalidSpellException("Need a magic weapon or not enough mana or dead unit.")
+      throw new InvalidSpellException("Need a magic weapon.")
     }
   }
 
