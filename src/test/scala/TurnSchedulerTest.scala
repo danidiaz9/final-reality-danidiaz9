@@ -40,10 +40,10 @@ class TurnSchedulerTest extends munit.FunSuite {
     val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
-    character1.actionBar = 10.0
-    character2.actionBar = 20.0
+    character1.getActionBar = 10.0
+    character2.getActionBar = 20.0
     turnScheduler.resetActionBarInstance()
-    assert(character1.actionBar == 0.0 && character2.actionBar == 0.0)
+    assert(character1.getActionBar == 0.0 && character2.getActionBar == 0.0)
   }
 
   test("updateLoadingZone") {
@@ -51,15 +51,15 @@ class TurnSchedulerTest extends munit.FunSuite {
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
     turnScheduler.updateLoadingZone(5)
-    assert(character1.actionBar == 5 && character2.actionBar == 5)
+    assert(character1.getActionBar == 5 && character2.getActionBar == 5)
   }
 
   test("completeActionBar") {
     val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
-    character1.actionBar = 25.0
-    character2.actionBar = 15.0
+    character1.getActionBar = 25.0
+    character2.getActionBar = 15.0
     turnScheduler.completeActionBar()
     assert(!turnScheduler.waitingZone.contains(character1) && !turnScheduler.waitingZone.contains(character2))
   }
@@ -68,8 +68,8 @@ class TurnSchedulerTest extends munit.FunSuite {
     val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
-    character1.actionBar = 25.0
-    character2.actionBar = 15.0
+    character1.getActionBar = 25.0
+    character2.getActionBar = 15.0
     turnScheduler.sortTurns()
     assert(turnScheduler.waitingZone.head == character1 && turnScheduler.waitingZone.last == character2)
   }

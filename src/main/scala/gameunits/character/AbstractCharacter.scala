@@ -22,7 +22,7 @@ abstract class AbstractCharacter(val name: String,
                                  val defense: Int,
                                  val weight: Double,
                                  private var weapon: Option[Weapon] = None) extends Character {
-  
+
   /** The action bar of the character. */
   var actionBar: Double = 0.0
 

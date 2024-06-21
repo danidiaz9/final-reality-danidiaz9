@@ -4,7 +4,7 @@ import exceptions.InvalidSpellException
 import gameunits.character.magics.WhiteMage
 import spells.AbstractSpell
 
-class AbstractLight extends AbstractSpell {
+abstract class AbstractLight extends AbstractSpell {
 
   override def useByWhiteMage(whiteMage: WhiteMage): Unit = {
     if (getManaCost <= whiteMage.getManaPoints) {
