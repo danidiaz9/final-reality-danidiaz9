@@ -6,9 +6,9 @@ import weapons.commons.{Axe, Bow, Sword}
 
 class WarriorTest extends munit.FunSuite {
 
-  class TestWarrior(name: String, healthPoints: Int, defense: Int,
+  class TestWarrior(name: String, maxHealthPoints: Int, currentHealthPoints: Int, defense: Int,
                     weight: Double, weapon: Option[Weapon])
-    extends Warrior(name, healthPoints, defense, weight, weapon)
+    extends Warrior(name, maxHealthPoints, currentHealthPoints, defense, weight, weapon)
 
   var warrior: TestWarrior = _
   var sword: Sword = _
@@ -16,7 +16,7 @@ class WarriorTest extends munit.FunSuite {
   var bow: Bow = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    warrior = new TestWarrior("Conan", 200, 40, 100.0, None)
+    warrior = new TestWarrior("Conan", 200, 200, 40, 100.0, None)
     sword = new Sword("Broad Sword", 60, 10.0, None)
     axe = new Axe("Battleaxe", 50, 15.0, None)
     bow = new Bow("Longbow", 40, 8.0, None)
@@ -63,15 +63,15 @@ class WarriorTest extends munit.FunSuite {
   }
 
   test("equals method works correctly") {
-    val sameWarrior = new TestWarrior("Conan", 200, 40, 100.0, None)
-    val differentWarrior = new TestWarrior("Thor", 200, 40, 100.0, None)
+    val sameWarrior = new TestWarrior("Conan", 200, 200, 40, 100.0, None)
+    val differentWarrior = new TestWarrior("Thor", 200, 200, 40, 100.0, None)
 
     assert(warrior.equals(sameWarrior))
     assert(!warrior.equals(differentWarrior))
   }
 
   test("hashCode method works correctly") {
-    val sameWarrior = new TestWarrior("Conan", 200, 40, 100.0, None)
+    val sameWarrior = new TestWarrior("Conan", 200, 200, 40, 100.0, None)
 
     assertEquals(warrior.hashCode(), sameWarrior.hashCode())
   }

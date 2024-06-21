@@ -8,12 +8,15 @@ import weapons.magics.{Staff, Wand}
 class BlackMageTest extends munit.FunSuite {
 
   class TestBlackMage(name: String,
-                      healthPoints: Int,
+                      maxHealthPoints: Int,
+                      currentHealthPoints: Int,
                       defense: Int,
                       weight: Double,
-                      manaPoints: Int,
+                      maxManaPoints: Int,
+                      currentManaPoints:Int,
                       weapon: Option[Weapon])
-    extends BlackMage(name, healthPoints, defense, weight, manaPoints,, weapon)
+    extends BlackMage(name, maxHealthPoints, currentHealthPoints,
+      defense, weight, maxManaPoints, currentManaPoints, weapon)
 
   var blackWizard: TestBlackMage = _
   var sword: Sword = _
@@ -21,7 +24,7 @@ class BlackMageTest extends munit.FunSuite {
   var staff: Staff = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    blackWizard = new TestBlackMage("Gandalf", 150, 30, 80.0, 100, None)
+    blackWizard = new TestBlackMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
     sword = new Sword("Dark Sword", 70, 12.0, None)
     wand = new Wand("Elder Wand", 80, 10.0, None, 100)
     staff = new Staff("Dark Staff", 90, 15.0, None, 120)
@@ -73,15 +76,15 @@ class BlackMageTest extends munit.FunSuite {
   }
 
   test("equals method works correctly") {
-    val sameBlackWizard = new TestBlackMage("Gandalf", 150, 30, 80.0, 100, None)
-    val differentBlackWizard = new TestBlackMage("Saruman", 150, 30, 80.0, 100, None)
+    val sameBlackWizard = new TestBlackMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
+    val differentBlackWizard = new TestBlackMage("Saruman", 150, 150, 30, 80.0, 100, 100, None)
 
     assert(blackWizard.equals(sameBlackWizard))
     assert(!blackWizard.equals(differentBlackWizard))
   }
 
   test("hashCode method works correctly") {
-    val sameBlackWizard = new TestBlackMage("Gandalf", 150, 30, 80.0, 100, None)
+    val sameBlackWizard = new TestBlackMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
 
     assertEquals(blackWizard.hashCode(), sameBlackWizard.hashCode())
   }

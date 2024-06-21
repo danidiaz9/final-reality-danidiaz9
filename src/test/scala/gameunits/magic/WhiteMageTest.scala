@@ -7,9 +7,16 @@ import weapons.magics.{Staff, Wand}
 
 class WhiteMageTest extends munit.FunSuite {
 
-  class TestWhiteMage(name: String, healthPoints: Int, defense: Int,
-                      weight: Double, manaPoints: Int, weapon: Option[Weapon])
-    extends WhiteMage(name, healthPoints, defense, weight, manaPoints, currentManaPoints = weapon, maxManaPoints =)
+  class TestWhiteMage(name: String,
+                      maxHealthPoints: Int,
+                      currentHealthPoints: Int,
+                      defense: Int,
+                      weight: Double,
+                      maxManaPoints: Int,
+                      currentManaPoints:Int,
+                      weapon: Option[Weapon])
+    extends WhiteMage(name, maxHealthPoints, currentHealthPoints,
+      defense, weight, maxManaPoints, currentManaPoints, weapon)
 
   var whiteWizard: TestWhiteMage = _
   var bow: Bow = _
@@ -17,7 +24,7 @@ class WhiteMageTest extends munit.FunSuite {
   var staff: Staff = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    whiteWizard = new TestWhiteMage("Gandalf", 150, 30, 80.0, 100, None)
+    whiteWizard = new TestWhiteMage("Gandalf", 150, 50, 30, 80.0, 100, 100, None)
     bow = new Bow("Elven Bow", 100, 8.0, None)
     wand = new Wand("Magic Wand", 120, 7.0, None, 150)
     staff = new Staff("Holy Staff", 150, 12.0, None, 180)
@@ -69,15 +76,15 @@ class WhiteMageTest extends munit.FunSuite {
   }
 
   test("equals method works correctly") {
-    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 30, 80.0, 100, None)
-    val differentWhiteWizard = new TestWhiteMage("Saruman", 150, 30, 80.0, 100, None)
+    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
+    val differentWhiteWizard = new TestWhiteMage("Saruman", 150, 150, 30, 80.0, 100, 100, None)
 
     assert(whiteWizard.equals(sameWhiteWizard))
     assert(!whiteWizard.equals(differentWhiteWizard))
   }
 
   test("hashCode method works correctly") {
-    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 30, 80.0, 100, None)
+    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
 
     assertEquals(whiteWizard.hashCode(), sameWhiteWizard.hashCode())
   }

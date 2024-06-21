@@ -7,9 +7,9 @@ import weapons.magics.Wand
 
 class NinjaTest extends munit.FunSuite {
 
-  class TestNinja(name: String, healthPoints: Int, defense: Int,
+  class TestNinja(name: String, maxHealthPoints: Int, currentHealthPoints: Int, defense: Int,
                   weight: Double, weapon: Option[Weapon])
-    extends Ninja(name, healthPoints, defense, weight, weapon)
+    extends Ninja(name, maxHealthPoints, currentHealthPoints, defense, weight, weapon)
 
   var ninja: TestNinja = _
   var sword: Sword = _
@@ -17,7 +17,7 @@ class NinjaTest extends munit.FunSuite {
   var wand: Wand = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    ninja = new TestNinja("Hanzo", 100, 20, 70.0, None)
+    ninja = new TestNinja("Hanzo", 100, 100, 20, 70.0, None)
     sword = new Sword("Katana", 30, 2.5, None)
     bow = new Bow("Longbow", 25, 3.0, None)
     wand = new Wand("Magic Wand", 20, 2.0, None, 30)
@@ -65,15 +65,15 @@ class NinjaTest extends munit.FunSuite {
   }
 
   test("equals method works correctly") {
-    val sameNinja = new TestNinja("Hanzo", 100, 20, 70.0, None)
-    val differentNinja = new TestNinja("Hattori", 100, 20, 70.0, None)
+    val sameNinja = new TestNinja("Hanzo", 100, 100, 20, 70.0, None)
+    val differentNinja = new TestNinja("Hattori", 100, 100, 20, 70.0, None)
 
     assert(ninja.equals(sameNinja))
     assert(!ninja.equals(differentNinja))
   }
 
   test("hashCode method works correctly") {
-    val sameNinja = new TestNinja("Hanzo", 100, 20, 70.0, None)
+    val sameNinja = new TestNinja("Hanzo", 100, 100, 20, 70.0, None)
 
     assertEquals(ninja.hashCode(), sameNinja.hashCode())
   }

@@ -6,16 +6,16 @@ import weapons.commons.{Axe, Sword}
 
 class PaladinTest extends munit.FunSuite {
 
-  class TestPaladin(name: String, healthPoints: Int, defense: Int,
+  class TestPaladin(name: String, maxHealthPoints: Int, currentHealthPoints: Int, defense: Int,
                     weight: Double, weapon: Option[Weapon])
-    extends Paladin(name, healthPoints, defense, weight, weapon)
+    extends Paladin(name, maxHealthPoints, currentHealthPoints, defense, weight, weapon)
 
   var paladin: TestPaladin = _
   var sword: Sword = _
   var axe: Axe = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    paladin = new TestPaladin("Arthur", 150, 30, 80.0, None)
+    paladin = new TestPaladin("Arthur", 150, 150, 30, 80.0, None)
     sword = new Sword("Excalibur", 50, 5.0, None)
     axe = new Axe("Battleaxe", 40, 7.0, None)
   }
@@ -56,15 +56,15 @@ class PaladinTest extends munit.FunSuite {
   }
 
   test("equals method works correctly") {
-    val samePaladin = new TestPaladin("Arthur", 150, 30, 80.0, None)
-    val differentPaladin = new TestPaladin("Lancelot", 150, 30, 80.0, None)
+    val samePaladin = new TestPaladin("Arthur", 150, 150, 30, 80.0, None)
+    val differentPaladin = new TestPaladin("Lancelot", 150, 150, 30, 80.0, None)
 
     assert(paladin.equals(samePaladin))
     assert(!paladin.equals(differentPaladin))
   }
 
   test("hashCode method works correctly") {
-    val samePaladin = new TestPaladin("Arthur", 150, 30, 80.0, None)
+    val samePaladin = new TestPaladin("Arthur", 150, 150, 30, 80.0, None)
 
     assertEquals(paladin.hashCode(), samePaladin.hashCode())
   }
