@@ -1,6 +1,5 @@
 package controller
 
-import controller.states.GameState
 import controller.states.InitialState
 import model.gameunits.GameUnit
 import model.gameunits.character.Character

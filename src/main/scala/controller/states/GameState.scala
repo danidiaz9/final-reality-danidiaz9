@@ -1,16 +1,34 @@
 package controller.states
 
-import model.gameunits.GameUnit
-import model.gameunits.character.Character
-import model.gameunits.character.magics.MagicCharacter
-import model.spells.Spell
-import model.weapons.Weapon
+import controller.GameController
+import exceptions.InvalidTransitionException
 
-trait GameState {
+class GameState(protected val context: GameController) {
 
-  def initializeGame(): Unit
-  def unitAttack(attacker: GameUnit, defender: GameUnit): Unit
-  def castSpell(caster: MagicCharacter, spell: Spell, target: GameUnit): Unit
-  def equipWeapon(character: Character, weapon: Weapon): Unit
+  context.state = this
+
+  def actionBarState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to actionBarState.")
+
+  def turnState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to turnState.")
+
+  def enemyActionState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to enemyActionState.")
+
+  def playerActionState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to playerActionState.")
+
+  def equipWeaponState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to equipWeaponState.")
+
+  def selectSpellState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to selectSpellState.")
+
+  def targetState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to targetState.")
+
+  def gameOverState(): Unit =
+    throw new InvalidTransitionException("Cannot transition to gameOverState.")
 
 }
