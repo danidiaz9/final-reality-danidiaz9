@@ -1,8 +1,9 @@
 package gameunits
 
-import gameunits.character.commons.Warrior
-import gameunits.character.Party
-import gameunits.character.magics.WhiteMage
+import model.gameunits.GameUnit
+import model.gameunits.character.Party
+import model.gameunits.character.commons.Warrior
+import model.gameunits.character.magics.WhiteMage
 
 import scala.collection.mutable.ArrayBuffer
 

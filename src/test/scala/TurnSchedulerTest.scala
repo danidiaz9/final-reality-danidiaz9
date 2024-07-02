@@ -1,5 +1,7 @@
-import gameunits.character.commons.Warrior
-import gameunits.{Enemy, GameUnit}
+import controller.TurnScheduler
+import model.gameunits.{Enemy, GameUnit}
+import model.gameunits.character.commons.Warrior
+
 import scala.collection.mutable.ArrayBuffer
 
 
@@ -8,7 +10,7 @@ class TurnSchedulerTest extends munit.FunSuite {
   var turnScheduler: TurnScheduler = _
   var Warrior: Warrior = _
 
-  // Se ejecuta antes de cada prueba para crear una nueva instancia de TurnScheduler
+  // Se ejecuta antes de cada prueba para crear una nueva instancia de controller.TurnScheduler
   override def beforeEach(context: BeforeEach): Unit = {
     turnScheduler = new TurnScheduler
     Warrior = new Warrior("Player1", 200, 200, 40, 60.0, None)

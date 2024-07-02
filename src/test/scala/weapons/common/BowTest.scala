@@ -1,8 +1,8 @@
 package weapons.common
 
-import gameunits.character.commons.{Ninja, Warrior}
-import gameunits.character.magics.WhiteMage
-import weapons.commons.Bow
+import model.gameunits.character.commons.{Ninja, Warrior}
+import model.gameunits.character.magics.WhiteMage
+import model.weapons.commons.Bow
 
 class BowTest extends munit.FunSuite {
 

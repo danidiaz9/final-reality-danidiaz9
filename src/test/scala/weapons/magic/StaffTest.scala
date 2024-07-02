@@ -1,7 +1,7 @@
 package weapons.magic
 
-import gameunits.character.magics.{BlackMage, WhiteMage}
-import weapons.magics.Staff
+import model.gameunits.character.magics.{BlackMage, WhiteMage}
+import model.weapons.magics.Staff
 
 class StaffTest extends munit.FunSuite {
 

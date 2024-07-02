@@ -1,8 +1,8 @@
 package weapons.common
 
-import gameunits.character.commons.{Ninja, Paladin, Warrior}
-import gameunits.character.magics.BlackMage
-import weapons.commons.Sword
+import model.gameunits.character.commons.{Ninja, Paladin, Warrior}
+import model.gameunits.character.magics.BlackMage
+import model.weapons.commons.Sword
 
 class SwordTest extends munit.FunSuite {
 

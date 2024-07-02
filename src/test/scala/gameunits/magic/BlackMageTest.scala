@@ -1,9 +1,9 @@
 package gameunits.magic
 
-import gameunits.character.magics.BlackMage
-import weapons.Weapon
-import weapons.commons.Sword
-import weapons.magics.{Staff, Wand}
+import model.gameunits.character.magics.BlackMage
+import model.weapons.Weapon
+import model.weapons.commons.Sword
+import model.weapons.magics.{Staff, Wand}
 
 class BlackMageTest extends munit.FunSuite {
 

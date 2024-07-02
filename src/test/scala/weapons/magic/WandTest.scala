@@ -1,8 +1,8 @@
 package weapons.magic
 
-import gameunits.character.commons.Ninja
-import gameunits.character.magics.{BlackMage, WhiteMage}
-import weapons.magics.Wand
+import model.gameunits.character.commons.Ninja
+import model.gameunits.character.magics.{BlackMage, WhiteMage}
+import model.weapons.magics.Wand
 
 class WandTest extends munit.FunSuite {
 

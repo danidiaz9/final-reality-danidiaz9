@@ -1,5 +1,7 @@
 package gameunits
 
+import model.gameunits.Enemy
+
 class EnemyTest extends munit.FunSuite {
 
   class TestEnemy(name: String, maxHealthPoints: Int, currentHealthPoints: Int,

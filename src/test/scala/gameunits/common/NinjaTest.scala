@@ -1,9 +1,9 @@
 package gameunits.common
 
-import gameunits.character.commons.Ninja
-import weapons.Weapon
-import weapons.commons.{Bow, Sword}
-import weapons.magics.Wand
+import model.gameunits.character.commons.Ninja
+import model.weapons.Weapon
+import model.weapons.commons.{Bow, Sword}
+import model.weapons.magics.Wand
 
 class NinjaTest extends munit.FunSuite {
 

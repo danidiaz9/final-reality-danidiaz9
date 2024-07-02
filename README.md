@@ -17,7 +17,7 @@ This project's goal is to create a (simplified) clone of _Final Fantasy_'s comba
 - `Characters`: Contains character classes, including both player and enemy game units.
 - `Weapons`: Contains classes representing different types of weapons.
 - `Party`: Contains the class representing the character's party.
-- `TurnScheduler`: Contains the TurnScheduler class.
+- `controller.TurnScheduler`: Contains the controller.TurnScheduler class.
 
 ### Features
 
