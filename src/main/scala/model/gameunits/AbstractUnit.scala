@@ -3,7 +3,6 @@ package model.gameunits
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
 import model.effects.Effect
 import model.gameunits.character.Character
-import model.gameunits.character.magics.MagicCharacter
 import model.spells.dark.{Fire, Thunder}
 import model.spells.light.{Paralysis, Poison}
 

@@ -1,6 +1,6 @@
 package model.spells.dark
 
-import model.effects.{Effect, Paralyzed}
+import model.effects.{Composite, Effect, Paralyzed}
 import model.gameunits.GameUnit
 import model.gameunits.character.Character
 
@@ -9,7 +9,7 @@ import scala.util.Random
 class Thunder extends AbstractDark {
 
   override val manaCost: Int = 20
-  override val effect: Effect = new Paralyzed
+  override val effect: Effect = new Composite(List[Paralyzed])
 
   def applyThunderTo(target: GameUnit, from: Character): Unit = {
     target.receiveMagicDamage(from.getWeapon.get.getMagicAttackPoints)
