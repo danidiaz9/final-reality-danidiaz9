@@ -7,6 +7,10 @@ class GameState(protected val context: GameController) {
 
   context.state = this
 
+  def handleInput(context: GameController): Unit = {}
+
+  def update(context: GameController): Unit = {}
+
   def actionBarState(): Unit =
     throw new InvalidTransitionException("Cannot transition to actionBarState.")
 
