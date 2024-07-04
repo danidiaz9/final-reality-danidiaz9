@@ -136,7 +136,9 @@ abstract class AbstractUnit(val name: String,
   def receiveHealing(): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
-  def appliedEffect(effect: Effect): Unit
+  def appliedEffect(effect: Effect): Unit = {
+    println(s"$effect")
+  }
 
   def applyFire(fire: Fire, from: Character): Unit = {
     fire.applyFireTo(this, from)

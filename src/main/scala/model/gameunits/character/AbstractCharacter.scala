@@ -1,7 +1,10 @@
 package model.gameunits.character
 
 import exceptions.{InvalidAttackException, InvalidEquipException, InvalidSpellException}
+import model.effects.Effect
 import model.gameunits.Enemy
+import model.spells.dark.{Fire, Thunder}
+import model.spells.light.{Paralysis, Poison}
 import model.weapons.Weapon
 import model.weapons.commons.{Axe, Bow, Sword}
 import model.weapons.magics.{Staff, Wand}
@@ -192,6 +195,26 @@ abstract class AbstractCharacter(val name: String,
         currentHealthPoints = maxHealthPoints
       }
     }
+  }
+
+  override def appliedEffect(effect: Effect): Unit = {
+    println(s"$effect")
+  }
+
+  override def applyFire(fire: Fire, from: Character): Unit = {
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+  }
+
+  override def applyThunder(thunder: Thunder, from: Character): Unit = {
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+  }
+
+  override def applyParalysis(paralysis: Paralysis, from: Character): Unit = {
+    throw new InvalidSpellException("Spell cannot impact this unit.")
+  }
+
+  override def applyPoison(poison: Poison, from: Character): Unit = {
+    throw new InvalidSpellException("Spell cannot impact this unit.")
   }
 
 }
