@@ -1,6 +1,6 @@
 package model.weapons
 
-import exceptions.InvalidSetException
+import exceptions.{InvalidSetException, InvalidStatException}
 import model.gameunits.character.Character
 import model.gameunits.character.commons.{Ninja, Paladin, Warrior}
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
@@ -21,10 +21,6 @@ abstract class AbstractWeapon(val name: String,
                               var owner: Option[Character] = None)
                               extends Weapon {
 
-  /** The magic attack points of the weapon. */
-  val magicAttackPoints: Int = 0
-
-
   /** Returns the name of the weapons.
    *
    *  @return The name of the weapons.
@@ -41,7 +37,8 @@ abstract class AbstractWeapon(val name: String,
    *
    *  @return The magic attack points of the weapon.
    */
-  def getMagicAttackPoints: Int = magicAttackPoints
+  def getMagicAttackPoints: Int =
+    throw new InvalidStatException("This isn't a magic weapon.")
 
   /** Returns the weight of the weapons.
    *

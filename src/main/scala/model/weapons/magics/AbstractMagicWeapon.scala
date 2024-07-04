@@ -20,7 +20,7 @@ abstract class AbstractMagicWeapon(name: String,
                                    attackPoints: Int,
                                    weight: Double,
                                    owner: Option[Character],
-                                   override val magicAttackPoints: Int) extends
+                                   val magicAttackPoints: Int) extends
                                    AbstractWeapon(name, attackPoints, weight, owner)
                                    with MagicWeapon {
 

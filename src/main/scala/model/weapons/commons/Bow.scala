@@ -3,6 +3,7 @@ package model.weapons.commons
 import model.gameunits.character.Character
 import model.gameunits.character.commons.{Ninja, Warrior}
 import model.gameunits.character.magics.WhiteMage
+import model.weapons.AbstractWeapon
 
 import java.util.Objects
 
@@ -20,7 +21,7 @@ class Bow (name: String,
            attackPoints: Int,
            weight: Double,
            owner: Option[Character])
-           extends AbstractCommonWeapon (name, attackPoints, weight, owner) {
+           extends AbstractWeapon (name, attackPoints, weight, owner) {
 
   /** Sets the owner of the bow to a warrior character.
    *

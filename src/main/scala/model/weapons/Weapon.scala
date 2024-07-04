@@ -1,7 +1,6 @@
 package model.weapons
 
 import model.gameunits.character
-import model.gameunits.character.Character
 import model.gameunits.character.commons.{Ninja, Paladin, Warrior}
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 
@@ -16,9 +15,6 @@ trait Weapon {
 
   /** The attackCharacter points of the weapons. */
   val attackPoints: Int
-
-  /** The magic attack points of the weapon. */
-  val magicAttackPoints: Int
 
   /** The weight of the weapons. */
   val weight: Double
