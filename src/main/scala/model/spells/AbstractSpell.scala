@@ -1,11 +1,15 @@
 package model.spells
 
 import exceptions.InvalidSpellException
-import model.gameunits.character.magics.{BlackMage, WhiteMage}
+import model.effects.Effect
+import model.gameunits.GameUnit
+import model.gameunits.character.magics.{BlackMage, MagicCharacter, WhiteMage}
 
 abstract class AbstractSpell extends Spell {
 
   val manaCost: Int = 0
+
+  val effect: Effect = null
 
   def getManaCost: Int = manaCost
 

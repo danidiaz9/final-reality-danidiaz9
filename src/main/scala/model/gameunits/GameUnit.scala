@@ -1,6 +1,10 @@
 package model.gameunits
 
+import model.effects.Effect
 import model.gameunits.character.Character
+import model.gameunits.character.magics.MagicCharacter
+import model.spells.dark.{Fire, Thunder}
+import model.spells.light.{Paralysis, Poison}
 
 /** Trait representing a character in the game.
  *
@@ -94,5 +98,15 @@ trait GameUnit {
    *
    */
   def receiveHealing(): Unit
+
+  def appliedEffect(effect: Effect): Unit
+
+  def applyFire(fire: Fire, from: Character): Unit
+
+  def applyThunder(thunder: Thunder, from: Character): Unit
+
+  def applyParalysis(paralysis: Paralysis, from: Character): Unit
+
+  def applyPoison(poison: Poison, from: Character): Unit
 
 }

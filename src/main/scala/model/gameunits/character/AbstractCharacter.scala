@@ -6,8 +6,6 @@ import model.weapons.Weapon
 import model.weapons.commons.{Axe, Bow, Sword}
 import model.weapons.magics.{Staff, Wand}
 
-import java.lang
-
 /** An abstract class representing a character-controlled character in the game.
  *
  *  @constructor Creates a new character with the specified name, health points, defense, weight, and weapons.

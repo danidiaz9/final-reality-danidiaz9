@@ -1,7 +1,11 @@
 package model.gameunits
 
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
+import model.effects.Effect
 import model.gameunits.character.Character
+import model.gameunits.character.magics.MagicCharacter
+import model.spells.dark.{Fire, Thunder}
+import model.spells.light.{Paralysis, Poison}
 
 /** An abstract class representing a character in the game.
  *
@@ -132,4 +136,21 @@ abstract class AbstractUnit(val name: String,
   def receiveHealing(): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
+  def appliedEffect(effect: Effect): Unit
+
+  def applyFire(fire: Fire, from: Character): Unit = {
+    fire.applyFireTo(this, from)
+  }
+
+  def applyThunder(thunder: Thunder, from: Character): Unit = {
+    thunder.applyThunderTo(this, from)
+  }
+
+  def applyParalysis(paralysis: Paralysis, from: Character): Unit = {
+    paralysis.applyParalysisTo(this, from)
+  }
+
+  def applyPoison(poison: Poison, from: Character): Unit = {
+    poison.applyPoisonTo(this, from)
+  }
 }
