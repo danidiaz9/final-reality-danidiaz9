@@ -1,4 +1,6 @@
-package model.gameunits
+package model.gameunits.enemies
+
+import model.gameunits.AbstractUnit
 
 import java.util.Objects
 

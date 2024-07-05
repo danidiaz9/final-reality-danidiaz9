@@ -3,10 +3,11 @@ package controller
 import controller.states.{ActionBarState, GameState}
 import controller.TurnScheduler
 import model.GameModel
-import model.gameunits.{Enemy, GameUnit}
+import model.gameunits.GameUnit
 import model.gameunits.character.Character
 import model.gameunits.character.commons.{Ninja, Paladin, Warrior}
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
+import model.gameunits.enemies.Enemy
 import model.weapons.commons.{Axe, Bow, Sword}
 import model.weapons.magics.{Staff, Wand}
 

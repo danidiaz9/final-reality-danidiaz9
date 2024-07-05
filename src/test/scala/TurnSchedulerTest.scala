@@ -1,6 +1,7 @@
 import controller.TurnScheduler
-import model.gameunits.{Enemy, GameUnit}
+import model.gameunits.GameUnit
 import model.gameunits.character.commons.Warrior
+import model.gameunits.enemies.Enemy
 
 import scala.collection.mutable.ArrayBuffer
 

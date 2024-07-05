@@ -2,7 +2,7 @@ package model.gameunits.character
 
 import exceptions.{InvalidAttackException, InvalidEquipException, InvalidSpellException}
 import model.effects.Effect
-import model.gameunits.Enemy
+import model.gameunits.enemies.Enemy
 import model.spells.dark.{Fire, Thunder}
 import model.spells.light.{Paralysis, Poison}
 import model.weapons.Weapon

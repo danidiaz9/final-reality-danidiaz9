@@ -1,6 +1,6 @@
 package gameunits
 
-import model.gameunits.Enemy
+import model.gameunits.enemies.Enemy
 
 class EnemyTest extends munit.FunSuite {
 

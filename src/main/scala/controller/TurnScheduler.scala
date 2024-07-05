@@ -1,15 +1,30 @@
 package controller
 
 import model.gameunits.character.Character
-import model.gameunits.{Enemy, GameUnit}
+import model.gameunits.GameUnit
+import model.gameunits.enemies.Enemy
 
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 /** A class representing a turn scheduler in the game.
  *
  *  This class manages the turn order of gameunits during combat by handling their action bars.
  */
-class TurnScheduler {
+class TurnScheduler(gameUnits: List[GameUnit]) {
+
+  private val actionBars = mutable.Map.empty[GameUnit, Double]
+  gameUnits.foreach(actionBars += _ -> 0.0)
+
+  private def getActionBars: Map[GameUnit, Double] = actionBars.toMap
+
+  /** Updates the action bar of a character.
+   *
+   * @param k The amount to increase the character's action bar by.
+   */
+  private def increaseActionBar(k: Int): Unit = {
+    getActionBars.values.foreach(actionBars += k)
+  }
 
   /** The loading zone where gameunits wait for their action bars to fill up. */
   val loadingZone: ArrayBuffer[GameUnit] = new ArrayBuffer()
@@ -58,15 +73,6 @@ class TurnScheduler {
     c.getActionBar - c.calculateMaxActionBar
   }
 
-  /** Updates the action bar of a character.
-   *
-   * @param c The character whose action bar to update.
-   * @param k The amount to increase the character's action bar by.
-   */
-  private def updateActionBar(c: GameUnit, k: Int): Unit = {
-    c.setActionBar(c.getActionBar+k)
-  }
-
   /** Resets the action bar of a character to zero.
    *
    * @param c The character whose action bar to reset.
@@ -89,7 +95,7 @@ class TurnScheduler {
    */
   def updateLoadingZone(k: Int): Unit = {
     for (c <- loadingZone) {
-      updateActionBar(c, k)
+      increaseActionBar(k)
     }
   }
 

@@ -3,6 +3,7 @@ package model.gameunits
 import exceptions.{InvalidAttackException, InvalidSpellException, Require}
 import model.effects.Effect
 import model.gameunits.character.Character
+import model.gameunits.enemies.Enemy
 import model.spells.dark.{Fire, Thunder}
 import model.spells.light.{Paralysis, Poison}
 
@@ -110,7 +111,13 @@ abstract class AbstractUnit(val name: String,
    */
   def receiveDamage(damage: Int): Unit = {
     val weaponDamage = damage - this.getDefense
-    this.setHealthPoints(this.getHealthPoints - weaponDamage)
+    if(weaponDamage >= this.getHealthPoints){
+      this.setHealthPoints(0)
+    }
+    else{
+      this.setHealthPoints(this.getHealthPoints - weaponDamage)
+    }
+
   }
 
   /** Receive magic damage and reduce health points accordingly.
@@ -118,15 +125,14 @@ abstract class AbstractUnit(val name: String,
    * @param magicDamage The amount of magic damage received.
    */
   def receiveMagicDamage(magicDamage: Int): Unit = {
-    if (getHealthPoints > 0) {
-      val magicWeaponDamage = magicDamage - this.getDefense
-      this.setHealthPoints(this.getHealthPoints - magicWeaponDamage)
+    val magicWeaponDamage = magicDamage - this.getDefense
+    if (magicWeaponDamage >= getHealthPoints) {
+      this.setHealthPoints(0)
     }
     else {
-      throw new InvalidSpellException("Game unit is dead.")
+      this.setHealthPoints(this.getHealthPoints - magicWeaponDamage)
     }
   }
-
 
   /** Receive healing from a spell.
    *
