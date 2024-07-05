@@ -85,10 +85,9 @@ abstract class AbstractUnit(val name: String,
    *
    *  @return The maximum action bar value.
    */
-  def calculateMaxActionBar: Double = {
+  def calculateMaxWeight: Double = {
     val charWeight = this.getWeight
-    val maxActionBar = charWeight
-    maxActionBar
+    charWeight
 
   }
 

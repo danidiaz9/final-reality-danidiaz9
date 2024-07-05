@@ -68,7 +68,7 @@ trait GameUnit {
    *
    *  @return The maximum value of the action bar for the character.
    */
-  def calculateMaxActionBar: Double
+  def calculateMaxWeight: Double
 
   /** Attack a game character.
    *

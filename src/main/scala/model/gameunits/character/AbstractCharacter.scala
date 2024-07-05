@@ -141,11 +141,10 @@ abstract class AbstractCharacter(val name: String,
    *
    *  @return The maximum action bar of the character.
    */
-  def calculateMaxActionBar: Double = {
-    val charWeight = this.getWeight
+  override def calculateMaxWeight: Double = {
     val weaponWeight = this.getWeapon.get.getWeight
-    val maxActionBar = charWeight + 0.5 * weaponWeight
-    maxActionBar
+    val maxWeight = this.getWeight + 0.5 * weaponWeight
+    maxWeight
 
   }
 
