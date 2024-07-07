@@ -2,69 +2,76 @@
 
 Final Reality is a simplified clone of the renowned game, Final Fantasy. Its main purpose is to serve as an educational tool, teaching foundational programming concepts.
 
-This README is yours to complete it. Take this opportunity to describe your contributions, the design decisions you've made, and any other information you deem necessary.
+## Overview
 
-This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+This project aims to replicate the combat system of Final Fantasy, a game developed by [Square Enix](https://www.square-enix.com). In Final Reality, players control a group of characters to battle against computer-controlled enemies.
 
-## Context
+## Features
 
-This project's goal is to create a (simplified) clone of _Final Fantasy_'s combat, a game developed by [_Square Enix_](https://www.square-enix.com). Broadly speaking, for the combat, the player has a group of game units to control and a group of enemies controlled by the computer.
+### Characters
 
-## Homework 1
-
-### Project Structure
-
-- `Characters`: Contains character classes, including both player and enemy game units.
-- `Weapons`: Contains classes representing different types of weapons.
-- `Party`: Contains the class representing the character's party.
-- `controller.TurnScheduler`: Contains the controller.TurnScheduler class.
-
-### Features
-
-#### Characters
-
-- **Player Characters**: These are game units controlled by the player. They can be either common or magic game units.
+- **Player Characters**: These are characters controlled by the player. They can be either common or magic characters.
   - **Common Characters**: These include Ninjas, Paladins, and Warriors.
   - **Magic Characters**: These include Black Mages and White Mages.
 
-- **Enemy Characters**: These are game units controlled by the computer.
+- **Enemy Characters**: These are characters controlled by the computer. Each enemy has a name, health points, defense, attack, and weight.
 
-#### Weaponry
+### Weaponry
 
-- **Common Weapons**: Weapons used by common game units, such as Axes, Bows, and Swords.
-- **Magic Weapons**: Weapons used by magic game units, such as Staves and Wands.
+- **Common Weapons**: Weapons used by common characters, such as Axes, Bows, and Swords.
+- **Magic Weapons**: Weapons used by magic characters, such as Staves and Wands. Magic weapons have additional magic attack points used to calculate spell damage.
 
-#### Party
+### Party
 
-The party represents a group of game units controlled by the player.
+The party represents a group of characters controlled by the player. Each character can equip one weapon to attack.
 
-#### Turn Scheduler
+### Turn Scheduler
 
-The Turn Scheduler manages the turn order of game units during combat by handling their action bars.
+The Turn Scheduler manages the turn order of characters during combat by handling their action bars. The action bar of each unit is filled based on their weight and the weight of their equipped weapon.
 
-## Homework 2
+### Spells
 
-### Additional Requirements and Features
+Mages can use spells with various effects. Spells are categorized into black magic and white magic, used by Black Mages and White Mages, respectively.
 
-- **Weapon Assignment**: Methods must be defined to achieve the correct assignment of weapons according to the character.
-  - **Weapon Constraints**: Each character has a predefined set of weapons that they can equip.
-  - **Unequip Weapon**: A character must be capable of unequipping a weapon.
+- **[Dark Magic] Thunder**: Reduces the enemy's health and has a 30% chance to paralyze them.
+- **[Dark Magic] Fire**: Reduces the enemy's health and has a 20% chance to burn them.
+- **[Light Magic] Healing**: Heals an ally for 30% of their maximum health points.
+- **[Light Magic] Poison**: Poisons an enemy.
+- **[Light Magic] Paralysis**: Paralyses an enemy.
 
-- **Spell Casting**:
-  - **Targeting**: A spell must be able to be cast on a target.
-  - **Mana Cost**: Successfully casting a spell should deduct the corresponding mana.
-  - **White Magic**: Only a White Mage can cast light magic spells.
-  - **Black Magic**: Only a Black Mage can cast dark magic spells.
-  - **Spell Effects**: The spell must consider the statistics of the mage (and their weapon) for its effects.
+### Adverse Effects
 
-### Design Decisions
+Adverse effects are caused by spells and include:
 
-- **Character and Weapon Design**: Characters and weapons were designed to reflect the diversity in gameplay, allowing for strategic decisions based on character classes and weapon types.
-- **Turn Scheduler Logic**: The Turn Scheduler ensures a dynamic and fair combat flow, where the weight of characters and their equipped weapons influence the order of turns.
+- **Paralysis**: Skips the unit's turn, lasting for one turn.
+- **Poisoned**: Causes health loss over four turns.
+- **Burned**: Causes health loss over three turns.
 
-### Contributions
+### Combat System
 
-- **Character Classes**: Defined and implemented various character classes with distinct abilities and constraints.
-- **Weapon System**: Developed a robust system for weapon assignment and usage, ensuring each character can only equip appropriate weapons.
-- **Magic System**: Created a detailed magic system that includes spell casting, mana management, and spell effects based on character stats.
-- **Combat Mechanics**: Implemented the core combat mechanics, including the Turn Scheduler, to manage the flow of battle effectively.
+The combat system operates in turns, determined by the action bar of each unit:
+
+1. All units start with an action bar at 0.
+2. Increase the action bar of all units simultaneously by a fixed amount.
+3. Units that fill their action bar take their turn, applying any adverse effects.
+4. Units perform an action (attack or cast a spell).
+5. The action bar is reset, and the cycle repeats until the battle ends.
+
+## Project Structure
+
+- `characters`: Contains character classes, including both player and enemy characters.
+- `weaponry`: Contains classes representing different types of weapons.
+- `party`: Contains the class representing the player's party.
+- `turn_scheduler`: Contains the TurnScheduler class.
+
+## State Diagram
+
+![Diagrama de estados](docs/diagrama-estados.png)
+
+## Contributing
+
+Contributions to Final Reality are welcome! Feel free to fork this repository and submit pull requests with your changes. Please ensure that your contributions align with the project's goals and follow the existing code style and conventions.
+
+## License
+
+This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

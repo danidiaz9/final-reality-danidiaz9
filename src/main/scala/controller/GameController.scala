@@ -18,7 +18,7 @@ class GameController {
 
   var state: GameState = _
   private val ai = new Random()
-  private val battle = new TurnScheduler
+  //private val battle = new TurnScheduler
   private val allies = ArrayBuffer.empty[Character]
   private val enemies = ArrayBuffer.empty[GameUnit]
 
@@ -70,33 +70,33 @@ class GameController {
   val MagicWand2 = new Wand("Magic Wand", 120, 7.0, None, 150)
   val ElderWand = new Wand("Elder Wand", 80, 10.0, None, 100)
 
-  private val l: List[GameUnit] = List(Hanzo,Arthur,Conan,Gandalf,Saruman,
-    enemy1,enemy2,enemy3,enemy4,enemy5)
-  def startGame(): Unit = {
-    state = new ActionBarState(this)
-    for (c <- l) {
-      battle.addLoadingZone(c)
-    }
-    state.turnState()
+  //private val l: List[GameUnit] = List(Hanzo,Arthur,Conan,Gandalf,Saruman,
+    //enemy1,enemy2,enemy3,enemy4,enemy5)
+  //def startGame(): Unit = {
+    //state = new ActionBarState(this)
+    //for (c <- l) {
+      //battle.addLoadingZone(c)
+    //}
+    //state.turnState()
 
-  }
+  //}
 
-  def turn(): Unit = {
+  //def turn(): Unit = {
 
-    for (c <- battle.waitingZone){
-      c match {
-        case c: Character => state.playerActionState()
-        case c: Enemy => state.enemyActionState()
-      }
-    }
-  }
+    //for (c <- battle.waitingZone){
+      //c match {
+        //case c: Character => state.playerActionState()
+        //case c: Enemy => state.enemyActionState()
+      //}
+    //}
+  //}
 
-  def characterPlay(): Unit = {
+  //def characterPlay(): Unit = {
 
-  }
+  //}
 
-  def enemyPlay(): Unit = {
-    state.targetState()
-  }
+  //def enemyPlay(): Unit = {
+    //state.targetState()
+  //}
 
 }

@@ -9,8 +9,7 @@ import util.Random
 class Fire extends AbstractDark {
 
   override val manaCost: Int = 15
-  override val effect: Effect = new Effects(List[Burned])
-  val random = new Ramdom(1)
+  //override val effect: Effect = new Effects(List[Burned])
 
   def applyFireTo(target: GameUnit, from: Character): Unit = {
     target.receiveMagicDamage(from.getWeapon.get.getMagicAttackPoints)
