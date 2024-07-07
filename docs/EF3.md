@@ -26,7 +26,7 @@ Su controlador debe poder:
 
 - Mostrar cuando se acaba el juego
 
-- Mostrar cual fue el resultado del juego (se ganó o se perdió)
+- Mostrar cuál fue el resultado del juego (se ganó o se perdió)
 
 - Manejar una batalla:
     - Manejar el orden de los turnos de las unidades
@@ -52,7 +52,7 @@ El trabajo realizado para esta entrega se debe realizar en una nueva rama que de
 2. Utilice el comando ``git branch <branch_name>`` para crear la rama. En este caso, sería
 ``git branch entrega-final-3``.
 
-3. Recuede que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama utilizando el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-final-3``.
+3. Recuerde que para que su progreso pueda ser almacenado en dicha rama, debe cambiarse de rama utilizando el comando ``git checkout <branch_name>``. En este caso, sería ``git checkout entrega-final-3``.
 
 *Tenga en cuenta que el cuerpo docente tiene acceso total a su repositorio.*
 

@@ -20,10 +20,7 @@ class TurnScheduler(gameUnits: List[GameUnit]) {
 
   private val turnsQueue = mutable.Queue.empty[GameUnit]
 
-  /** Updates the action bar of a character.
-   *
-   * @param k The amount to increase the character's action bar by.
-   */
+
   def increaseActionBar(k: Int): Unit = {
     getActionBars.foreach{
       case (gameUnit: GameUnit, actionBar: Double) => actionBars(gameUnit) += k
@@ -32,12 +29,6 @@ class TurnScheduler(gameUnits: List[GameUnit]) {
         }
     }
   }
-
-
-
-  //def turns(): Unit = {
-  //  while(getActionBars.foreach(actionBars < game))
-  //}
 
   /** The loading zone where gameunits wait for their action bars to fill up. */
   val loadingZone: ArrayBuffer[GameUnit] = new ArrayBuffer()
