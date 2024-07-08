@@ -2,7 +2,6 @@ package controller
 
 import controller.states.{ActionBarState, GameState}
 import controller.TurnScheduler
-import model.GameModel
 import model.gameunits.GameUnit
 import model.gameunits.character.Character
 import model.gameunits.character.commons.{Ninja, Paladin, Warrior}
@@ -18,9 +17,6 @@ class GameController {
 
   var state: GameState = _
   private val ai = new Random()
-  //private val battle = new TurnScheduler
-  private val allies = ArrayBuffer.empty[Character]
-  private val enemies = ArrayBuffer.empty[GameUnit]
 
   //Characters
   val Hanzo = new Ninja("Hanzo", 100, 100, 20, 70.0, None)
@@ -28,11 +24,6 @@ class GameController {
   val Conan = new Warrior("Conan", 200, 200, 40, 100.0, None)
   val Gandalf = new BlackMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
   val Saruman = new WhiteMage("Saruman", 150, 50, 30, 80.0, 100, 100, None)
-  allies += Hanzo
-  allies += Arthur
-  allies += Conan
-  allies += Gandalf
-  allies += Saruman
 
   //Enemies
   val enemy1 = new Enemy("Goblin", 100, 100, 20, 10, 50.0)
@@ -40,11 +31,6 @@ class GameController {
   val enemy3 = new Enemy("Ogre", 150, 150, 40, 25, 100.0)
   val enemy4 = new Enemy("Troll", 120, 120, 20, 15, 60.0)
   val enemy5 = new Enemy("Undead", 200, 200, 10, 10, 30.0)
-  enemies += enemy1
-  enemies += enemy2
-  enemies += enemy3
-  enemies += enemy4
-  enemies += enemy5
 
   //Axes
   val Battleaxe1 = new Axe("Battleaxe", 40, 7.0, None)
@@ -70,33 +56,15 @@ class GameController {
   val MagicWand2 = new Wand("Magic Wand", 120, 7.0, None, 150)
   val ElderWand = new Wand("Elder Wand", 80, 10.0, None, 100)
 
-  //private val l: List[GameUnit] = List(Hanzo,Arthur,Conan,Gandalf,Saruman,
-    //enemy1,enemy2,enemy3,enemy4,enemy5)
-  //def startGame(): Unit = {
-    //state = new ActionBarState(this)
-    //for (c <- l) {
-      //battle.addLoadingZone(c)
-    //}
-    //state.turnState()
+  private val l: List[GameUnit] = List(Hanzo,Arthur,Conan,Gandalf,Saruman,
+    enemy1,enemy2,enemy3,enemy4,enemy5)
 
-  //}
+  def start(): Unit = {}
 
-  //def turn(): Unit = {
 
-    //for (c <- battle.waitingZone){
-      //c match {
-        //case c: Character => state.playerActionState()
-        //case c: Enemy => state.enemyActionState()
-      //}
-    //}
-  //}
+  def turn(): Unit = {
 
-  //def characterPlay(): Unit = {
+    state = new ActionBarState(GameController.this)
 
-  //}
-
-  //def enemyPlay(): Unit = {
-    //state.targetState()
-  //}
-
+  }
 }

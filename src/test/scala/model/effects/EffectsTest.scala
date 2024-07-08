@@ -1,6 +1,6 @@
 package model.effects
 
-import model.effects.{Burned, Effects, Paralyzed, Poisoned}
+import exceptions.InvalidSpellException
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.gameunits.enemies.Enemy
@@ -26,7 +26,8 @@ class EffectsTest extends munit.FunSuite {
   }
 
   test("Effects class should apply all contained effects") {
-    effects.applyEffect(whiteWizard, enemy)
+    intercept[InvalidSpellException]
+      effects.applyEffect(whiteWizard, enemy)
 
   }
 

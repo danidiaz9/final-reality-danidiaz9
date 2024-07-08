@@ -24,11 +24,11 @@ class BowTest extends munit.FunSuite {
   }
 
   test("getName should return the name of the weapon") {
-    assertEquals(bow.getName, "Sword")
+    assertEquals(bow.getName, "Longbow")
   }
 
   test("getAttackPoints should return the attack points of the weapon") {
-    assertEquals(bow.getAttackPoints, 30)
+    assertEquals(bow.getAttackPoints, 25)
   }
 
   test("getMagicAttackPoints should throw InvalidStatException") {
@@ -38,7 +38,7 @@ class BowTest extends munit.FunSuite {
   }
 
   test("getWeight should return the weight of the weapon") {
-    assertEquals(bow.getWeight, 10.0)
+    assertEquals(bow.getWeight, 6.0)
   }
 
   test("getOwner should return None when no owner is set") {
@@ -85,7 +85,7 @@ class BowTest extends munit.FunSuite {
   }
 
   test("Bow should equal another bow with the same attributes") {
-    val anotherBow = new Bow("Long Bow", 40, 8.0, None)
+    val anotherBow = new Bow("Longbow", 25, 6.0, None)
     assert(bow == anotherBow)
   }
 
@@ -95,12 +95,12 @@ class BowTest extends munit.FunSuite {
   }
 
   test("Bow's hashCode should be consistent with equals") {
-    val anotherBow = new Bow("Long Bow", 40, 8.0, None)
+    val anotherBow = new Bow("Longbow", 25, 6.0, None)
     assertEquals(bow.hashCode, anotherBow.hashCode)
   }
 
   test("Bow's toString should return a proper string representation") {
-    val expectedString = "Bow {name: Long Bow, attackPoints: 40, weight: 8.0, owner: None}"
+    val expectedString = "Bow {name: Longbow, attackPoints: 25, weight: 6.0, owner: None}"
     assertEquals(bow.toString, expectedString)
   }
 

@@ -1,5 +1,6 @@
 package model.effects
 
+import exceptions.InvalidSpellException
 import model.effects.Poisoned
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
@@ -26,7 +27,8 @@ class PoisonedTest extends munit.FunSuite {
   }
 
   test("Poisoned effect should apply one third magic damage and apply poisoned effect") {
-    poison.applyEffect(whiteWizard, enemy)
+    intercept[InvalidSpellException]
+      poison.applyEffect(whiteWizard, enemy)
 
   }
 

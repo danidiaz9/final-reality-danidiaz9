@@ -23,11 +23,11 @@ class AxeTest extends munit.FunSuite {
   }
 
   test("getName should return the name of the weapon") {
-    assertEquals(axe.getName, "Sword")
+    assertEquals(axe.getName, "Battle Axe")
   }
 
   test("getAttackPoints should return the attack points of the weapon") {
-    assertEquals(axe.getAttackPoints, 30)
+    assertEquals(axe.getAttackPoints, 20)
   }
 
   test("getMagicAttackPoints should throw InvalidStatException") {
@@ -37,7 +37,7 @@ class AxeTest extends munit.FunSuite {
   }
 
   test("getWeight should return the weight of the weapon") {
-    assertEquals(axe.getWeight, 10.0)
+    assertEquals(axe.getWeight, 5.0)
   }
 
   test("getOwner should return None when no owner is set") {
@@ -85,7 +85,7 @@ class AxeTest extends munit.FunSuite {
   }
 
   test("Axe should equal another axe with the same attributes") {
-    val anotherAxe = new Axe("Battle Axe", 50, 12.0, None)
+    val anotherAxe = new Axe("Battle Axe", 20, 5.0, None)
     assert(axe == anotherAxe)
   }
 
@@ -95,12 +95,12 @@ class AxeTest extends munit.FunSuite {
   }
 
   test("Axe's hashCode should be consistent with equals") {
-    val anotherAxe = new Axe("Battle Axe", 50, 12.0, None)
+    val anotherAxe = new Axe("Battle Axe", 20, 5.0, None)
     assertEquals(axe.hashCode, anotherAxe.hashCode)
   }
 
   test("Axe's toString should return a proper string representation") {
-    val expectedString = "Axe {name: Battle Axe, attackPoints: 50, weight: 12.0, owner: None}"
+    val expectedString = "Axe {name: Battle Axe, attackPoints: 20, weight: 5.0, owner: None}"
     assertEquals(axe.toString, expectedString)
   }
 }

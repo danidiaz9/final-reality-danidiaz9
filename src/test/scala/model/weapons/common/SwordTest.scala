@@ -25,7 +25,7 @@ class SwordTest extends munit.FunSuite {
   }
 
   test("getName should return the name of the weapon") {
-    assertEquals(sword.getName, "Sword")
+    assertEquals(sword.getName, "Excalibur")
   }
 
   test("getAttackPoints should return the attack points of the weapon") {
@@ -39,7 +39,7 @@ class SwordTest extends munit.FunSuite {
   }
 
   test("getWeight should return the weight of the weapon") {
-    assertEquals(sword.getWeight, 10.0)
+    assertEquals(sword.getWeight, 8.0)
   }
 
   test("getOwner should return None when no owner is set") {
@@ -85,7 +85,7 @@ class SwordTest extends munit.FunSuite {
   }
 
   test("Sword should equal another sword with the same attributes") {
-    val anotherSword = new Sword("Excalibur", 50, 5.0, None)
+    val anotherSword = new Sword("Excalibur", 30, 8.0, None)
     assert(sword == anotherSword)
   }
 
@@ -95,12 +95,12 @@ class SwordTest extends munit.FunSuite {
   }
 
   test("Sword's hashCode should be consistent with equals") {
-    val anotherSword = new Sword("Excalibur", 50, 5.0, None)
+    val anotherSword = new Sword("Excalibur", 30, 8.0, None)
     assertEquals(sword.hashCode, anotherSword.hashCode)
   }
 
   test("Sword's toString should return a proper string representation") {
-    val expectedString = "Sword {name: Excalibur, attackPoints: 50, weight: 5.0, owner: None}"
+    val expectedString = "Sword {name: Excalibur, attackPoints: 30, weight: 8.0, owner: None}"
     assertEquals(sword.toString, expectedString)
   }
 

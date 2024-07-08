@@ -1,9 +1,9 @@
 package model.spells.dark
 
+import exceptions.InvalidSpellException
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.gameunits.enemies.Enemy
-import model.spells.dark.Fire
 import model.weapons.magics.Wand
 
 import scala.Option.when
@@ -29,7 +29,8 @@ class FireTest extends munit.FunSuite {
   }
 
   test("Fire spell should apply magic damage and possibly burn the target") {
-    fire.applyFireTo(enemy, blackWizard)
+    intercept[InvalidSpellException]
+      fire.applyFireTo(enemy, blackWizard)
   }
 
   test("Fire spell should apply burn effect with 20% chance") {

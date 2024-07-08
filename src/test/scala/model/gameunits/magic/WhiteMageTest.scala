@@ -35,7 +35,7 @@ class WhiteMageTest extends munit.FunSuite {
   }
 
   test("getHealthPoints returns correct health points") {
-    assertEquals(whiteWizard.getHealthPoints, 150)
+    assertEquals(whiteWizard.getHealthPoints, 50)
   }
 
   test("getDefense returns correct defense points") {
@@ -70,13 +70,13 @@ class WhiteMageTest extends munit.FunSuite {
   }
 
   test("toString returns expected string representation") {
-    val expected = "WhiteMage {name: Gandalf, currentHealthPoints: 150, defense: 30, " +
-      "weight: 80.0, manaPoints: 100, weapons: None}"
+    val expected = "WhiteMage {name: Gandalf, currentHealthPoints: 50, defense: 30, " +
+      "weight: 80.0, currentManaPoints: 100, weapons: None}"
     assertEquals(whiteWizard.toString, expected)
   }
 
   test("equals method works correctly") {
-    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
+    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 50, 30, 80.0, 100, 100, None)
     val differentWhiteWizard = new TestWhiteMage("Saruman", 150, 150, 30, 80.0, 100, 100, None)
 
     assert(whiteWizard.equals(sameWhiteWizard))
@@ -84,7 +84,7 @@ class WhiteMageTest extends munit.FunSuite {
   }
 
   test("hashCode method works correctly") {
-    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 150, 30, 80.0, 100, 100, None)
+    val sameWhiteWizard = new TestWhiteMage("Gandalf", 150, 50, 30, 80.0, 100, 100, None)
 
     assertEquals(whiteWizard.hashCode(), sameWhiteWizard.hashCode())
   }

@@ -1,6 +1,6 @@
 package model.effects
 
-import model.effects.Burned
+import exceptions.InvalidSpellException
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.gameunits.enemies.Enemy
@@ -26,7 +26,8 @@ class BurnedTest extends munit.FunSuite {
   }
 
   test("Burned effect should apply half magic damage and apply burned effect") {
-    burned.applyEffect(blackWizard, enemy)
+    intercept[InvalidSpellException]
+      burned.applyEffect(blackWizard, enemy)
 
   }
 

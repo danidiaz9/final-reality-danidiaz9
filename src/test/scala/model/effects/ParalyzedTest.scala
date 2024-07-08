@@ -1,6 +1,5 @@
 package model.effects
 
-import model.effects.Paralyzed
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.gameunits.enemies.Enemy

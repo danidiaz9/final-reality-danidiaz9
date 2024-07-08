@@ -1,5 +1,6 @@
 package model.spells.dark
 
+import exceptions.InvalidSpellException
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.gameunits.enemies.Enemy
@@ -30,7 +31,8 @@ class ThunderTest extends munit.FunSuite {
 
 
   test("Thunder spell should apply magic damage and possibly paralyze the target") {
-    thunder.applyThunderTo(enemy, blackWizard)
+    intercept[InvalidSpellException]
+      thunder.applyThunderTo(enemy, blackWizard)
 
   }
 

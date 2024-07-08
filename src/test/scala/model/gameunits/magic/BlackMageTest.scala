@@ -71,7 +71,7 @@ class BlackMageTest extends munit.FunSuite {
 
   test("toString returns expected string representation") {
     val expected = "BlackMage {name: Gandalf, currentHealthPoints: 150," +
-      " defense: 30, weight: 80.0, manaPoints: 100, weapons: None}"
+      " defense: 30, weight: 80.0, currentManaPoints: 100, weapons: None}"
     assertEquals(blackWizard.toString, expected)
   }
 
