@@ -9,7 +9,7 @@ import scala.util.Random
 class Thunder extends AbstractDark {
 
   override val manaCost: Int = 20
-  //override val effect: Effect = new Effects(List[Paralyzed])
+  override val effect: Effect = new Effects(List[Paralyzed]())
 
   def applyThunderTo(target: GameUnit, from: Character): Unit = {
     target.receiveMagicDamage(from.getWeapon.get.getMagicAttackPoints)

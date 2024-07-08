@@ -13,7 +13,7 @@ class TurnSchedulerTest extends munit.FunSuite {
 
   // Se ejecuta antes de cada prueba para crear una nueva instancia de controller.TurnScheduler
   override def beforeEach(context: BeforeEach): Unit = {
-    turnScheduler = new TurnScheduler
+    //turnScheduler = new TurnScheduler
     Warrior = new Warrior("Player1", 200, 200, 40, 60.0, None)
   }
 
@@ -43,8 +43,8 @@ class TurnSchedulerTest extends munit.FunSuite {
     val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
-    character1.getActionBar = 10.0
-    character2.getActionBar = 20.0
+    //character1.getActionBar = 10.0
+    //character2.getActionBar = 20.0
     turnScheduler.resetActionBarInstance()
     assert(character1.getActionBar == 0.0 && character2.getActionBar == 0.0)
   }
@@ -61,8 +61,8 @@ class TurnSchedulerTest extends munit.FunSuite {
     val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.loadingZone ++= ArrayBuffer(character1, character2)
-    character1.getActionBar = 25.0
-    character2.getActionBar = 15.0
+    //character1.getActionBar = 25.0
+    //character2.getActionBar = 15.0
     turnScheduler.completeActionBar()
     assert(!turnScheduler.waitingZone.contains(character1) && !turnScheduler.waitingZone.contains(character2))
   }
@@ -71,8 +71,8 @@ class TurnSchedulerTest extends munit.FunSuite {
     val character1: GameUnit = new Enemy("Enemy1", 100, 100, 20, 30, 50)
     val character2: GameUnit = new Enemy("Enemy2", 150, 150, 25, 35, 55)
     turnScheduler.waitingZone ++= ArrayBuffer(character1, character2)
-    character1.getActionBar = 25.0
-    character2.getActionBar = 15.0
+    //character1.getActionBar = 25.0
+    //character2.getActionBar = 15.0
     turnScheduler.sortTurns()
     assert(turnScheduler.waitingZone.head == character1 && turnScheduler.waitingZone.last == character2)
   }

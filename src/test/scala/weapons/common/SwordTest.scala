@@ -1,16 +1,18 @@
 package weapons.common
 
+import exceptions.{InvalidSetException, InvalidStatException}
 import model.gameunits.character.commons.{Ninja, Paladin, Warrior}
-import model.gameunits.character.magics.BlackMage
+import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.weapons.commons.Sword
 
 class SwordTest extends munit.FunSuite {
 
   var sword: Sword = _
+  var ninja: Ninja = _
   var paladin: Paladin = _
   var warrior: Warrior = _
-  var ninja: Ninja = _
-  var blackWizard: BlackMage = _
+  var blackMage: BlackMage = _
+  var whiteMage: WhiteMage = _
 
   override def beforeEach(context: BeforeEach): Unit = {
 
@@ -18,8 +20,48 @@ class SwordTest extends munit.FunSuite {
     paladin = new Paladin("Arthur", 130, 130, 20, 100.0, None)
     warrior = new Warrior("Conan", 120, 120, 15, 90.0, None)
     ninja = new Ninja("Ryu", 100, 100, 12, 80.0, None)
-    blackWizard = new BlackMage("Voldemort", 150, 150, 25, 95.0, 200, 200, None)
+    blackMage = new BlackMage("Voldemort", 150, 150, 25, 95.0, 200, 200, None)
 
+  }
+
+  test("getName should return the name of the weapon") {
+    assertEquals(sword.getName, "Sword")
+  }
+
+  test("getAttackPoints should return the attack points of the weapon") {
+    assertEquals(sword.getAttackPoints, 30)
+  }
+
+  test("getMagicAttackPoints should throw InvalidStatException") {
+    intercept[InvalidStatException] {
+      sword.getMagicAttackPoints
+    }
+  }
+
+  test("getWeight should return the weight of the weapon") {
+    assertEquals(sword.getWeight, 10.0)
+  }
+
+  test("getOwner should return None when no owner is set") {
+    assertEquals(sword.getOwner, None)
+  }
+
+  test("setOwner should set the owner if not already set") {
+    sword.setOwner(ninja)
+    assertEquals(sword.getOwner, Some(ninja))
+  }
+
+  test("setOwner should throw InvalidSetException if owner is already set") {
+    sword.setOwner(ninja)
+    intercept[InvalidSetException] {
+      sword.setOwner(paladin)
+    }
+  }
+
+  test("setWhiteMage should throw InvalidSetException") {
+    intercept[InvalidSetException] {
+      sword.setWhiteMage(whiteMage)
+    }
   }
 
   test("setPaladin should set the owner of the sword to a paladin character") {
@@ -38,8 +80,28 @@ class SwordTest extends munit.FunSuite {
   }
 
   test("setBlackMage should set the owner of the sword to a black wizard character") {
-    sword.setBlackMage(blackWizard)
-    assertEquals(sword.owner, Some(blackWizard))
+    sword.setBlackMage(blackMage)
+    assertEquals(sword.owner, Some(blackMage))
+  }
+
+  test("Sword should equal another sword with the same attributes") {
+    val anotherSword = new Sword("Excalibur", 50, 5.0, None)
+    assert(sword == anotherSword)
+  }
+
+  test("Sword should not equal another sword with different attributes") {
+    val differentSword = new Sword("Durandal", 45, 6.0, None)
+    assert(sword != differentSword)
+  }
+
+  test("Sword's hashCode should be consistent with equals") {
+    val anotherSword = new Sword("Excalibur", 50, 5.0, None)
+    assertEquals(sword.hashCode, anotherSword.hashCode)
+  }
+
+  test("Sword's toString should return a proper string representation") {
+    val expectedString = "Sword {name: Excalibur, attackPoints: 50, weight: 5.0, owner: None}"
+    assertEquals(sword.toString, expectedString)
   }
 
 }
