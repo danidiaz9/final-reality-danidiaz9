@@ -1,4 +1,4 @@
-package gameunits.common
+package model.gameunits.common
 
 import model.gameunits.character.commons.Paladin
 import model.weapons.Weapon

@@ -1,15 +1,19 @@
-package weapons.magic
+package model.effects
 
+import model.effects.Paralyzed
 import model.gameunits.character.commons.Ninja
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
+import model.gameunits.enemies.Enemy
 import model.weapons.magics.Wand
 
-class WandTest extends munit.FunSuite {
+class ParalyzedTest extends munit.FunSuite {
 
   var wand: Wand = _
   var ninja: Ninja = _
   var blackWizard: BlackMage = _
   var whiteWizard: WhiteMage = _
+  var enemy: Enemy = _
+  val paralyzed = new Paralyzed()
 
   override def beforeEach(context: BeforeEach): Unit = {
 
@@ -17,22 +21,13 @@ class WandTest extends munit.FunSuite {
     ninja = new Ninja("Ryu", 120, 120, 15, 70.0, None)
     blackWizard = new BlackMage("Gandalf", 150, 150, 20, 80.0, 200, 200, None)
     whiteWizard = new WhiteMage("Saruman", 140, 140, 18, 75.0, 190, 190, None)
+    enemy = new Enemy("Goblin", 100, 100, 20, 10, 50.0)
 
   }
 
-  test("setNinja should set the owner of the wand to a ninja character") {
-    wand.setNinja(ninja)
-    assertEquals(wand.owner, Some(ninja))
-  }
+  test("Paralyzed effect should apply paralyzed effect") {
+    paralyzed.applyEffect(whiteWizard, enemy)
 
-  test("setBlackMage should set the owner of the wand to a black wizard character") {
-    wand.setBlackMage(blackWizard)
-    assertEquals(wand.owner, Some(blackWizard))
-  }
-
-  test("setWhiteMage should set the owner of the wand to a white wizard character") {
-    wand.setWhiteMage(whiteWizard)
-    assertEquals(wand.owner, Some(whiteWizard))
   }
 
 }

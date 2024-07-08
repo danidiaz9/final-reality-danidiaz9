@@ -1,4 +1,4 @@
-package weapons.magic
+package model.weapons.magic
 
 import model.gameunits.character.magics.{BlackMage, WhiteMage}
 import model.weapons.magics.Staff

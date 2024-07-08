@@ -1,4 +1,4 @@
-package weapons.common
+package model.weapons.common
 
 import exceptions.{InvalidSetException, InvalidStatException}
 import model.gameunits.character.commons.{Ninja, Paladin, Warrior}

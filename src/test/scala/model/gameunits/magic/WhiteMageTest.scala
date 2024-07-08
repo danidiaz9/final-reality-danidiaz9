@@ -1,4 +1,4 @@
-package gameunits.magic
+package model.gameunits.magic
 
 import model.gameunits.character.magics.WhiteMage
 import model.weapons.Weapon

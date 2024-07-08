@@ -1,4 +1,4 @@
-package gameunits
+package model.gameunits
 
 import model.gameunits.GameUnit
 import model.gameunits.character.Party
