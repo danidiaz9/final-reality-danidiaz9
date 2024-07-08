@@ -157,18 +157,32 @@ abstract class AbstractCharacter(val name: String,
     this.setHealthPoints(this.getHealthPoints - enemyDamage)
   }
 
+  /**
+   * Throws an InvalidAttackException since characters cannot receive magic damage.
+   *
+   * @param magicDamage The amount of magic damage.
+   * @throws InvalidAttackException always thrown.
+   */
   def receiveMagicDamage(magicDamage: Int): Unit = {
     throw new InvalidAttackException("Invalid target.")
   }
 
-  /** Attacks another game unit.
+  /**
+   * Throws an InvalidAttackException since characters cannot attack other characters.
    *
-   *  @param target The game unit to attack.
+   * @param target The character to attack.
+   * @throws InvalidAttackException always thrown.
    */
   override def attackCharacter(target: Character): Unit = {
     throw new InvalidAttackException("Invalid target.")
   }
 
+  /**
+   * Attacks an enemy with the equipped weapon.
+   *
+   * @param target The enemy to attack.
+   * @throws InvalidAttackException if the character does not have a weapon equipped.
+   */
   override def attackEnemy(target: Enemy): Unit = {
     if (getWeapon.isDefined) {
       target.receiveDamage(this.getWeapon.get.getAttackPoints)

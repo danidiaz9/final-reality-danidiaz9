@@ -64,10 +64,10 @@ class WhiteMage(name: String,
     staff.setWhiteMage(this)
   }
 
-  /** Equips a Healing spell to the white wizard character.
+  /**
+   * Uses a healing spell by the white wizard character on a target game unit if the target's health points are greater than zero.
    *
-   *  @param target The Healing spell to be equipped.
-   *  @throws InvalidSpellException if the character does not have enough mana or a magic weapon equipped.
+   * @param target The target game unit to use the healing spell on.
    */
   def useHealing(target: GameUnit): Unit = {
     if (target.getHealthPoints > 0) {
@@ -75,6 +75,13 @@ class WhiteMage(name: String,
     }
   }
 
+  /**
+   * Uses a spell by the white wizard character on a target game unit.
+   *
+   * @param s The spell to use.
+   * @param target The target game unit to use the spell on.
+   * @throws InvalidSpellException if the character does not have a magic weapon equipped.
+   */
   override def useSpell(s: Spell, target: GameUnit): Unit = {
     if (this.getWeapon.isDefined) {
       s.useByWhiteMage(this)
@@ -85,6 +92,12 @@ class WhiteMage(name: String,
     }
   }
 
+  /**
+   * Checks if the given object is equal to this white mage character.
+   *
+   * @param that The object to compare.
+   * @return `true` if the objects are equal, `false` otherwise.
+   */
   def canEqual(that: Any): Boolean = that.isInstanceOf[WhiteMage]
 
   override def equals(that: Any): Boolean = {

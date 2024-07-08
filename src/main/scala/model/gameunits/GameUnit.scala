@@ -99,14 +99,43 @@ trait GameUnit {
    */
   def receiveHealing(): Unit
 
+  /**
+   * Apply an effect to the game unit.
+   *
+   * @param effect The effect to apply.
+   */
   def appliedEffect(effect: Effect): Unit
 
+  /**
+   * Apply fire spell to the game unit.
+   *
+   * @param fire The fire spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyFire(fire: Fire, from: Character): Unit
 
+  /**
+   * Apply thunder spell to the game unit.
+   *
+   * @param thunder The thunder spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyThunder(thunder: Thunder, from: Character): Unit
 
+  /**
+   * Apply paralysis spell to the game unit.
+   *
+   * @param paralysis The paralysis spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyParalysis(paralysis: Paralysis, from: Character): Unit
 
+  /**
+   * Apply poison spell to the game unit.
+   *
+   * @param poison The poison spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyPoison(poison: Poison, from: Character): Unit
 
 }

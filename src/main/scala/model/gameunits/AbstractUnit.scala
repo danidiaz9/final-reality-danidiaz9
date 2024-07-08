@@ -100,6 +100,12 @@ abstract class AbstractUnit(val name: String,
     target.receiveDamage(this.getAttackPoints)
   }
 
+  /**
+   * Throws InvalidAttackException since AbstractUnit cannot attack an enemy directly.
+   *
+   * @param target The enemy to attack.
+   * @throws InvalidAttackException always thrown.
+   */
   override def attackEnemy(target: Enemy): Unit = {
     throw new InvalidAttackException("Invalid target.")
   }
@@ -140,22 +146,51 @@ abstract class AbstractUnit(val name: String,
   def receiveHealing(): Unit =
     throw new InvalidSpellException("Spell cannot impact this unit.")
 
+  /**
+   * Applies an effect to the unit.
+   *
+   * @param effect The effect to apply.
+   */
   def appliedEffect(effect: Effect): Unit = {
     println(s"$effect")
   }
 
+  /**
+   * Applies the fire spell effect to this unit.
+   *
+   * @param fire The fire spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyFire(fire: Fire, from: Character): Unit = {
     fire.applyFireTo(this, from)
   }
 
+  /**
+   * Applies the thunder spell effect to this unit.
+   *
+   * @param thunder The thunder spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyThunder(thunder: Thunder, from: Character): Unit = {
     thunder.applyThunderTo(this, from)
   }
 
+  /**
+   * Applies the paralysis spell effect to this unit.
+   *
+   * @param paralysis The paralysis spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyParalysis(paralysis: Paralysis, from: Character): Unit = {
     paralysis.applyParalysisTo(this, from)
   }
 
+  /**
+   * Applies the poison spell effect to this unit.
+   *
+   * @param poison The poison spell to apply.
+   * @param from The character applying the spell.
+   */
   def applyPoison(poison: Poison, from: Character): Unit = {
     poison.applyPoisonTo(this, from)
   }

@@ -64,6 +64,13 @@ class BlackMage(name: String,
     staff.setBlackMage(this)
   }
 
+  /**
+   * Uses a spell by the black wizard character on a target game unit.
+   *
+   * @param s The spell to use.
+   * @param target The target game unit to use the spell on.
+   * @throws InvalidSpellException if the character does not have a magic weapon equipped.
+   */
   override def useSpell(s: Spell, target: GameUnit): Unit = {
     if (this.getWeapon.isDefined) {
       s.useByBlackMage(this)
@@ -74,6 +81,12 @@ class BlackMage(name: String,
     }
   }
 
+  /**
+   * Checks if the given object is equal to this black mage character.
+   *
+   * @param that The object to compare.
+   * @return `true` if the objects are equal, `false` otherwise.
+   */
   def canEqual(that: Any): Boolean = that.isInstanceOf[BlackMage]
 
   override def equals(that: Any): Boolean = {
